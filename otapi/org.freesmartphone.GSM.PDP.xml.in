@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-pdp-interface">
+
+<interface name="org.freesmartphone.GSM.PDP">
+
+
+  <method name="ListGprsClasses">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <arg type="as" name="classes" direction="out" />
+  </method>
+
+  <method name="SelectGprsClass">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <arg type="s" name="class" direction="in" />
+  </method>
+
+  <method name="Activate">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <arg type="i" name="index" direction="in" />
+  </method>
+
+  <method name="Deactivate">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <arg type="i" name="index" direction="in" />
+  </method>
+
+  <method name="SelectContext">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <arg type="s" name="context" direction="in" />
+  </method>
+
+  <method name="AddContext">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <arg type="s" name="context" direction="in" />
+    <arg type="i" name="index" direction="out" />
+  </method>
+
+  <method name="DeleteContext">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <arg type="i" name="index" direction="in" />
+  </method>
+
+  <method name="ListContexts">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <arg type="as" name="contexts" direction="out" />
+  </method>
+
+
+
+  <signal name="ContextActivated">
+    <arg type="i" name="id" />
+  </signal>
+
+  <signal name="ContextDeactivated">
+    <arg type="i" name="id" />
+  </signal>
+
+  <signal name="ContextChanged">
+    <arg type="i" name="id" />
+  </signal>
+
+  <!-- TODO
+       * Incoming data call
+       * QoS handling
+       * Statistics
+       * GPRS registration info
+       * signals
+       -->
+
+</interface>
+</node>

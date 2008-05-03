@@ -1,0 +1,30 @@
+The files in this directory are DBus interface descriptions.
+
+See http://www.freesmartphone.org/mediawiki/index.php/Standards/OpenPhoneServerAPI
+
+TODO
+====
+* Error specification / handling
+* Sorting
+* Cross-references
+
+Hacking notes
+=============
+
+Docs:
+
+Valid doc attributes and their usage:
+* para = purpose of an interface
+* description = purpose of a method
+* summary = purpose of a parameter
+* inote = implementation note
+
+Style Guide:
+* dbus methods and signals are CamelCased
+* Use Get/Set prefixes for accessors (GetServiceCenter, SetServiceCenter)
+* Use Verbs for operations (ListProviders, Unlock, SendAuthCode)
+* Use similar terms for similar operations (ListProviders, ListCells)
+
+Committing:
+* run 'make check' before checking specs in
+

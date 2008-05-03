@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+
+<!-- # xml does not allow double-dash in comments :/
+dbus-binding-tool -\
+-mode=glib-server -\
+-prefix=mux src/mux.xml > src/mux.h
+-->
+<!-- other types sample
+            <arg type="u" name="x" direction="in" />
+            <arg type="d" name="trouble" direction="in" />
+            <arg type="d" name="d_ret" direction="out" />
+    -->
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-mux-interface">
+<doc:doc>
+  <doc:summary>freesmartphone.org GSM MUX Interface</doc:summary>
+</doc:doc>
+<interface name="org.freesmartphone.GSM.MUX">
+
+  <doc:doc>
+    <doc:para>
+      The MUX object is used to request virtual serial channels
+      (implemented through pseudo TTYs) which are multiplexed to one serial
+      line as described in 3GPP TS 07.10. It also allows to control modem
+      power and reset handling.
+    </doc:para>
+  </doc:doc>
+
+    <!-- switch modem on/off -->
+    <method name="SetPower">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
+      <doc:doc>
+        <doc:description>Set modem power.</doc:description>
+      </doc:doc>
+      <arg name="origin" type="s" direction="in">
+      </arg>
+      <arg name="on" type="b" direction="in">
+      <doc:doc>
+        <doc:summary>True, to turn power on. False, otherwise.</doc:summary>
+      </doc:doc>
+      </arg>
+    </method>
+
+    <method name="GetPower">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
+      <doc:doc>
+        <doc:description>Retrieve modem power status.</doc:description>
+      </doc:doc>
+      <arg name="origin" type="s" direction="in">
+      </arg>
+      <arg name="on" type="b" direction="out">
+      <doc:doc>
+        <doc:summary>True, if the modem is powered on. False, otherwise.</doc:summary>
+      </doc:doc>
+      </arg>
+    </method>
+
+    <method name="Reset">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_reset_modem"/>
+      <doc:doc>
+        <doc:description>Reset the modem.</doc:description>
+      </doc:doc>
+      <arg name="origin" type="s" direction="in">
+      </arg>
+    </method>
+
+    <!-- allocate a muxed channel -->
+    <method name="AllocChannel">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_alloc_channel"/>
+      <doc:doc>
+        <doc:description>Allocate a new virtual channel.</doc:description>
+      </doc:doc>
+      <arg name="origin" type="s" direction="in">
+      <doc:doc>
+        <doc:summary>
+        For now, the origin will be used for logging only. you will
+        see which channels are closed not only by number but with an
+        explaining name like 'ppp'. future use may be to allocate a
+        special channel because some modems allow some operations on
+        specific channels only.
+        </doc:summary>
+      </doc:doc>
+      </arg>
+      <arg name="channel" type="s" direction="out">
+      <doc:doc>
+        <doc:summary>UNIX path to the pseudo serial device.</doc:summary>
+      </doc:doc>
+      </arg>
+    </method>
+</interface>
+</node>
+

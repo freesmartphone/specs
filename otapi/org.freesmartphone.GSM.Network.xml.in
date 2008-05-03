@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-network-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org GSM Network Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.GSM.Network">
+
+  <doc:doc>
+    <doc:para>
+    The Network object is used to give information about the GSM
+    service providers and this device's status with regards to
+    to network registration and connectivity.
+
+    Taxonomy note: We think in terms of (service) providers
+    rather than (network) operators, since multiple (service)
+    providers can use the networks from operators, however
+    what actually matters most is the provider name, not the
+    actual network operator the provider is using.
+    </doc:para>
+  </doc:doc>
+
+  <method name="Register">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <doc:doc>
+        <doc:description>Register with any available service provider.</doc:description>
+        <doc:inote>This maps to the GSM 07.07 command +COPS=0, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
+    </doc:doc>
+  </method>
+
+  <method name="Unregister">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <doc:doc>
+        <doc:description>Unregister from service provider.</doc:description>
+        <doc:inote>This maps to the GSM 07.07 command +COPS=2, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
+    </doc:doc>
+  </method>
+
+  <!-- FIXME I think it makes sense to use a{sv} for GetStatus and Status -->
+
+  <method name="GetStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <doc:doc>
+      <doc:description>Get Network Status.</doc:description>
+      <doc:inote>
+        This maps to the following GSM 07.07 commands:
+        +CREG? (see 3GPP TS 07.07 Chapter 7.3),
+        +COPS? (see 3GPP TS 07.07 Chapter 7.4),
+        +CSQ (see 3GPP TS 07.07 Chapter 8.5).
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="provider_name" direction="out">
+      <doc:doc>
+        <doc:summary>The provider name we are registered with (can be empty).</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The registration status. Expected values are:
+          "unregistered" = not registered, not trying,
+          "home" = registered to home network,
+          "busy" = not registered, but currently trying,
+          "denied" = no permitted network available,
+          "unknown" = no idea,
+          "roaming" = registered to foreign network.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="strength" direction="out">
+      <doc:doc>
+        <doc:summary>The strength in percentage (0-100).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="Status">
+    <arg type="s" name="provider_name" />
+    <arg type="s" name="status" />
+    <arg type="i" name="strength" />
+  </signal>
+
+  <method name="ListProviders">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <doc:doc>
+        <doc:description>List available service providers.</doc:description>
+        <doc:inote>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3</doc:inote>
+      </doc:doc>
+    <arg type="a(isss)" name="providers" direction="out">
+      <doc:doc>
+        <doc:summary>
+          An array of four-tuples with the following structure:
+          1. Unique numerical operator code,
+          2. Status ("unknown", "available", "current", "forbidden"),
+          3. Long Name,
+          4. Short Name (optional, may be empty).
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="RegisterWithProvider">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <doc:doc>
+        <doc:description>Register to a dedicated service provider.</doc:description>
+          <doc:inote>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3</doc:inote>
+      </doc:doc>
+    <arg type="i" name="operator_code" direction="in">
+      <doc:doc>
+        <doc:summary>The operator code.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetCountryCode">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <doc:doc>
+      <doc:description>Compute the country code of the current service provider.</doc:description>
+      <doc:inote>
+        This maps to the GSM 07.07 command +COPS?, see 3GPP TS 07.07 Chapter 5.6.
+        Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="dial_code" direction="out">
+      <doc:doc>
+        <doc:summary>The country dial code (including the +).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <!-- FIXME Do we want methods for:
+       * List available GSM bands
+       * Get/set preferred GSM band
+       * List preferred provider
+       * Add preferred provider to list
+       * Remove preferred provider from list
+       * Get home provider ID (if roaming)
+       * Get time from network
+       * Get cell ID
+       -->
+
+</interface>
+</node>

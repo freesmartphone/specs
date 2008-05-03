@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-phonebook-interface">
+
+<interface name="org.freesmartphone.GSM.Phonebook">
+
+<!--- NOTE We will probably move these functions to org.freesmartphone.GSM.SIM
+  As such it will only deal with SIM phonebook entries. Everything else will
+  be dealt with by org.freesmartphone.Storage -->
+
+
+
+
+  <method name="GetStorageSpaces">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_phonebook" />
+    <arg type="as" name="spaces" direction="out" />
+  </method>
+
+  <!-- TODO can we find out storage info like
+       * maximum entries
+       * maximum length per name / number
+       * available types
+       ? -->
+
+  <method name="GetStorageInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_phonebook" />
+    <arg type="as" name="spaces" direction="out" />
+  </method>
+
+  <method name="GetDefaultStorageSpace">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_phonebook" />
+    <arg type="s" name="space" direction="out" />
+  </method>
+
+  <method name="SetDefaultStorageSpace">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_phonebook" />
+    <arg type="s" name="space" direction="in" />
+  </method>
+
+  <method name="GetIndexBoundaries">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_phonebook" />
+    <arg type="i" name="lowest_index" direction="out" />
+    <arg type="i" name="highest_index" direction="out" />
+  </method>
+
+  <!-- TODO do we want to support
+       * finding entries
+       ? -->
+
+  <method name="DeleteEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_phonebook" />
+    <arg type="i" name="index" direction="in" />
+  </method>
+
+  <method name="StoreEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_phonebook" />
+    <arg type="i" name="index" direction="in" />
+    <arg type="i" name="type" direction="in" />
+    <arg type="s" name="name" direction="in" />
+    <arg type="s" name="contents" direction="in" />
+  </method>
+
+  <method name="RetrieveEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_phonebook" />
+    <arg type="i" name="index" direction="in" />
+    <arg type="i" name="type" direction="out" />
+    <arg type="s" name="name" direction="out" />
+    <arg type="s" name="contents" direction="out" />
+  </method>
+
+  <!-- TODO do we want to support
+       * a signal for when the phonebook becomes available
+       * a method to query phonebook readyness
+       * modify entries in place?
+       ? -->
+
+</interface>
+</node>

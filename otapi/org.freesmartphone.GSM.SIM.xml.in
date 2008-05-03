@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-sim-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org GSM SIM Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.GSM.SIM">
+
+  <doc:doc>
+    <doc:para>
+      The SIM object is used to access the Subscriber Identification Module (SIM)
+      pluggable as a card into the GSM device. Use it to authenticate yourself
+      against the GSM network and read/store from/to the embedded SIM card memory.
+    </doc:para>
+  </doc:doc>
+
+  <!-- AUTH -->
+
+  <method name="GetAuthStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retreive the authentication status for the SIM card.</doc:description>
+    </doc:doc>
+    <arg type="s" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The authentication status for the SIM card. Values to expect:
+          "READY" = ME is not pending for any password,
+          "SIM PIN" = ME is waiting for SIM PIN to be given,
+          "SIM PUK" = ME is waiting for SIM PUK to be given,
+          "SIM PIN2" = ME is waiting for SIM PIN 2 to be given,
+          "SIM PUK2" = ME is waiting for SIM PUK 2 to be given.
+          <!-- 07.07 8.3 shows many more here, but we will add these
+               when we actually encounter them in the field -->
+        </doc:summary>
+        <doc:inote>This maps to the GSM 07.07 command +CPIN=?, see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="AuthStatus">
+    <doc:doc>
+      <doc:description>Sent, when the authentication status for the SIM card changes.</doc:description>
+    </doc:doc>
+    <arg type="s" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The authentication status for the SIM card. See method GetAuthStatus for expected values.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <method name="SendAuthCode">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Send authentication code (PIN) for the SIM card.</doc:description>
+    </doc:doc>
+    <arg type="s" name="pin" direction="in">
+      <doc:doc>
+        <doc:summary>The authentication code.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Unlock">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Send unlock code (PUK) and new authentication code (PIN).</doc:description>
+    </doc:doc>
+    <arg type="s" name="puk" direction="in">
+      <doc:doc>
+        <doc:summary>The unlock code.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="new_pin" direction="in">
+      <doc:doc>
+        <doc:summary>The new authentication code.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="ChangeAuthCode">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Change the authentication code.</doc:description>
+    </doc:doc>
+    <arg type="s" name="old_pin" direction="in">
+      <doc:doc>
+        <doc:summary>The old authentication code.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="new_pin" direction="in">
+      <doc:doc>
+        <doc:summary>The new authentication code.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetImsi">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve the International Mobile Subscriber Identity (IMSI).</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CIMI, see 3GPP TS 07.07 Chapter 5.6.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="imsi" direction="out">
+      <doc:doc>
+        <doc:summary>The International Mobile Subscriber Identity.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetSubscriberNumbers">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve the subscriber numers stored on the SIM (or in the modem).</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CNUM, see 3GPP TS 07.07 Chapter 7.1.</doc:inote>
+    </doc:doc>
+    <arg type="a{sv}" name="numbers" direction="out">
+      <doc:doc>
+        <doc:summary>The subscriber numbers.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetCountryCode">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Compute the country code of the SIM.</doc:description>
+      <doc:inote>
+        This maps to the GSM 07.07 command +CIMI, see 3GPP TS 07.07 Chapter 5.6.
+        Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="dial_code" direction="out">
+      <doc:doc>
+        <doc:summary>The country dial code (including the +).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <!-- FIXME might want to consider additional commands for
+       * getting retry count left for auth
+       * lock phone -->
+
+  <!-- PHONEBOOK -->
+
+  <method name="GetPhonebookInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Request information about the SIM phonebook.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CPBR=?, see 3GPP TS 07.07 Chapter 8.12.</doc:inote>
+    </doc:doc>
+    <arg type="a{sv}" name="info" direction="out">
+    <doc:doc>
+      <doc:summary>
+        Information about the SIM phonebook storage. Tuples to expect:
+        ("slots", int:value) = maximum of entries stored on the SIM,
+        ("used", int:value) = actual number of entries stored on the SIM,
+        ("number_length", int:value) = maximum length for the number,
+        ("name_length", int:value) = maximum length for the name.
+      </doc:summary>
+    </doc:doc>
+    </arg>
+  </method>
+
+  <method name="DeleteEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Delete an entry in the SIM phonebook.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CPBW=, see 3GPP TS 07.07 Chapter 8.14.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="index" direction="in">
+      <doc:doc>
+        <doc:summary>Index of entry to delete.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="StoreEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Store an entry in the SIM phonebook.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CPBW=, see 3GPP TS 07.07 Chapter 8.14.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="index" direction="in">
+      <doc:doc>
+        <doc:summary>Index of entry to store.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="name" direction="in">
+      <doc:doc>
+        <doc:summary>Name corresponding to the number.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="number" direction="in">
+      <doc:doc>
+        <doc:summary>Number corresponding to the name.</doc:summary>
+        <doc:inote>We do not export the +CPBW "type" entry to the interface, but rather deal with that transparently.</doc:inote>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="RetrieveEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <arg type="i" name="index" direction="in">
+      <doc:doc>
+        <doc:summary>Index of entry to retrieve.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="name" direction="out">
+      <doc:doc>
+        <doc:summary>Name corresponding to the number.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="number" direction="out">
+      <doc:doc>
+        <doc:summary>Number corresponding to the name.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <!-- SHORT MESSAGE SERVICE -->
+
+  <method name="GetMessagebookInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Request information about the SIM messagebook.</doc:description>
+      <doc:inote>This vaguely maps to the GSM 07.05 command +CMGL=?, see 3GPP TS 07.07 Chapter 3.4.2.</doc:inote>
+    </doc:doc>
+    <arg type="a{sv}" name="info" direction="out">
+      <doc:doc>
+        <doc:summary>
+          Information about the SIM messagebook storage. Tuples to expect:
+          ("slots", int:value) = maximum of messages stored on the SIM,
+          ("used", int:value) = actual number of messages stored on the SIM,
+          ("contents_length", int:value) = maximum length for a message,
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetServiceCenterNumber">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve phone number of SMS Center Number.</doc:description>
+      <doc:inote>This maps to the GSM 07.05 command +CSCA?, see 3GPP TS 07.05 Chapter 3.3.1.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="number" direction="out">
+      <doc:doc>
+        <doc:summary>The SMS Center Number.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetServiceCenterNumber">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Set phone number of SMS Center Number.</doc:description>
+      <doc:inote>This maps to the GSM 07.05 command +CSCA=(number,type), see 3GPP TS 07.05 Chapter 3.3.1.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="number" direction="in">
+      <doc:doc>
+        <doc:summary>The SMS Center Number.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="DeleteMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Delete a message in the SIM messagebook.</doc:description>
+      <doc:inote>This maps to the GSM 07.05 command +CMGD=(index), see 3GPP TS 07.05 Chapter 3.5.4.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="index" direction="in">
+      <doc:doc>
+        <doc:summary>Index of message to delete.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="StoreMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Store a message in the SIM messagebook.</doc:description>
+      <doc:inote>This maps to the GSM 07.05 command +CMGW=..., see 3GPP TS 07.05 Chapter 3.5.3.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="recipient_number" direction="in">
+      <doc:doc>
+        <doc:summary>Number of recipient.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="contents" direction="in">
+      <doc:doc>
+        <doc:summary>Contents of message.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="index" direction="out">
+      <doc:doc>
+        <doc:summary>Index of new message.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <!-- FIXME Do we want to include "status" and "arrival time" in RetrieveMessage? -->
+
+  <method name="RetrieveMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve a message from the SIM messagebook.</doc:description>
+      <doc:inote>
+        This can map to the GSM 07.05 command +CMGR=(index), see 3GPP TS 07.05 Chapter 3.4.3.
+        It might also map to the GSM 07.05 command +CMGL=(storage_spec), see 3GPP TS 07.05 Chapter 3.4.2.
+      </doc:inote>
+    </doc:doc>
+    <arg type="i" name="index" direction="in">
+      <doc:doc>
+        <doc:summary>Index of message to retrieve.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="sender_number" direction="out">
+      <doc:doc>
+        <doc:summary>Number of sender.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="contents" direction="out">
+      <doc:doc>
+        <doc:summary>Contents of message.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>

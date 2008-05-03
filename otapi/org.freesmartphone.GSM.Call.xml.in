@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-call-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org GSM Call Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.GSM.Call">
+
+  <doc:doc>
+    <doc:para>
+      The Call object is used to initiate, accept, release, and otherwise deal
+      with voice calls. It also allows you to send DTMF tones and customize
+      calling line identification presentation.
+    </doc:para>
+  </doc:doc>
+
+  <method name="Emergency">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Initiate an emergency call.</doc:description>
+    </doc:doc>
+    <arg type="s" name="number" direction="out">
+    </arg>
+  </method>
+
+  <signal name="CallStatus">
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is any status or property change on a call in the system,
+        no matter whether this is an incoming, active, held, or released call.
+        </doc:description>
+      <doc:inote>This signal is emitted once for every 'RING' from the modem.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="id">
+      <doc:doc>
+        <doc:summary>The index of the call that changed its status or properties.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status">
+      <doc:doc>
+        <doc:summary>
+          The new status of the call. Expected values are:
+          "incoming" = The call is incoming (but not yet accepted),
+          "outgoing" = The call is outgoing (but not yet established),
+          "active" = The call is the active call (you can talk),
+          "held" = The call is being held,
+          "released" = The call is being released.
+          Further information can be part of the properties.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties">
+      <doc:doc>
+        <doc:summary>
+          An array of changed property values. To get the full status for a call,
+          you need to issue the GetCallStatus() method. Note that the properties
+          are optional. Expected tuples are:
+          ( "number", string ) = The number of the peer (on incoming calls only if we received a CLIP)
+          ... [ add more here ]
+          ( "auxstatus", string ) = An auxillary connection status (if your modem supports that),
+          ...
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <method name="Activate">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>
+        Activate a call. No difference is made whether this is an incoming
+        call or a call that has been put on hold.
+      </doc:description>
+    </doc:doc>
+    <arg type="i" name="id" direction="in" />
+  </method>
+
+  <method name="Hold">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Put a call on hold.</doc:description>
+    </doc:doc>
+    <arg type="i" name="id" direction="in" />
+  </method>
+
+  <method name="Release">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Release a call.</doc:description>
+    </doc:doc>
+    <arg type="s" name="message" direction="in" />
+    <arg type="i" name="id" direction="in" />
+  </method>
+
+  <method name="ReleaseAll">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Release all calls, no matter whether active or put on hold.</doc:description>
+    </doc:doc>
+    <arg type="s" name="message" direction="in" />
+  </method>
+
+  <method name="Initiate">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Initiate an outgoing call.</doc:description>
+      <doc:inote>
+        This is implemented using the atd command.
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="number" direction="in" />
+    <arg type="s" name="type" direction="in" />
+    <arg type="i" name="id" direction="out" />
+  </method>
+
+  <method name="ListCalls">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Retrieve indices of calls.</doc:description>
+    </doc:doc>
+    <arg type="a(i)" name="calls" direction="out">
+      <doc:doc>
+        <doc:summary>Indices of calls in the system.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetCallStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Retrieve the status for a call in the system.</doc:description>
+    </doc:doc>
+    <arg type="i" name="id" direction="in">
+      <doc:doc>
+        <doc:summary>The index of the call that you want to retreive the status for.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="id" direction="out">
+      <doc:doc>
+        <doc:summary>The index of the call.</doc:summary>
+        <doc:inote>This is repeated here to be in line with the signature of the signal CallStatus.</doc:inote>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The new status of the call. Expected values are:
+          "incoming" = The call is incoming (but not yet accepted),
+          "outgoing" = The call is outgoing (but not yet established),
+          "active" = The call is the active call (you can talk),
+          "held" = The call is being held,
+          "released" = The call is being released.
+          Further information can be part of the properties.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties">
+      <doc:doc>
+        <doc:summary>
+          An array of changed property values. To get the full status for a call,
+          you need to issue the GetCallStatus() method. Note that the properties
+          are optional. Expected tuples are:
+          ( "number", string ) = The number of the peer (on incoming calls only if we received a CLIP)
+          ... [ add more here ]
+          ( "auxstatus", string ) = An auxillary connection status (if your modem supports that),
+          ...
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SendDtmf">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Send a Dual Tone Multiple Frequency (DTMF) signal during an active call.</doc:description>
+      <doc:inote>This maps to the TIA IS 101 command +VTS=(value), see 3GPP TS 07.07 Chapter C.2.11.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="tone" direction="out">
+      <doc:doc>
+        <doc:summary>The tone to send. Allowed values are: (0-9,#,*,A-D)</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetDtmfDuration">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Set the duration of Dual Tone Multiple Frequency (DTMF) signals.</doc:description>
+      <doc:inote>This maps to the TIA IS 101 command +VTD=(value), see 3GPP TS 07.07 Chapter C.2.12.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="mode" direction="in">
+      <doc:doc>
+        <doc:summary>The duration to set in 1/10ths of seconds. 0 sets a vendor default.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetDtmfDuration">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Get the duration of Dual Tone Multiple Frequency (DTMF) signals.</doc:description>
+      <doc:inote>This maps to the TIA IS 101 command +VTD?, see 3GPP TS 07.07 Chapter C.2.12.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="duration" direction="out">
+      <doc:doc>
+        <doc:summary>The current duration in 1/10ths of seconds.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetSendIdentification">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Set whether your subscriber number is visible during a call.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CLIR=(value), see 3GPP TS 07.07 Chapter 7.7.</doc:inote>
+    </doc:doc>
+    <arg type="b" name="mode" direction="in">
+      <doc:doc>
+        <doc:summary>True, if your subscriber number should be visible to other parties. False, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetSendIdentification">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Get whether your subscriber number is visible during a call.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CLIR?, see 3GPP TS 07.07 Chapter 7.7.</doc:inote>
+    </doc:doc>
+    <arg type="b" name="duration" direction="out">
+      <doc:doc>
+        <doc:summary>True, if your subscriber number is visible to other parties. False, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>

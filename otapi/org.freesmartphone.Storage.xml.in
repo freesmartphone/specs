@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-storage-interface">
+
+<interface name="org.freesmartphone.Storage">
+
+  <method name="ListEntries">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_storage" />
+    <arg type="s" name="filter" direction="in" /><!-- later -->
+    <arg type="i" name="limit" direction="in" />
+    <arg type="as" name="primary_key" direction="out" />
+  </method>
+
+  <method name="RetrieveEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_storage" />
+    <arg type="s" name="primary_key" direction="in" />
+    <arg type="a{sv}" name="contents" direction="out" />
+  </method>
+
+  <method name="DeleteEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_storage" />
+    <arg type="s" name="primary_key" direction="in" />
+  </method>
+
+  <method name="ModifyEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_storage" />
+    <arg type="s" name="primary_key" direction="in" />
+    <arg type="a{sv}" name="contents" direction="in" />
+  </method>
+
+  <method name="StoreEntry">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_storage" />
+    <arg type="a{sv}" name="contents" direction="in" />
+    <arg type="s" name="primary_key" direction="out" />
+  </method>
+
+  <signal name="ModifiedEntry">
+    <arg type="s" name="reason" />
+    <arg type="s" name="primary_key" />
+  </signal>
+
+</interface>
+</node>
