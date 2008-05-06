@@ -69,17 +69,22 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>
-        Activate a call. No difference is made whether this is an incoming
+        Activate a call as single active call. All previously active calls are
+        put on hold. No difference is made whether this is an incoming
         call or a call that has been put on hold.
       </doc:description>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
   </method>
 
-  <method name="Hold">
+  <method name="ActivateConference">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
-      <doc:description>Put a call on hold.</doc:description>
+      <doc:description>
+        Activate a call in addition to all previously active calls.
+        No difference is made whether this is an incoming
+        call or a call that has been put on hold.
+      </doc:description>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
   </method>
@@ -91,6 +96,14 @@
     </doc:doc>
     <arg type="s" name="message" direction="in" />
     <arg type="i" name="id" direction="in" />
+  </method>
+
+  <method name="ReleaseHeld">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Release all held calls.</doc:description>
+    </doc:doc>
+    <arg type="s" name="message" direction="in" />
   </method>
 
   <method name="ReleaseAll">
