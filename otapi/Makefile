@@ -47,5 +47,5 @@ $(files): %.xml: %.xml.in
 
 clean:
 	@rm -f $(files) *~
-	@rm -f docbook*.xml
+	@rm -f docbook-org.freesmartphone.*.xml
 	@rm -rf xhtml

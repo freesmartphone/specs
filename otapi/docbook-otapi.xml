@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE book PUBLIC '-//OASIS//DTD DocBook XML V4.3//EN' 'http://www.docbook.org/xml/4.3/docbookx.dtd'>
+
+<book id="org.freesmartphone.org-OTAPI">
+	<title>freesmartphone.org GSM APIs</title>
+	<titleabbrev>GSM</titleabbrev>
+	<bookinfo>
+		<legalnotice><para>No notice is required.</para></legalnotice>
+		<author>
+			<firstname>Mickey</firstname>
+			<surname>Lauer</surname>
+		</author>
+	</bookinfo>
+	<dedication>
+		<para>
+		This book is dedicated to you.
+		</para>
+	</dedication>
+	<preface>
+		<title>Foreword</title>
+		<para>
+		Some content is always required.
+		</para>
+	</preface>
+
+<xi:include  href="docbook-org.freesmartphone.GSM.Call.xml"  parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include  href="docbook-org.freesmartphone.GSM.Device.xml"  parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include  href="docbook-org.freesmartphone.GSM.MUX.xml"  parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include  href="docbook-org.freesmartphone.GSM.Network.xml"  parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include  href="docbook-org.freesmartphone.GSM.PDP.xml"  parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include  href="docbook-org.freesmartphone.GSM.Phonebook.xml"  parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include  href="docbook-org.freesmartphone.GSM.SIM.xml"  parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+<xi:include  href="docbook-org.freesmartphone.Storage.xml"  parse="xml" xmlns:xi="http://www.w3.org/2003/XInclude"/>
+
+</book>

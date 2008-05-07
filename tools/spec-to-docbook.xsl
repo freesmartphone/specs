@@ -5,9 +5,12 @@
 <!--
      Convert D-Bus Glib xml into DocBook refentries
      Copyright (C) 2007 William Jon McCann
+     		   2008 Harald Welte
      License: GPL
 -->
-<xsl:output method="xml" indent="yes" encoding="UTF-8"/>
+<xsl:output method="xml" indent="yes" encoding="UTF-8"
+  doctype-system="http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+  doctype-public="//OASIS//DTD DocBook XML V4.3//EN"/>
 
 <xsl:template match="/node">
   <reference>
@@ -15,8 +18,8 @@
     <title>
       <xsl:value-of select="doc:doc/doc:summary"/>
     </title>
-  <xsl:apply-templates select="interface"/>
-</reference>
+    <xsl:apply-templates select="interface"/>
+  </reference>
 </xsl:template>
 
 <xsl:template match="interface">
@@ -47,6 +50,7 @@
     </synopsis>
   </refsynopsisdiv>
 
+  <xsl:if test="element-available('signal')">
   <refsect1 role="signal_proto">
     <title role="signal_proto.title">Signals</title>
     <synopsis>
@@ -55,6 +59,7 @@
   </xsl:call-template>
     </synopsis>
   </refsect1>
+  </xsl:if>
 
   <refsect1 role="impl_interfaces">
     <title role="impl_interfaces.title">Implemented Interfaces</title>
@@ -74,12 +79,12 @@
     </synopsis>
   </refsect1>
 
+  <xsl:if test="element-available('doc:description')">
   <refsect1 role="desc">
     <title role="desc.title">Description</title>
-    <para>
       <xsl:apply-templates select="doc:doc"/>
-    </para>
   </refsect1>
+  </xsl:if>
 
   <refsect1 role="details">
     <title role="details.title">Details</title>
@@ -88,19 +93,23 @@
     </xsl:call-template>
   </refsect1>
 
+  <xsl:if test="element-available('signal')">
   <refsect1 role="signals">
     <title role="signals.title">Signal Details</title>
     <xsl:call-template name="signal-details">
       <xsl:with-param name="basename" select="$basename"/>
     </xsl:call-template>
   </refsect1>
+  </xsl:if>
 
+  <xsl:if test="element-available('property')">
   <refsect1 role="property_details">
     <title role="property_details.title">Property Details</title>
     <xsl:call-template name="property-details">
       <xsl:with-param name="basename" select="$basename"/>
     </xsl:call-template>
   </refsect1>
+  </xsl:if>
 
 </refentry>
 </xsl:template>
@@ -109,6 +118,7 @@
 <xsl:template name="property-doc">
   <xsl:apply-templates select="doc:doc/doc:description"/>
 
+  <xsl:if test="element-available('arg')">
   <variablelist role="params">
     <xsl:for-each select="arg">
 <varlistentry><term><parameter><xsl:value-of select="@name"/></parameter>:</term>
@@ -116,6 +126,7 @@
 </varlistentry>
     </xsl:for-each>
   </variablelist>
+  </xsl:if>
 
   <xsl:apply-templates select="doc:doc/doc:since"/>
   <xsl:apply-templates select="doc:doc/doc:deprecated"/>
@@ -150,6 +161,7 @@
 <xsl:template name="signal-doc">
   <xsl:apply-templates select="doc:doc/doc:description"/>
 
+  <xsl:if test="element-available('arg')">
   <variablelist role="params">
     <xsl:for-each select="arg">
 <varlistentry><term><parameter><xsl:value-of select="@name"/></parameter>:</term>
@@ -157,6 +169,7 @@
 </varlistentry>
     </xsl:for-each>
   </variablelist>
+  </xsl:if>
 
   <xsl:apply-templates select="doc:doc/doc:since"/>
   <xsl:apply-templates select="doc:doc/doc:deprecated"/>
@@ -206,7 +219,9 @@
 </xsl:template>
 
 <xsl:template match="doc:description">
+<para>
 <xsl:apply-templates />
+</para>
 </xsl:template>
 
 <xsl:template match="doc:inote">
@@ -318,6 +333,7 @@ See also:
 
 <xsl:template name="method-doc">
   <xsl:apply-templates select="doc:doc/doc:description"/>
+  <xsl:if test="element-available('arg')">
   <variablelist role="params">
     <xsl:for-each select="arg">
 <varlistentry><term><parameter><xsl:value-of select="@name"/></parameter>:</term>
@@ -328,6 +344,7 @@ See also:
 </varlistentry>
     </xsl:for-each>
   </variablelist>
+  </xsl:if>
 
   <xsl:apply-templates select="doc:doc/doc:since"/>
   <xsl:apply-templates select="doc:doc/doc:deprecated"/>

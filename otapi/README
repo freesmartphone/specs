@@ -31,4 +31,6 @@ Style Guide:
 Committing:
 * run 'make check' before checking specs in
 
-
+PDF and other file formats:
+* you can use the 'xmlto' utility to generate the docbook version, e.g.
+  'xmlto html docbook-otapi.xml'
