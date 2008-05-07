@@ -50,7 +50,7 @@
     </synopsis>
   </refsynopsisdiv>
 
-  <xsl:if test="element-available('signal')">
+  <xsl:if test="signal">
   <refsect1 role="signal_proto">
     <title role="signal_proto.title">Signals</title>
     <synopsis>
@@ -79,7 +79,7 @@
     </synopsis>
   </refsect1>
 
-  <xsl:if test="element-available('doc:description')">
+  <xsl:if test="doc:description">
   <refsect1 role="desc">
     <title role="desc.title">Description</title>
       <xsl:apply-templates select="doc:doc"/>
@@ -93,7 +93,7 @@
     </xsl:call-template>
   </refsect1>
 
-  <xsl:if test="element-available('signal')">
+  <xsl:if test="signal">
   <refsect1 role="signals">
     <title role="signals.title">Signal Details</title>
     <xsl:call-template name="signal-details">
@@ -102,7 +102,7 @@
   </refsect1>
   </xsl:if>
 
-  <xsl:if test="element-available('property')">
+  <xsl:if test="property">
   <refsect1 role="property_details">
     <title role="property_details.title">Property Details</title>
     <xsl:call-template name="property-details">
@@ -118,7 +118,7 @@
 <xsl:template name="property-doc">
   <xsl:apply-templates select="doc:doc/doc:description"/>
 
-  <xsl:if test="element-available('arg')">
+  <xsl:if test="arg">
   <variablelist role="params">
     <xsl:for-each select="arg">
 <varlistentry><term><parameter><xsl:value-of select="@name"/></parameter>:</term>
@@ -161,7 +161,7 @@
 <xsl:template name="signal-doc">
   <xsl:apply-templates select="doc:doc/doc:description"/>
 
-  <xsl:if test="element-available('arg')">
+  <xsl:if test="arg">
   <variablelist role="params">
     <xsl:for-each select="arg">
 <varlistentry><term><parameter><xsl:value-of select="@name"/></parameter>:</term>
@@ -333,7 +333,7 @@ See also:
 
 <xsl:template name="method-doc">
   <xsl:apply-templates select="doc:doc/doc:description"/>
-  <xsl:if test="element-available('arg')">
+  <xsl:if test="arg">
   <variablelist role="params">
     <xsl:for-each select="arg">
 <varlistentry><term><parameter><xsl:value-of select="@name"/></parameter>:</term>
