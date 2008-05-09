@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-usage-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Usage Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.Usage">
+
+  <doc:doc>
+    <doc:para>
+    </doc:para>
+  </doc:doc>
+
+  <method name="ListResources">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="out" type="as">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetResourcePolicy">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="resourcename">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetResourcePolicy">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="resourcename">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="s" name="policy">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetResourceUsers">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="resourcename">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="as">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="RequestResource">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="resourcename">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="b">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="ReleaseResource">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="resourcename">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="ResourceChanged">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg type="s" name="resourcename">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="b" name="status">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+</interface>
+</node>
