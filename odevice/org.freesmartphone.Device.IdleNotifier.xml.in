@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-idlenotifier-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org IdleNotifier Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.IdleNotifier">
+
+  <doc:doc>
+    <doc:para>
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetName">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="out" type="s">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetState">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="out" type="s">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="State">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg type="s" name="state">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <method name="SetState">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="state">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>

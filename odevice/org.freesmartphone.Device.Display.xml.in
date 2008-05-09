@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-display-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Display Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.Display">
+
+  <doc:doc>
+    <doc:para>
+    </doc:para>
+  </doc:doc>
+
+  <method name="SetBrightness">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="brightness">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetName">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="out" type="s">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetBacklightPower">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="in" type="b" name="power">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetBrightness">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="out" type="i">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetBacklightPower">
+    <doc:doc>
+      <doc:description></doc:description>
+    </doc:doc>
+    <arg direction="out" type="b">
+      <doc:doc>
+        <doc:summary>
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>
