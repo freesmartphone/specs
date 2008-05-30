@@ -17,10 +17,47 @@
 
   <!-- AUTH -->
 
+  <method name="SetEnableAuthCodeCheck">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Enable or disable checking for the SIM card authentification on startup.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CLCK,"SC",(check), see 3GPP </doc:inote>
+    </doc:doc>
+    <arg type="b" name="check" direction="in">
+      <doc:doc>
+        <doc:summary>True, to turn SIM card authentification on. False, to turn it off.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetEnableAuthCodeCheck">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve whether the SIM card checks for authentification on startup.</doc:description>
+    </doc:doc>
+    <arg type="b" name="check" direction="out">
+      <doc:doc>
+        <doc:summary>True, if SIM card authentification is turned on. False, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SendAuthCode">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Send authentication code (PIN) for the SIM card.</doc:description>
+    </doc:doc>
+    <arg type="s" name="pin" direction="in">
+      <doc:doc>
+        <doc:summary>The authentication code.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <method name="GetAuthStatus">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
-      <doc:description>Retreive the authentication status for the SIM card.</doc:description>
+      <doc:description>Retrieve the authentication status for the SIM card.</doc:description>
     </doc:doc>
     <arg type="s" name="status" direction="out">
       <doc:doc>
@@ -98,51 +135,29 @@
     </arg>
   </method>
 
-  <method name="GetImsi">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
-    <doc:doc>
-      <doc:description>Retrieve the International Mobile Subscriber Identity (IMSI).</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CIMI, see 3GPP TS 07.07 Chapter 5.6.</doc:inote>
-    </doc:doc>
-    <arg type="s" name="imsi" direction="out">
-      <doc:doc>
-        <doc:summary>The International Mobile Subscriber Identity.</doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
+  <!-- INFO -->
 
-  <method name="GetSubscriberNumbers">
+  <method name="GetSimInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
-      <doc:description>Retrieve the subscriber numers stored on the SIM (or in the modem).</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CNUM, see 3GPP TS 07.07 Chapter 7.1.</doc:inote>
-    </doc:doc>
-    <arg type="a{sv}" name="numbers" direction="out">
-      <doc:doc>
-        <doc:summary>The subscriber numbers.</doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
-  <method name="GetCountryCode">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
-    <doc:doc>
-      <doc:description>Compute the country code of the SIM.</doc:description>
+      <doc:description>Get information about the IMSI, the subscriber numbers,
+        and the country code of the SIM card.</doc:description>
       <doc:inote>
-        This maps to the GSM 07.07 command +CIMI, see 3GPP TS 07.07 Chapter 5.6.
-        Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
+        This can map to the following GSM 07.07 commands:
+          +CIMI (see 3GPP TS 07.07 Chapter 5.6),
+          +CNUM (see 3GPP TS 07.07 Chapter 7.1).
+          The dial code is computed by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
       </doc:inote>
     </doc:doc>
-    <arg type="s" name="dial_code" direction="out">
+    <arg type="a{sv}" name="info" direction="out">
       <doc:doc>
-        <doc:summary>The country dial code (including the +).</doc:summary>
+        <doc:summary>
+          Information about the SIM card. Expected tuples are:
+          ("imei", string), ("subscriber_number", string), ("dial_code", string).
+        </doc:summary>
       </doc:doc>
     </arg>
   </method>
-
-  <!-- FIXME might want to consider additional commands for
-       * getting retry count left for auth
-       * lock phone -->
 
   <!-- PHONEBOOK -->
 
@@ -156,8 +171,8 @@
     <doc:doc>
       <doc:summary>
         Information about the SIM phonebook storage. Tuples to expect:
-        ("min_index", int:value) = minimum index for entries stored on the SIM,
-        ("max_index", int:value) = maximum index for entries stored on the SIM,
+        ("slots", int:value) = maximum of entries stored on the SIM,
+        ("used", int:value) = actual number of entries stored on the SIM,
         ("number_length", int:value) = maximum length for the number,
         ("name_length", int:value) = maximum length for the name.
       </doc:summary>
@@ -299,6 +314,24 @@
     <arg type="i" name="index" direction="out">
       <doc:doc>
         <doc:summary>Index of new message.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SendStoredMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Sends a message stored in the SIM messagebook.</doc:description>
+      <doc:inote>This maps to the GSM 07.05 command +CMGS=(index)..., see 3GPP TS 07.05 Chapter 3.5.x.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="index" direction="in">
+      <doc:doc>
+        <doc:summary>Index of message.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="transaction_index" direction="out">
+      <doc:doc>
+        <doc:summary>Transaction index.</doc:summary>
       </doc:doc>
     </arg>
   </method>

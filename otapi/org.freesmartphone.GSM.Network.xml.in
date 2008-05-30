@@ -37,27 +37,22 @@
     </doc:doc>
   </method>
 
-  <!-- FIXME I think it makes sense to use a{sv} for GetStatus and Status -->
-
   <method name="GetStatus">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
     <doc:doc>
       <doc:description>Get Network Status.</doc:description>
       <doc:inote>
-        This maps to the following GSM 07.07 commands:
+        This can map to the following GSM 07.07 commands:
         +CREG? (see 3GPP TS 07.07 Chapter 7.3),
         +COPS? (see 3GPP TS 07.07 Chapter 7.4),
         +CSQ (see 3GPP TS 07.07 Chapter 8.5).
       </doc:inote>
     </doc:doc>
-    <arg type="s" name="provider_name" direction="out">
-      <doc:doc>
-        <doc:summary>The provider name we are registered with (can be empty).</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="status" direction="out">
+    <arg type="a{sv}" name="status" direction="out">
       <doc:doc>
         <doc:summary>
+          Network status information. Expected tuples are:
+          ( "registration", string ):
           The registration status. Expected values are:
           "unregistered" = not registered, not trying,
           "home" = registered to home network,
@@ -65,20 +60,26 @@
           "denied" = no permitted network available,
           "unknown" = no idea,
           "roaming" = registered to foreign network.
+          ( "provider", string ): The network provider (if registered or roaming).
+          ( "strength", int ): The signal strength in percentage (0-100).
         </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="i" name="strength" direction="out">
-      <doc:doc>
-        <doc:summary>The strength in percentage (0-100).</doc:summary>
       </doc:doc>
     </arg>
   </method>
 
   <signal name="Status">
-    <arg type="s" name="provider_name" />
-    <arg type="s" name="status" />
-    <arg type="i" name="strength" />
+    <doc:doc>
+      <doc:description>
+        Sent, when the network registration status changes.
+      </doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="status">
+      <doc:doc>
+        <doc:summary>
+          The registration status. See method GetAuthStatus for expected values.
+        </doc:summary>
+      </doc:doc>
+    </arg>
   </signal>
 
   <method name="ListProviders">

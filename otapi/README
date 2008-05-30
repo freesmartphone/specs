@@ -13,8 +13,6 @@ TODO
 
 CR (change requests)
 ==========================
-ADD: org.freesmartphone.GSM.SIM.RetrievePhonebook
-ADD: org.freesmartphone.GSM.SIM.RetrieveMessagebook
 CHANGENAME: org.freesmartphone.GSM.Network.GetStatus + .Status -> GetNetworkStatus + .NetworkStatus
 CHANGESIG: org.freesmartphone.GSM.Network.GetStatus + .Status
 
