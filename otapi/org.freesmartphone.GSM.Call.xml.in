@@ -56,6 +56,7 @@
           An array of changed property values. To get the full status for a call,
           you need to issue the GetCallStatus() method. Note that the properties
           are optional. Expected tuples are:
+          ( "reason", string ) = The reason for the status change (on outgoing calls e.g. 'BUSY' or 'NO CARRIER')
           ( "number", string ) = The number of the peer (on incoming calls only if we received a CLIP)
           ... [ add more here ]
           ( "auxstatus", string ) = An auxillary connection status (if your modem supports that),

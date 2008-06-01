@@ -7,16 +7,21 @@ See http://www.freesmartphone.org/mediawiki/index.php/Standards/OpenPhoneServerA
 
 TODO
 ====
+* Introductionary docs
 * Error specification / handling
 * Sorting
 * Cross-references
+* Open Question: Who does parameter verification and sends parameter errors?
 
 CR (change requests)
 ==========================
 ADD: org.freesmartphone.GSM.SIM.RetrievePhonebook
 ADD: org.freesmartphone.GSM.SIM.RetrieveMessagebook
+ADD: org.freesmartphone.GSM.SIM.SendMessage
 CHANGENAME: org.freesmartphone.GSM.Network.GetStatus + .Status -> GetNetworkStatus + .NetworkStatus
 CHANGESIG: org.freesmartphone.GSM.Network.GetStatus + .Status
+** ADD: org.freesmartphone.GSM.SIM.GetSimInfo -> a{sv}
+** REMOVE: org.freesmarpthone.GSM.SIM.GetImei, .GetSubscriberNumbers, .GetCountryCode
 
 Hacking notes
 =============
