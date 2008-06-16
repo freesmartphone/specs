@@ -42,18 +42,6 @@
     </arg>
   </method>
 
-  <method name="SendAuthCode">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
-    <doc:doc>
-      <doc:description>Send authentication code (PIN) for the SIM card.</doc:description>
-    </doc:doc>
-    <arg type="s" name="pin" direction="in">
-      <doc:doc>
-        <doc:summary>The authentication code.</doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <method name="GetAuthStatus">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
