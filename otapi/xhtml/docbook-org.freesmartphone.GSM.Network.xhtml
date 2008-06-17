@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>freesmartphone.org GSM Network Interface</title><meta name="generator" content="DocBook XSL Stylesheets V1.73.2" /></head><body><div class="reference" lang="en" xml:lang="en"><div class="titlepage"><div><div><h1 class="title"><a id="freesmartphone-gsm-network-interface"></a>freesmartphone.org GSM Network Interface</h1></div></div><hr /></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="refentrytitle"><a href="#Network">org.freesmartphone.GSM.Network</a></span><span class="refpurpose"> — Network interface</span></dt></dl></div><div class="refentry" lang="en" xml:lang="en"><a id="Network"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>org.freesmartphone.GSM.Network — Network interface</p></div><div class="refsynopsisdiv"><h2>Methods</h2><pre class="synopsis"><a class="link" href="#Network.Register">Register</a>             ()
+<a class="link" href="#Network.Unregister">Unregister</a>           ()
+<a class="link" href="#Network.GetStatus">GetStatus</a>            (out 'a{sv}'status)
+<a class="link" href="#Network.ListProviders">ListProviders</a>        (out 'a(isss)'providers)
+<a class="link" href="#Network.RegisterWithProvider">RegisterWithProvider</a> (in  'i'operator_code)
+<a class="link" href="#Network.GetCountryCode">GetCountryCode</a>       (out 's'dial_code)
+</pre></div><div class="refsect1" lang="en" xml:lang="en"><a id="id307456"></a><h2>Signals</h2><pre class="synopsis"><a class="link" href="#Network::Status">Status</a> ('a{sv}'status)
+</pre></div><div class="refsect1" lang="en" xml:lang="en"><a id="id282155"></a><h2>Implemented Interfaces</h2><p>org.freesmartphone.GSM.Network implements
+    org.freedesktop.DBus.Introspectable,
+    org.freedesktop.DBus.Properties
+    </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="id318231"></a><h2>Properties</h2><pre class="synopsis"></pre></div><div class="refsect1" lang="en" xml:lang="en"><a id="id318247"></a><h2>Details</h2><div class="refsect2" lang="en" xml:lang="en"><a id="id289063"></a><h3><a id="Network.Register"></a>Register ()</h3><a id="id289075" class="indexterm"></a><pre class="programlisting">Register ()</pre><p>Register with any available service provider.</p><div class="refsect3" lang="en" xml:lang="en"><a id="id282184"></a><h4>Implementation notes:</h4><p>This maps to the GSM 07.07 command +COPS=0, see 3GPP TS 07.07 Chapter 7.3.</p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id282195"></a><h3><a id="Network.Unregister"></a>Unregister ()</h3><a id="id282207" class="indexterm"></a><pre class="programlisting">Unregister ()</pre><p>Unregister from service provider.</p><div class="refsect3" lang="en" xml:lang="en"><a id="id282228"></a><h4>Implementation notes:</h4><p>This maps to the GSM 07.07 command +COPS=2, see 3GPP TS 07.07 Chapter 7.3.</p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id282239"></a><h3><a id="Network.GetStatus"></a>GetStatus ()</h3><a id="id282250" class="indexterm"></a><pre class="programlisting">GetStatus (out 'a{sv}' status)</pre><p>Get Network Status.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>status</code></em>:</span></dt><dd><p>
+          Network status information. Expected tuples are:
+          ( "registration", string ):
+          The registration status. Expected values are:
+          "unregistered" = not registered, not trying,
+          "home" = registered to home network,
+          "busy" = not registered, but currently trying,
+          "denied" = no permitted network available,
+          "unknown" = no idea,
+          "roaming" = registered to foreign network.
+          ( "provider", string ): The network provider (if registered or roaming).
+          ( "strength", int ): The signal strength in percentage (0-100).
+        </p></dd></dl></div><div class="refsect3" lang="en" xml:lang="en"><a id="id282512"></a><h4>Implementation notes:</h4><p>
+        This can map to the following GSM 07.07 commands:
+        +CREG? (see 3GPP TS 07.07 Chapter 7.3),
+        +COPS? (see 3GPP TS 07.07 Chapter 7.4),
+        +CSQ (see 3GPP TS 07.07 Chapter 8.5).
+      </p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id282525"></a><h3><a id="Network.ListProviders"></a>ListProviders ()</h3><a id="id282536" class="indexterm"></a><pre class="programlisting">ListProviders (out 'a(isss)' providers)</pre><p>List available service providers.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>providers</code></em>:</span></dt><dd><p>
+          An array of four-tuples with the following structure:
+          1. Unique numerical operator code,
+          2. Status ("unknown", "available", "current", "forbidden"),
+          3. Long Name,
+          4. Short Name (optional, may be empty).
+        </p></dd></dl></div><div class="refsect3" lang="en" xml:lang="en"><a id="id281937"></a><h4>Implementation notes:</h4><p>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3</p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id281948"></a><h3><a id="Network.RegisterWithProvider"></a>RegisterWithProvider ()</h3><a id="id281961" class="indexterm"></a><pre class="programlisting">RegisterWithProvider (in  'i' operator_code)</pre><p>Register to a dedicated service provider.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>operator_code</code></em>:</span></dt><dd><p>The operator code.</p></dd></dl></div><div class="refsect3" lang="en" xml:lang="en"><a id="id327648"></a><h4>Implementation notes:</h4><p>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3</p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id327659"></a><h3><a id="Network.GetCountryCode"></a>GetCountryCode ()</h3><a id="id327669" class="indexterm"></a><pre class="programlisting">GetCountryCode (out 's' dial_code)</pre><p>Compute the country code of the current service provider.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>dial_code</code></em>:</span></dt><dd><p>The country dial code (including the +).</p></dd></dl></div><div class="refsect3" lang="en" xml:lang="en"><a id="id327712"></a><h4>Implementation notes:</h4><p>
+        This maps to the GSM 07.07 command +COPS?, see 3GPP TS 07.07 Chapter 5.6.
+        Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
+      </p></div></div></div><div class="refsect1" lang="en" xml:lang="en"><a id="id327725"></a><h2>Signal Details</h2><div class="refsect2" lang="en" xml:lang="en"><a id="id327734"></a><h3><a id="Network::Status"></a>The Status signal</h3><a id="id327745" class="indexterm"></a><pre class="programlisting">Status ('a{sv}' status)</pre><p>
+        Sent, when the network registration status changes.
+      </p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>status</code></em>:</span></dt><dd>
+          The registration status. See method GetAuthStatus for expected values.
+        </dd></dl></div></div></div></div></div></body></html>
