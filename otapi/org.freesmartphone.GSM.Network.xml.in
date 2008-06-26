@@ -82,6 +82,33 @@
     </arg>
   </signal>
 
+  <method name="GetSignalStrength">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <doc:doc>
+      <doc:description>Query the current signal strength, if registered with a service provider.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CSQ, see 3GPP TS 07.07 Chapter 8.5</doc:inote>
+    </doc:doc>
+    <arg type="i" name="signal_strength" direction="out">
+      <doc:doc>
+        <doc:summary>The signal strength in percent (0-100).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="SignalStrength">
+    <doc:doc>
+      <doc:description>
+        (OPTIONAL) Sent, when registered with a service provider and the network signal strength changes.
+      </doc:description>
+      <doc:inote>There is no unsolicited response code for signal strength in GSM 07.07</doc:inote>
+    </doc:doc>
+    <arg type="i" name="signal_strength">
+      <doc:doc>
+        <doc:summary>The signal strength in percent (0-100).</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
   <method name="ListProviders">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
       <doc:doc>
