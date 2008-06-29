@@ -62,8 +62,8 @@
           "roaming" = registered to foreign network.
           ( "provider", string ): The network provider (if registered or roaming).
           ( "strength", int ): The signal strength in percentage (0-100).
-          ( "lac", string ): The location area code string.
-          ( "cid", string ): The cell id string.
+          ( "lac", string ): The location area code string (if available).
+          ( "cid", string ): The cell id string (if available).
         </doc:summary>
       </doc:doc>
     </arg>
@@ -78,7 +78,7 @@
     <arg type="a{sv}" name="status">
       <doc:doc>
         <doc:summary>
-          The registration status. See method GetAuthStatus for expected values.
+          The registration status. See method GetStatus for expected values.
         </doc:summary>
       </doc:doc>
     </arg>
