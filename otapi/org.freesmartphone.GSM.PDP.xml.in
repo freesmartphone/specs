@@ -1,8 +1,19 @@
 <?xml version="1.0"?>
 <node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-pdp-interface">
 
-<interface name="org.freesmartphone.GSM.PDP">
+  <doc:doc>
+    <doc:summary>freesmartphone.org GSM Packet-Data-Protocol Interface</doc:summary>
+  </doc:doc>
 
+  <interface name="org.freesmartphone.GSM.PDP">
+
+    <doc:doc>
+      <doc:para>
+        The Packet-Data-Protocol interface is used to configure and
+        activate PDP contexts that enable you to login to a provider
+        IP-Network defined through an access point name (APN).
+      </doc:para>
+    </doc:doc>
 
   <method name="ListGprsClasses">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
@@ -14,16 +25,16 @@
     <arg type="s" name="class" direction="in" />
   </method>
 
-  <method name="Activate">
+  <method name="ActivateContext">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
     <arg type="i" name="index" direction="in" />
   </method>
 
-  <method name="Deactivate">
+  <method name="DeactivateContext">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
     <arg type="i" name="index" direction="in" />
   </method>
-
+  
   <method name="SelectContext">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
     <arg type="s" name="context" direction="in" />

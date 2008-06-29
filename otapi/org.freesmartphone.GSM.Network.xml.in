@@ -9,7 +9,7 @@
 
   <doc:doc>
     <doc:para>
-    The Network object is used to give information about the GSM
+    The Network interface is used to give information about the GSM
     service providers and this device's status with regards to
     to network registration and connectivity.
 
@@ -62,6 +62,8 @@
           "roaming" = registered to foreign network.
           ( "provider", string ): The network provider (if registered or roaming).
           ( "strength", int ): The signal strength in percentage (0-100).
+          ( "lac", string ): The location area code string.
+          ( "cid", string ): The cell id string.
         </doc:summary>
       </doc:doc>
     </arg>
