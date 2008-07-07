@@ -29,15 +29,28 @@
     </arg>
   </method>
 
-  <method name="SelectGprsClass">
+  <method name="GetCurrentGprsClass">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
     <doc:doc>
-      <doc:description>Select a GPRS device class to operate in.</doc:description>
+      <doc:description>Retrieves the current GPRS device class mode.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CGCLASS?, see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="device_class" direction="out">
+      <doc:doc>
+        <doc:summary>The GPRS device class mode.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetCurrentGprsClass">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <doc:doc>
+      <doc:description>Sets the current GPRS device class mode.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CGCLASS=(device_class), see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
     </doc:doc>
     <arg type="s" name="device_class" direction="in">
       <doc:doc>
-        <doc:summary>The GPRS device class to select.</doc:summary>
+        <doc:summary>The GPRS device class mode.</doc:summary>
       </doc:doc>
     </arg>
   </method>
