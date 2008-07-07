@@ -9,69 +9,129 @@
 
     <doc:doc>
       <doc:para>
-        The Packet-Data-Protocol interface is used to configure and
-        activate PDP contexts that enable you to login to a provider
-        IP-Network defined through an access point name (APN).
+        The Packet-Data-Protocol interface is used to set up
+        binary data connections that allow you to transfer
+        data over the TCP/IP protocol family routed
+        via IP-based 2.5/3G provider networks.
       </doc:para>
     </doc:doc>
 
   <method name="ListGprsClasses">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
-    <arg type="as" name="classes" direction="out" />
+    <doc:doc>
+      <doc:description>List available GPRS device classes.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CGCLASS=?, see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
+    </doc:doc>
+    <arg type="as" name="classes" direction="out">
+      <doc:doc>
+        <doc:summary>The available GPRS device classes.</doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
   <method name="SelectGprsClass">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
-    <arg type="s" name="class" direction="in" />
+    <doc:doc>
+      <doc:description>Select a GPRS device class to operate in.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CGCLASS=(device_class), see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="device_class" direction="in">
+      <doc:doc>
+        <doc:summary>The GPRS device class to select.</doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
   <method name="ActivateContext">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
-    <arg type="i" name="index" direction="in" />
+    <doc:doc>
+      <doc:description>
+        Request a PDP context activation to an IP-based network service provider and launch a ppp session.
+      </doc:description>
+      <doc:inote>
+        This can map to the following GSM 07.07 commands:
+        +CGDCONT (see 3GPP TS 07.07 chapter 10.1.1)
+        +CGATT (see 3GPP TS 07.07 chapter 10.1.4)
+        +CGACT (see 3GPP TS 07.07 chapter 10.1.5)
+        +CGDATA (see 3GPP TS 07.07 chapter 10.1.6).
+        It might also map to the v25.ter compatibility commands D*...
+      </doc:inote>
+      <doc:inote>This command might change your network default route.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="apn" direction="in">
+      <doc:doc>
+        <doc:summary>The access point name to connect to.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="username" direction="in">
+      <doc:doc>
+        <doc:summary>The user name to authenticate with.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="password" direction="in">
+      <doc:doc>
+        <doc:summary>The password to authenticate with.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="index" direction="out">
+      <doc:doc>
+        <doc:summary>An index to identify context status changes.</doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
   <method name="DeactivateContext">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
-    <arg type="i" name="index" direction="in" />
-  </method>
-  
-  <method name="SelectContext">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
-    <arg type="s" name="context" direction="in" />
-  </method>
-
-  <method name="AddContext">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
-    <arg type="s" name="context" direction="in" />
-    <arg type="i" name="index" direction="out" />
+    <doc:doc>
+      <doc:description>Cancel an ongoing ppp session and request a PDP context deactivation.</doc:description>
+      <doc:inote>This command might change your network default route.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="index" direction="in">
+      <doc:doc>
+        <doc:summary>The context to deactivate.</doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
-  <method name="DeleteContext">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
-    <arg type="i" name="index" direction="in" />
-  </method>
-
-  <method name="ListContexts">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
-    <arg type="as" name="contexts" direction="out" />
-  </method>
-
-
-
-  <signal name="ContextActivated">
-    <arg type="i" name="id" />
-  </signal>
-
-  <signal name="ContextDeactivated">
-    <arg type="i" name="id" />
-  </signal>
-
-  <signal name="ContextChanged">
-    <arg type="i" name="id" />
+  <signal name="ContextStatus">
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is any status or property change on a pdp context in the system.
+      </doc:description>
+    </doc:doc>
+    <arg type="i" name="id">
+      <doc:doc>
+        <doc:summary>The index of the context that changed its status or properties.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status">
+      <doc:doc>
+        <doc:summary>
+          The new status of the call. Expected values are:
+          "incoming" = The context is incoming (but not yet accepted),
+          "outgoing" = The context is outgoing (but not yet established),
+          "active" = The context is active (you have a new default route),
+          "held" = The context is being held (interrupted by a voice call),
+          "released" = The context is being released.
+          Further information can be part of the properties.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties">
+      <doc:doc>
+        <doc:summary>
+          An array of property values. Note that the properties
+          are optional. Expected tuples are:
+          ( "reason", string ) = The reason for the status change,
+          ( "apn", string ) = The number of the access point,
+        </doc:summary>
+      </doc:doc>
+    </arg>
   </signal>
 
   <!-- TODO
        * Incoming data call
+       * Network originated activation requests
        * QoS handling
        * Statistics
        * GPRS registration info
