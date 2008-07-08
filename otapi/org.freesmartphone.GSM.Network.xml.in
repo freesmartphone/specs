@@ -159,6 +159,133 @@
     </arg>
   </method>
 
+  <method name="GetCallForwarding">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <doc:doc>
+      <doc:description>Get the network call forwarding status.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CCFC=(reason),2, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
+    </doc:doc>
+    <arg type="a{sv}" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>
+          A dictionary containing entries for call classes. Expected keywords are:
+          "voice", "data", "voice+data", "fax", "voice+data+fax". Rarely you can expect:
+          "sms", "dcs", "dca", "dpa", "pad".
+          The value is a three-tuple with the following structure:
+          1. Enabled (boolean),
+          2. Call forwarding number,
+          3. Seconds after which the call forwarding gets active.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="EnableCallForwarding">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <doc:doc>
+      <doc:description>Enable network call forwarding.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CCFC=(...),3, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="reason" direction="in">
+      <doc:doc>
+        <doc:summary>
+          Reason for which you want to enable network call forwarding. Valid reasons are:
+          "unconditional",
+          "mobile busy",
+          "no reply",
+          "not reachable",
+          "all",
+          "all conditional",
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="class" direction="in">
+      <doc:doc>
+        <doc:summary>
+          Call class for which you want to enable network call forwarding. See GetCallForwarding for valid classes.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="number" direction="in">
+      <doc:doc>
+        <doc:summary>
+          Phone number to which you want to enable network call forwarding.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="timeout" direction="in">
+      <doc:doc>
+        <doc:summary>
+          Number of seconds, after which network call forwarding launches (only for reason "no reply").
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="DisableCallForwarding">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <doc:doc>
+      <doc:description>Disable network call forwarding.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CCFC=(...),4, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="reason" direction="in">
+      <doc:doc>
+        <doc:summary>
+          Reason for which you want to disable network call forwarding. Valid reasons are:
+          "unconditional",
+          "mobile busy",
+          "no reply",
+          "not reachable",
+          "all",
+          "all conditional",
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="class" direction="in">
+      <doc:doc>
+        <doc:summary>
+          Call class for which you want to enable network call forwarding. See GetCallForwarding for valid classes.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetCallingIdentification">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <doc:doc>
+      <doc:description>Set whether your subscriber number is visible during a call.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CLIR=(value), see 3GPP TS 07.07 Chapter 7.7.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="visible" direction="in">
+      <doc:doc>
+        <doc:summary>
+          "on", if your subscriber number should always be visible to other parties.
+          "off", if your subscriber number should never be visible to other parties.
+          "network", if you want to use the network default.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetCallingIdentification">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <doc:doc>
+      <doc:description>Get whether your subscriber number is visible during a call.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CLIR?, see 3GPP TS 07.07 Chapter 7.7.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="visible" direction="out">
+      <doc:doc>
+        <doc:summary>
+          "on", if your subscriber number is always visible to other parties.
+          "off", if your subscriber number is never visible to other parties.
+          "network", if visibility depends on the network settings.
+      </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+
+
   <!-- FIXME Do we want methods for:
        * List available GSM bands
        * Get/set preferred GSM band
