@@ -98,6 +98,32 @@
     <arg type="i" name="id" direction="in" />
   </method>
 
+  <method name="HoldActive">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Hold the active call.</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Join">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Join all active and held calls and release them.</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Transfer">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
+    <doc:doc>
+      <doc:description>Transfer an incoming or active call to another number.</doc:description>
+    </doc:doc>
+    <arg type="s" name="number" direction="in">
+      <doc:doc>
+        <doc:summary>The number to transfer the call to.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <method name="ReleaseHeld">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
@@ -130,54 +156,13 @@
   <method name="ListCalls">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
-      <doc:description>Retrieve indices of calls.</doc:description>
+      <doc:description>Retrieve the status for all calls in the system.</doc:description>
     </doc:doc>
-    <arg type="ai" name="calls" direction="out">
-      <doc:doc>
-        <doc:summary>Indices of calls in the system.</doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
-  <method name="GetCallStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
-    <doc:doc>
-      <doc:description>Retrieve the status for a call in the system.</doc:description>
-    </doc:doc>
-    <arg type="i" name="id" direction="in">
-      <doc:doc>
-        <doc:summary>The index of the call that you want to retreive the status for.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="i" name="id" direction="out">
-      <doc:doc>
-        <doc:summary>The index of the call.</doc:summary>
-        <doc:inote>This is repeated here to be in line with the signature of the signal CallStatus.</doc:inote>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="status" direction="out">
+    <arg type="a(isa{sv})" name="call_status" direction="out">
       <doc:doc>
         <doc:summary>
-          The new status of the call. Expected values are:
-          "incoming" = The call is incoming (but not yet accepted),
-          "outgoing" = The call is outgoing (but not yet established),
-          "active" = The call is the active call (you can talk),
-          "held" = The call is being held,
-          "released" = The call is being released.
-          Further information can be part of the properties.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="a{sv}" name="properties">
-      <doc:doc>
-        <doc:summary>
-          An array of changed property values. To get the full status for a call,
-          you need to issue the GetCallStatus() method. Note that the properties
-          are optional. Expected tuples are:
-          ( "number", string ) = The number of the peer (on incoming calls only if we received a CLIP)
-          ... [ add more here ]
-          ( "auxstatus", string ) = An auxillary connection status (if your modem supports that),
-          ...
+          The call status. This is an array containing a call status record for every single call.
+          For the format description, please see the CallStatus signal.
         </doc:summary>
       </doc:doc>
     </arg>
