@@ -51,7 +51,7 @@
     <arg type="a{sv}" name="status" direction="out">
       <doc:doc>
         <doc:summary>
-          Network status information. Expected tuples are:
+          Network status information. Mandatory tuples are:
           ( "registration", string ):
           The registration status. Expected values are:
           "unregistered" = not registered, not trying,
@@ -60,6 +60,7 @@
           "denied" = no permitted network available,
           "unknown" = no idea,
           "roaming" = registered to foreign network.
+          Optional tuples are:
           ( "provider", string ): The network provider (if registered or roaming).
           ( "strength", int ): The signal strength in percentage (0-100).
           ( "lac", string ): The location area code string (if available).
