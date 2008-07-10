@@ -171,38 +171,12 @@
   <method name="SendDtmf">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
-      <doc:description>Send a Dual Tone Multiple Frequency (DTMF) signal during an active call.</doc:description>
+      <doc:description>Send one or more Dual Tone Multiple Frequency (DTMF) signals during an active call.</doc:description>
       <doc:inote>This maps to the TIA IS 101 command +VTS=(value), see 3GPP TS 07.07 Chapter C.2.11.</doc:inote>
     </doc:doc>
-    <arg type="s" name="tone" direction="out">
+    <arg type="s" name="tones" direction="out">
       <doc:doc>
-        <doc:summary>The tone to send. Allowed values are: (0-9,#,*,A-D)</doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
-  <method name="SetDtmfDuration">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
-    <doc:doc>
-      <doc:description>Set the duration of Dual Tone Multiple Frequency (DTMF) signals.</doc:description>
-      <doc:inote>This maps to the TIA IS 101 command +VTD=(value), see 3GPP TS 07.07 Chapter C.2.12.</doc:inote>
-    </doc:doc>
-    <arg type="i" name="mode" direction="in">
-      <doc:doc>
-        <doc:summary>The duration to set in 1/10ths of seconds. 0 sets a vendor default.</doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
-  <method name="GetDtmfDuration">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
-    <doc:doc>
-      <doc:description>Get the duration of Dual Tone Multiple Frequency (DTMF) signals.</doc:description>
-      <doc:inote>This maps to the TIA IS 101 command +VTD?, see 3GPP TS 07.07 Chapter C.2.12.</doc:inote>
-    </doc:doc>
-    <arg type="i" name="duration" direction="out">
-      <doc:doc>
-        <doc:summary>The current duration in 1/10ths of seconds.</doc:summary>
+        <doc:summary>The tones to send. Allowed values are: (0-9,#,*,A-D)</doc:summary>
       </doc:doc>
     </arg>
   </method>
