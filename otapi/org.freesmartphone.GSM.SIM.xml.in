@@ -140,8 +140,12 @@
     <arg type="a{sv}" name="info" direction="out">
       <doc:doc>
         <doc:summary>
-          Information about the SIM card. Expected tuples are:
-          ("imei", string), ("subscriber_number", string), ("dial_code", string).
+          Information about the SIM card. Required tuples are:
+          ("imei", string)
+          Optional tuples are:
+          ("subscriber_numbers", array),
+          ("dial_prefix", string),
+          ("country", string).
         </doc:summary>
       </doc:doc>
     </arg>

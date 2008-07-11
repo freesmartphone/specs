@@ -21,7 +21,7 @@
     org.freedesktop.DBus.Introspectable,
     org.freedesktop.DBus.Properties
     </p></div><div class="refsect1" lang="en" xml:lang="en"><a id="id259019"></a><h2>Properties</h2><pre class="synopsis"></pre></div><div class="refsect1" lang="en" xml:lang="en"><a id="id259035"></a><h2>Details</h2><div class="refsect2" lang="en" xml:lang="en"><a id="id259045"></a><h3><a id="Network.Register"></a>Register ()</h3><a id="id259056" class="indexterm"></a><pre class="programlisting">Register ()</pre><p>Register with any available service provider.</p><div class="refsect3" lang="en" xml:lang="en"><a id="id259078"></a><h4>Implementation notes:</h4><p>This maps to the GSM 07.07 command +COPS=0, see 3GPP TS 07.07 Chapter 7.3.</p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id259306"></a><h3><a id="Network.Unregister"></a>Unregister ()</h3><a id="id259317" class="indexterm"></a><pre class="programlisting">Unregister ()</pre><p>Unregister from service provider.</p><div class="refsect3" lang="en" xml:lang="en"><a id="id259338"></a><h4>Implementation notes:</h4><p>This maps to the GSM 07.07 command +COPS=2, see 3GPP TS 07.07 Chapter 7.3.</p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id259349"></a><h3><a id="Network.GetStatus"></a>GetStatus ()</h3><a id="id259361" class="indexterm"></a><pre class="programlisting">GetStatus (out 'a{sv}' status)</pre><p>Get Network Status.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>status</code></em>:</span></dt><dd><p>
-          Network status information. Expected tuples are:
+          Network status information. Mandatory tuples are:
           ( "registration", string ):
           The registration status. Expected values are:
           "unregistered" = not registered, not trying,
@@ -30,6 +30,7 @@
           "denied" = no permitted network available,
           "unknown" = no idea,
           "roaming" = registered to foreign network.
+          Optional tuples are:
           ( "provider", string ): The network provider (if registered or roaming).
           ( "strength", int ): The signal strength in percentage (0-100).
           ( "lac", string ): The location area code string (if available).
@@ -39,7 +40,7 @@
         +CREG? (see 3GPP TS 07.07 Chapter 7.3),
         +COPS? (see 3GPP TS 07.07 Chapter 7.4),
         +CSQ (see 3GPP TS 07.07 Chapter 8.5).
-      </p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id258777"></a><h3><a id="Network.GetSignalStrength"></a>GetSignalStrength ()</h3><a id="id258789" class="indexterm"></a><pre class="programlisting">GetSignalStrength (out 'i' signal_strength)</pre><p>Query the current signal strength, if registered with a service provider.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>signal_strength</code></em>:</span></dt><dd><p>The signal strength in percent (0-100).</p></dd></dl></div><div class="refsect3" lang="en" xml:lang="en"><a id="id258834"></a><h4>Implementation notes:</h4><p>This maps to the GSM 07.07 command +CSQ, see 3GPP TS 07.07 Chapter 8.5</p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id258844"></a><h3><a id="Network.ListProviders"></a>ListProviders ()</h3><a id="id304510" class="indexterm"></a><pre class="programlisting">ListProviders (out 'a(isss)' providers)</pre><p>List available service providers.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>providers</code></em>:</span></dt><dd><p>
+      </p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id258777"></a><h3><a id="Network.GetSignalStrength"></a>GetSignalStrength ()</h3><a id="id258789" class="indexterm"></a><pre class="programlisting">GetSignalStrength (out 'i' signal_strength)</pre><p>Query the current signal strength, if registered with a service provider.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>signal_strength</code></em>:</span></dt><dd><p>The signal strength in percent (0-100).</p></dd></dl></div><div class="refsect3" lang="en" xml:lang="en"><a id="id258834"></a><h4>Implementation notes:</h4><p>This maps to the GSM 07.07 command +CSQ, see 3GPP TS 07.07 Chapter 8.5</p></div></div><div class="refsect2" lang="en" xml:lang="en"><a id="id258845"></a><h3><a id="Network.ListProviders"></a>ListProviders ()</h3><a id="id304510" class="indexterm"></a><pre class="programlisting">ListProviders (out 'a(isss)' providers)</pre><p>List available service providers.</p><div class="variablelist"><dl><dt><span class="term"><em class="parameter"><code>providers</code></em>:</span></dt><dd><p>
           An array of four-tuples with the following structure:
           1. Unique numerical operator code,
           2. Status ("unknown", "available", "current", "forbidden"),
