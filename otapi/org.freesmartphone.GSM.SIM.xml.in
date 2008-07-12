@@ -123,7 +123,7 @@
     </arg>
   </method>
 
-  <!-- INFO -->
+  <!-- INFO and LOW-LEVEL ACCESS -->
 
   <method name="GetSimInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
@@ -147,6 +147,75 @@
           ("dial_prefix", string),
           ("country", string).
         </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SendGenericSimCommand">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Send a generic SIM command to the SIM card.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CSIM=(command), see 3GPP TS 07.07 Chapter 8.17.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="command" direction="in">
+      <doc:doc>
+        <doc:summary>The command to send, encoded as described in GSM 11.11.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="result" direction="in">
+      <doc:doc>
+        <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SendRestrictedSimCommand">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Send a restricted SIM command to the SIM card.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CRSM=(command,fileid,p1,p2,p3,data), see 3GPP TS 07.07 Chapter 8.18.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="command" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The command to send. Valid values are:
+          176 = READ BINARY,
+          178 = READ RECORD,
+          192 = GET RESPONSE,
+          214 = UPDATE BINARY,
+          220 = UPDATE RECORD,
+          242 = STATUS.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="fileid" direction="in">
+      <doc:doc>
+        <doc:summary>The identifier of an elementary datafile on SIM. Mandatory for every command except STATUS.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="p1" direction="in">
+      <doc:doc>
+        <doc:summary>Parameter 1 passed to the SIM. Mandatory for every command except STATUS and GET RESPONSE.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="p2" direction="in">
+      <doc:doc>
+        <doc:summary>Parameter 1 passed to the SIM. Mandatory for every command except STATUS and GET RESPONSE.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="p3" direction="in">
+      <doc:doc>
+        <doc:summary>Parameter 1 passed to the SIM. Mandatory for every command except STATUS and GET RESPONSE.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="data" direction="in">
+      <doc:doc>
+        <doc:summary>The command data to the SIM, encoded as described in GSM 11.11.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="result" direction="in">
+      <doc:doc>
+        <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
   </method>
