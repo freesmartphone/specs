@@ -15,7 +15,7 @@
     </doc:para>
   </doc:doc>
 
-  <!-- AUTH -->
+  <!-- AUTHENTICATION -->
 
   <method name="SetEnableAuthCodeCheck">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
@@ -123,7 +123,7 @@
     </arg>
   </method>
 
-  <!-- INFO and LOW-LEVEL ACCESS -->
+  <!-- INFO & LOW-LEVEL ACCESS -->
 
   <method name="GetSimInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
@@ -216,6 +216,19 @@
     <arg type="s" name="result" direction="in">
       <doc:doc>
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetHomeZones">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve the homezones coordinates, if stored on SIM.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CRSM=176,28512,0,0,123, see 3GPP TS 07.07 Chapter 8.17.</doc:inote>
+    </doc:doc>
+    <arg type="a(iii)" name="homezones" direction="out">
+      <doc:doc>
+        <doc:summary>An array containing up to four homezones (x, y, radious**2) in Gauss-Krüger coordinates.</doc:summary>
       </doc:doc>
     </arg>
   </method>
