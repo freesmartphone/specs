@@ -226,9 +226,15 @@
       <doc:description>Retrieve the homezones coordinates, if stored on SIM.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CRSM=176,28512,0,0,123, see 3GPP TS 07.07 Chapter 8.17.</doc:inote>
     </doc:doc>
-    <arg type="a(iii)" name="homezones" direction="out">
+    <arg type="a(siii)" name="homezones" direction="out">
       <doc:doc>
-        <doc:summary>An array containing up to four homezones (x, y, radious**2) in Gauss-Krüger coordinates.</doc:summary>
+        <doc:summary>
+          An array containing up to four homezones in Gauss-Krüger coordinates. The array contains of four-tuples with:
+          (name:string), the name of the zone,
+          (x:int), the X value of the zone center in Gauss-Krüger format,
+          (y:int), the Y value of the zone center in Gauss-Krüger format,
+          (r:radious), the R*R value of the zone dimension in meters.
+        </doc:summary>
       </doc:doc>
     </arg>
   </method>
