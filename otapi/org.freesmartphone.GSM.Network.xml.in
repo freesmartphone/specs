@@ -21,6 +21,38 @@
     </doc:para>
   </doc:doc>
 
+  <error name="NotPresent">
+    <doc:doc>
+      <doc:description>
+        Raised, if no network service is available.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="Unauthorized">
+    <doc:doc>
+      <doc:description>
+        Raised, if registering with the specified network is not possible.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NotSupported">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested network operation is not supported.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested network provider is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
   <method name="Register">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
     <doc:doc>
@@ -43,28 +75,28 @@
       <doc:description>Get Network Status.</doc:description>
       <doc:inote>
         This can map to the following GSM 07.07 commands:
-        +CREG? (see 3GPP TS 07.07 Chapter 7.3),
-        +COPS? (see 3GPP TS 07.07 Chapter 7.4),
-        +CSQ (see 3GPP TS 07.07 Chapter 8.5).
+        * +CREG? (see 3GPP TS 07.07 Chapter 7.3),
+        * +COPS? (see 3GPP TS 07.07 Chapter 7.4),
+        * +CSQ (see 3GPP TS 07.07 Chapter 8.5).
       </doc:inote>
     </doc:doc>
     <arg type="a{sv}" name="status" direction="out">
       <doc:doc>
         <doc:summary>
           Network status information. Mandatory tuples are:
-          ( "registration", string ):
+          * ( "registration", string ):
           The registration status. Expected values are:
-          "unregistered" = not registered, not trying,
-          "home" = registered to home network,
-          "busy" = not registered, but currently trying,
-          "denied" = no permitted network available,
-          "unknown" = no idea,
-          "roaming" = registered to foreign network.
+          * "unregistered" = not registered, not trying,
+          * "home" = registered to home network,
+          * "busy" = not registered, but currently trying,
+          * "denied" = no permitted network available,
+          * "unknown" = no idea,
+          * "roaming" = registered to foreign network.
           Optional tuples are:
-          ( "provider", string ): The network provider (if registered or roaming).
-          ( "strength", int ): The signal strength in percentage (0-100).
-          ( "lac", string ): The location area code string (if available).
-          ( "cid", string ): The cell id string (if available).
+          * ( "provider", string ): The network provider (if registered or roaming).
+          * ( "strength", int ): The signal strength in percentage (0-100).
+          * ( "lac", string ): The location area code string (if available).
+          * ( "cid", string ): The cell id string (if available).
         </doc:summary>
       </doc:doc>
     </arg>
@@ -89,7 +121,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
     <doc:doc>
       <doc:description>Query the current signal strength, if registered with a service provider.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CSQ, see 3GPP TS 07.07 Chapter 8.5</doc:inote>
+      <doc:inote>This maps to the GSM 07.07 command +CSQ, see 3GPP TS 07.07 Chapter 8.5.</doc:inote>
     </doc:doc>
     <arg type="i" name="signal_strength" direction="out">
       <doc:doc>
@@ -103,7 +135,7 @@
       <doc:description>
         (OPTIONAL) Sent, when registered with a service provider and the network signal strength changes.
       </doc:description>
-      <doc:inote>There is no unsolicited response code for signal strength in GSM 07.07</doc:inote>
+      <doc:inote>This can map to the GSM 07.07 unsolicited response +CIEV, see 3GPP TS 07.07 Chapter 8.9.</doc:inote>
     </doc:doc>
     <arg type="i" name="signal_strength">
       <doc:doc>
@@ -116,16 +148,16 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
       <doc:doc>
         <doc:description>List available service providers.</doc:description>
-        <doc:inote>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3</doc:inote>
+        <doc:inote>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
       </doc:doc>
     <arg type="a(isss)" name="providers" direction="out">
       <doc:doc>
         <doc:summary>
           An array of four-tuples with the following structure:
-          1. Unique numerical operator code,
-          2. Status ("unknown", "available", "current", "forbidden"),
-          3. Long Name,
-          4. Short Name (optional, may be empty).
+          # Unique numerical operator code,
+          # Status ("unknown", "available", "current", "forbidden"),
+          # Long Name,
+          # Short Name (optional, may be empty).
         </doc:summary>
       </doc:doc>
     </arg>
@@ -135,7 +167,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
       <doc:doc>
         <doc:description>Register to a dedicated service provider.</doc:description>
-          <doc:inote>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3</doc:inote>
+          <doc:inote>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
       </doc:doc>
     <arg type="i" name="operator_code" direction="in">
       <doc:doc>
@@ -170,12 +202,21 @@
       <doc:doc>
         <doc:summary>
           A dictionary containing entries for call classes. Expected keywords are:
-          "voice", "data", "voice+data", "fax", "voice+data+fax". Rarely you can expect:
-          "sms", "dcs", "dca", "dpa", "pad".
+          * "voice",
+          * "data",
+          * "voice+data",
+          * "fax",
+          * "voice+data+fax".
+          Rarely you can also expect:
+          * "sms",
+          * "dcs",
+          * "dca",
+          * "dpa",
+          * "pad".
           The value is a three-tuple with the following structure:
-          1. Enabled (boolean),
-          2. Call forwarding number,
-          3. Seconds after which the call forwarding gets active.
+          # boolean: Whether the feature is enabled or not,
+          # string: Call forwarding number,
+          # int: Number of seconds after which the call forwarding gets active.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -191,12 +232,12 @@
       <doc:doc>
         <doc:summary>
           Reason for which you want to enable network call forwarding. Valid reasons are:
-          "unconditional",
-          "mobile busy",
-          "no reply",
-          "not reachable",
-          "all",
-          "all conditional",
+          * "unconditional",
+          * "mobile busy",
+          * "no reply",
+          * "not reachable",
+          * "all",
+          * "all conditional".
         </doc:summary>
       </doc:doc>
     </arg>
@@ -210,7 +251,7 @@
     <arg type="s" name="number" direction="in">
       <doc:doc>
         <doc:summary>
-          Phone number to which you want to enable network call forwarding.
+          Phone number to which the network call will be forwarded.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -233,19 +274,19 @@
       <doc:doc>
         <doc:summary>
           Reason for which you want to disable network call forwarding. Valid reasons are:
-          "unconditional",
-          "mobile busy",
-          "no reply",
-          "not reachable",
-          "all",
-          "all conditional",
+          * "unconditional",
+          * "mobile busy",
+          * "no reply",
+          * "not reachable",
+          * "all",
+          * "all conditional",
         </doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="class" direction="in">
       <doc:doc>
         <doc:summary>
-          Call class for which you want to enable network call forwarding. See GetCallForwarding for valid classes.
+          Call class for which the network call gets forwarded. See GetCallForwarding for valid classes.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -260,9 +301,10 @@
     <arg type="s" name="visible" direction="in">
       <doc:doc>
         <doc:summary>
-          "on", if your subscriber number should always be visible to other parties.
-          "off", if your subscriber number should never be visible to other parties.
-          "network", if you want to use the network default.
+          One of the following values:
+          * "on", if your subscriber number should always be visible to other parties.
+          * "off", if your subscriber number should never be visible to other parties.
+          * "network", if you want to use the network default.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -277,15 +319,14 @@
     <arg type="s" name="visible" direction="out">
       <doc:doc>
         <doc:summary>
-          "on", if your subscriber number is always visible to other parties.
-          "off", if your subscriber number is never visible to other parties.
-          "network", if visibility depends on the network settings.
+          One of the following values:
+          * "on", if your subscriber number is always visible to other parties.
+          * "off", if your subscriber number is never visible to other parties.
+          * "network", if visibility depends on the network settings.
       </doc:summary>
       </doc:doc>
     </arg>
   </method>
-
-
 
   <!-- FIXME Do we want methods for:
        * List available GSM bands
