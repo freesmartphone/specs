@@ -2,21 +2,29 @@
 <node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-pdp-interface">
 
   <doc:doc>
-    <doc:summary>freesmartphone.org GSM Packet-Data-Protocol Interface</doc:summary>
+    <doc:summary>freesmartphone.org GSM Packet Data Protocol Interface</doc:summary>
   </doc:doc>
 
   <interface name="org.freesmartphone.GSM.PDP">
 
     <doc:doc>
       <doc:para>
-        The Packet-Data-Protocol interface is used to set up
+        The Packet Data Protocol interface is used to set up
         binary data connections that allow you to transfer
         data over the TCP/IP protocol family routed
         via IP-based 2.5/3G provider networks.
       </doc:para>
     </doc:doc>
 
-  <method name="ListGprsClasses">
+    <error name="NotFound">
+      <doc:doc>
+        <doc:description>
+          Raised, if the specified PDP context is not present.
+        </doc:description>
+      </doc:doc>
+    </error>
+
+    <method name="ListGprsClasses">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
     <doc:doc>
       <doc:description>List available GPRS device classes.</doc:description>
@@ -63,11 +71,11 @@
       </doc:description>
       <doc:inote>
         This can map to the following GSM 07.07 commands:
-        +CGDCONT (see 3GPP TS 07.07 chapter 10.1.1)
-        +CGATT (see 3GPP TS 07.07 chapter 10.1.4)
-        +CGACT (see 3GPP TS 07.07 chapter 10.1.5)
-        +CGDATA (see 3GPP TS 07.07 chapter 10.1.6).
-        It might also map to the v25.ter compatibility commands D*...
+        * +CGDCONT (see 3GPP TS 07.07 chapter 10.1.1),
+        * +CGATT (see 3GPP TS 07.07 chapter 10.1.4),
+        * +CGACT (see 3GPP TS 07.07 chapter 10.1.5),
+        * +CGDATA (see 3GPP TS 07.07 chapter 10.1.6).
+        It might also map to the v.250 compatibility commands D*...
       </doc:inote>
       <doc:inote>This command might change your network default route.</doc:inote>
     </doc:doc>
@@ -121,11 +129,11 @@
       <doc:doc>
         <doc:summary>
           The new status of the call. Expected values are:
-          "incoming" = The context is incoming (but not yet accepted),
-          "outgoing" = The context is outgoing (but not yet established),
-          "active" = The context is active (you have a new default route),
-          "held" = The context is being held (interrupted by a voice call),
-          "released" = The context is being released.
+          * "incoming" = The context is incoming (but not yet accepted),
+          * "outgoing" = The context is outgoing (but not yet established),
+          * "active" = The context is active (you have a new default route),
+          * "held" = The context is being held (interrupted by a voice call),
+          * "released" = The context is being released.
           Further information can be part of the properties.
         </doc:summary>
       </doc:doc>
@@ -133,10 +141,10 @@
     <arg type="a{sv}" name="properties">
       <doc:doc>
         <doc:summary>
-          An array of property values. Note that the properties
-          are optional. Expected tuples are:
-          ( "reason", string ) = The reason for the status change,
-          ( "apn", string ) = The number of the access point,
+          An array of property values. Note that properties are optional.
+          Expected tuples are:
+          * ( "reason", string ) = The reason for the status change,
+          * ( "apn", string ) = The number of the access point,
         </doc:summary>
       </doc:doc>
     </arg>
