@@ -14,10 +14,19 @@
     </doc:para>
   </doc:doc>
 
+  <error name="NotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if the specified call is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
   <method name="Emergency">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Initiate an emergency call.</doc:description>
+      <doc:inote>This maps to ATD(number);, see v.250.</doc:inote>
     </doc:doc>
     <arg type="s" name="number" direction="out">
     </arg>
@@ -40,11 +49,11 @@
       <doc:doc>
         <doc:summary>
           The new status of the call. Expected values are:
-          "incoming" = The call is incoming (but not yet accepted),
-          "outgoing" = The call is outgoing (but not yet established),
-          "active" = The call is the active call (you can talk),
-          "held" = The call is being held,
-          "released" = The call is being released.
+          * "incoming" = The call is incoming (but not yet accepted),
+          * "outgoing" = The call is outgoing (but not yet established),
+          * "active" = The call is the active call (you can talk),
+          * "held" = The call is being held,
+          * "released" = The call is being released.
           Further information can be part of the properties.
         </doc:summary>
       </doc:doc>
@@ -52,14 +61,11 @@
     <arg type="a{sv}" name="properties">
       <doc:doc>
         <doc:summary>
-          An array of changed property values. To get the full status for a call,
-          you need to issue the GetCallStatus() method. Note that the properties
-          are optional. Expected tuples are:
-          ( "reason", string ) = The reason for the status change (on outgoing calls e.g. 'BUSY' or 'NO CARRIER')
-          ( "number", string ) = The number of the peer (on incoming calls only if we received a CLIP)
-          ... [ add more here ]
-          ( "auxstatus", string ) = An auxillary connection status (if your modem supports that),
-          ...
+          An array of property values. Note that properties are optional. Expected tuples are:
+          * ( "reason", string ) = The reason for the status change (on outgoing calls e.g. 'BUSY' or 'NO CARRIER'),
+          * ( "number", string ) = The number of the peer (on incoming calls only if we received a CLIP)
+          * ( "auxstatus", string ) = An auxillary connection status (if your modem supports that),
+          * ...
         </doc:summary>
       </doc:doc>
     </arg>
@@ -73,6 +79,9 @@
         put on hold. No difference is made whether this is an incoming
         call or a call that has been put on hold.
       </doc:description>
+      <doc:inote>
+        This can map to ATA, see v.250. It might also map to GSM 07.07 +CHLD=..., see 3GPP TS 07.07 Chapter 7.12.
+      </doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
   </method>
@@ -85,6 +94,7 @@
         No difference is made whether this is an incoming
         call or a call that has been put on hold.
       </doc:description>
+      <doc:inote>This maps to GSM 07.07 +CHLD=..., see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
   </method>
@@ -93,6 +103,9 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Release a call.</doc:description>
+      <doc:inote>
+        This can map to ATH, see v.250. It might also map to GSM 07.07 +CHLD=..., see 3GPP TS 07.07 Chapter 7.12. Some implementations might map it to GSM 07.07 +CHUP=, see 3GPP TS 07.07 Chapter 6.5.
+      </doc:inote>
     </doc:doc>
     <arg type="s" name="message" direction="in" />
     <arg type="i" name="id" direction="in" />
@@ -102,6 +115,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Hold the active call.</doc:description>
+      <doc:inote>This maps to GSM 07.07 +CHLD=2, see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
   </method>
 
@@ -109,6 +123,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Join all active and held calls and release them.</doc:description>
+      <doc:inote>This maps to GSM 07.07 +CHLD=4, see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
   </method>
 
@@ -116,6 +131,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Transfer an incoming or active call to another number.</doc:description>
+      <doc:inote>This maps to GSM 07.07 +CCFC=..., see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
     </doc:doc>
     <arg type="s" name="number" direction="in">
       <doc:doc>
@@ -128,6 +144,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Release all held calls.</doc:description>
+      <doc:inote>This maps to GSM 07.07 +CHLD=, see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
     <arg type="s" name="message" direction="in" />
   </method>
@@ -136,6 +153,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Release all calls, no matter whether active or put on hold.</doc:description>
+      <doc:inote>This maps to ATH, see v.250.</doc:inote>
     </doc:doc>
     <arg type="s" name="message" direction="in" />
   </method>
@@ -144,9 +162,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Initiate an outgoing call.</doc:description>
-      <doc:inote>
-        This is implemented using the atd command.
-      </doc:inote>
+      <doc:inote>This maps to ATD(number);, see v.250.</doc:inote>
     </doc:doc>
     <arg type="s" name="number" direction="in" />
     <arg type="s" name="type" direction="in" />
