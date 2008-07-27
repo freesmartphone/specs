@@ -10,10 +10,59 @@
   <doc:doc>
     <doc:para>
       The SIM object is used to access the Subscriber Identification Module (SIM)
-      pluggable as a card into the GSM device. Use it to authenticate yourself
-      against the GSM network and read/store from/to the embedded SIM card memory.
+      plugged as a card into the GSM device. Use it to authenticate yourself
+      against the GSM network and read/store data from/to the embedded SIM card memory.
+      Limited support for accessing the on-card phonebook and messagebook is provided.
     </doc:para>
   </doc:doc>
+
+  <error name="NotPresent">
+    <doc:doc>
+      <doc:description>
+        Raised, if there is no SIM card present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="AuthFailed">
+    <doc:doc>
+      <doc:description>
+        Raised, if the SIM authentication code is not accepted.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="Blocked">
+    <doc:doc>
+      <doc:description>
+        Raised, if the SIM has been deactivated or is otherwise not allowed to join a network.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if a data record on the SIM is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="MemoryFull">
+    <doc:doc>
+      <doc:description>
+        Raised, if there is not enough space for a data record on the SIM.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="InvalidIndex">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested messagebook or phonebook entry is out of bounds.
+      </doc:description>
+    </doc:doc>
+  </error>
 
   <!-- AUTHENTICATION -->
 
@@ -21,20 +70,20 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Retrieve the authentication status for the SIM card.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CPIN=?, see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
     </doc:doc>
     <arg type="s" name="status" direction="out">
       <doc:doc>
         <doc:summary>
           The authentication status for the SIM card. Values to expect:
-          "READY" = ME is not pending for any password,
-          "SIM PIN" = ME is waiting for SIM PIN to be given,
-          "SIM PUK" = ME is waiting for SIM PUK to be given,
-          "SIM PIN2" = ME is waiting for SIM PIN 2 to be given,
-          "SIM PUK2" = ME is waiting for SIM PUK 2 to be given.
+          * "READY" = not waiting for any PIN or PUK,
+          * "SIM PIN" = waiting for SIM PIN to be given,
+          * "SIM PUK" = waiting for SIM PUK to be given,
+          * "SIM PIN2" = waiting for SIM PIN 2 to be given,
+          * "SIM PUK2" = waiting for SIM PUK 2 to be given.
           <!-- 07.07 8.3 shows many more here, but we will add these
                when we actually encounter them in the field -->
         </doc:summary>
-        <doc:inote>This maps to the GSM 07.07 command +CPIN=?, see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
       </doc:doc>
     </arg>
   </method>
@@ -56,6 +105,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Send authentication code (PIN) for the SIM card.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CPIN="(pin)", see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
     </doc:doc>
     <arg type="s" name="pin" direction="in">
       <doc:doc>
@@ -68,6 +118,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Send unlock code (PUK) and new authentication code (PIN).</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CPIN="(puk)","(new_pin)", see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
     </doc:doc>
     <arg type="s" name="puk" direction="in">
       <doc:doc>
@@ -85,6 +136,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Change the authentication code.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CPWD="SC","(old_pin)","(new_pin)", see 3GPP TS 07.07 Chapter 7.5.</doc:inote>
     </doc:doc>
     <arg type="s" name="old_pin" direction="in">
       <doc:doc>
@@ -102,7 +154,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Enable or disable checking for the SIM card authentification on startup.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CLCK,"SC",(check),"(pin)", see 3GPP </doc:inote>
+      <doc:inote>This maps to the GSM 07.07 command +CLCK,"SC",(check),"(pin)", see 3GPP TS 07.07 Chapter 7.4.</doc:inote>
     </doc:doc>
     <arg type="b" name="check" direction="in">
       <doc:doc>
@@ -120,7 +172,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Retrieve whether the SIM card checks for authentification on startup.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CLCK,"SC",2, see 3GPP </doc:inote>
+      <doc:inote>This maps to the GSM 07.07 command +CLCK,"SC",2, see 3GPP TS 07.07 Chapter 7.4.</doc:inote>
     </doc:doc>
     <arg type="b" name="check" direction="out">
       <doc:doc>
@@ -138,8 +190,8 @@
         and the country code of the SIM card.</doc:description>
       <doc:inote>
         This can map to the following GSM 07.07 commands:
-          +CIMI (see 3GPP TS 07.07 Chapter 5.6),
-          +CNUM (see 3GPP TS 07.07 Chapter 7.1).
+          * +CIMI (see 3GPP TS 07.07 Chapter 5.6),
+          * +CNUM (see 3GPP TS 07.07 Chapter 7.1).
           The dial code is computed by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
       </doc:inote>
     </doc:doc>
@@ -179,18 +231,18 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Send a restricted SIM command to the SIM card.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CRSM=(command,fileid,p1,p2,p3,data), see 3GPP TS 07.07 Chapter 8.18.</doc:inote>
+      <doc:inote>This maps to the GSM 07.07 command +CRSM=(command),(fileid),(p1),(p2),(p3),(data), see 3GPP TS 07.07 Chapter 8.18.</doc:inote>
     </doc:doc>
     <arg type="i" name="command" direction="in">
       <doc:doc>
         <doc:summary>
           The command to send. Valid values are:
-          176 = READ BINARY,
-          178 = READ RECORD,
-          192 = GET RESPONSE,
-          214 = UPDATE BINARY,
-          220 = UPDATE RECORD,
-          242 = STATUS.
+          * 176 = READ BINARY,
+          * 178 = READ RECORD,
+          * 192 = GET RESPONSE,
+          * 214 = UPDATE BINARY,
+          * 220 = UPDATE RECORD,
+          * 242 = STATUS.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -235,11 +287,11 @@
     <arg type="a(siii)" name="homezones" direction="out">
       <doc:doc>
         <doc:summary>
-          An array containing up to four homezones in Gauss-Krüger coordinates. The array contains of four-tuples with:
-          (name:string), the name of the zone,
-          (x:int), the X value of the zone center in Gauss-Krüger format,
-          (y:int), the Y value of the zone center in Gauss-Krüger format,
-          (r:radious), the R*R value of the zone dimension in meters.
+          An array containing up to four homezones in Gauss-Krüger coordinates. The array contains of four-tuples with the following format:
+          # (name:string), the name of the zone,
+          # (x:int), the X value of the zone center in Gauss-Krüger format,
+          # (y:int), the Y value of the zone center in Gauss-Krüger format,
+          # (r:radious), the R*R value of the zone dimension in meters.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -257,10 +309,10 @@
     <doc:doc>
       <doc:summary>
         Information about the SIM phonebook storage. Tuples to expect:
-        ("slots", int:value) = maximum of entries stored on the SIM,
-        ("used", int:value) = actual number of entries stored on the SIM,
-        ("number_length", int:value) = maximum length for the number,
-        ("name_length", int:value) = maximum length for the name.
+        * ("slots", int:value) = maximum of entries stored on the SIM,
+        * ("used", int:value) = actual number of entries stored on the SIM,
+        * ("number_length", int:value) = maximum length for the number,
+        * ("name_length", int:value) = maximum length for the name.
       </doc:summary>
     </doc:doc>
     </arg>
@@ -283,7 +335,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Store an entry in the SIM phonebook.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPBW=, see 3GPP TS 07.07 Chapter 8.14.</doc:inote>
+      <doc:inote>This maps to the GSM 07.07 command +CPBW=(index),"(name)",(number),(ntype), see 3GPP TS 07.07 Chapter 8.14.</doc:inote>
     </doc:doc>
     <arg type="i" name="index" direction="in">
       <doc:doc>
@@ -334,9 +386,9 @@
       <doc:doc>
         <doc:summary>
           Information about the SIM messagebook storage. Tuples to expect:
-          ("slots", int:value) = maximum of messages stored on the SIM,
-          ("used", int:value) = actual number of messages stored on the SIM,
-          ("contents_length", int:value) = maximum length for a message,
+          * ("slots", int:value) = maximum of messages stored on the SIM,
+          * ("used", int:value) = actual number of messages stored on the SIM,
+          * ("contents_length", int:value) = maximum length for a message,
         </doc:summary>
       </doc:doc>
     </arg>
@@ -359,7 +411,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Set phone number of SMS Center Number.</doc:description>
-      <doc:inote>This maps to the GSM 07.05 command +CSCA=(number,type), see 3GPP TS 07.05 Chapter 3.3.1.</doc:inote>
+      <doc:inote>This maps to the GSM 07.05 command +CSCA=(number),(type), see 3GPP TS 07.05 Chapter 3.3.1.</doc:inote>
     </doc:doc>
     <arg type="s" name="number" direction="in">
       <doc:doc>
