@@ -188,7 +188,10 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Send one or more Dual Tone Multiple Frequency (DTMF) signals during an active call.</doc:description>
-      <doc:inote>This maps to the TIA IS 101 command +VTS=(value), see 3GPP TS 07.07 Chapter C.2.11.</doc:inote>
+      <doc:inote>
+        This maps to the TIA IS 101 command +VTS=(value), see 3GPP TS 07.07 Chapter C.2.11.
+        Note: DTMF signals are always sent to all active calls, this is a limitation of the underlying protocols.
+      </doc:inote>
     </doc:doc>
     <arg type="s" name="tones" direction="in">
       <doc:doc>
