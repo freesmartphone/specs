@@ -190,7 +190,7 @@
       <doc:description>Send one or more Dual Tone Multiple Frequency (DTMF) signals during an active call.</doc:description>
       <doc:inote>This maps to the TIA IS 101 command +VTS=(value), see 3GPP TS 07.07 Chapter C.2.11.</doc:inote>
     </doc:doc>
-    <arg type="s" name="tones" direction="out">
+    <arg type="s" name="tones" direction="in">
       <doc:doc>
         <doc:summary>The tones to send. Allowed values are: (0-9,#,*,A-D)</doc:summary>
       </doc:doc>
