@@ -139,13 +139,27 @@ class Interface( Entity ):
         self.outfile.write( text )
 
 #----------------------------------------------------------------------------#
-class Method( Entity ):
+class Describable( Entity ):
 #----------------------------------------------------------------------------#
     def __init__( self, name, attrs ):
         Entity.__init__( self, name, attrs )
-        self.args = []
         self.description = None
         self.inote = None
+
+    def describe( self ):
+        text = ""
+        if self.description is not None:
+            text += self.outputParagraph( self.outputDescription( self.description ) )
+        if self.inote is not None:
+            text += self.outputParagraph( self.outputImplementationNote( self.inote ) )
+        return text
+
+#----------------------------------------------------------------------------#
+class Method( Describable ):
+#----------------------------------------------------------------------------#
+    def __init__( self, name, attrs ):
+        Describable.__init__( self, name, attrs )
+        self.args = []
 
     def signature( self ):
         outparam = ""
@@ -156,14 +170,6 @@ class Method( Entity ):
             else:
                 outparam += arg.attrs["type"]
         return inparam, outparam
-
-    def describe( self ):
-        text = ""
-        if self.description is not None:
-            text += self.outputParagraph( self.outputDescription( self.description ) )
-        if self.inote is not None:
-            text += self.outputParagraph( self.outputImplementationNote( self.inote ) )
-        return text
 
     def out( self ):
         text = ""
@@ -211,27 +217,17 @@ class Method( Entity ):
         return text
 
 #----------------------------------------------------------------------------#
-class Signal( Entity ):
+class Signal( Describable ):
 #----------------------------------------------------------------------------#
     def __init__( self, name, attrs ):
-        Entity.__init__( self, name, attrs )
+        Describable.__init__( self, name, attrs )
         self.args = []
-        self.description = None
-        self.inote = None
 
     def signature( self ):
         param = ""
         for arg in self.args:
             param += arg.attrs["type"]
         return param
-
-    def describe( self ):
-        text = ""
-        if self.description is not None:
-            text += self.outputParagraph( self.outputDescription( self.description ) )
-        if self.inote is not None:
-            text += self.outputParagraph( self.outputImplementationNote( self.inote ) )
-        return text
 
     def out( self ):
         text = ""
@@ -256,10 +252,19 @@ class Signal( Entity ):
         return text
 
 #----------------------------------------------------------------------------#
-class Error( Entity ):
+class Error( Describable ):
 #----------------------------------------------------------------------------#
     def __init__( self, name, attrs ):
-        Entity.__init__( self, name, attrs )
+        Describable.__init__( self, name, attrs )
+
+    def out( self ):
+        text = ""
+        text += "%s" % ( self.outputAnchorLabel( self.name ) )
+        text = self.outputSectionHeader( text, 3 )
+        text += self.describe()
+        text += "\n"
+
+        return text
 
 #----------------------------------------------------------------------------#
 class Argument( Entity ):
@@ -283,6 +288,8 @@ class Handler( ContentHandler ):
         self.current = None
         self.doc = None
         self.method = None
+        self.signal = None
+        self.error = None
         self.arg = None
         self.text = ""
         self.significantElements = "node interface method signal error arg".split()
@@ -315,6 +322,9 @@ class Handler( ContentHandler ):
         elif element == "signal":
             self.signal = Signal( self.name.strip(), attrs )
 
+        elif element == "error":
+            self.error = Error( self.name.strip(), attrs )
+
     def characters( self, char ):
         c = char.strip() + " "
         if c:
@@ -338,6 +348,9 @@ class Handler( ContentHandler ):
         elif element == "doc:description" and self.current == "signal":
             self.signal.description = self.text.strip()
 
+        elif element == "doc:description" and self.current == "error":
+            self.error.description = self.text.strip()
+
         elif element == "doc:inote" and self.current == "method":
             self.method.inote = self.text.strip()
 
@@ -350,6 +363,11 @@ class Handler( ContentHandler ):
             assert self.signal is not None
             self.iface.signals.append( self.signal )
             self.signal = None
+
+        elif element == "error":
+            assert self.error is not None
+            self.iface.errors.append( self.error )
+            self.error = None
 
         elif element == "arg":
             assert self.arg is not None
