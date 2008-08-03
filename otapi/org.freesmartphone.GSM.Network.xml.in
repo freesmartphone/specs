@@ -92,6 +92,12 @@
           * "denied" = no permitted network available,
           * "unknown" = no idea,
           * "roaming" = registered to foreign network.
+          * ( "mode", string ):
+          The registration mode. Expected values are:
+          * "automatic" = automatic selection,
+          * "manual" = manual selection,
+          * "manual;automatic" = manual first, then automatic,
+          * "unknown" = unknown.
           Optional tuples are:
           * ( "provider", string ): The network provider (if registered or roaming).
           * ( "strength", int ): The signal strength in percentage (0-100).
