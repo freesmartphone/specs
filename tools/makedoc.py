@@ -35,6 +35,12 @@ class Entity( object ):
     def outputAnchorLabel( self, content ):
         return """<a name="%s">%s</a>""" % ( content, content )
 
+    def outputDescription( self, content ):
+        return "<i>Description:</i> %s" % content
+
+    def outputImplementationNote( self, content ):
+        return "<i>Implementation Note:</i> %s" % content
+
     def outputList( self, entries ):
 
         if not len( entries ):
@@ -138,6 +144,8 @@ class Method( Entity ):
     def __init__( self, name, attrs ):
         Entity.__init__( self, name, attrs )
         self.args = []
+        self.description = None
+        self.inote = None
 
     def signature( self ):
         outparam = ""
@@ -149,26 +157,41 @@ class Method( Entity ):
                 outparam += arg.attrs["type"]
         return inparam, outparam
 
+    def describe( self ):
+        text = ""
+        if self.description is not None:
+            text += self.outputParagraph( self.outputDescription( self.description ) )
+        if self.inote is not None:
+            text += self.outputParagraph( self.outputImplementationNote( self.inote ) )
+        return text
+
     def out( self ):
         text = ""
         inparam, outparam = self.signature()
         if inparam and outparam:
             text += "%s ( %s ) &rarr; %s" % ( self.outputAnchorLabel( self.name ), inparam, outparam )
+            text = self.outputSectionHeader( text, 3 )
             text += "\n"
+            text += self.describe()
             text += self.inparam()
             text += self.outparam()
         elif inparam and not outparam:
             text += "%s ( %s )" % ( self.outputAnchorLabel( self.name ), inparam )
+            text = self.outputSectionHeader( text, 3 )
             text += "\n"
+            text += self.describe()
             text += self.inparam()
         elif not inparam and outparam:
             text += "%s ( ) &rarr; %s" % ( self.outputAnchorLabel( self.name ), outparam )
+            text = self.outputSectionHeader( text, 3 )
             text += "\n"
+            text += self.describe()
             text += self.outparam()
         else:
             text += "%s ( )" % ( self.outputAnchorLabel( self.name ), outparam )
+            text = self.outputSectionHeader( text, 3 )
+            text += self.describe()
 
-        text = self.outputSectionHeader( text, 3 )
         text += "\n"
 
         return text
@@ -193,6 +216,8 @@ class Signal( Entity ):
     def __init__( self, name, attrs ):
         Entity.__init__( self, name, attrs )
         self.args = []
+        self.description = None
+        self.inote = None
 
     def signature( self ):
         param = ""
@@ -200,11 +225,21 @@ class Signal( Entity ):
             param += arg.attrs["type"]
         return param
 
+    def describe( self ):
+        text = ""
+        if self.description is not None:
+            text += self.outputParagraph( self.outputDescription( self.description ) )
+        if self.inote is not None:
+            text += self.outputParagraph( self.outputImplementationNote( self.inote ) )
+        return text
+
     def out( self ):
         text = ""
         param = self.signature()
         if param:
             text += "%s ( %s )" % ( self.outputAnchorLabel( self.name ), param )
+            text = self.outputSectionHeader( text, 3 )
+            text += self.describe()
             text += self.param()
         else:
             text += "%s ( )" % ( self.outputAnchorLabel( self.name ) )
@@ -250,6 +285,7 @@ class Handler( ContentHandler ):
         self.method = None
         self.arg = None
         self.text = ""
+        self.significantElements = "node interface method signal error arg".split()
 
     def startDocument( self ):
         pass
@@ -258,9 +294,10 @@ class Handler( ContentHandler ):
         pass
 
     def startElement( self, element, attrs ):
-        if not element.startswith( "doc" ):
+        if element in self.significantElements:
+            print "--- setting current element to", element
             self.current = element
-        else:
+        if element.startswith( "doc:" ):
             self.doc = element.split( ':' )[1]
         self.name = attrs.get( "name", "" )
         self.attrs = attrs
@@ -295,6 +332,15 @@ class Handler( ContentHandler ):
         elif element == "doc:para" and self.current == "interface":
             self.iface.description = self.text.strip()
 
+        elif element == "doc:description" and self.current == "method":
+            self.method.description = self.text.strip()
+
+        elif element == "doc:description" and self.current == "signal":
+            self.signal.description = self.text.strip()
+
+        elif element == "doc:inote" and self.current == "method":
+            self.method.inote = self.text.strip()
+
         elif element == "method":
             assert self.method is not None
             self.iface.methods.append( self.method )
@@ -316,8 +362,10 @@ class Handler( ContentHandler ):
         print self.text, element
 
         self.text = ""
-        self.current = None
-        self.parent = element
+        if element in self.significantElements:
+            print "resetting current element"
+            self.current = None
+            self.parent = element
 
 #----------------------------------------------------------------------------#
 if __name__ == "__main__":
