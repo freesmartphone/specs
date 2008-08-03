@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# (C) 2008 Mickey Lauer.
+# (C) 2008 Michael 'Mickey' Lauer <mlauer@vanille-media.de>
 # GPLv2
 
 import sys
@@ -28,6 +28,12 @@ class Entity( object ):
 
     def outputTypewriter( self, content ):
         return "<tt>%s</tt>" % ( content )
+
+    def outputAnchorLink( self, content ):
+        return """<a href="#%s">%s</a>""" % ( content, content )
+
+    def outputAnchorLabel( self, content ):
+        return """<a name="%s">%s</a>""" % ( content, content )
 
     def outputList( self, entries ):
 
@@ -92,15 +98,15 @@ class Interface( Entity ):
 
         # method overview
         text += self.outputSectionHeader( "Methods", 2 )
-        text += self.outputList( [ method.name for method in self.methods ] )
+        text += self.outputList( [ self.outputAnchorLink(method.name) for method in self.methods ] )
 
         # signal overview
         text += self.outputSectionHeader( "Signals", 2 )
-        text += self.outputList( [ method.name for method in self.signals ] )
+        text += self.outputList( [ self.outputAnchorLink(method.name) for method in self.signals ] )
 
         # error overview
         text += self.outputSectionHeader( "Errors", 2 )
-        text += self.outputList( [ method.name for method in self.errors ] )
+        text += self.outputList( [ self.outputAnchorLink(method.name) for method in self.errors ] )
 
         # methods en detail
         if len( self.methods ):
@@ -147,20 +153,20 @@ class Method( Entity ):
         text = ""
         inparam, outparam = self.signature()
         if inparam and outparam:
-            text += "%s ( %s ) &rarr; %s" % ( self.name, inparam, outparam )
+            text += "%s ( %s ) &rarr; %s" % ( self.outputAnchorLabel( self.name ), inparam, outparam )
             text += "\n"
             text += self.inparam()
             text += self.outparam()
         elif inparam and not outparam:
-            text += "%s ( %s )" % ( self.name, inparam )
+            text += "%s ( %s )" % ( self.outputAnchorLabel( self.name ), inparam )
             text += "\n"
             text += self.inparam()
         elif not inparam and outparam:
-            text += "%s ( ) &rarr; %s" % ( self.name, outparam )
+            text += "%s ( ) &rarr; %s" % ( self.outputAnchorLabel( self.name ), outparam )
             text += "\n"
             text += self.outparam()
         else:
-            text += "%s ( )" % ( self.name, outparam )
+            text += "%s ( )" % ( self.outputAnchorLabel( self.name ), outparam )
 
         text = self.outputSectionHeader( text, 3 )
         text += "\n"
@@ -198,10 +204,10 @@ class Signal( Entity ):
         text = ""
         param = self.signature()
         if param:
-            text += "%s ( %s )" % ( self.name, param )
+            text += "%s ( %s )" % ( self.outputAnchorLabel( self.name ), param )
             text += self.param()
         else:
-            text += "%s ( )" % ( self.name )
+            text += "%s ( )" % ( self.outputAnchorLabel( self.name ) )
 
         text = self.outputSectionHeader( text, 3 )
         text += "\n"
