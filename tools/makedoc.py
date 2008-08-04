@@ -53,15 +53,16 @@ class Entity( object ):
             t += "</ul>\n"
             return t
 
-    def outputHeader( self ):
+    def outputHeader( self, cssfile=None ):
         return \
 """
 <html>
     <head>
         <title>%s</title>
+        %s
     </head>
     <body>
-""" % self.title
+""" % ( self.title, "" if cssfile is None else open( cssfile, "r" ).read() )
 
     def outputFooter( self ):
         return \
@@ -85,7 +86,7 @@ class Interface( Entity ):
         self.outfilename = self.filename.replace( ".xml.in", ".html" )
         self.outfile = open( self.outfilename, "w" )
 
-        text = self.outputHeader()
+        text = self.outputHeader( "./style.xml" )
         text += "\n"
 
         text += self.outputSectionHeader( self.namespace )
@@ -194,7 +195,7 @@ class Method( Describable ):
             text += self.describe()
             text += self.outparam()
         else:
-            text += "%s ( )" % ( self.outputAnchorLabel( self.name ), outparam )
+            text += "%s ( )" % ( self.outputAnchorLabel( self.name ) )
             text = self.outputSectionHeader( text, 3 )
             text += self.describe()
 
