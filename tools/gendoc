@@ -1,0 +1,8 @@
+#!/bin/sh
+
+for file in ../*/*.xml.in
+do
+	echo converting $file...
+	python makedoc.py $file >/dev/null
+done
+

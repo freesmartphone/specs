@@ -45,21 +45,27 @@
       <doc:description>Get information about the GSM device.</doc:description>
       <doc:inote>
         This can map to the following GSM 07.07 commands:
-        * +CGMI (see 3GPP TS 07.07 Chapter 5.1),
-        * +CGMM (see 3GPP TS 07.07 Chapter 5.2),
-        * +CGMR (see 3GPP TS 07.07 Chapter 5.3),
-        * +CGSN (see 3GPP TS 07.07 Chapter 5.4).
+        [ul]
+          [li]+CGMI (see 3GPP TS 07.07 Chapter 5.1),[/li]
+          [li]+CGMM (see 3GPP TS 07.07 Chapter 5.2),[/li]
+          [li]+CGMR (see 3GPP TS 07.07 Chapter 5.3),[/li]
+          [li]+CGSN (see 3GPP TS 07.07 Chapter 5.4).[/li]
+        [/ul]
       </doc:inote>
     </doc:doc>
     <arg type="a{sv}" name="info" direction="out">
       <doc:doc>
         <doc:summary>
           Information about this GSM device. Mandatory tuples are:
-          * ( "vendor", string ),
-          * ( "name", string ).
+          [ul]
+            [li]( "vendor", string ),[/li]
+            [li]( "name", string ).[/li]
+          [/ul]
           Optional tuples are:
-          * ( "revision", string ),
-          * ( "serial", string ).
+          [ul]
+            [li]( "revision", string ),[/li]
+            [li]( "serial", string ).[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -99,7 +105,12 @@
     <doc:doc>
       <doc:summary>
         The telephony features supported by this device. Expected tuples are:
-        ("GSM", string), ("FAX", string), ("WS", string), ("GPRS", string).
+        [ul]
+          [li]("GSM", string),[/li]
+          [li]("FAX", string),[/li]
+          [li]("WS", string),[/li]
+          [li]("GPRS", string).[/li]
+        [/ul]
       </doc:summary>
       <doc:inote>
         This also maps to the GSM 07.07 commands +FCLASS=?, +WS46=?, and +CGCLASS=?,

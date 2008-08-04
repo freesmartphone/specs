@@ -71,10 +71,12 @@
       </doc:description>
       <doc:inote>
         This can map to the following GSM 07.07 commands:
-        * +CGDCONT (see 3GPP TS 07.07 chapter 10.1.1),
-        * +CGATT (see 3GPP TS 07.07 chapter 10.1.4),
-        * +CGACT (see 3GPP TS 07.07 chapter 10.1.5),
-        * +CGDATA (see 3GPP TS 07.07 chapter 10.1.6).
+        [ul]
+          [li]+CGDCONT (see 3GPP TS 07.07 chapter 10.1.1),[/li]
+          [li]+CGATT (see 3GPP TS 07.07 chapter 10.1.4),[/li]
+          [li]+CGACT (see 3GPP TS 07.07 chapter 10.1.5),[/li]
+          [li]+CGDATA (see 3GPP TS 07.07 chapter 10.1.6).[/li]
+        [/ul]
         It might also map to the v.250 compatibility commands D*...
       </doc:inote>
       <doc:inote>This command might change your network default route.</doc:inote>
@@ -128,12 +130,14 @@
     <arg type="s" name="status">
       <doc:doc>
         <doc:summary>
-          The new status of the call. Expected values are:
-          * "incoming" = The context is incoming (but not yet accepted),
-          * "outgoing" = The context is outgoing (but not yet established),
-          * "active" = The context is active (you have a new default route),
-          * "held" = The context is being held (interrupted by a voice call),
-          * "released" = The context is being released.
+          The new status of the context. Expected values are:
+          [ul]
+            [li]"incoming" = The context is incoming (but not yet accepted),[/li]
+            [li]"outgoing" = The context is outgoing (but not yet established),[/li]
+            [li]"active" = The context is active (you have a new default route),[/li]
+            [li]"held" = The context is being held (interrupted by a voice call),[/li]
+            [li]"released" = The context is being released.[/li]
+          [/ul]
           Further information can be part of the properties.
         </doc:summary>
       </doc:doc>
@@ -143,8 +147,10 @@
         <doc:summary>
           An array of property values. Note that properties are optional.
           Expected tuples are:
-          * ( "reason", string ) = The reason for the status change,
-          * ( "apn", string ) = The number of the access point,
+          [ul]
+            [li]( "reason", string ) = The reason for the status change,[/li]
+            [li( "apn", string ) = The number of the access point.[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>

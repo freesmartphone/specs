@@ -39,7 +39,14 @@ class Entity( object ):
         return "<i>Description:</i> %s" % content
 
     def outputImplementationNote( self, content ):
-        return "<i>Implementation Note:</i> %s" % content
+        return """<div class="rationale">%s</div>""" % self.outputSemiFormatted( content )
+
+    def outputSemiFormatted( self, content ):
+        """convert known html entities"""
+        for i in "ul ol li".split():
+            content = content.replace( "[%s]" % i, "<%s>" % i )
+            content = content.replace( "[/%s]" % i, "</%s>" % i )
+        return """<p>%s</p>""" % content
 
     def outputList( self, entries ):
 
@@ -276,7 +283,7 @@ class Argument( Entity ):
 
     def out( self ):
         text = ""
-        text += "<i>%s: %s</i><p>%s</p>" % ( self.attrs["type"], self.attrs["name"], self.docs )
+        text += "<i>%s: %s</i>%s" % ( self.attrs["type"], self.attrs["name"], self.outputSemiFormatted( self.docs ) )
         return text
 
 #----------------------------------------------------------------------------#

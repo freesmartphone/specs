@@ -75,34 +75,43 @@
       <doc:description>Get Network Status.</doc:description>
       <doc:inote>
         This can map to the following GSM 07.07 commands:
-        * +CREG? (see 3GPP TS 07.07 Chapter 7.3),
-        * +COPS? (see 3GPP TS 07.07 Chapter 7.4),
-        * +CSQ (see 3GPP TS 07.07 Chapter 8.5).
+        [ul]
+          [li]+CREG? (see 3GPP TS 07.07 Chapter 7.3),[/li]
+          [li]+COPS? (see 3GPP TS 07.07 Chapter 7.4),[/li]
+          [li]+CSQ (see 3GPP TS 07.07 Chapter 8.5).[/li]
+        [/ul]
       </doc:inote>
     </doc:doc>
     <arg type="a{sv}" name="status" direction="out">
       <doc:doc>
         <doc:summary>
           Network status information. Mandatory tuples are:
-          * ( "registration", string ):
-          The registration status. Expected values are:
-          * "unregistered" = not registered, not trying,
-          * "home" = registered to home network,
-          * "busy" = not registered, but currently trying,
-          * "denied" = no permitted network available,
-          * "unknown" = no idea,
-          * "roaming" = registered to foreign network.
-          * ( "mode", string ):
-          The registration mode. Expected values are:
-          * "automatic" = automatic selection,
-          * "manual" = manual selection,
-          * "manual;automatic" = manual first, then automatic,
-          * "unknown" = unknown.
+          [ul]
+            [li]( "registration", string ):
+            [ul] The registration status. Expected values are:
+              [li]"unregistered" = not registered, not trying,[/li]
+              [li]"home" = registered to home network,[/li]
+              [li]"busy" = not registered, but currently trying,[/li]
+              [li]"denied" = no permitted network available,[/li]
+              [li]"unknown" = no idea,[/li]
+              [li]"roaming" = registered to foreign network.[/li]
+            [/ul][/li]
+            [li]( "mode", string ):
+            [ul]
+              The registration mode. Expected values are:
+              [li]"automatic" = automatic selection,[/li]
+              [li]"manual" = manual selection,[/li]
+              [li]"manual;automatic" = manual first, then automatic,[/li]
+              [li]"unknown" = unknown.[/li]
+            [/ul][/li]
+          [/ul]
           Optional tuples are:
-          * ( "provider", string ): The network provider (if registered or roaming).
-          * ( "strength", int ): The signal strength in percentage (0-100).
-          * ( "lac", string ): The location area code string (if available).
-          * ( "cid", string ): The cell id string (if available).
+          [ul]
+            [li]( "provider", string ): The network provider (if registered or roaming).[/li]
+            [li]( "strength", int ): The signal strength in percentage (0-100).[/li]
+            [li]( "lac", string ): The location area code string (if available).[/li]
+            [li]( "cid", string ): The cell id string (if available).[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -160,10 +169,12 @@
       <doc:doc>
         <doc:summary>
           An array of four-tuples with the following structure:
-          # Unique numerical operator code,
-          # Status ("unknown", "available", "current", "forbidden"),
-          # Long Name,
-          # Short Name (optional, may be empty).
+          [ul]
+            [li]Unique numerical operator code,[/li]
+            [li]Status ("unknown", "available", "current", "forbidden"),[/li]
+            [li]Long Name,[/li]
+            [li]Short Name (optional, may be empty).[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -208,21 +219,27 @@
       <doc:doc>
         <doc:summary>
           A dictionary containing entries for call classes. Expected keywords are:
-          * "voice",
-          * "data",
-          * "voice+data",
-          * "fax",
-          * "voice+data+fax".
-          Rarely you can also expect:
-          * "sms",
-          * "dcs",
-          * "dca",
-          * "dpa",
-          * "pad".
+          [ul]
+            [li]"voice",[/li]
+            [li]"data",[/li]
+            [li]"voice+data",[/li]
+            [li]"fax",[/li]
+            [li]"voice+data+fax".[/li]
+          [/ul]
+          Rarely you might also encounter:
+          [ul]
+            [li]"sms",[/li]
+            [li]"dcs",[/li]
+            [li]"dca",[/li]
+            [li]"dpa",[/li]
+            [li]"pad".[/li]
+          [/ul]
           The value is a three-tuple with the following structure:
-          # boolean: Whether the feature is enabled or not,
-          # string: Call forwarding number,
-          # int: Number of seconds after which the call forwarding gets active.
+          [ul]
+            [li]boolean: Whether the feature is enabled or not,[/li]
+            [li]string: Call forwarding number,[/li]
+            [li]int: Number of seconds after which the call forwarding gets active.[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -238,12 +255,14 @@
       <doc:doc>
         <doc:summary>
           Reason for which you want to enable network call forwarding. Valid reasons are:
-          * "unconditional",
-          * "mobile busy",
-          * "no reply",
-          * "not reachable",
-          * "all",
-          * "all conditional".
+          [ul]
+            [li]"unconditional",[/li]
+            [li]"mobile busy",[/li]
+            [li]"no reply",[/li]
+            [li]"not reachable",[/li]
+            [li]"all",[/li]
+            [li]"all conditional".[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -280,12 +299,14 @@
       <doc:doc>
         <doc:summary>
           Reason for which you want to disable network call forwarding. Valid reasons are:
-          * "unconditional",
-          * "mobile busy",
-          * "no reply",
-          * "not reachable",
-          * "all",
-          * "all conditional",
+          [ul]
+            [li]"unconditional",[/li]
+            [li]"mobile busy",[/li]
+            [li]"no reply",[/li]
+            [li]"not reachable",[/li]
+            [li]"all",[/li]
+            [li]"all conditional".[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -308,9 +329,11 @@
       <doc:doc>
         <doc:summary>
           One of the following values:
-          * "on", if your subscriber number should always be visible to other parties.
-          * "off", if your subscriber number should never be visible to other parties.
-          * "network", if you want to use the network default.
+          [ul]
+            [li]"on", if your subscriber number should always be visible to other parties.[/li]
+            [li]"off", if your subscriber number should never be visible to other parties.[/li]
+            [li]"network", if you want to use the network default.[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -326,23 +349,25 @@
       <doc:doc>
         <doc:summary>
           One of the following values:
-          * "on", if your subscriber number is always visible to other parties.
-          * "off", if your subscriber number is never visible to other parties.
-          * "network", if visibility depends on the network settings.
+          [ul]
+            [li]"on", if your subscriber number is always visible to other parties.[/li]
+            [li]"off", if your subscriber number is never visible to other parties.[/li]
+            [li]"network", if visibility depends on the network settings.[/li]
+          [/ul]
       </doc:summary>
       </doc:doc>
     </arg>
   </method>
 
   <!-- FIXME Do we want methods for:
-       * List available GSM bands
-       * Get/set preferred GSM band
-       * List preferred provider
-       * Add preferred provider to list
-       * Remove preferred provider from list
-       * Get home provider ID (if roaming)
-       * Get time from network
-       * Get cell ID
+       [li]List available GSM bands
+       [li]Get/set preferred GSM band
+       [li]List preferred provider
+       [li]Add preferred provider to list
+       [li]Remove preferred provider from list
+       [li]Get home provider ID (if roaming)
+       [li]Get time from network
+       [li]Get cell ID
        -->
 
 </interface>
