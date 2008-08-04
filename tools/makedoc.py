@@ -90,10 +90,13 @@ class Interface( Entity ):
         self.outfile = None
 
     def output( self ):
-        self.outfilename = self.filename.replace( ".xml.in", ".html" )
+        import os.path
+        basename = os.path.basename( self.filename ).replace( ".xml.in", ".html" )
+        dirname = os.path.dirname( __file__ )
+        self.outfilename = "%s/../html/%s" % ( dirname, basename )
         self.outfile = open( self.outfilename, "w" )
 
-        text = self.outputHeader( "./style.xml" )
+        text = self.outputHeader( __file__.replace( "makedoc.py", "style.xml" ) )
         text += "\n"
 
         text += self.outputSectionHeader( self.namespace )

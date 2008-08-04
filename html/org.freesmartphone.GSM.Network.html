@@ -1,0 +1,183 @@
+
+<html>
+    <head>
+        <title>freesmartphone.org GSM Network Interface</title>
+        <!-- shamelessly stolen from telepathy.org -->
+
+<style type="text/css">
+
+          body {
+            font-family: sans-serif;
+            margin: 2em;
+            height: 100%;
+            font-size: 1.2em;
+          }
+          h1 {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 1.6em;
+            background: #dadae2;
+          }
+          h2 {
+            font-size: 1.3em;
+          }
+          h3 {
+            font-size: 1.2em;
+          }
+          a:link, a:visited, a:link:hover, a:visited:hover {
+            font-weight: bold;
+          }
+          .topbox {
+            padding-top: 10px;
+            padding-left: 10px;
+            border-bottom: black solid 1px;
+            padding-bottom: 10px;
+            background: #dadae2;
+            font-size: 2em;
+            font-weight: bold;
+            color: #5c5c5c;
+          }
+          .topnavbox {
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background: #abacba;
+            border-bottom: black solid 1px;
+            font-size: 1.2em;
+          }
+          .topnavbox a{
+            color: black;
+            font-weight: normal;
+          }
+          .sidebar {
+            float: left;
+            /* width:9em;
+            border-right:#abacba solid 1px;
+            border-left: #abacba solid 1px;
+            height:100%; */
+            border: #abacba solid 1px;
+            padding-left: 10px;
+            margin-left: 10px;
+            padding-right: 10px;
+            margin-right: 10px;
+            color: #5d5d5d;
+            background: #dadae2;
+          }
+          .sidebar a {
+            text-decoration: none;
+            border-bottom: #e29625 dotted 1px;
+            color: #e29625;
+            font-weight: normal;
+          }
+          .sidebar h1 {
+            font-size: 1.2em;
+            color: black;
+          }
+          .sidebar ul {
+            padding-left: 25px;
+            padding-bottom: 10px;
+            border-bottom: #abacba solid 1px;
+          }
+          .sidebar li {
+            padding-top: 2px;
+            padding-bottom: 2px;
+          }
+          .sidebar h2 {
+            font-style:italic;
+            font-size: 0.81em;
+            padding-left: 5px;
+            padding-right: 5px;
+            font-weight: normal;
+          }
+          .date {
+            font-size: 0.6em;
+            float: right;
+            font-style: italic;
+          }
+          .method, .signal, .property {
+            margin-left: 1em;
+            margin-right: 4em;
+          }
+          .rationale {
+            font-style: italic;
+            border-left: 0.25em solid #808080;
+            padding-left: 0.5em;
+          }
+
+          .added {
+            color: #006600;
+            background: #ffffff;
+          }
+          .deprecated {
+            color: #ff0000;
+            background: #ffffff;
+          }
+          table, tr, td, th {
+            border: 1px solid #666;
+          }
+
+</style>
+
+    </head>
+    <body>
+
+<h1>org.freesmartphone.GSM.Network</h1><h2>Description</h2>
+<p>The Network interface is used to give information about the GSM  service providers and this device's status with regards to  to network registration and connectivity.   Taxonomy note: We think in terms of (service) providers  rather than (network) operators, since multiple (service)  providers can use the networks from operators, however  what actually matters most is the provider name, not the  actual network operator the provider is using.</p>
+<h2>Namespace</h2>
+<p><tt>org.freesmartphone.GSM.Network</tt></p>
+<h2>Methods</h2><ul>
+<li><a href="#Register">Register</a></li>
+<li><a href="#Unregister">Unregister</a></li>
+<li><a href="#GetStatus">GetStatus</a></li>
+<li><a href="#GetSignalStrength">GetSignalStrength</a></li>
+<li><a href="#ListProviders">ListProviders</a></li>
+<li><a href="#RegisterWithProvider">RegisterWithProvider</a></li>
+<li><a href="#GetCountryCode">GetCountryCode</a></li>
+<li><a href="#GetCallForwarding">GetCallForwarding</a></li>
+<li><a href="#EnableCallForwarding">EnableCallForwarding</a></li>
+<li><a href="#DisableCallForwarding">DisableCallForwarding</a></li>
+<li><a href="#SetCallingIdentification">SetCallingIdentification</a></li>
+<li><a href="#GetCallingIdentification">GetCallingIdentification</a></li>
+</ul>
+<h2>Signals</h2><ul>
+<li><a href="#Status">Status</a></li>
+<li><a href="#SignalStrength">SignalStrength</a></li>
+</ul>
+<h2>Errors</h2><ul>
+<li><a href="#NotPresent">NotPresent</a></li>
+<li><a href="#Unauthorized">Unauthorized</a></li>
+<li><a href="#NotSupported">NotSupported</a></li>
+<li><a href="#NotFound">NotFound</a></li>
+</ul>
+<h1>Methods</h1><h3><a name="Register">Register</a> ( )</h3><p><i>Description:</i> Register with any available service provider.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS=0, see 3GPP TS 07.07 Chapter 7.3.</p></div></p>
+<h3><a name="Unregister">Unregister</a> ( )</h3><p><i>Description:</i> Unregister from service provider.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS=2, see 3GPP TS 07.07 Chapter 7.3.</p></div></p>
+<h3><a name="GetStatus">GetStatus</a> ( ) &rarr; a{sv}</h3>
+<p><i>Description:</i> Get Network Status.</p><p><div class="rationale"><p>This can map to the following GSM 07.07 commands:  <ul>  <li>+CREG? (see 3GPP TS 07.07 Chapter 7.3),</li>  <li>+COPS? (see 3GPP TS 07.07 Chapter 7.4),</li>  <li>+CSQ (see 3GPP TS 07.07 Chapter 8.5).</li>  </ul></p></div></p><h4>Returns</h4><i>a{sv}: status</i><p>Network status information. Mandatory tuples are:  <ul>  <li>( "registration", string ):  <ul> The registration status. Expected values are:  <li>"unregistered" = not registered, not trying,</li>  <li>"home" = registered to home network,</li>  <li>"busy" = not registered, but currently trying,</li>  <li>"denied" = no permitted network available,</li>  <li>"unknown" = no idea,</li>  <li>"roaming" = registered to foreign network.</li>  </ul></li>  <li>( "mode", string ):  <ul>  The registration mode. Expected values are:  <li>"automatic" = automatic selection,</li>  <li>"manual" = manual selection,</li>  <li>"manual;automatic" = manual first, then automatic,</li>  <li>"unknown" = unknown.</li>  </ul></li>  </ul>  Optional tuples are:  <ul>  <li>( "provider", string ): The network provider (if registered or roaming).</li>  <li>( "strength", int ): The signal strength in percentage (0-100).</li>  <li>( "lac", string ): The location area code string (if available).</li>  <li>( "cid", string ): The cell id string (if available).</li>  </ul></p>
+<h3><a name="GetSignalStrength">GetSignalStrength</a> ( ) &rarr; i</h3>
+<p><i>Description:</i> Query the current signal strength, if registered with a service provider.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CSQ, see 3GPP TS 07.07 Chapter 8.5.</p></div></p><h4>Returns</h4><i>i: signal_strength</i><p>The signal strength in percent (0-100).</p>
+<h3><a name="ListProviders">ListProviders</a> ( ) &rarr; a(isss)</h3>
+<p><i>Description:</i> List available service providers.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3.</p></div></p><h4>Returns</h4><i>a(isss): providers</i><p>An array of four-tuples with the following structure:  <ul>  <li>Unique numerical operator code,</li>  <li>Status ("unknown", "available", "current", "forbidden"),</li>  <li>Long Name,</li>  <li>Short Name (optional, may be empty).</li>  </ul></p>
+<h3><a name="RegisterWithProvider">RegisterWithProvider</a> ( i )</h3>
+<p><i>Description:</i> Register to a dedicated service provider.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3.</p></div></p><h4>Parameters</h4><i>i: operator_code</i><p>The operator code.</p>
+<h3><a name="GetCountryCode">GetCountryCode</a> ( ) &rarr; s</h3>
+<p><i>Description:</i> Compute the country code of the current service provider.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS?, see 3GPP TS 07.07 Chapter 5.6.  Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan).</p></div></p><h4>Returns</h4><i>s: dial_code</i><p>The country dial code (including the +).</p>
+<h3><a name="GetCallForwarding">GetCallForwarding</a> ( ) &rarr; a{sv}</h3>
+<p><i>Description:</i> Get the network call forwarding status.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CCFC=(reason),2, see 3GPP TS 07.07 Chapter 7.10.</p></div></p><h4>Returns</h4><i>a{sv}: status</i><p>A dictionary containing entries for call classes. Expected keywords are:  <ul>  <li>"voice",</li>  <li>"data",</li>  <li>"voice+data",</li>  <li>"fax",</li>  <li>"voice+data+fax".</li>  </ul>  Rarely you might also encounter:  <ul>  <li>"sms",</li>  <li>"dcs",</li>  <li>"dca",</li>  <li>"dpa",</li>  <li>"pad".</li>  </ul>  The value is a three-tuple with the following structure:  <ul>  <li>boolean: Whether the feature is enabled or not,</li>  <li>string: Call forwarding number,</li>  <li>int: Number of seconds after which the call forwarding gets active.</li>  </ul></p>
+<h3><a name="EnableCallForwarding">EnableCallForwarding</a> ( sssi )</h3>
+<p><i>Description:</i> Enable network call forwarding.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CCFC=(...),3, see 3GPP TS 07.07 Chapter 7.10.</p></div></p><h4>Parameters</h4><i>s: reason</i><p>Reason for which you want to enable network call forwarding. Valid reasons are:  <ul>  <li>"unconditional",</li>  <li>"mobile busy",</li>  <li>"no reply",</li>  <li>"not reachable",</li>  <li>"all",</li>  <li>"all conditional".</li>  </ul></p><i>s: class</i><p>Call class for which you want to enable network call forwarding. See GetCallForwarding for valid classes.</p><i>s: number</i><p>Phone number to which the network call will be forwarded.</p><i>i: timeout</i><p>Number of seconds, after which network call forwarding launches (only for reason "no reply").</p>
+<h3><a name="DisableCallForwarding">DisableCallForwarding</a> ( ss )</h3>
+<p><i>Description:</i> Disable network call forwarding.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CCFC=(...),4, see 3GPP TS 07.07 Chapter 7.10.</p></div></p><h4>Parameters</h4><i>s: reason</i><p>Reason for which you want to disable network call forwarding. Valid reasons are:  <ul>  <li>"unconditional",</li>  <li>"mobile busy",</li>  <li>"no reply",</li>  <li>"not reachable",</li>  <li>"all",</li>  <li>"all conditional".</li>  </ul></p><i>s: class</i><p>Call class for which the network call gets forwarded. See GetCallForwarding for valid classes.</p>
+<h3><a name="SetCallingIdentification">SetCallingIdentification</a> ( s )</h3>
+<p><i>Description:</i> Set whether your subscriber number is visible during a call.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CLIR=(value), see 3GPP TS 07.07 Chapter 7.7.</p></div></p><h4>Parameters</h4><i>s: visible</i><p>One of the following values:  <ul>  <li>"on", if your subscriber number should always be visible to other parties.</li>  <li>"off", if your subscriber number should never be visible to other parties.</li>  <li>"network", if you want to use the network default.</li>  </ul></p>
+<h3><a name="GetCallingIdentification">GetCallingIdentification</a> ( ) &rarr; s</h3>
+<p><i>Description:</i> Get whether your subscriber number is visible during a call.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CLIR?, see 3GPP TS 07.07 Chapter 7.7.</p></div></p><h4>Returns</h4><i>s: visible</i><p>One of the following values:  <ul>  <li>"on", if your subscriber number is always visible to other parties.</li>  <li>"off", if your subscriber number is never visible to other parties.</li>  <li>"network", if visibility depends on the network settings.</li>  </ul></p>
+<h1>Signals</h1><h3><h3><a name="Status">Status</a> ( a{sv} )</h3><p><i>Description:</i> Sent, when the network registration status changes.</p><h4>Parameters</h4><i>a{sv}: status</i><p>The registration status. See method GetStatus for expected values.</p></h3>
+<h3><h3><a name="SignalStrength">SignalStrength</a> ( i )</h3><p><i>Description:</i> (OPTIONAL) Sent, when registered with a service provider and the network signal strength changes.</p><h4>Parameters</h4><i>i: signal_strength</i><p>The signal strength in percent (0-100).</p></h3>
+<h1>Errors</h1><h3><a name="NotPresent">NotPresent</a></h3><p><i>Description:</i> Raised, if no network service is available.</p>
+<h3><a name="Unauthorized">Unauthorized</a></h3><p><i>Description:</i> Raised, if registering with the specified network is not possible.</p>
+<h3><a name="NotSupported">NotSupported</a></h3><p><i>Description:</i> Raised, if the requested network operation is not supported.</p>
+<h3><a name="NotFound">NotFound</a></h3><p><i>Description:</i> Raised, if the requested network provider is not present.</p>
+
+    </body>
+</html>
+
