@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-preferences-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Preferences Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.Preferences">
+
+  <doc:doc>
+    <doc:para>
+      All the preferences values are grouped into services.
+      
+      The Preferences object is used to get the preferences Services objects.
+      It can also set the current profile value.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetServices">
+    <doc:doc>
+      <doc:description>Return the list of all available services.</doc:description>
+    </doc:doc>
+    <arg type="as" name="services" direction="out">
+        <doc:doc>
+            <doc:summary>The list of all available services.</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+  
+  <method name="GetService">
+    <doc:doc>
+      <doc:description>Retrieve a given service.</doc:description>
+    </doc:doc>
+    <arg type="s" name="name" direction="in">
+        <doc:doc>
+            <doc:summary>the name of the service, as returned by `GetServices`.</doc:summary>
+        </doc:doc>
+    </arg>
+    <arg type="o" name="service" direction="out">
+        <doc:doc>
+            <doc:summary>the path to the service object</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+  
+  
+  <method name="GetProfile">
+    <doc:doc>
+      <doc:description>Retrieve the current profile.</doc:description>
+    </doc:doc>
+    <arg type="s" name="profile" direction="out">
+        <doc:doc>
+            <doc:summary>The name of the current profile.</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+  
+  <method name="SetProfile">
+    <doc:doc>
+      <doc:description>Set the current profile.</doc:description>
+    </doc:doc>
+    <arg type="s" name="profile" direction="in">
+        <doc:doc>
+            <doc:summary>The name of the new current profile.</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+  
+  <method name="GetProfiles">
+    <doc:doc>
+      <doc:description>Return a list of all the available profiles.</doc:description>
+    </doc:doc>
+    <arg type="as" name="profiles" direction="out">
+        <doc:doc>
+            <doc:summary>An array of all the profile names.</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+
+
+</interface>
+</node>
