@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Phone Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.Phone">
+
+  <doc:doc>
+    <doc:para>
+      The Phone object is used to create Call objects using different protocols.
+    </doc:para>
+  </doc:doc>
+
+  <method name="InitProtocols">
+    <doc:doc>
+      <doc:description>Initialize all the protocols.</doc:description>
+    </doc:doc>
+    <arg type="as" name="protocols" direction="out">
+        <doc:doc>
+            <doc:summary>The list of all the protocols names.</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+  
+  <method name="CreateCall">
+    <doc:doc>
+      <doc:description>Create a new Call to a given number, with an optional protocol.</doc:description>
+    </doc:doc>
+    <arg type="s" name="number" direction="in">
+        <doc:doc>
+            <doc:summary>A string representing the number of the peer.</doc:summary>
+        </doc:doc>
+    </arg>
+    <arg type="s" name="protocol" direction="in">
+        <doc:doc>
+            <doc:summary>The name of the protocol as returned by InitProtocols, 
+                         if None the best protocol will be used. Default to None</doc:summary>
+        </doc:doc>
+    </arg>
+    <arg type="b" name="force" direction="in">
+        <doc:doc>
+            <doc:summary>If true, we destroy any already present call object to this number. Default to True</doc:summary>
+        </doc:doc>
+    </arg>
+    <arg type="o" name="call" direction="out">
+        <doc:doc>
+            <doc:summary>The path to the new Call object</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+
+
+</interface>
+</node>
