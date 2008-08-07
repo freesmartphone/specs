@@ -212,6 +212,7 @@
             [li]("dial_prefix", string),[/li]
             [li]("country", string).[/li]
           [/ul]
+          The subscriber_numbers array contains two-tuples formatted as (string:line-name, string:line-number).
         </doc:summary>
       </doc:doc>
     </arg>
