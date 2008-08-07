@@ -229,7 +229,7 @@
         <doc:summary>The command to send, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="result" direction="in">
+    <arg type="s" name="result" direction="out">
       <doc:doc>
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
@@ -282,7 +282,7 @@
         <doc:summary>The command data to the SIM, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="result" direction="in">
+    <arg type="s" name="result" direction="out">
       <doc:doc>
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
