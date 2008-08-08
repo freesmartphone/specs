@@ -58,8 +58,8 @@
         <doc:summary>
           Information about this GSM device. Mandatory tuples are:
           [ul]
-            [li]( "vendor", string ),[/li]
-            [li]( "name", string ).[/li]
+            [li]( "manufacturer", string ),[/li]
+            [li]( "model", string ).[/li]
           [/ul]
           Optional tuples are:
           [ul]
