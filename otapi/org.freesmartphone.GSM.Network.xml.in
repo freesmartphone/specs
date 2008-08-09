@@ -359,6 +359,49 @@
     </arg>
   </method>
 
+  <method name="SendUssdRequest">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <doc:doc>
+      <doc:description>Send an Unstructured Supplementary Service Data (USSD) request to the network.</doc:description>
+      <doc:inote>This can map to the GSM 07.07 command +CUSD=1,"(request)",(code), see 3GPP TS 07.07 Chapter 7.14.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="request" direction="in">
+      <doc:doc>
+        <doc:summary>The request to be sent to the network.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="IncomingUssd">
+    <doc:doc>
+      <doc:description>
+        Sent, when an USSD result or a network initiated request arrives.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="mode">
+      <doc:doc>
+        <doc:summary>
+          The message mode. Valid values are:
+          [ul]
+            [li]"completed", if the last user-initiated request has been successfully completed,[/li]
+            [li]"useraction", if this is a network-initiated request and further user action is necessary,[/li]
+            [li]"terminated", if the network terminated the request,[/li]
+            [li]"localclient", if another local client on the network has responded,[/li]
+            [li]"unsupported", if the last user-inititated request is unsupported,[/li]
+            [li]"timeout", if the network has not answered in time.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="message">
+      <doc:doc>
+        <doc:summary>
+          The message. Only set if mode is "completed" or "useraction". "", otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
   <!-- FIXME Do we want methods for:
        [li]List available GSM bands
        [li]Get/set preferred GSM band
