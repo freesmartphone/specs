@@ -116,6 +116,23 @@
     </arg>
   </method>
 
+  <method name="GetContextStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <doc:doc>
+      <doc:description>Retrieve the current PDP context status.</doc:description>
+    </doc:doc>
+    <arg type="i" name="index" direction="in">
+      <doc:doc>
+        <doc:summary>The context to inquire.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>The context status. See 'ContextStatus' for valid values.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <signal name="ContextStatus">
     <doc:doc>
       <doc:description>
@@ -135,7 +152,7 @@
             [li]"incoming" = The context is incoming (but not yet accepted),[/li]
             [li]"outgoing" = The context is outgoing (but not yet established),[/li]
             [li]"active" = The context is active (you have a new default route),[/li]
-            [li]"held" = The context is being held (interrupted by a voice call),[/li]
+            [li]"held" = The context is being held (interrupted by a voice call) [OPTIONAL],[/li]
             [li]"released" = The context is being released.[/li]
           [/ul]
           Further information can be part of the properties.
