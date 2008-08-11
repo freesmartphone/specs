@@ -94,7 +94,7 @@
     <doc:doc>
       <doc:description>Sent, when the authentication status for the SIM card changes.</doc:description>
     </doc:doc>
-    <arg type="s" name="status" direction="out">
+    <arg type="s" name="status">
       <doc:doc>
         <doc:summary>
           The authentication status for the SIM card. See method GetAuthStatus for expected values.
@@ -436,6 +436,17 @@
       </doc:doc>
     </arg>
   </method>
+
+  <signal name="IncomingMessage">
+    <doc:doc>
+      <doc:description>Sent, when a new message has been received and stored on the SIM card.</doc:description>
+    </doc:doc>
+    <arg type="i" name="index">
+      <doc:doc>
+        <doc:summary>The storage index of the new message.</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
   <method name="DeleteMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
