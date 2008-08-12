@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-audio-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Audio Interface</doc:summary>
+  <doc:version>0.9.0</doc:version>
+  <doc:source>git.freesmartphone.org</doc:source>
+  <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.Audio">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to notification sounds, sound scenarios, and mixer controls.
+    </doc:para>
+  </doc:doc>
+
+  <!-- INFORMATIONAL -->
+
+  <method name="GetInfo">
+    <doc:doc>
+      <doc:description>
+        Returns information about the audio hardware.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{sv}" name="info">
+      <doc:doc>
+        <doc:summary>
+          Information about the audio hardware. Expected tuples:
+          [ul]
+            [li]...to be defined...[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetSupportedFormats">
+    <doc:doc>
+      <doc:description>
+        Returns a list of supported audio formats given by extension.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="as" name="formats">
+      <doc:doc>
+        <doc:summary>
+          The supported audio formats.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetAvailableScenarios">
+    <doc:doc>
+      <doc:description>
+        Returns a list of supported audio scenarios.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="as" name="scenarios">
+      <doc:doc>
+        <doc:summary>
+          The supported audio scenarios.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <!-- SIMPLE SOUND API -->
+
+  <method name="PlaySound">
+    <doc:doc>
+      <doc:description>
+        Play a sound resource.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="id">
+      <doc:doc>
+        <doc:summary>
+          The identification of the sound resource. Will be treated as filename, if no schema is given.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="StopSound">
+    <doc:doc>
+      <doc:description>
+        Stop playing a sound resource.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="id">
+      <doc:doc>
+        <doc:summary>
+          The identification of the sound resource. Will be treated as filename, if no schema is given.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="StopAllSounds">
+    <doc:doc>
+      <doc:description>
+        Stop all currently played sound resources.
+      </doc:description>
+    </doc:doc>
+  </method>
+
+  <signal name="SoundStatus">
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is any status or property change on a call in the system,
+        no matter whether this is an incoming, active, held, or released call.
+      </doc:description>
+      <doc:inote>This signal is emitted once for every 'RING' from the modem.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="id">
+      <doc:doc>
+        <doc:summary>
+          The identification of sound resource that changed its status.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status">
+      <doc:doc>
+        <doc:summary>
+          The new status for the sound resource.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties">
+      <doc:doc>
+        <doc:summary>
+          An array of property values. Note that properties are optional. Expected tuples are:
+          [ul]
+          [li]...to be defined...[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <!-- AUDIO SCENARIO API -->
+
+</interface>
+</node>

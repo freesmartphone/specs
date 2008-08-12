@@ -5,18 +5,21 @@ XSLT_FLAGS = -o $@ ../tools/spec-strip-docs.xsl $<
 XSLT = xsltproc $(XSLT_FLAGS)
 
 files = \
-  org.freesmartphone.Device.Display.xml \
+  org.freesmartphone.Device.Audio.xml \
+  org.freesmartphone.Device.Input.xml \
   org.freesmartphone.Device.IdleNotifier.xml \
-  org.freesmartphone.Device.PowerSupply.xml
+
 
 docbook_xml_files = $(addprefix docbook-, $(files))
 docbook_xhtml_files = $(addprefix xhtml/, $(docbook_xml_files:.xml=.xhtml))
+pydoc_html_files = $(files:.xml=.html)
 
 # choose your style sheet
 docbook_style_sheet = /usr/share/sgml/docbook/xsl-stylesheets-1.73.2/xhtml/docbook.xsl
 #docbook_style_sheet = /usr/share/xml/docbook/stylesheet/nwalsh/xhtml/docbook.xsl
 
-all: $(files) docs
+#all: $(files) docs
+all: pydocs
 
 check:
 	@echo checking integrity...
@@ -26,6 +29,12 @@ doc-dirs:
 	@mkdir -p xhtml
 
 docs: doc-dirs $(docbook_xhtml_files)
+
+pydocs: $(pydoc_html_files)
+
+$(pydoc_html_files): %.html: %.xml.in
+	@echo processing $@
+	../tools/makedoc.py $< >/dev/null
 
 $(docbook_xhtml_files): xhtml/%.xhtml: %.xml
 	@echo processing $@ ...
@@ -42,4 +51,4 @@ $(files): %.xml: %.xml.in
 clean:
 	@rm -f $(files) *~
 	@rm -f docbook-org.freesmartphone.*.xml
-	@rm -rf xhtml
+	@rm -rf xhtml *.html
