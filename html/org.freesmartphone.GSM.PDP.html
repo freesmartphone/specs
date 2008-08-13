@@ -2,122 +2,7 @@
 <html>
     <head>
         <title>freesmartphone.org GSM Packet Data Protocol Interface</title>
-        <!-- shamelessly stolen from telepathy.org -->
-
-<style type="text/css">
-
-          body {
-            font-family: sans-serif;
-            margin: 2em;
-            height: 100%;
-            font-size: 1.2em;
-          }
-          h1 {
-            padding-top: 5px;
-            padding-bottom: 5px;
-            font-size: 1.6em;
-            background: #dadae2;
-          }
-          h2 {
-            font-size: 1.3em;
-          }
-          h3 {
-            font-size: 1.2em;
-          }
-          a:link, a:visited, a:link:hover, a:visited:hover {
-            font-weight: bold;
-          }
-          .topbox {
-            padding-top: 10px;
-            padding-left: 10px;
-            border-bottom: black solid 1px;
-            padding-bottom: 10px;
-            background: #dadae2;
-            font-size: 2em;
-            font-weight: bold;
-            color: #5c5c5c;
-          }
-          .topnavbox {
-            padding-left: 10px;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            background: #abacba;
-            border-bottom: black solid 1px;
-            font-size: 1.2em;
-          }
-          .topnavbox a{
-            color: black;
-            font-weight: normal;
-          }
-          .sidebar {
-            float: left;
-            /* width:9em;
-            border-right:#abacba solid 1px;
-            border-left: #abacba solid 1px;
-            height:100%; */
-            border: #abacba solid 1px;
-            padding-left: 10px;
-            margin-left: 10px;
-            padding-right: 10px;
-            margin-right: 10px;
-            color: #5d5d5d;
-            background: #dadae2;
-          }
-          .sidebar a {
-            text-decoration: none;
-            border-bottom: #e29625 dotted 1px;
-            color: #e29625;
-            font-weight: normal;
-          }
-          .sidebar h1 {
-            font-size: 1.2em;
-            color: black;
-          }
-          .sidebar ul {
-            padding-left: 25px;
-            padding-bottom: 10px;
-            border-bottom: #abacba solid 1px;
-          }
-          .sidebar li {
-            padding-top: 2px;
-            padding-bottom: 2px;
-          }
-          .sidebar h2 {
-            font-style:italic;
-            font-size: 0.81em;
-            padding-left: 5px;
-            padding-right: 5px;
-            font-weight: normal;
-          }
-          .date {
-            font-size: 0.6em;
-            float: right;
-            font-style: italic;
-          }
-          .method, .signal, .property {
-            margin-left: 1em;
-            margin-right: 4em;
-          }
-          .rationale {
-            font-style: italic;
-            border-left: 0.25em solid #808080;
-            padding-left: 0.5em;
-          }
-
-          .added {
-            color: #006600;
-            background: #ffffff;
-          }
-          .deprecated {
-            color: #ff0000;
-            background: #ffffff;
-          }
-          table, tr, td, th {
-            border: 1px solid #666;
-          }
-
-</style>
-
+        <link rel="stylesheet" type="text/css" href="http://git.freesmartphone.org/?p=specs.git;a=blob_plain;f=html/style.css;hb=HEAD" />
     </head>
     <body>
 
@@ -154,6 +39,11 @@
 <h1>Signals</h1><h3><h3><a name="ContextStatus">ContextStatus</a> ( isa{sv} )</h3><p><i>Description:</i> Sent whenever there is any status or property change on a pdp context in the system.</p><h4>Parameters</h4><i>i: id</i><p>The index of the context that changed its status or properties.</p><i>s: status</i><p>The new status of the context. Expected values are:  <ul>  <li>"incoming" = The context is incoming (but not yet accepted),</li>  <li>"outgoing" = The context is outgoing (but not yet established),</li>  <li>"active" = The context is active (you have a new default route),</li>  <li>"held" = The context is being held (interrupted by a voice call) [OPTIONAL],</li>  <li>"released" = The context is being released.</li>  </ul>  Further information can be part of the properties.</p><i>a{sv}: properties</i><p>An array of property values. Note that properties are optional.  Expected tuples are:  <ul>  <li>( "reason", string ) = The reason for the status change,</li>  [li( "apn", string ) = The number of the access point.</li>  </ul></p></h3>
 <h1>Errors</h1><h3><a name="NotFound">NotFound</a></h3><p><i>Description:</i> Raised, if the specified PDP context is not present.</p>
 
+    <hr/>
+    <small>
+    > Specified 2008 by the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org <
+    </small>
+    <hr/>
     </body>
 </html>
 

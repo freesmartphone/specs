@@ -12,7 +12,7 @@
 
   <doc:doc>
     <doc:para>
-      This interface provides access to notification sounds, sound scenarios, and mixer controls.
+      This interface provides access to notification sounds, sound scenarios, and mixer controls.c
     </doc:para>
   </doc:doc>
 

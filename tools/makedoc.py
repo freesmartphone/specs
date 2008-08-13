@@ -66,14 +66,19 @@ class Entity( object ):
 <html>
     <head>
         <title>%s</title>
-        %s
+        <link rel="stylesheet" type="text/css" href="http://git.freesmartphone.org/?p=specs.git;a=blob_plain;f=html/style.css;hb=HEAD" />
     </head>
     <body>
-""" % ( self.title, "" if cssfile is None else open( cssfile, "r" ).read() )
+""" % ( self.title )
 
     def outputFooter( self ):
         return \
 """
+    <hr/>
+    <small>
+    > Specified 2008 by the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org <
+    </small>
+    <hr/>
     </body>
 </html>
 """
