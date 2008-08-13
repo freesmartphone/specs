@@ -43,10 +43,20 @@
     </arg>
   </method>
   
+  <method name="GetProfiles">
+    <doc:doc>
+      <doc:description>Return a list of all the available profiles.</doc:description>
+    </doc:doc>
+    <arg type="as" name="profile" direction="out">
+        <doc:doc>
+            <doc:summary>The list of all the available profiles.</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
   
   <method name="GetProfile">
     <doc:doc>
-      <doc:description>Retrieve the current profile.</doc:description>
+      <doc:description>Retrieve the current top profile.</doc:description>
     </doc:doc>
     <arg type="s" name="profile" direction="out">
         <doc:doc>
@@ -57,7 +67,7 @@
   
   <method name="SetProfile">
     <doc:doc>
-      <doc:description>Set the current profile.</doc:description>
+      <doc:description>Set the current top profile.</doc:description>
     </doc:doc>
     <arg type="s" name="profile" direction="in">
         <doc:doc>
