@@ -22,7 +22,7 @@
   <xsl:template match="node">
     <node>
       <xsl:for-each select="@*">
-        <xsl:if test="not(starts-with(name(.), 'xmlns') or starts-with(name(.), 'doc:'))">
+        <xsl:if test="not(starts-with(name(.), 'xmlns') or starts-with(name(.), 'doc:') or starts-with(name(.), 'error:' ))">
           <xsl:copy/>
         </xsl:if>
       </xsl:for-each>
