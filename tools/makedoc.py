@@ -69,6 +69,8 @@ class Entity( object ):
         <link rel="stylesheet" type="text/css" href="http://git.freesmartphone.org/?p=specs.git;a=blob_plain;f=html/style.css;hb=HEAD" />
     </head>
     <body>
+    <div class="topbox">freesmartphone.org Framework DBus Interface Specification</div>
+
 """ % ( self.title )
 
     def outputFooter( self ):
@@ -76,7 +78,7 @@ class Entity( object ):
 """
     <hr/>
     <small>
-    > Specified 2008 by the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org <
+    | Specified 2008 by the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. | Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org
     </small>
     <hr/>
     </body>
