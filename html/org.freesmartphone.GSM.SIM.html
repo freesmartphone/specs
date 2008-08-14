@@ -22,10 +22,12 @@
 <li><a href="#SendRestrictedSimCommand">SendRestrictedSimCommand</a></li>
 <li><a href="#GetHomeZones">GetHomeZones</a></li>
 <li><a href="#GetPhonebookInfo">GetPhonebookInfo</a></li>
+<li><a href="#RetrievePhonebook">RetrievePhonebook</a></li>
 <li><a href="#DeleteEntry">DeleteEntry</a></li>
 <li><a href="#StoreEntry">StoreEntry</a></li>
 <li><a href="#RetrieveEntry">RetrieveEntry</a></li>
 <li><a href="#GetMessagebookInfo">GetMessagebookInfo</a></li>
+<li><a href="#RetrieveMessagebook">RetrieveMessagebook</a></li>
 <li><a href="#GetServiceCenterNumber">GetServiceCenterNumber</a></li>
 <li><a href="#SetServiceCenterNumber">SetServiceCenterNumber</a></li>
 <li><a href="#DeleteMessage">DeleteMessage</a></li>
@@ -67,6 +69,8 @@
 <p><i>Description:</i> Retrieve the homezones coordinates, if stored on SIM.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CRSM=176,28512,0,0,123, see 3GPP TS 07.07 Chapter 8.17.</p></div></p><h4>Returns</h4><i>a(siii): homezones</i><p>An array containing up to four homezones in Gauss-Krüger coordinates. The array contains of four-tuples with the following format:  <ol>  <li>(name:string), the name of the zone,</li>  <li>(x:int), the X value of the zone center in Gauss-Krüger format,</li>  <li>(y:int), the Y value of the zone center in Gauss-Krüger format,</li>  <li>(r:radious), the R*R value of the zone dimension in meters.</li>  </ol></p>
 <h3><a name="GetPhonebookInfo">GetPhonebookInfo</a> ( ) &rarr; a{sv}</h3>
 <p><i>Description:</i> Request information about the SIM phonebook.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CPBR=?, see 3GPP TS 07.07 Chapter 8.12.</p></div></p><h4>Returns</h4><i>a{sv}: info</i><p>Information about the SIM phonebook storage. Tuples to expect:  <ul>  <li>("slots", int:value) = maximum of entries stored on the SIM,</li>  <li>("used", int:value) = actual number of entries stored on the SIM,</li>  <li>("number_length", int:value) = maximum length for the number,</li>  <li>("name_length", int:value) = maximum length for the name.</li>  </ul></p>
+<h3><a name="RetrievePhonebook">RetrievePhonebook</a> ( ) &rarr; a(iss)</h3>
+<p><i>Description:</i> Retrieve all entries from the SIM phonebook.</p><p><div class="rationale"><p>This vaguely maps to the GSM 07.05 command +CPBR=(index1),(index2), see 3GPP TS 07.07 Chapter 8.12.</p></div></p><h4>Returns</h4><i>a(iss): entries</i><p>The phonebook entries. This is an array of three-tuples. Every entry has the following structure:  <ul>  <li>(int:index) = storage index,</li>  <li>(string:name) = name,</li>  <li>(string:number) = number.</li>  </ul></p>
 <h3><a name="DeleteEntry">DeleteEntry</a> ( i )</h3>
 <p><i>Description:</i> Delete an entry in the SIM phonebook.</p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CPBW=, see 3GPP TS 07.07 Chapter 8.14.</p></div></p><h4>Parameters</h4><i>i: index</i><p>Index of entry to delete.</p>
 <h3><a name="StoreEntry">StoreEntry</a> ( iss )</h3>
@@ -75,6 +79,8 @@
 <h4>Parameters</h4><i>i: index</i><p>Index of entry to retrieve.</p><h4>Returns</h4><i>s: name</i><p>Name corresponding to the number.</p><i>s: number</i><p>Number corresponding to the name.</p>
 <h3><a name="GetMessagebookInfo">GetMessagebookInfo</a> ( ) &rarr; a{sv}</h3>
 <p><i>Description:</i> Request information about the SIM messagebook.</p><p><div class="rationale"><p>This vaguely maps to the GSM 07.05 command +CMGL=?, see 3GPP TS 07.07 Chapter 3.4.2.</p></div></p><h4>Returns</h4><i>a{sv}: info</i><p>Information about the SIM messagebook storage. Tuples to expect:  <ul>  <li>("slots", int:value) = maximum of messages stored on the SIM,</li>  <li>("used", int:value) = actual number of messages stored on the SIM,</li>  <li>("contents_length", int:value) = maximum length for a message.</li>  </ul></p>
+<h3><a name="RetrieveMessagebook">RetrieveMessagebook</a> ( s ) &rarr; a(isss)</h3>
+<p><i>Description:</i> Retrieve all messages from the SIM messagebook that match a given category.</p><p><div class="rationale"><p>This vaguely maps to the GSM 07.05 command +CMGL="(category), see 3GPP TS 07.07 Chapter 3.4.2.</p></div></p><h4>Parameters</h4><i>s: category</i><p>The category of messages you want to receive. Valid categories are:  <ul>  <li>"all" = all messages,</li>  <li>"read" = message you have received and read,</li>  <li>"unread" = new messages you have received,</li>  <li>"sent" = messages you have sent,</li>  <li>"unsent" = message you have not sent yet.</li>  </ul></p><h4>Returns</h4><i>a(isss): messages</i><p>Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:  <ul>  <li>(int:index) = storage index,</li>  <li>(string:status) = status of message, one of ("read", "unread", "sent", "unsent"),</li>  <li>(string:number) = sender or receiver number.</li>  <li>(string:content) = contents of the message.</li>  </ul></p>
 <h3><a name="GetServiceCenterNumber">GetServiceCenterNumber</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Retrieve phone number of SMS Center Number.</p><p><div class="rationale"><p>This maps to the GSM 07.05 command +CSCA?, see 3GPP TS 07.05 Chapter 3.3.1.</p></div></p><h4>Returns</h4><i>s: number</i><p>The SMS Center Number.</p>
 <h3><a name="SetServiceCenterNumber">SetServiceCenterNumber</a> ( s )</h3>
