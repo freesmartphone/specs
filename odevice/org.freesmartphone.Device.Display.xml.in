@@ -15,6 +15,7 @@
   </doc:doc>
 
   <method name="GetInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_display" />
     <doc:doc>
       <doc:description>Retrieve information about the display.</doc:description>
     </doc:doc>
@@ -31,6 +32,7 @@
   </method>
 
   <method name="GetBrightness">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_display" />
     <doc:doc>
       <doc:description>Get the current brightness level.</doc:description>
     </doc:doc>
@@ -44,6 +46,7 @@
   </method>
 
   <method name="SetBrightness">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_display" />
     <doc:doc>
       <doc:description>Set the brightness level.</doc:description>
       <doc:inote>A brightness level of 0 does not necessarily mean that the backlight power is off.</doc:inote>
@@ -58,6 +61,7 @@
   </method>
 
   <method name="GetBacklightPower">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_display" />
     <doc:doc>
       <doc:description>Get whether the backlight is powered or not.</doc:description>
     </doc:doc>
@@ -71,6 +75,7 @@
   </method>
 
   <method name="SetBacklightPower">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_display" />
     <doc:doc>
       <doc:description>Set whether the backlight should be powered or not.</doc:description>
     </doc:doc>
