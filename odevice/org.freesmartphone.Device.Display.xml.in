@@ -3,46 +3,28 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Display Interface</doc:summary>
+  <doc:version>0.5.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.Display">
 
   <doc:doc>
     <doc:para>
+      This interface provides access to a display device.
     </doc:para>
   </doc:doc>
 
-  <method name="SetBrightness">
+  <method name="GetInfo">
     <doc:doc>
-      <doc:description></doc:description>
+      <doc:description>Retrieve information about the display.</doc:description>
     </doc:doc>
-    <arg direction="in" type="i" name="brightness">
+    <arg direction="out" type="a{sv}" name="properties">
       <doc:doc>
         <doc:summary>
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
-  <method name="GetName">
-    <doc:doc>
-      <doc:description></doc:description>
-    </doc:doc>
-    <arg direction="out" type="s">
-      <doc:doc>
-        <doc:summary>
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
-  <method name="SetBacklightPower">
-    <doc:doc>
-      <doc:description></doc:description>
-    </doc:doc>
-    <arg direction="in" type="b" name="power">
-      <doc:doc>
-        <doc:summary>
+          The properties of the display. Expected values are:
+          [ul]
+            [li]... to be defined ...[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -50,11 +32,26 @@
 
   <method name="GetBrightness">
     <doc:doc>
-      <doc:description></doc:description>
+      <doc:description>Get the current brightness level.</doc:description>
     </doc:doc>
-    <arg direction="out" type="i">
+    <arg direction="out" type="i" name="brightness">
       <doc:doc>
         <doc:summary>
+          The brightness level in percent (0-100).
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetBrightness">
+    <doc:doc>
+      <doc:description>Set the brightness level.</doc:description>
+      <doc:inote>A brightness level of 0 does not necessarily mean that the backlight power is off.</doc:inote>
+    </doc:doc>
+    <arg direction="in" type="i" name="brightness">
+      <doc:doc>
+        <doc:summary>
+          The brightness level in percent (0-100).
         </doc:summary>
       </doc:doc>
     </arg>
@@ -62,11 +59,25 @@
 
   <method name="GetBacklightPower">
     <doc:doc>
-      <doc:description></doc:description>
+      <doc:description>Get whether the backlight is powered or not.</doc:description>
     </doc:doc>
-    <arg direction="out" type="b">
+    <arg direction="out" type="b" name="power">
       <doc:doc>
         <doc:summary>
+          True, if the backlight is powered. False, otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetBacklightPower">
+    <doc:doc>
+      <doc:description>Set whether the backlight should be powered or not.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="b" name="power">
+      <doc:doc>
+        <doc:summary>
+          True, if the backlight should be powered. False, otherwise.
         </doc:summary>
       </doc:doc>
     </arg>
