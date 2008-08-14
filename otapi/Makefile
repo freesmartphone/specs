@@ -7,7 +7,6 @@ files = \
   org.freesmartphone.GSM.Network.xml \
   org.freesmartphone.GSM.PDP.xml \
   org.freesmartphone.GSM.SIM.xml \
-  org.freesmartphone.GSM.SMS.xml \
-  org.freesmartphone.Storage.xml
+#  org.freesmartphone.GSM.SMS.xml \
 
 include ../tools/rules.mk
