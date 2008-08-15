@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-powercontrol-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PowerControl Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.PowerControl">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to a powercontrol device.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetPower">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol" />
+    <doc:doc>
+      <doc:description>Get the power status.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="b" name="on">
+      <doc:doc>
+        <doc:summary>True, if the device is powered on. False, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetPower">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol" />
+    <doc:doc>
+      <doc:description>Power the device on or turn the device off.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="b" name="on">
+      <doc:doc>
+        <doc:summary>True, if the device should be turned on. False, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="Power">
+    <doc:doc>
+      <doc:description>Sent, when the device has changed power status.</doc:description>
+    </doc:doc>
+    <arg type="b" name="on">
+      <doc:doc>
+        <doc:summary>True, if the device is now powered on. False, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+</interface>
+</node>

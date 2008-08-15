@@ -3,48 +3,77 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org PowerSupply Interface</doc:summary>
+  <doc:version>0.3.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.PowerSupply">
 
   <doc:doc>
     <doc:para>
+      This interface provides access to a power supply device.
     </doc:para>
   </doc:doc>
 
-  <method name="GetName">
-    <doc:doc>
-      <doc:description></doc:description>
-    </doc:doc>
-    <arg direction="out" type="s">
-      <doc:doc>
-        <doc:summary>
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-  <method name="GetChargingPercentage">
-    <doc:doc>
-      <doc:description></doc:description>
-    </doc:doc>
-    <arg direction="out" type="i">
-      <doc:doc>
-        <doc:summary>
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
   <method name="GetInfo">
     <doc:doc>
-      <doc:description></doc:description>
+      <doc:description>Retrieve information about the power supply.</doc:description>
     </doc:doc>
-    <arg direction="out" type="a{sv}">
+    <arg direction="out" type="a{sv}" name="properties">
       <doc:doc>
         <doc:summary>
+          The properties of the power supply. Expected tuples are:
+          [ul]
+            [li]...to be defined ...[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
   </method>
+
+  <method name="GetEnergyPercentage">
+    <doc:doc>
+      <doc:description>Retrieve the energy level of this power supply.</doc:description>
+      <doc:inote>A wall power supply will always return "full".</doc:inote>
+    </doc:doc>
+    <arg direction="out" type="i" name="energy">
+      <doc:doc>
+        <doc:summary>The energy level in percent (0-100).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetPowerStatus">
+    <doc:doc>
+      <doc:description>Retrieve the power status for this power supply.</doc:description>
+      <doc:inote>A wall power supply will always return "full".</doc:inote>
+    </doc:doc>
+    <arg direction="out" type="s" name="status">
+      <doc:doc>
+        <doc:summary>
+          The power status. Expected values are:
+          [ul]
+            [li]"charging"[/li]
+            [li]"discharging"[/li]
+            [li]"full"[/li]
+            [li]"empty"[/li]
+            [li]"critical"[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="PowerStatus">
+    <doc:doc>
+      <doc:description>Sent, when the power status changes significantly.</doc:description>
+    </doc:doc>
+    <arg type="s" name="status">
+      <doc:doc>
+        <doc:summary>
+          The new power status. See 'GetPowerStatus' for expected values.</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 </node>

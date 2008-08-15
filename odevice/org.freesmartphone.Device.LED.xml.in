@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-led-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org LED Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.LED">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to a led device.
+    </doc:para>
+  </doc:doc>
+
+  <!--
+
+  <method name="GetBrightness">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <doc:doc>
+      <doc:description>Get the current brightness level.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="i" name="brightness">
+      <doc:doc>
+        <doc:summary>
+          The brightness level in percent (0-100).
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  -->
+
+  <method name="SetBrightness">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <doc:doc>
+      <doc:description>Set the brightness level.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="brightness">
+      <doc:doc>
+        <doc:summary>
+          The brightness level in percent (0-100).
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetBlinking">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <doc:doc>
+      <doc:description>Start blinking.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="on_duration">
+      <doc:doc>
+        <doc:summary>
+          Duration of being lit in milliseconds.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="i" name="off_duration">
+      <doc:doc>
+        <doc:summary>
+          Duration of being unlit in milliseconds.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <!-- more triggers? -->
+
+</interface>
+</node>

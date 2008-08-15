@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-realtimeclock-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org RealtimeClock Interface</doc:summary>
+  <doc:version>0.4.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.RealtimeClock">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to a realtimeclock device.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetCurrentTime">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock" />
+    <doc:doc>
+      <doc:description>Retrieve the current time from the RTC.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="i" name="time">
+      <doc:doc>
+        <doc:summary>The current time in seconds since epoch.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetCurrentTime">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock" />
+    <doc:doc>
+      <doc:description>Set the current time in the RTC.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="time">
+      <doc:doc>
+        <doc:summary>The current time in seconds since epoch.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetWakeupTime">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock" />
+    <doc:doc>
+      <doc:description>Retrieve the currently programmed wakeup time from the RTC..</doc:description>
+    </doc:doc>
+    <arg direction="out" type="i" name="time">
+      <doc:doc>
+        <doc:summary>The wakeup time in seconds since epoch, if programmed. 0, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetWakeupTime">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock" />
+    <doc:doc>
+      <doc:description>Program a wakeup time in the RTC.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="b" name="time">
+      <doc:doc>
+        <doc:summary>The wakeuptime in seconds since epoch. Set to 0, if you want to disable wakeup.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>
