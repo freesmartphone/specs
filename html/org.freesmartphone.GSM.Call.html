@@ -41,7 +41,7 @@
 <h3><a name="Release">Release</a> ( si )</h3>
 <p><i>Description:</i> Release a call.</p><p><div class="rationale"><p>This can map to ATH, see v.250. It might also map to GSM 07.07 +CHLD=..., see 3GPP TS 07.07 Chapter 7.12. Some implementations might map it to GSM 07.07 +CHUP=, see 3GPP TS 07.07 Chapter 6.5.</p></div></p><h4>Parameters</h4><i>s: message</i><p></p><i>i: id</i><p></p>
 <h3><a name="HoldActive">HoldActive</a> ( )</h3><p><i>Description:</i> Hold the active call.</p><p><div class="rationale"><p>This maps to GSM 07.07 +CHLD=2, see 3GPP TS 07.07 Chapter 7.12.</p></div></p>
-<h3><a name="Join">Join</a> ( )</h3><p><i>Description:</i> Join all active and held calls and release them.</p><p><div class="rationale"><p>This maps to GSM 07.07 +CHLD=4, see 3GPP TS 07.07 Chapter 7.12.</p></div></p>
+<h3><a name="Join">Join</a> ( )</h3><p><i>Description:</i> Join all active and held calls and release yourself from the conversation.</p><p><div class="rationale"><p>This maps to GSM 07.07 +CHLD=4, see 3GPP TS 07.07 Chapter 7.12.</p></div></p>
 <h3><a name="Transfer">Transfer</a> ( s )</h3>
 <p><i>Description:</i> Transfer an incoming or active call to another number.</p><p><div class="rationale"><p>This maps to GSM 07.07 +CCFC=..., see 3GPP TS 07.07 Chapter 7.10.</p></div></p><h4>Parameters</h4><i>s: number</i><p>The number to transfer the call to.</p>
 <h3><a name="ReleaseHeld">ReleaseHeld</a> ( s )</h3>
