@@ -75,7 +75,7 @@
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
     </arg>
-    <arg direction="out" type="b">
+    <arg direction="out" type="b" name="state">
       <doc:doc>
         <doc:summary>
           The resource state. Expected values are:
