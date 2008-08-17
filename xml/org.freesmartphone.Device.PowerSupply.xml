@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Device.PowerSupply">
+    <method name="GetInfo">
+      <arg direction="out" type="a{sv}" name="properties"/>
+    </method>
+    <method name="GetEnergyPercentage">
+      <arg direction="out" type="i" name="energy"/>
+    </method>
+    <method name="GetPowerStatus">
+      <arg direction="out" type="s" name="status"/>
+    </method>
+    <signal name="PowerStatus">
+      <arg type="s" name="status"/>
+    </signal>
+  </interface>
+</node>

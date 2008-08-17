@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Device.Input">
+    <signal name="Event">
+      <arg type="s" name="name"/>
+      <arg type="s" name="action"/>
+      <arg type="s" name="seconds"/>
+    </signal>
+  </interface>
+</node>

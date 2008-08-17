@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.GSM.Device">
+    <error name="NotPresent"/>
+    <error name="Timeout"/>
+    <error name="Failed"/>
+    <method name="GetInfo" implementation="mandatory">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="a{sv}" name="info" direction="out"/>
+    </method>
+    <method name="GetAntennaPower">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="b" name="antenna_power" direction="out"/>
+    </method>
+    <method name="SetAntennaPower">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="b" name="antenna_power" direction="in"/>
+    </method>
+    <method name="GetFeatures">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="a{sv}" name="features" direction="out"/>
+    </method>
+    <method name="PrepareToSuspend">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+    </method>
+    <method name="RecoverFromSuspend">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+    </method>
+  </interface>
+</node>

@@ -41,7 +41,7 @@ $(docbook_xml_files): docbook-%.xml: %.xml.in
 
 $(files): %.xml: %.xml.in
 	@echo processing $@ ...
-	@xsltproc -o $@ ../tools/spec-strip-docs.xsl $<
+	@xsltproc -o ../xml/$@ ../tools/spec-strip-docs.xsl $<
 
 clean:
 	@rm -f $(files) *~

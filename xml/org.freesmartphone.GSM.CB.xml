@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.GSM.CB">
+    <method name="GetCellBroadcastSubscriptions">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_cb"/>
+      <arg type="s" name="channels" direction="out"/>
+    </method>
+    <method name="SetCellBroadcastSubscriptions">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_cb"/>
+      <arg type="s" name="channels" direction="in"/>
+    </method>
+    <signal name="IncomingCellBroadcast">
+      <arg name="serial" type="i"/>
+      <arg name="channel" type="i"/>
+      <arg name="encoding" type="i"/>
+      <arg name="page" type="i"/>
+      <arg name="data" type="s"/>
+    </signal>
+  </interface>
+</node>

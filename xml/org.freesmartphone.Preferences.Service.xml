@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Preferences.Service">
+    <method name="GetKeys">
+      <arg type="as" name="keys" direction="out"/>
+    </method>
+    <method name="GetValue">
+      <arg type="s" name="key" direction="in"/>
+      <arg type="v" name="value" direction="out"/>
+    </method>
+    <method name="SetValue">
+      <arg type="s" name="key" direction="in"/>
+      <arg type="v" name="value" direction="in"/>
+    </method>
+    <method name="IsProfilable">
+      <arg type="s" name="key" direction="in"/>
+      <arg type="b" name="profileable" direction="out"/>
+    </method>
+    <method name="GetType">
+      <arg type="s" name="key" direction="in"/>
+      <arg type="s" name="type" direction="out"/>
+    </method>
+    <signal name="Notify">
+      <arg type="s" name="key"/>
+      <arg type="v" name="value"/>
+    </signal>
+  </interface>
+</node>

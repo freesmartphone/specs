@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Device.Audio">
+    <method name="GetInfo">
+      <arg direction="out" type="a{sv}" name="info"/>
+    </method>
+    <method name="GetSupportedFormats">
+      <arg direction="out" type="as" name="formats"/>
+    </method>
+    <method name="GetAvailableScenarios">
+      <arg direction="out" type="as" name="scenarios"/>
+    </method>
+    <method name="PlaySound">
+      <arg direction="in" type="s" name="id"/>
+    </method>
+    <method name="StopSound">
+      <arg direction="in" type="s" name="id"/>
+    </method>
+    <method name="StopAllSounds"/>
+    <signal name="SoundStatus">
+      <arg type="s" name="id"/>
+      <arg type="s" name="status"/>
+      <arg type="a{sv}" name="properties"/>
+    </signal>
+  </interface>
+</node>

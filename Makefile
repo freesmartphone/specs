@@ -1,5 +1,7 @@
 SUBDIRS := odevice otapi ousage opreferences
 
+.PHONY: all xml clean
+
 all:
 	@for i in $(SUBDIRS); do (cd $$i && $(MAKE) all) || exit 1 ; done
 
