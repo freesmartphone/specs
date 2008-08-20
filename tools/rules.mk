@@ -45,5 +45,6 @@ $(files): %.xml: %.xml.in
 
 clean:
 	@rm -f $(files) *~
-	@rm -f docbook-org.freesmartphone.*.xml
+	for i in $(pydoc_html_files); do rm -f ../html/$$i; done
+	for i in $(files); do rm -f ../xml/$$i; done
 	@rm -rf xhtml *.html
