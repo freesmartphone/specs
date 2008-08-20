@@ -18,7 +18,7 @@
       <arg type="s" name="status" direction="out"/>
     </method>
     <method name="Remove"/>
-    <signal name="Incoing"/>
+    <signal name="Incoming"/>
     <signal name="Outgoing"/>
     <signal name="Released"/>
     <signal name="Activated"/>

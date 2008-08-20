@@ -74,7 +74,7 @@
     </doc:doc>
   </method>
   
-  <signal name="Incoing">
+  <signal name="Incoming">
     <doc:doc>
       <doc:description>
         Emitted when the call status changes to Incoming.
