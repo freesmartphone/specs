@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Audio Interface</doc:summary>
-  <doc:version>0.9.0</doc:version>
+  <doc:version>0.9.1</doc:version>
   <doc:source>git.freesmartphone.org</doc:source>
   <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
 </doc:doc>
@@ -141,6 +141,66 @@
   </signal>
 
   <!-- AUDIO SCENARIO API -->
+
+  <method name="GetScenario">
+    <doc:doc>
+      <doc:description>
+        Get the current audio scenario.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="s" name="scenario">
+      <doc:doc>
+        <doc:summary>
+          The name of the scenario.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetScenario">
+    <doc:doc>
+      <doc:description>
+        Set a new audio scenario.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="scenario">
+      <doc:doc>
+        <doc:summary>
+          The name of the scenario.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="PushScenario">
+    <doc:doc>
+      <doc:description>
+        Set a new audio scenario and push the previous one on the stack.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="scenario">
+      <doc:doc>
+        <doc:summary>
+          The name of the scenario.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="PullScenario">
+    <doc:doc>
+      <doc:description>
+        Set the previously active audio scenario.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="s" name="scenario">
+      <doc:doc>
+        <doc:summary>
+          The current scenario.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
 
 </interface>
 </node>
