@@ -1,4 +1,4 @@
-SUBDIRS := odevice otapi ousage opreferences
+SUBDIRS := odevice otapi ophone ousage opreferences
 
 .PHONY: all xml clean
 
