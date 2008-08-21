@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Device.IdleNotifier">
+    <method name="GetState">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
+      <arg direction="in" type="s" name="status"/>
+    </method>
+    <method name="SetState">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
+      <arg direction="out" type="s" name="status"/>
+    </method>
+    <signal name="State">
+      <arg type="s" name="status"/>
+    </signal>
+  </interface>
+</node>

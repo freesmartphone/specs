@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.GSM.MUX">
+    <method name="SetPower">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
+      <arg name="origin" type="s" direction="in"/>
+      <arg name="on" type="b" direction="in"/>
+    </method>
+    <method name="GetPower">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
+      <arg name="origin" type="s" direction="in"/>
+      <arg name="on" type="b" direction="out"/>
+    </method>
+    <method name="Reset">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_reset_modem"/>
+      <arg name="origin" type="s" direction="in"/>
+    </method>
+    <method name="AllocChannel">
+      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_alloc_channel"/>
+      <arg name="origin" type="s" direction="in"/>
+      <arg name="channel" type="s" direction="out"/>
+    </method>
+  </interface>
+</node>

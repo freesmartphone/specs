@@ -1,76 +1,71 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-display-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-idlenotifier-interface">
 
 <doc:doc>
-  <doc:summary>freesmartphone.org Display Interface</doc:summary>
+  <doc:summary>freesmartphone.org Idle Notification Interface</doc:summary>
+  <doc:version>0.4.0</doc:version>
 </doc:doc>
 
-<interface name="org.freesmartphone.Device.Display">
+<interface name="org.freesmartphone.Device.IdleNotifier">
 
   <doc:doc>
     <doc:para>
+      The Idle Notification Interface provides information about the device's idle state.
     </doc:para>
   </doc:doc>
 
-  <method name="SetBrightness">
+  <method name="GetState">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
     <doc:doc>
-      <doc:description></doc:description>
+      <doc:description>Get the current idle status.</doc:description>
     </doc:doc>
-    <arg direction="in" type="i" name="brightness">
+    <arg direction="in" type="s" name="status">
       <doc:doc>
         <doc:summary>
+          The idle status. Expected values are:
+          [ul]
+            [li]"BUSY"[/li]
+            [li]"IDLE"[/li]
+            [li]"IDLE_DIM"[/li]
+            [li]"PRELOCK"[/li]
+            [li]"LOCK"[/li]
+            [li]"SUSPEND"[/li]
+            [li]"AWAKE"[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
   </method>
 
-  <method name="GetName">
+  <method name="SetState">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
     <doc:doc>
-      <doc:description></doc:description>
+      <doc:description>Force an idle status.</doc:description>
     </doc:doc>
-    <arg direction="out" type="s">
+    <arg direction="out" type="s" name="status">
       <doc:doc>
         <doc:summary>
+          The idle status. See 'GetState' for valid values.
         </doc:summary>
       </doc:doc>
     </arg>
   </method>
 
-  <method name="SetBacklightPower">
+  <signal name="State">
     <doc:doc>
-      <doc:description></doc:description>
+      <doc:description>
+        Sent, when the idle status has changed.
+      </doc:description>
     </doc:doc>
-    <arg direction="in" type="b" name="power">
+    <arg type="s" name="status">
       <doc:doc>
         <doc:summary>
+          The idle status. See 'GetState' for expected values.
         </doc:summary>
       </doc:doc>
     </arg>
-  </method>
+  </signal>
 
-  <method name="GetBrightness">
-    <doc:doc>
-      <doc:description></doc:description>
-    </doc:doc>
-    <arg direction="out" type="i">
-      <doc:doc>
-        <doc:summary>
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
-  <method name="GetBacklightPower">
-    <doc:doc>
-      <doc:description></doc:description>
-    </doc:doc>
-    <arg direction="out" type="b">
-      <doc:doc>
-        <doc:summary>
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
 
 </interface>
 </node>

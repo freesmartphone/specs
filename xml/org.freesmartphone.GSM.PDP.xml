@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.GSM.PDP">
+    <error name="NotFound"/>
+    <method name="ListGprsClasses">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <arg type="as" name="classes" direction="out"/>
+    </method>
+    <method name="GetCurrentGprsClass">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <arg type="s" name="device_class" direction="out"/>
+    </method>
+    <method name="SetCurrentGprsClass">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <arg type="s" name="device_class" direction="in"/>
+    </method>
+    <method name="ActivateContext">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <arg type="s" name="apn" direction="in"/>
+      <arg type="s" name="username" direction="in"/>
+      <arg type="s" name="password" direction="in"/>
+      <arg type="i" name="index" direction="out"/>
+    </method>
+    <method name="DeactivateContext">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <arg type="i" name="index" direction="in"/>
+    </method>
+    <method name="GetContextStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <arg type="i" name="index" direction="in"/>
+      <arg type="s" name="status" direction="out"/>
+    </method>
+    <signal name="ContextStatus">
+      <arg type="i" name="id"/>
+      <arg type="s" name="status"/>
+      <arg type="a{sv}" name="properties"/>
+    </signal>
+  </interface>
+</node>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.GSM.HZ">
+    <method name="GetKnownHomeZones">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_hz"/>
+      <arg type="as" name="zones" direction="out"/>
+    </method>
+    <method name="GetHomeZoneStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_hz"/>
+      <arg type="s" name="zone" direction="out"/>
+    </method>
+    <signal name="HomeZoneStatus">
+      <arg name="name" type="s"/>
+    </signal>
+  </interface>
+</node>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Phone">
+    <method name="InitProtocols">
+      <arg type="as" name="protocols" direction="out"/>
+    </method>
+    <method name="CreateCall">
+      <arg type="s" name="number" direction="in"/>
+      <arg type="s" name="protocol" direction="in"/>
+      <arg type="b" name="force" direction="in"/>
+      <arg type="o" name="call" direction="out"/>
+    </method>
+  </interface>
+</node>

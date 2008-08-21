@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Usage">
+    <method name="ListResources">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <arg direction="out" type="as" name="resources"/>
+    </method>
+    <method name="GetResourcePolicy">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <arg direction="in" type="s" name="name"/>
+      <arg direction="out" type="s" name="policy"/>
+    </method>
+    <method name="SetResourcePolicy">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <arg direction="in" type="s" name="name"/>
+      <arg direction="in" type="s" name="policy"/>
+    </method>
+    <method name="GetResourceState">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <arg direction="in" type="s" name="name"/>
+      <arg direction="out" type="b" name="state"/>
+    </method>
+    <method name="GetResourceUsers">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <arg direction="in" type="s" name="name"/>
+      <arg direction="out" type="as" name="users"/>
+    </method>
+    <method name="RequestResource">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <arg direction="in" type="s" name="name"/>
+      <arg direction="out" type="b" name="ok"/>
+    </method>
+    <method name="ReleaseResource">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <arg direction="in" type="s" name="name"/>
+    </method>
+    <signal name="ResourceChanged">
+      <arg type="s" name="name"/>
+    </signal>
+  </interface>
+</node>

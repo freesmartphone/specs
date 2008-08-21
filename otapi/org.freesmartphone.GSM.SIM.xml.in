@@ -298,11 +298,11 @@
     <arg type="a(siii)" name="homezones" direction="out">
       <doc:doc>
         <doc:summary>
-          An array containing up to four homezones in Gauss-Krüger coordinates. The array contains of four-tuples with the following format:
+          An array containing up to four homezones in Gauss-Krueger coordinates. The array contains of four-tuples with the following format:
           [ol]
             [li](name:string), the name of the zone,[/li]
-            [li](x:int), the X value of the zone center in Gauss-Krüger format,[/li]
-            [li](y:int), the Y value of the zone center in Gauss-Krüger format,[/li]
+            [li](x:int), the X value of the zone center in Gauss-Krueger format,[/li]
+            [li](y:int), the Y value of the zone center in Gauss-Krueger format,[/li]
             [li](r:radious), the R*R value of the zone dimension in meters.[/li]
           [/ol]
         </doc:summary>
@@ -330,6 +330,26 @@
         [/ul]
       </doc:summary>
     </doc:doc>
+    </arg>
+  </method>
+
+  <method name="RetrievePhonebook">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve all entries from the SIM phonebook.</doc:description>
+      <doc:inote>This vaguely maps to the GSM 07.05 command +CPBR=(index1),(index2), see 3GPP TS 07.07 Chapter 8.12.</doc:inote>
+    </doc:doc>
+    <arg type="a(iss)" name="entries" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The phonebook entries. This is an array of three-tuples. Every entry has the following structure:
+          [ul]
+          [li](int:index) = storage index,[/li]
+          [li](string:name) = name,[/li]
+          [li](string:number) = number.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
     </arg>
   </method>
 
@@ -405,6 +425,41 @@
             [li]("slots", int:value) = maximum of messages stored on the SIM,[/li]
             [li]("used", int:value) = actual number of messages stored on the SIM,[/li]
             [li]("contents_length", int:value) = maximum length for a message.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="RetrieveMessagebook">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve all messages from the SIM messagebook that match a given category.</doc:description>
+      <doc:inote>This vaguely maps to the GSM 07.05 command +CMGL="(category), see 3GPP TS 07.07 Chapter 3.4.2.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="category" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The category of messages you want to receive. Valid categories are:
+          [ul]
+             [li]"all" = all messages,[/li]
+             [li]"read" = message you have received and read,[/li]
+             [li]"unread" = new messages you have received,[/li]
+             [li]"sent" = messages you have sent,[/li]
+             [li]"unsent" = message you have not sent yet.[/li]
+           [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a(isss)" name="messages" direction="out">
+      <doc:doc>
+        <doc:summary>
+          Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:
+          [ul]
+          [li](int:index) = storage index,[/li]
+          [li](string:status) = status of message, one of ("read", "unread", "sent", "unsent"),[/li]
+          [li](string:number) = sender or receiver number.[/li]
+          [li](string:content) = contents of the message.[/li]
           [/ul]
         </doc:summary>
       </doc:doc>

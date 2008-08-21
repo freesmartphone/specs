@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-input-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Input Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.Input">
+
+  <doc:doc>
+    <doc:para>
+      The Input Interface provides information about the device's buttons, switches, and similar peripheral entities.
+    </doc:para>
+  </doc:doc>
+
+  <signal name="Event">
+    <doc:doc>
+      <doc:description>
+        Sent, when an input event occurs.
+      </doc:description>
+      <doc:inote>
+        Input events should be described via configuration files.
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="name">
+      <doc:doc>
+        <doc:summary>
+          The name of the event source.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="action">
+      <doc:doc>
+        <doc:summary>
+          The action that triggered the event. Expected values are:
+          [ul]
+            [li]"pressed"[/li]
+            [li]"held" (only for some events)[/li]
+            [li]"released"[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="seconds">
+      <doc:doc>
+        <doc:summary>
+          The duration for the event. Only valid for the "held" action.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+</interface>
+</node>

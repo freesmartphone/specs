@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Device.PowerControl">
+    <method name="GetPower">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol"/>
+      <arg direction="out" type="b" name="on"/>
+    </method>
+    <method name="SetPower">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol"/>
+      <arg direction="in" type="b" name="on"/>
+    </method>
+    <signal name="Power">
+      <arg type="b" name="on"/>
+    </signal>
+  </interface>
+</node>
