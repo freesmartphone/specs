@@ -42,7 +42,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="seconds">
+    <arg type="i" name="seconds">
       <doc:doc>
         <doc:summary>
           The duration for the event. Only valid for the "held" action.
