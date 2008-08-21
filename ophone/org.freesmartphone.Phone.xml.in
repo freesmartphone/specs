@@ -50,6 +50,19 @@
         </doc:doc>
     </arg>
   </method>
+  
+  <signal name="Incoming">
+    <doc:doc>
+      <doc:description>
+        Emitted when a new call is incoming
+      </doc:description>
+    </doc:doc>
+    <arg type="o" name="call">
+        <doc:doc>
+            <doc:summary>Path to the Call object.</doc:summary>
+        </doc:doc>
+    </arg>
+  </signal>
 
 
 </interface>
