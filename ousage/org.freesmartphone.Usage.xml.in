@@ -11,6 +11,12 @@
   <doc:doc>
     <doc:para>
       This interface provides access to subsystem resource management.
+      The usage daemon keeps track of all users per resource and will enable or disable
+      the associated hardware/software as needed.
+      When an application needs access to a subsystem, it needs to request it first and
+      is only allowed to use it if the request was successful.
+      If an applications is closed, all resouces requested by it are released automatically.
+      Additionally, a policy can be set for each resource to override the automatic management.
     </doc:para>
   </doc:doc>
 
@@ -41,7 +47,9 @@
         <doc:summary>
           The resource policy. Expected values are:
           [ul]
-            [li]...to be defined...[/li]
+            [li]"disabled" - using this resource is currently not allowed[/li]
+            [li]"auto" - the resource is enabled as long as it is used by at least one client[/li]
+            [li]"enabled" - the resource is enabled even without a client[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
@@ -78,10 +86,7 @@
     <arg direction="out" type="b" name="state">
       <doc:doc>
         <doc:summary>
-          The resource state. Expected values are:
-          [ul]
-            [li]... to be defined ...[/li]
-          [/ul]
+          The resource state. True if the resource is currently enabled.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -99,7 +104,7 @@
     </arg>
     <arg direction="out" type="as" name="users">
       <doc:doc>
-        <doc:summary>An array of user names.</doc:summary>
+        <doc:summary>An array of bus names using the resource.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -116,7 +121,7 @@
     </arg>
     <arg direction="out" type="b" name="ok">
       <doc:doc>
-        <doc:summary>True, if the request has been granted. False, otherwise.</doc:summary>
+        <doc:summary>True if the request has been granted, False otherwise.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -125,7 +130,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
     <doc:doc>
       <doc:description>Release a given resource.</doc:description>
-      <doc:inote>Resources in usage get autoreleased when a client leaves the bus.</doc:inote>
+      <doc:inote>Resources in use get autoreleased when a client leaves the bus.</doc:inote>
     </doc:doc>
     <arg direction="in" type="s" name="name">
       <doc:doc>
@@ -136,11 +141,30 @@
 
   <signal name="ResourceChanged">
     <doc:doc>
-      <doc:description>Sent, whenever a resource status changes.</doc:description>
+      <doc:description>Sent whenever a resource status changes.</doc:description>
     </doc:doc>
     <arg type="s" name="name">
       <doc:doc>
         <doc:summary>The name of the resource.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="b" name="state">
+      <doc:doc>
+        <doc:summary>
+          The resource state. True if the resource is currently enabled.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="attributes">
+      <doc:doc>
+        <doc:summary>
+          The new status of the resource. Expected values are:
+          [ul]
+            [li]"policy": The current resource policy[/li]
+            [li]"refcount": The count of clients that have requested the resource[/li]
+         [/ul]
+          Further information can be part of the properties.
+        </doc:summary>
       </doc:doc>
     </arg>
   </signal>
