@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org PowerSupply Interface</doc:summary>
-  <doc:version>0.3.0</doc:version>
+  <doc:version>0.3.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.PowerSupply">
@@ -30,14 +30,14 @@
     </arg>
   </method>
 
-  <method name="GetEnergyPercentage">
+  <method name="GetCapacity">
     <doc:doc>
-      <doc:description>Retrieve the energy level of this power supply.</doc:description>
-      <doc:inote>A wall power supply will always return "full".</doc:inote>
+      <doc:description>Retrieve the capacity of this power supply.</doc:description>
+      <doc:inote>A wall power supply will always return 100.</doc:inote>
     </doc:doc>
     <arg direction="out" type="i" name="energy">
       <doc:doc>
-        <doc:summary>The energy level in percent (0-100).</doc:summary>
+        <doc:summary>The capacity in percent (0-100).</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -69,8 +69,18 @@
     </doc:doc>
     <arg type="s" name="status">
       <doc:doc>
-        <doc:summary>
-          The new power status. See 'GetPowerStatus' for expected values.</doc:summary>
+        <doc:summary>The power status. See 'GetPowerStatus' for expected values.</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="Capacity">
+    <doc:doc>
+      <doc:description>Sent, when the capacity changes.</doc:description>
+    </doc:doc>
+    <arg type="s" name="status">
+      <doc:doc>
+        <doc:summary>The capacity in percent (0-100).</doc:summary>
       </doc:doc>
     </arg>
   </signal>
