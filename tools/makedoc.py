@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 # (C) 2008 Michael 'Mickey' Lauer <mlauer@vanille-media.de>
-# GPLv2
+# GPLv2 or later.
+
+"""
+Yes, I'm aware that this could have been solved with xslt in a much
+more elegant way. Alas, I'm a very learning-resistant person sometimes...
+This time I even tried to wrap my head around docbook, xslt, and stuff --
+but I really couldn't get it. Then I gave up and wrote this.
+
+It's not versatile, but it gets my job done.
+"""
 
 import sys
 from xml.sax import parse
