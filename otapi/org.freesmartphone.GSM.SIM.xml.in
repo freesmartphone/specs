@@ -3,6 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM SIM Interface</doc:summary>
+  <doc:version>0.9.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.SIM">
@@ -204,7 +205,7 @@
         <doc:summary>
           Information about the SIM card. Required tuples are:
           [ul]
-            [li]("imei", string)[/li]
+            [li]("imsi", string) = the unique subscriber identification stored on your SIM.[/li]
           [/ul]
           Optional tuples are:
           [ul]

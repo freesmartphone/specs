@@ -3,6 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Call Interface</doc:summary>
+  <doc:version>0.8.9</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Call">
@@ -22,13 +23,24 @@
     </doc:doc>
   </error>
 
+  <error name="NotAnEmergencyNumber">
+    <doc:doc>
+      <doc:description>
+        Raised, if the number is not allowed to dial as emergency call.
+      </doc:description>
+    </doc:doc>
+  </error>
+
   <method name="Emergency">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
       <doc:description>Initiate an emergency call.</doc:description>
       <doc:inote>This maps to ATD(number);, see v.250.</doc:inote>
     </doc:doc>
-    <arg type="s" name="number" direction="out">
+    <arg type="s" name="number" direction="in">
+      <doc:doc>
+        <doc:summary>The emergency number to dial. National and world-wide restrictions apply.</doc:summary>
+      </doc:doc>
     </arg>
   </method>
 
