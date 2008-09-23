@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Call Interface</doc:summary>
-  <doc:version>0.8.9</doc:version>
+  <doc:version>0.8.9.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Call">
@@ -123,7 +123,6 @@
         This can map to ATH, see v.250. It might also map to GSM 07.07 +CHLD=..., see 3GPP TS 07.07 Chapter 7.12. Some implementations might map it to GSM 07.07 +CHUP=, see 3GPP TS 07.07 Chapter 6.5.
       </doc:inote>
     </doc:doc>
-    <arg type="s" name="message" direction="in" />
     <arg type="i" name="id" direction="in" />
   </method>
 
@@ -162,7 +161,6 @@
       <doc:description>Release all held calls.</doc:description>
       <doc:inote>This maps to GSM 07.07 +CHLD=, see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
-    <arg type="s" name="message" direction="in" />
   </method>
 
   <method name="ReleaseAll">
@@ -171,7 +169,6 @@
       <doc:description>Release all calls, no matter whether active or put on hold.</doc:description>
       <doc:inote>This maps to ATH, see v.250.</doc:inote>
     </doc:doc>
-    <arg type="s" name="message" direction="in" />
   </method>
 
   <method name="Initiate">
