@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Call Interface</doc:summary>
-  <doc:version>0.8.9.1</doc:version>
+  <doc:version>0.8.9.2</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Call">
@@ -66,7 +66,7 @@
             [li]"outgoing" = The call is outgoing (but not yet established),[/li]
             [li]"active" = The call is the active call (you can talk),[/li]
             [li]"held" = The call is being held,[/li]
-            [li]"released" = The call is being released.[/li]
+            [li]"release" = The call has been released.[/li]
          [/ul]
           Further information can be part of the properties.
         </doc:summary>
