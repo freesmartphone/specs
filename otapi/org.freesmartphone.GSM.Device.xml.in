@@ -3,6 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Device Interface</doc:summary>
+  <doc:version>0.8.9.2</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Device">
@@ -119,22 +120,6 @@
     </doc:doc>
     </arg>
   </method>
-
-  <method name="PrepareToSuspend">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
-    <doc:doc>
-      <doc:description>Prepare the GSM device for a suspend.</doc:description>
-      <doc:inote>This can be used to (temporarily) turn off unsolicited messages.</doc:inote>
-    </doc:doc>
-  </method>
-
-  <method name="RecoverFromSuspend">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
-    <doc:doc>
-      <doc:description>Recover the GSM device from a suspend.</doc:description>
-      <doc:inote>This can be used to turn on unsolicited messages and catch up with the status.</doc:inote>
-    </doc:doc>
-</method>
 
 </interface>
 </node>

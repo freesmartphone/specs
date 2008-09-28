@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-usage-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Resource Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Resource">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to subsystem resource management.
+    </doc:para>
+  </doc:doc>
+
+</interface>
+</node>
