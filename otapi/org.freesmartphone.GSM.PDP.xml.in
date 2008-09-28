@@ -24,7 +24,7 @@
       </doc:doc>
     </error>
 
-    <method name="ListGprsClasses">
+  <method name="ListGprsClasses">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
     <doc:doc>
       <doc:description>List available GPRS device classes.</doc:description>

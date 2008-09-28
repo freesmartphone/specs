@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-usage-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-resource-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org Resource Interface</doc:summary>
@@ -10,9 +10,39 @@
 
   <doc:doc>
     <doc:para>
-      This interface provides access to subsystem resource management.
+      This interface provides access to a resource as visible from the OUsage subsystem.
+      If you provide resource to OUsage, you have to implement this interface.
+      Applications usually are not allowed to use this interface.
     </doc:para>
   </doc:doc>
+
+  <method name="Enable">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource" />
+    <doc:doc>
+      <doc:description>Enable the resource.</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Disable">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource" />
+    <doc:doc>
+      <doc:description>Disable the resource.</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Suspend">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource" />
+    <doc:doc>
+      <doc:description>Suspend the resource.</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Resume">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource" />
+    <doc:doc>
+      <doc:description>Suspend the resource.</doc:description>
+    </doc:doc>
+  </method>
 
 </interface>
 </node>
