@@ -112,16 +112,13 @@
   <method name="RequestResource">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
     <doc:doc>
-      <doc:description>Occupy a given resource.</doc:description>
+      <doc:description>
+        Occupy a given resource. An error is returned if the resource was not occupied sucessfully.
+      </doc:description>
     </doc:doc>
     <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg direction="out" type="b" name="ok">
-      <doc:doc>
-        <doc:summary>True if the request has been granted, False otherwise.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -138,6 +135,24 @@
       </doc:doc>
     </arg>
   </method>
+
+  <signal name="ResourceAvailable">
+    <doc:doc>
+      <doc:description>Sent whenever a resource is added or removed.</doc:description>
+    </doc:doc>
+    <arg type="s" name="name">
+      <doc:doc>
+        <doc:summary>The name of the resource.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="b" name="availability">
+      <doc:doc>
+        <doc:summary>
+          The resource availability. True if the resource is currently available.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
   <signal name="ResourceChanged">
     <doc:doc>
