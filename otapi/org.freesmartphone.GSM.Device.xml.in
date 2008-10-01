@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Device Interface</doc:summary>
-  <doc:version>0.8.9.2</doc:version>
+  <doc:version>0.9.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Device">
@@ -118,6 +118,30 @@
         see 3GPP TS 07.07 Chapters 5.10, 5.10, and 10.1.11.
       </doc:inote>
     </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetSimBuffersSms">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <doc:doc>
+      <doc:inote>This maps to the GSM 07.07 command +CNMI?, see 3GPP TS 07.05 Chapter 3.4.1</doc:inote>
+    </doc:doc>
+    <arg type="b" name="sim_buffers_sms" direction="out">
+      <doc:doc>
+        <doc:summary>True, if incoming SMS are buffered on the SIM. False, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetSimBuffersSms">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <doc:doc>
+      <doc:inote>This maps to the GSM 07.07 command +CNMI=..., see 3GPP TS 07.05 Chapter 3.4.1</doc:inote>
+    </doc:doc>
+    <arg type="b" name="sim_buffers_sms" direction="in">
+      <doc:doc>
+        <doc:summary>True, if incoming SMS should be buffered on the SIM. False, otherwise.</doc:summary>
+      </doc:doc>
     </arg>
   </method>
 
