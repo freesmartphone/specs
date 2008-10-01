@@ -21,11 +21,13 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
       <arg type="a{sv}" name="features" direction="out"/>
     </method>
-    <method name="PrepareToSuspend">
+    <method name="GetSimBuffersSms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="b" name="sim_buffers_sms" direction="out"/>
     </method>
-    <method name="RecoverFromSuspend">
+    <method name="SetSimBuffersSms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="b" name="sim_buffers_sms" direction="in"/>
     </method>
   </interface>
 </node>

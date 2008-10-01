@@ -5,7 +5,7 @@
     <signal name="Event">
       <arg type="s" name="name"/>
       <arg type="s" name="action"/>
-      <arg type="s" name="seconds"/>
+      <arg type="i" name="seconds"/>
     </signal>
   </interface>
 </node>

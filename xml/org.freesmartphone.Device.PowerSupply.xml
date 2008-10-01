@@ -5,13 +5,16 @@
     <method name="GetInfo">
       <arg direction="out" type="a{sv}" name="properties"/>
     </method>
-    <method name="GetEnergyPercentage">
+    <method name="GetCapacity">
       <arg direction="out" type="i" name="energy"/>
     </method>
     <method name="GetPowerStatus">
       <arg direction="out" type="s" name="status"/>
     </method>
     <signal name="PowerStatus">
+      <arg type="s" name="status"/>
+    </signal>
+    <signal name="Capacity">
       <arg type="s" name="status"/>
     </signal>
   </interface>

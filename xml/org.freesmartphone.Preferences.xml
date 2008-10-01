@@ -9,6 +9,9 @@
       <arg type="s" name="name" direction="in"/>
       <arg type="o" name="service" direction="out"/>
     </method>
+    <method name="GetProfiles">
+      <arg type="as" name="profile" direction="out"/>
+    </method>
     <method name="GetProfile">
       <arg type="s" name="profile" direction="out"/>
     </method>

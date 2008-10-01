@@ -3,9 +3,10 @@
 <node name="/">
   <interface name="org.freesmartphone.GSM.Call">
     <error name="NotFound"/>
+    <error name="NotAnEmergencyNumber"/>
     <method name="Emergency">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
-      <arg type="s" name="number" direction="out"/>
+      <arg type="s" name="number" direction="in"/>
     </method>
     <signal name="CallStatus">
       <arg type="i" name="id"/>
@@ -22,7 +23,6 @@
     </method>
     <method name="Release">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
-      <arg type="s" name="message" direction="in"/>
       <arg type="i" name="id" direction="in"/>
     </method>
     <method name="HoldActive">
@@ -37,11 +37,9 @@
     </method>
     <method name="ReleaseHeld">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
-      <arg type="s" name="message" direction="in"/>
     </method>
     <method name="ReleaseAll">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
-      <arg type="s" name="message" direction="in"/>
     </method>
     <method name="Initiate">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>

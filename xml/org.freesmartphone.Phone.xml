@@ -11,5 +11,8 @@
       <arg type="b" name="force" direction="in"/>
       <arg type="o" name="call" direction="out"/>
     </method>
+    <signal name="Incoming">
+      <arg type="o" name="call"/>
+    </signal>
   </interface>
 </node>

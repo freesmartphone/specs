@@ -29,14 +29,19 @@
     <method name="RequestResource">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
       <arg direction="in" type="s" name="name"/>
-      <arg direction="out" type="b" name="ok"/>
     </method>
     <method name="ReleaseResource">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
       <arg direction="in" type="s" name="name"/>
     </method>
+    <signal name="ResourceAvailable">
+      <arg type="s" name="name"/>
+      <arg type="b" name="availability"/>
+    </signal>
     <signal name="ResourceChanged">
       <arg type="s" name="name"/>
+      <arg type="b" name="state"/>
+      <arg type="a{sv}" name="attributes"/>
     </signal>
   </interface>
 </node>
