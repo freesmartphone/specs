@@ -43,5 +43,8 @@
       <arg type="b" name="state"/>
       <arg type="a{sv}" name="attributes"/>
     </signal>
+    <method name="Suspend">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+    </method>
   </interface>
 </node>

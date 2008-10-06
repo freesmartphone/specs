@@ -3,20 +3,18 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Usage Interface</doc:summary>
-  <doc:version>0.1.0</doc:version>
+  <doc:version>0.2.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Usage">
 
   <doc:doc>
     <doc:para>
-      This interface provides access to subsystem resource management.
-      The usage daemon keeps track of all users per resource and will enable or disable
-      the associated hardware/software as needed.
-      When an application needs access to a subsystem, it needs to request it first and
-      is only allowed to use it if the request was successful.
-      If an applications is closed, all resouces requested by it are released automatically.
-      Additionally, a policy can be set for each resource to override the automatic management.
+      This interface provides access to subsystem resource management policies.
+      The usage manager keeps track of all users per resource and will enable or disable the
+      associated hardware/software as requested. Before an application can make use of a subsystem,
+      it needs to request the resource first and is only allowed to use it if the request
+      has been granted.
     </doc:para>
   </doc:doc>
 
@@ -183,6 +181,21 @@
       </doc:doc>
     </arg>
   </signal>
+
+  <method name="Suspend">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
+    <doc:doc>
+      <doc:description>
+        Triggers a suspend on all managed resources and puts the device into suspend mode.
+        When the device comes back from suspend, all resources are resumed.
+      </doc:description>
+      <doc:inote>
+        Resources need to implement org.freesmartphone.Resource.Suspend and
+        org.freesmartphone.Resource.Resume if they have anything to do
+        on suspend and resume.
+      </doc:inote>
+    </doc:doc>
+  </method>
 
 </interface>
 </node>
