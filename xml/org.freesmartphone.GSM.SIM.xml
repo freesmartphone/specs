@@ -61,26 +61,35 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
       <arg type="a(siii)" name="homezones" direction="out"/>
     </method>
+    <method name="ListPhonebooks">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <arg type="as" name="categories" direction="out"/>
+    </method>
     <method name="GetPhonebookInfo">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <arg type="s" name="category" direction="in"/>
       <arg type="a{sv}" name="info" direction="out"/>
     </method>
     <method name="RetrievePhonebook">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <arg type="s" name="category" direction="in"/>
       <arg type="a(iss)" name="entries" direction="out"/>
     </method>
     <method name="DeleteEntry">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <arg type="s" name="category" direction="in"/>
       <arg type="i" name="index" direction="in"/>
     </method>
     <method name="StoreEntry">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <arg type="s" name="category" direction="in"/>
       <arg type="i" name="index" direction="in"/>
       <arg type="s" name="name" direction="in"/>
       <arg type="s" name="number" direction="in"/>
     </method>
     <method name="RetrieveEntry">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <arg type="s" name="category" direction="in"/>
       <arg type="i" name="index" direction="in"/>
       <arg type="s" name="name" direction="out"/>
       <arg type="s" name="number" direction="out"/>

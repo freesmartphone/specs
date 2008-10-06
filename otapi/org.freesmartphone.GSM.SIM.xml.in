@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM SIM Interface</doc:summary>
-  <doc:version>0.9.0.1</doc:version>
+  <doc:version>0.9.3</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.SIM">
@@ -313,19 +313,40 @@
 
   <!-- PHONEBOOK -->
 
+  <method name="ListPhonebooks">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve the list of available phonebooks on the SIM.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CPBS=?, see 3GPP TS 07.07 Chapter 8.12.</doc:inote>
+    </doc:doc>
+    <arg type="as" name="categories" direction="out">
+      <doc:doc>
+        <doc:summary>The available phonebooks.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <method name="GetPhonebookInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
       <doc:description>Request information about the SIM phonebook.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CPBR=?, see 3GPP TS 07.07 Chapter 8.12.</doc:inote>
     </doc:doc>
+    <arg type="s" name="category" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
+          for valid categories.
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <arg type="a{sv}" name="info" direction="out">
     <doc:doc>
       <doc:summary>
         Information about the SIM phonebook storage. Tuples to expect:
         [ul]
-          [li]("slots", int:value) = maximum of entries stored on the SIM,[/li]
-          [li]("used", int:value) = actual number of entries stored on the SIM,[/li]
+          [li]("min_index", int:value) = lowest entry index for given phonebook on the SIM,[/li]
+          [li]("max_index", int:value) = highest entry index for given phonebook on the SIM,[/li]
           [li]("number_length", int:value) = maximum length for the number,[/li]
           [li]("name_length", int:value) = maximum length for the name.[/li]
         [/ul]
@@ -340,6 +361,14 @@
       <doc:description>Retrieve all entries from the SIM phonebook.</doc:description>
       <doc:inote>This vaguely maps to the GSM 07.05 command +CPBR=(index1),(index2), see 3GPP TS 07.07 Chapter 8.12.</doc:inote>
     </doc:doc>
+    <arg type="s" name="category" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
+          for valid categories.
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <arg type="a(iss)" name="entries" direction="out">
       <doc:doc>
         <doc:summary>
@@ -360,6 +389,14 @@
       <doc:description>Delete an entry in the SIM phonebook.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CPBW=, see 3GPP TS 07.07 Chapter 8.14.</doc:inote>
     </doc:doc>
+    <arg type="s" name="category" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
+          for valid categories.
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <arg type="i" name="index" direction="in">
       <doc:doc>
         <doc:summary>Index of entry to delete.</doc:summary>
@@ -373,6 +410,14 @@
       <doc:description>Store an entry in the SIM phonebook.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CPBW=(index),"(name)",(number),(ntype), see 3GPP TS 07.07 Chapter 8.14.</doc:inote>
     </doc:doc>
+    <arg type="s" name="category" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
+          for valid categories.
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <arg type="i" name="index" direction="in">
       <doc:doc>
         <doc:summary>Index of entry to store.</doc:summary>
@@ -393,6 +438,14 @@
 
   <method name="RetrieveEntry">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <arg type="s" name="category" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
+          for valid categories.
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <arg type="i" name="index" direction="in">
       <doc:doc>
         <doc:summary>Index of entry to retrieve.</doc:summary>
