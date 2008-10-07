@@ -45,9 +45,9 @@
         <doc:summary>
           The resource policy. Expected values are:
           [ul]
-            [li]"disabled" - using this resource is currently not allowed[/li]
-            [li]"auto" - the resource is enabled as long as it is used by at least one client[/li]
-            [li]"enabled" - the resource is enabled even without a client[/li]
+            [li]"disabled" - using this resource is currently not allowed,[/li]
+            [li]"auto" - the resource is enabled as long as it is used by at least one client,[/li]
+            [li]"enabled" - the resource is enabled even without a client.[/li]
           [/ul]
         </doc:summary>
       </doc:doc>

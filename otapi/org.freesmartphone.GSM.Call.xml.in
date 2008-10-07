@@ -67,7 +67,7 @@
             [li]"active" = The call is the active call (you can talk),[/li]
             [li]"held" = The call is being held,[/li]
             [li]"release" = The call has been released.[/li]
-         [/ul]
+          [/ul]
           Further information can be part of the properties.
         </doc:summary>
       </doc:doc>
@@ -75,13 +75,17 @@
     <arg type="a{sv}" name="properties">
       <doc:doc>
         <doc:summary>
-          An array of property values. Note that properties are optional. Expected tuples are:
+          An array of property values. Note that some properties are optional. Mandatory tuples are:
+          [ul]
+            [li]( "direction", string ) = "incoming" or "outgoing",[/li]
+            [li]( "peer", string ) = The number of the peer (on incoming calls only if we received a CLIP).[/li]
+          [/ul]
+          Optional tuples include:
           [ul]
             [li]( "reason", string ) = The reason for the status change (on outgoing calls e.g. 'BUSY' or 'NO CARRIER'),[/li]
-            [li]( "number", string ) = The number of the peer (on incoming calls only if we received a CLIP),[/li]
             [li]( "auxstatus", string ) = An auxillary connection status (if your modem supports that),[/li]
-            [li]...[/li]
-          [/ul]
+            [li]( "line", string ) = The GSM line (0 or 1) this call is taking place (on modems that support multiple lines).[/li]
+          [ul]
         </doc:summary>
       </doc:doc>
     </arg>
@@ -177,9 +181,28 @@
       <doc:description>Initiate an outgoing call.</doc:description>
       <doc:inote>This maps to ATD(number);, see v.250.</doc:inote>
     </doc:doc>
-    <arg type="s" name="number" direction="in" />
-    <arg type="s" name="type" direction="in" />
-    <arg type="i" name="id" direction="out" />
+    <arg type="s" name="number" direction="in">
+      <doc:doc>
+        <doc:summary>The number to call.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="type" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The type of call to made. Valid values are:
+          [ul]
+            [li]"voice" - a GSM voice call,[/li]
+            [li]"data" - a GSM data call,[/li]
+            [li]"fax" - a FAX call.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="id" direction="out">
+      <doc:doc>
+        <doc:summary>The reference id for this call. It will get assigned by the system.</doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
   <method name="ListCalls">

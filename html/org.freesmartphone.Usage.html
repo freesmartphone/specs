@@ -31,7 +31,7 @@
 <h1>Methods</h1><h3><a name="ListResources">ListResources</a> ( ) &rarr; as</h3>
 <p><i>Description:</i> List available resources.</p><h4>Returns</h4><i>as: resources</i><p>An array of resource names.</p>
 <h3><a name="GetResourcePolicy">GetResourcePolicy</a> ( s ) &rarr; s</h3>
-<p><i>Description:</i> Get the current resource policy for a given resource.</p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><h4>Returns</h4><i>s: policy</i><p>The resource policy. Expected values are:  <ul>  <li>"disabled" - using this resource is currently not allowed</li>  <li>"auto" - the resource is enabled as long as it is used by at least one client</li>  <li>"enabled" - the resource is enabled even without a client</li>  </ul></p>
+<p><i>Description:</i> Get the current resource policy for a given resource.</p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><h4>Returns</h4><i>s: policy</i><p>The resource policy. Expected values are:  <ul>  <li>"disabled" - using this resource is currently not allowed,</li>  <li>"auto" - the resource is enabled as long as it is used by at least one client,</li>  <li>"enabled" - the resource is enabled even without a client.</li>  </ul></p>
 <h3><a name="SetResourcePolicy">SetResourcePolicy</a> ( ss )</h3>
 <p><i>Description:</i> Set a new resource policy for a given resource.</p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><i>s: policy</i><p>The new resource policy. See 'GetResourcePolicy' for valid values.</p>
 <h3><a name="GetResourceState">GetResourceState</a> ( s ) &rarr; b</h3>
