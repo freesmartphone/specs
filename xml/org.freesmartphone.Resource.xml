@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Resource">
+    <method name="Enable">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource"/>
+    </method>
+    <method name="Disable">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource"/>
+    </method>
+    <method name="Suspend">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource"/>
+    </method>
+    <method name="Resume">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource"/>
+    </method>
+  </interface>
+</node>
