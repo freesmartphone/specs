@@ -122,7 +122,7 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
       <arg type="s" name="recipient_number" direction="in"/>
       <arg type="s" name="contents" direction="in"/>
-      <arg type="a{av}" name="properties" direction="in"/>
+      <arg type="a{sv}" name="properties" direction="in"/>
       <arg type="i" name="index" direction="out"/>
     </method>
     <method name="SendStoredMessage">
@@ -133,9 +133,10 @@
     <method name="RetrieveMessage">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
       <arg type="i" name="index" direction="in"/>
+      <arg type="s" name="status" direction="out"/>
       <arg type="s" name="sender_number" direction="out"/>
       <arg type="s" name="contents" direction="out"/>
-      <arg type="a{av}" name="properties" direction="out"/>
+      <arg type="a{sv}" name="properties" direction="out"/>
     </method>
   </interface>
 </node>

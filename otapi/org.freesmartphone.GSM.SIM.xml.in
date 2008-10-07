@@ -587,7 +587,7 @@
         <doc:summary>Contents of message.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a{av}" name="properties" direction="in">
+    <arg type="a{sv}" name="properties" direction="in">
       <doc:doc>
         <doc:summary>Additional properties of the message. Tuples you can set:
           [ul]
@@ -651,6 +651,11 @@
         <doc:summary>Index of message to retrieve.</doc:summary>
       </doc:doc>
     </arg>
+    <arg type="s" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>Category the message is in, one of ("read", "sent", "unread", "unsent").</doc:summary>
+      </doc:doc>
+    </arg>
     <arg type="s" name="sender_number" direction="out">
       <doc:doc>
         <doc:summary>Number of sender.</doc:summary>
@@ -661,7 +666,7 @@
         <doc:summary>Contents of message.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a{av}" name="properties" direction="out">
+    <arg type="a{sv}" name="properties" direction="out">
       <doc:doc>
         <doc:summary>Additional properties of the message. Tuples to expect:
           [ul]
