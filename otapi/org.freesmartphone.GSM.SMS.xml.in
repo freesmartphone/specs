@@ -1,8 +1,20 @@
 <?xml version="1.0"?>
 <node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-sms-interface">
 
+<doc:doc>
+  <doc:summary>freesmartphone.org GSM SMS Interface</doc:summary>
+  <doc:version>0.5.0</doc:version>
+</doc:doc>
+
 <interface name="org.freesmartphone.GSM.SMS">
 
+  <doc:doc>
+    <doc:para>
+      The SMS object is used to send and signal incoming short messages.
+    </doc:para>
+  </doc:doc>
+
+<!-- Not clear whether we want to have this
   <method name="GetServiceBearer">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
     <arg type="s" name="mode" direction="out" />
@@ -12,6 +24,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
     <arg type="s" name="mode" direction="in" />
   </method>
+  -->
 
   <method name="SendMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
@@ -29,7 +42,7 @@
         <doc:summary>Contents of message.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a{av}" name="properties" direction="in">
+    <arg type="a{sv}" name="properties" direction="in">
       <doc:doc>
         <doc:summary>Additional properties of the message. Tuples you can set:
           [ul]
@@ -59,11 +72,14 @@
     </arg>
   </method>
 
+<!-- Does initial sending sometimes fail and we get a delayed response that
+     the SMS has been sent? Only then this signal seems useful
   <signal name="MessageSent">
     <arg name="transaction_index" type="i" />
     <arg name="success" type="b" />
     <arg name="reason" type="s" />
   </signal>
+  -->
 
   <signal name="IncomingMessage">
     <doc:doc>
@@ -81,7 +97,7 @@
         <doc:summary>Contents of message.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a{av}" name="properties">
+    <arg type="a{sv}" name="properties">
       <doc:doc>
         <doc:summary>Additional properties of the message. Tuples to expect:
           [ul]
