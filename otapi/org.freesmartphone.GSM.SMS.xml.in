@@ -15,10 +15,48 @@
 
   <method name="SendMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
-    <arg type="s" name="recipient_number" direction="in" />
-    <arg type="s" name="contents" direction="in" />
-    <arg type="b" name="want_report" direction="in" />
-    <arg type="i" name="transaction_index" direction="out" />
+    <doc:doc>
+      <doc:description>Send a message</doc:description>
+      <doc:inote>This maps to the GSM 07.05 command +CMGS=..., see 3GPP TS 07.05 Chapter 3.5.1 (text mode)  and 4.3 (pdu mode.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="recipient_number" direction="in">
+      <doc:doc>
+        <doc:summary>Number of recipient.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="contents" direction="in">
+      <doc:doc>
+        <doc:summary>Contents of message.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{av}" name="properties" direction="in">
+      <doc:doc>
+        <doc:summary>Additional properties of the message. Tuples you can set:
+          [ul]
+            [li](string:type) = type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT")[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2")[/li]
+            [li]Properties for concatenates short messages (csm):
+              [ul]
+                [li](int:csm_id) = id of the csm (messages belonging to the same csm must have the same id)[/li]
+                [li](int:csm_num) = Total number of messages in this csm[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the csm[/li]
+              [/ul]
+            [/li]
+            [li]Properties for port addressing (similar to UDP ports):
+              [ul]
+                [li](int:src_port) = Source port this short message comes from[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to[/li]
+              [/ul]
+            [/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="transaction_index" direction="out">
+      <doc:doc>
+        <doc:summary>Transaction index</doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
   <signal name="MessageSent">
@@ -28,7 +66,45 @@
   </signal>
 
   <signal name="IncomingMessage">
-    <arg name="index" type="i" />
+    <doc:doc>
+      <doc:description>Signal that a message has just been received by the ME</doc:description>
+      <doc:inote>
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="sender_number">
+      <doc:doc>
+        <doc:summary>Number of sender.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="contents">
+      <doc:doc>
+        <doc:summary>Contents of message.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{av}" name="properties">
+      <doc:doc>
+        <doc:summary>Additional properties of the message. Tuples to expect:
+          [ul]
+            [li](string:type) = type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT")[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2")[/li]
+            [li](string:timestamp) = Timestamp when the message was received by the service center[/li]
+            [li]Properties for concatenates short messages (csm):
+              [ul]
+                [li](int:csm_id) = id of the csm (messages belonging to the same csm must have the same id)[/li]
+                [li](int:csm_num) = Total number of messages in this csm[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the csm[/li]
+              [/ul]
+            [/li]
+            [li]Properties for port addressing (similar to UDP ports):
+              [ul]
+                [li](int:src_port) = Source port this short message comes from[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to[/li]
+              [/ul]
+            [/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
   </signal>
 
 </interface>
