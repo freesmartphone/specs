@@ -10,7 +10,9 @@
 
   <doc:doc>
     <doc:para>
-      The SMS object is used to send and signal incoming short messages.
+      The SMS interface is used to send and signal incoming short messages (SMS) directly, i.e.
+      as opposed to using the SIM interface which always buffers short messages on the SIM
+      after receiving and before sending.
     </doc:para>
   </doc:doc>
 
@@ -29,36 +31,38 @@
   <method name="SendMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
     <doc:doc>
-      <doc:description>Send a message</doc:description>
-      <doc:inote>This maps to the GSM 07.05 command +CMGS=..., see 3GPP TS 07.05 Chapter 3.5.1 (text mode)  and 4.3 (pdu mode.</doc:inote>
+      <doc:description>Sends a message via the GSM Short Message Service (SMS)</doc:description>
+      <doc:inote>
+        This maps to the GSM 07.05 command +CMGS=..., see 3GPP TS 07.05 Chapter 3.5.1 (text mode)  and 4.3 (pdu mode).
+      </doc:inote>
     </doc:doc>
     <arg type="s" name="recipient_number" direction="in">
       <doc:doc>
-        <doc:summary>Number of recipient.</doc:summary>
+        <doc:summary>The number of the recipient.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="contents" direction="in">
       <doc:doc>
-        <doc:summary>Contents of message.</doc:summary>
+        <doc:summary>The contents of the message.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="a{sv}" name="properties" direction="in">
       <doc:doc>
-        <doc:summary>Additional properties of the message. Tuples you can set:
+        <doc:summary>Additional properties of the message. Valid tuples are:
           [ul]
-            [li](string:type) = type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT")[/li]
-            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2")[/li]
-            [li]Properties for concatenates short messages (csm):
+            [li](string:type) = type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT"),[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2"),[/li]
+            [li]Properties for concatenated short messages (CSM):
               [ul]
-                [li](int:csm_id) = id of the csm (messages belonging to the same csm must have the same id)[/li]
-                [li](int:csm_num) = Total number of messages in this csm[/li]
-                [li](int:csm_seq) = Number defining the order of the messages in the csm[/li]
+                [li](int:csm_id) = Id of the csm (messages belonging to the same csm must have the same id),[/li]
+                [li](int:csm_num) = Total number of messages in this csm,[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the csm.[/li]
               [/ul]
             [/li]
             [li]Properties for port addressing (similar to UDP ports):
               [ul]
-                [li](int:src_port) = Source port this short message comes from[/li]
-                [li](int:dst_port) = Destination port this short message should be routed to[/li]
+                [li](int:src_port) = Source port this short message comes from,[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to.[/li]
               [/ul]
             [/li]
           [/ul]
@@ -67,7 +71,7 @@
     </arg>
     <arg type="i" name="transaction_index" direction="out">
       <doc:doc>
-        <doc:summary>Transaction index</doc:summary>
+        <doc:summary>The given transaction index for this message</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -83,42 +87,23 @@
 
   <signal name="IncomingMessage">
     <doc:doc>
-      <doc:description>Signal that a message has just been received by the ME</doc:description>
+      <doc:description>Sent, when a message has been received</doc:description>
       <doc:inote>
       </doc:inote>
     </doc:doc>
     <arg type="s" name="sender_number">
       <doc:doc>
-        <doc:summary>Number of sender.</doc:summary>
+        <doc:summary>The number of the sender.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="contents">
       <doc:doc>
-        <doc:summary>Contents of message.</doc:summary>
+        <doc:summary>The contents of the message.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="a{sv}" name="properties">
       <doc:doc>
-        <doc:summary>Additional properties of the message. Tuples to expect:
-          [ul]
-            [li](string:type) = type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT")[/li]
-            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2")[/li]
-            [li](string:timestamp) = Timestamp when the message was received by the service center[/li]
-            [li]Properties for concatenates short messages (csm):
-              [ul]
-                [li](int:csm_id) = id of the csm (messages belonging to the same csm must have the same id)[/li]
-                [li](int:csm_num) = Total number of messages in this csm[/li]
-                [li](int:csm_seq) = Number defining the order of the messages in the csm[/li]
-              [/ul]
-            [/li]
-            [li]Properties for port addressing (similar to UDP ports):
-              [ul]
-                [li](int:src_port) = Source port this short message comes from[/li]
-                [li](int:dst_port) = Destination port this short message should be routed to[/li]
-              [/ul]
-            [/li]
-          [/ul]
-        </doc:summary>
+        <doc:summary>Additional properties of the message. See org.freesmartphone.GSM.SIM.SendMessage.</doc:summary>
       </doc:doc>
     </arg>
   </signal>

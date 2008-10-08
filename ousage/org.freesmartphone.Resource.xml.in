@@ -10,7 +10,7 @@
 
   <doc:doc>
     <doc:para>
-      This interface provides access to a resource as visible from the OUsage subsystem.
+      The Resource interface provides access to a resource as visible from the OUsage subsystem.
       If you provide resource to OUsage, you have to implement this interface.
       Applications usually are not allowed to use this interface.
     </doc:para>

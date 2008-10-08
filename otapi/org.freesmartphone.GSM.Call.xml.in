@@ -10,7 +10,7 @@
 
   <doc:doc>
     <doc:para>
-      The Call object is used to initiate, accept, release, and otherwise deal
+      The Call interface is used to initiate, accept, release, and otherwise deal
       with voice calls. It also allows you to send DTMF tones.
     </doc:para>
   </doc:doc>

@@ -19,7 +19,7 @@ dbus-binding-tool -\
 
   <doc:doc>
     <doc:para>
-      The MUX object is used to request virtual serial channels
+      The MUX interface is used to request virtual serial channels
       (implemented through pseudo TTYs) which are multiplexed to one serial
       line as described in 3GPP TS 07.10. It also allows to control modem
       power and reset handling.

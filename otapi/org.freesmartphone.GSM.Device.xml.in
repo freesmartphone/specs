@@ -10,7 +10,7 @@
 
   <doc:doc>
     <doc:para>
-    The Device object is used to give information about the GSM device
+    The Device interface is used to give information about the GSM device
     and its capabilities. Use it also to enable or disable the RF
     subsystem (which is mandatory for implementing a flight mode).
     </doc:para>

@@ -10,7 +10,7 @@
 
   <doc:doc>
     <doc:para>
-      This interface provides access to subsystem resource management policies.
+      The Usage interface provides access to subsystem resource management policies.
       The usage manager keeps track of all users per resource and will enable or disable the
       associated hardware/software as requested. Before an application can make use of a subsystem,
       it needs to request the resource first and is only allowed to use it if the request

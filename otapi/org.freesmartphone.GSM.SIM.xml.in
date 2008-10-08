@@ -10,7 +10,7 @@
 
   <doc:doc>
     <doc:para>
-      The SIM object is used to access the Subscriber Identification Module (SIM)
+      The SIM interface is used to access the Subscriber Identification Module (SIM)
       plugged as a card into the GSM device. Use it to authenticate yourself
       against the GSM network and read/store data from/to the embedded SIM card memory.
       Limited support for accessing the on-card phonebook and messagebook is provided.
