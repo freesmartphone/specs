@@ -205,7 +205,7 @@
         <doc:summary>
           Information about the SIM card. Required tuples are:
           [ul]
-            [li]("imsi", string) = the unique subscriber identification stored on your SIM.[/li]
+            [li]("imsi", string) = The unique subscriber identification stored on your SIM.[/li]
           [/ul]
           Optional tuples are:
           [ul]
@@ -420,17 +420,17 @@
     </arg>
     <arg type="i" name="index" direction="in">
       <doc:doc>
-        <doc:summary>Index of entry to store.</doc:summary>
+        <doc:summary>The index of the entry to store.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="name" direction="in">
       <doc:doc>
-        <doc:summary>Name corresponding to the number.</doc:summary>
+        <doc:summary>The name corresponding to the number.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="number" direction="in">
       <doc:doc>
-        <doc:summary>Number corresponding to the name.</doc:summary>
+        <doc:summary>The number corresponding to the name.</doc:summary>
         <doc:inote>We do not export the +CPBW "type" entry to the interface, but rather deal with that transparently.</doc:inote>
       </doc:doc>
     </arg>
@@ -448,17 +448,17 @@
     </arg>
     <arg type="i" name="index" direction="in">
       <doc:doc>
-        <doc:summary>Index of entry to retrieve.</doc:summary>
+        <doc:summary>The index of the entry to retrieve.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="name" direction="out">
       <doc:doc>
-        <doc:summary>Name corresponding to the number.</doc:summary>
+        <doc:summary>The name corresponding to the number.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="number" direction="out">
       <doc:doc>
-        <doc:summary>Number corresponding to the name.</doc:summary>
+        <doc:summary>The number corresponding to the name.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -566,7 +566,7 @@
     </doc:doc>
     <arg type="i" name="index" direction="in">
       <doc:doc>
-        <doc:summary>Index of message to delete.</doc:summary>
+        <doc:summary>The storage index of the message to delete.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -579,31 +579,31 @@
     </doc:doc>
     <arg type="s" name="recipient_number" direction="in">
       <doc:doc>
-        <doc:summary>Number of recipient.</doc:summary>
+        <doc:summary>The number of the recipient.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="contents" direction="in">
       <doc:doc>
-        <doc:summary>Contents of message.</doc:summary>
+        <doc:summary>The contents of the message.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="a{sv}" name="properties" direction="in">
       <doc:doc>
-        <doc:summary>Additional properties of the message. Tuples you can set:
+        <doc:summary>Additional properties of the message. Valid tuples are:
           [ul]
-            [li](string:type) = type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT")[/li]
-            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2")[/li]
-            [li]Properties for concatenates short messages (csm):
+            [li](string:type) = The type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT"),[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2"),[/li]
+            [li]Properties for concatenated short messages (CSM):
               [ul]
-                [li](int:csm_id) = id of the csm (messages belonging to the same csm must have the same id)[/li]
-                [li](int:csm_num) = Total number of messages in this csm[/li]
-                [li](int:csm_seq) = Number defining the order of the messages in the csm[/li]
+                [li](int:csm_id) = Id of the CSM (messages belonging to the same csm must have the same id),[/li]
+                [li](int:csm_num) = Total number of messages in this CSM,[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the CSM.[/li]
               [/ul]
             [/li]
             [li]Properties for port addressing (similar to UDP ports):
               [ul]
-                [li](int:src_port) = Source port this short message comes from[/li]
-                [li](int:dst_port) = Destination port this short message should be routed to[/li]
+                [li](int:src_port) = Source port this short message comes from,[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to.[/li]
               [/ul]
             [/li]
           [/ul]
@@ -612,7 +612,7 @@
     </arg>
     <arg type="i" name="index" direction="out">
       <doc:doc>
-        <doc:summary>Index of new message.</doc:summary>
+        <doc:summary>The index of the new message.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -625,12 +625,12 @@
     </doc:doc>
     <arg type="i" name="index" direction="in">
       <doc:doc>
-        <doc:summary>Index of message.</doc:summary>
+        <doc:summary>The index of the message.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="i" name="transaction_index" direction="out">
       <doc:doc>
-        <doc:summary>Transaction index.</doc:summary>
+        <doc:summary>The given transaction index for this message.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -648,42 +648,42 @@
     </doc:doc>
     <arg type="i" name="index" direction="in">
       <doc:doc>
-        <doc:summary>Index of message to retrieve.</doc:summary>
+        <doc:summary>The index of the message to retrieve.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="status" direction="out">
       <doc:doc>
-        <doc:summary>Category the message is in, one of ("read", "sent", "unread", "unsent").</doc:summary>
+        <doc:summary>The category the message is in, one of ("read", "sent", "unread", "unsent").</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="sender_number" direction="out">
       <doc:doc>
-        <doc:summary>Number of sender.</doc:summary>
+        <doc:summary>The number of the sender.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="contents" direction="out">
       <doc:doc>
-        <doc:summary>Contents of message.</doc:summary>
+        <doc:summary>The contents of the message.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="a{sv}" name="properties" direction="out">
       <doc:doc>
         <doc:summary>Additional properties of the message. Tuples to expect:
           [ul]
-            [li](string:type) = type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT")[/li]
-            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2")[/li]
-            [li](string:timestamp) = Timestamp when the message was received by the service center[/li]
-            [li]Properties for concatenates short messages (csm):
+            [li](string:type) = Type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT"),[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2"),[/li]
+            [li](string:timestamp) = Timestamp when the message was received by the service center,[/li]
+            [li]Properties for concatenated short messages (CSM):
               [ul]
-                [li](int:csm_id) = id of the csm (messages belonging to the same csm must have the same id)[/li]
-                [li](int:csm_num) = Total number of messages in this csm[/li]
-                [li](int:csm_seq) = Number defining the order of the messages in the csm[/li]
+                [li](int:csm_id) = Id of the CSM (messages belonging to the same CSM must have the same id),[/li]
+                [li](int:csm_num) = Total number of messages in this CSM,[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the CSM.[/li]
               [/ul]
             [/li]
             [li]Properties for port addressing (similar to UDP ports):
               [ul]
-                [li](int:src_port) = Source port this short message comes from[/li]
-                [li](int:dst_port) = Destination port this short message should be routed to[/li]
+                [li](int:src_port) = Source port this short message comes from,[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to.[/li]
               [/ul]
             [/li]
           [/ul]
