@@ -3,26 +3,26 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Idle Notification Interface</doc:summary>
-  <doc:version>0.4.0</doc:version>
+  <doc:version>0.4.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.IdleNotifier">
 
   <doc:doc>
     <doc:para>
-      The Idle Notification Interface provides information about the device's idle state.
+      The Idle Notification Interface provides information about a device's idleness state.
     </doc:para>
   </doc:doc>
 
   <method name="GetState">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
     <doc:doc>
-      <doc:description>Get the current idle status.</doc:description>
+      <doc:description>Get the current idleness status.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="status">
+    <arg direction="out" type="s" name="status">
       <doc:doc>
         <doc:summary>
-          The idle status. Expected values are:
+          The idleness status. Expected values are:
           [ul]
             [li]"BUSY"[/li]
             [li]"IDLE"[/li]
@@ -40,12 +40,12 @@
   <method name="SetState">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
     <doc:doc>
-      <doc:description>Force an idle status.</doc:description>
+      <doc:description>Forces a new idleness status.</doc:description>
     </doc:doc>
-    <arg direction="out" type="s" name="status">
+    <arg direction="in" type="s" name="status">
       <doc:doc>
         <doc:summary>
-          The idle status. See 'GetState' for valid values.
+          The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for valid values.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -54,18 +54,17 @@
   <signal name="State">
     <doc:doc>
       <doc:description>
-        Sent, when the idle status has changed.
+        Sent, when the idleness status has changed.
       </doc:description>
     </doc:doc>
     <arg type="s" name="status">
       <doc:doc>
         <doc:summary>
-          The idle status. See 'GetState' for expected values.
+          The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for expected values.
         </doc:summary>
       </doc:doc>
     </arg>
   </signal>
-
 
 </interface>
 </node>

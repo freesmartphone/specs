@@ -4,11 +4,11 @@
   <interface name="org.freesmartphone.Device.IdleNotifier">
     <method name="GetState">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
-      <arg direction="in" type="s" name="status"/>
+      <arg direction="out" type="s" name="status"/>
     </method>
     <method name="SetState">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
-      <arg direction="out" type="s" name="status"/>
+      <arg direction="in" type="s" name="status"/>
     </method>
     <signal name="State">
       <arg type="s" name="status"/>

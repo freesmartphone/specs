@@ -10,7 +10,7 @@
 
 
 <h1>org.freesmartphone.Device.IdleNotifier</h1><h2>Description</h2>
-<p>The Idle Notification Interface provides information about the device's idle state.</p>
+<p>The Idle Notification Interface provides information about a device's idleness state.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Device.IdleNotifier</tt></p>
 <h2>Methods</h2><ul>
@@ -21,11 +21,11 @@
 <li><a href="#State">State</a></li>
 </ul>
 <h2>Errors</h2><i>None</i>
-<h1>Methods</h1><h3><a name="GetState">GetState</a> ( s )</h3>
-<p><i>Description:</i> Get the current idle status.</p><h4>Parameters</h4><i>s: status</i><p>The idle status. Expected values are:  <ul>  <li>"BUSY"</li>  <li>"IDLE"</li>  <li>"IDLE_DIM"</li>  <li>"PRELOCK"</li>  <li>"LOCK"</li>  <li>"SUSPEND"</li>  <li>"AWAKE"</li>  </ul></p>
-<h3><a name="SetState">SetState</a> ( ) &rarr; s</h3>
-<p><i>Description:</i> Force an idle status.</p><h4>Returns</h4><i>s: status</i><p>The idle status. See 'GetState' for valid values.</p>
-<h1>Signals</h1><h3><h3><a name="State">State</a> ( s )</h3><p><i>Description:</i> Sent, when the idle status has changed.</p><h4>Parameters</h4><i>s: status</i><p>The idle status. See 'GetState' for expected values.</p></h3>
+<h1>Methods</h1><h3><a name="GetState">GetState</a> ( ) &rarr; s</h3>
+<p><i>Description:</i> Get the current idleness status.</p><h4>Returns</h4><i>s: status</i><p>The idleness status. Expected values are:  <ul>  <li>"BUSY"</li>  <li>"IDLE"</li>  <li>"IDLE_DIM"</li>  <li>"PRELOCK"</li>  <li>"LOCK"</li>  <li>"SUSPEND"</li>  <li>"AWAKE"</li>  </ul></p>
+<h3><a name="SetState">SetState</a> ( s )</h3>
+<p><i>Description:</i> Forces a new idleness status.</p><h4>Parameters</h4><i>s: status</i><p>The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for valid values.</p>
+<h1>Signals</h1><h3><h3><a name="State">State</a> ( s )</h3><p><i>Description:</i> Sent, when the idleness status has changed.</p><h4>Parameters</h4><i>s: status</i><p>The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for expected values.</p></h3>
 
     <hr/>
     <small>
