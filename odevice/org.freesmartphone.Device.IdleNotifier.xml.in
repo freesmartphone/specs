@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Idle Notification Interface</doc:summary>
-  <doc:version>0.4.1</doc:version>
+  <doc:version>0.4.2</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.IdleNotifier">
@@ -24,13 +24,13 @@
         <doc:summary>
           The idleness status. Expected values are:
           [ul]
-            [li]"BUSY"[/li]
-            [li]"IDLE"[/li]
-            [li]"IDLE_DIM"[/li]
-            [li]"PRELOCK"[/li]
-            [li]"LOCK"[/li]
-            [li]"SUSPEND"[/li]
-            [li]"AWAKE"[/li]
+            [li]"busy"[/li]
+            [li]"idle"[/li]
+            [li]"idle_dim"[/li]
+            [li]"idle_prelock"[/li]
+            [li]"lock"[/li]
+            [li]"suspend"[/li]
+            [li]"awake"[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
