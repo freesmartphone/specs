@@ -10,7 +10,7 @@
 
 
 <h1>org.freesmartphone.Phone.Call</h1><h2>Description</h2>
-<p>A Call object represents a communication channel.</p>
+<p>The Call Interface is used to represent a communication channel.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Phone.Call</tt></p>
 <h2>Methods</h2><ul>
@@ -27,7 +27,9 @@
 <li><a href="#Released">Released</a></li>
 <li><a href="#Activated">Activated</a></li>
 </ul>
-<h2>Errors</h2><i>None</i>
+<h2>Errors</h2><ul>
+<li><a href="#Unauthorized">Unauthorized</a></li>
+</ul>
 <h1>Methods</h1><h3><a name="GetPeer">GetPeer</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Return the number of the peer (usually the number of the call).</p><h4>Returns</h4><i>s: peer</i><p>The number of the peer.</p>
 <h3><a name="Initiate">Initiate</a> ( ) &rarr; s</h3>
@@ -43,6 +45,7 @@
 <h3><a name="Outgoing">Outgoing</a> ( )</h3>
 <h3><a name="Released">Released</a> ( )</h3>
 <h3><a name="Activated">Activated</a> ( )</h3>
+<h1>Errors</h1><h3><a name="Unauthorized">Unauthorized</a></h3><p><i>Description:</i> Raised, if registering with the specified network is not possible.</p>
 
     <hr/>
     <small>

@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Usage Interface</doc:summary>
-  <doc:version>0.2.0</doc:version>
+  <doc:version>0.5.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Usage">
@@ -17,6 +17,66 @@
       has been granted.
     </doc:para>
   </doc:doc>
+
+  <!-- Errors -->
+
+  <error name="PolicyUnknown">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested policy is unknown.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="PolicyDisabled">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested resource is set to policy "disabled".
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ResourceUnknown">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested resource is unknown.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ResourceExists">
+    <doc:doc>
+      <doc:description>
+        Raised, if a (new) resource has already been registered.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ResourceInUse">
+    <doc:doc>
+      <doc:description>
+        Raised, if the to-be-disabled (by policy) resource is still in use.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="UserExists">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested resource has already been requested by the same user.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="UserUnknown">
+    <doc:doc>
+      <doc:description>
+        Raised, if the to-be-released resource has never been requested by the user.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <!-- Methods -->
 
   <method name="ListResources">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
@@ -134,6 +194,23 @@
     </arg>
   </method>
 
+  <method name="Suspend">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
+    <doc:doc>
+      <doc:description>
+        Triggers a suspend on all managed resources and puts the device into suspend mode.
+        When the device comes back from suspend, all resources are resumed.
+      </doc:description>
+      <doc:inote>
+        Resources need to implement org.freesmartphone.Resource.Suspend and
+        org.freesmartphone.Resource.Resume if they have anything to do
+        on suspend and resume.
+      </doc:inote>
+    </doc:doc>
+  </method>
+
+  <!-- Signals -->
+
   <signal name="ResourceAvailable">
     <doc:doc>
       <doc:description>Sent whenever a resource is added or removed.</doc:description>
@@ -181,21 +258,6 @@
       </doc:doc>
     </arg>
   </signal>
-
-  <method name="Suspend">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
-    <doc:doc>
-      <doc:description>
-        Triggers a suspend on all managed resources and puts the device into suspend mode.
-        When the device comes back from suspend, all resources are resumed.
-      </doc:description>
-      <doc:inote>
-        Resources need to implement org.freesmartphone.Resource.Suspend and
-        org.freesmartphone.Resource.Resume if they have anything to do
-        on suspend and resume.
-      </doc:inote>
-    </doc:doc>
-  </method>
 
 </interface>
 </node>

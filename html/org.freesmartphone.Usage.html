@@ -27,7 +27,15 @@
 <li><a href="#ResourceAvailable">ResourceAvailable</a></li>
 <li><a href="#ResourceChanged">ResourceChanged</a></li>
 </ul>
-<h2>Errors</h2><i>None</i>
+<h2>Errors</h2><ul>
+<li><a href="#PolicyUnknown">PolicyUnknown</a></li>
+<li><a href="#PolicyDisabled">PolicyDisabled</a></li>
+<li><a href="#ResourceUnknown">ResourceUnknown</a></li>
+<li><a href="#ResourceExists">ResourceExists</a></li>
+<li><a href="#ResourceInUse">ResourceInUse</a></li>
+<li><a href="#UserExists">UserExists</a></li>
+<li><a href="#UserUnknown">UserUnknown</a></li>
+</ul>
 <h1>Methods</h1><h3><a name="ListResources">ListResources</a> ( ) &rarr; as</h3>
 <p><i>Description:</i> List available resources.</p><h4>Returns</h4><i>as: resources</i><p>An array of resource names.</p>
 <h3><a name="GetResourcePolicy">GetResourcePolicy</a> ( s ) &rarr; s</h3>
@@ -45,6 +53,13 @@
 <h3><a name="Suspend">Suspend</a> ( )</h3><p><i>Description:</i> Triggers a suspend on all managed resources and puts the device into suspend mode.  When the device comes back from suspend, all resources are resumed.</p><p><div class="rationale"><p>Resources need to implement org.freesmartphone.Resource.Suspend and  org.freesmartphone.Resource.Resume if they have anything to do  on suspend and resume.</p></div></p>
 <h1>Signals</h1><h3><h3><a name="ResourceAvailable">ResourceAvailable</a> ( sb )</h3><p><i>Description:</i> Sent whenever a resource is added or removed.</p><h4>Parameters</h4><i>s: name</i><p>The name of the resource.</p><i>b: availability</i><p>The resource availability. True if the resource is currently available.</p></h3>
 <h3><h3><a name="ResourceChanged">ResourceChanged</a> ( sba{sv} )</h3><p><i>Description:</i> Sent whenever a resource status changes.</p><h4>Parameters</h4><i>s: name</i><p>The name of the resource.</p><i>b: state</i><p>The resource state. True if the resource is currently enabled.</p><i>a{sv}: attributes</i><p>The new status of the resource. Expected values are:  <ul>  <li>"policy": The current resource policy</li>  <li>"refcount": The count of clients that have requested the resource</li>  </ul>  Further information can be part of the properties.</p></h3>
+<h1>Errors</h1><h3><a name="PolicyUnknown">PolicyUnknown</a></h3><p><i>Description:</i> Raised, if the requested policy is unknown.</p>
+<h3><a name="PolicyDisabled">PolicyDisabled</a></h3><p><i>Description:</i> Raised, if the requested resource is set to policy "disabled".</p>
+<h3><a name="ResourceUnknown">ResourceUnknown</a></h3><p><i>Description:</i> Raised, if the requested resource is unknown.</p>
+<h3><a name="ResourceExists">ResourceExists</a></h3><p><i>Description:</i> Raised, if a (new) resource has already been registered.</p>
+<h3><a name="ResourceInUse">ResourceInUse</a></h3><p><i>Description:</i> Raised, if the to-be-disabled (by policy) resource is still in use.</p>
+<h3><a name="UserExists">UserExists</a></h3><p><i>Description:</i> Raised, if the requested resource has already been requested by the same user.</p>
+<h3><a name="UserUnknown">UserUnknown</a></h3><p><i>Description:</i> Raised, if the to-be-released resource has never been requested by the user.</p>
 
     <hr/>
     <small>

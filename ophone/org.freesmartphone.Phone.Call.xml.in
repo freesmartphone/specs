@@ -3,15 +3,28 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Phone Call Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Phone.Call">
 
   <doc:doc>
     <doc:para>
-      A Call object represents a communication channel.
+      The Call Interface is used to represent a communication channel.
     </doc:para>
   </doc:doc>
+
+  <!-- Errors -->
+
+  <error name="Unauthorized">
+    <doc:doc>
+      <doc:description>
+        Raised, if registering with the specified network is not possible.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <!-- Methods -->
 
   <method name="GetPeer">
     <doc:doc>
@@ -23,7 +36,7 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="Initiate">
     <doc:doc>
       <doc:description>Initiate the call.</doc:description>
@@ -34,7 +47,7 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="Activate">
     <doc:doc>
       <doc:description>Accept the call.</doc:description>
@@ -45,7 +58,7 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="Release">
     <doc:doc>
       <doc:description>Release the call.</doc:description>
@@ -56,7 +69,7 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="GetStatus">
     <doc:doc>
       <doc:description>Return the current status of the call.</doc:description>
@@ -67,13 +80,15 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="Remove">
     <doc:doc>
       <doc:description>Remove the call object when it is not needed anymore.</doc:description>
     </doc:doc>
   </method>
-  
+
+  <!-- Signals -->
+
   <signal name="Incoming">
     <doc:doc>
       <doc:description>
@@ -81,7 +96,7 @@
       </doc:description>
     </doc:doc>
   </signal>
-  
+
   <signal name="Outgoing">
     <doc:doc>
       <doc:description>
@@ -89,7 +104,7 @@
       </doc:description>
     </doc:doc>
   </signal>
-  
+
   <signal name="Released">
     <doc:doc>
       <doc:description>
@@ -97,7 +112,7 @@
       </doc:description>
     </doc:doc>
   </signal>
-  
+
   <signal name="Activated">
     <doc:doc>
       <doc:description>

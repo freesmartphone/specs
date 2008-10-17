@@ -16,6 +16,10 @@
     </doc:para>
   </doc:doc>
 
+  <!-- Errors -->
+
+  <!-- FIXME ... -->
+
   <!-- INFORMATIONAL -->
 
   <method name="GetInfo">
