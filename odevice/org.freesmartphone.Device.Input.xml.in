@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Input Interface</doc:summary>
-  <doc:version>0.1.0</doc:version>
+  <doc:version>0.1.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.Input">
@@ -36,7 +36,7 @@
           The action that triggered the event. Expected values are:
           [ul]
             [li]"pressed"[/li]
-            [li]"held" (only for some events)[/li]
+            [li]"held" (only for selected event sources)[/li]
             [li]"released"[/li]
           [/ul]
         </doc:summary>
@@ -45,7 +45,7 @@
     <arg type="i" name="seconds">
       <doc:doc>
         <doc:summary>
-          The duration for the event. Only valid for the "held" action.
+          The duration for the event. Only valid for the "held" and the "released" action.
         </doc:summary>
       </doc:doc>
     </arg>
