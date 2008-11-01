@@ -1,4 +1,4 @@
-SUBDIRS := odevice otapi ophone ousage opreferences
+SUBDIRS := odevice otapi ophone ousage opreferences oevents
 
 .PHONY: all clean check
 

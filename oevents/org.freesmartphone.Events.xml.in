@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-events-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Events Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Events">
+
+  <doc:doc>
+    <doc:para>
+      The Events interface provides access to the rules.
+    </doc:para>
+  </doc:doc>
+
+  <!-- Errors -->
+
+
+  <!-- Methods -->
+
+
+</interface>
+</node>
