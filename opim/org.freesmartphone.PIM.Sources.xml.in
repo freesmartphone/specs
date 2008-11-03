@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Sources Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Sources">
+
+  <doc:doc>
+    <doc:para>
+      Pim Sources can be use to access a set of PIM data sources
+    </doc:para>
+  </doc:doc>
+
+  <method name="Add">
+    <doc:doc>
+      <doc:description>Add a contact into the default backend source.</doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="contact_data" direction="in">
+        <doc:doc>
+            <doc:summary>contacts fields</doc:summary>
+        </doc:doc>
+    </arg>
+    <arg type="s" name="path" direction="out">
+        <doc:doc>
+            <doc:summary>Path of the newly created d-bus contact object</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+  
+  <method name="Query">
+    <doc:doc>
+      <doc:description>Create a new Call to a given number, with an optional protocol.</doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="query" direction="in">
+        <doc:doc>
+            <doc:summary>contacts fields that are queried</doc:summary>
+        </doc:doc>
+    </arg>
+    <arg type="s" name="protocol" direction="out">
+        <doc:doc>
+            <doc:summary>Path to the query object</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+
+
+
+</interface>
+</node>

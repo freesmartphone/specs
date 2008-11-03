@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.ContactQuery Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.ContactQuery">
+
+  <doc:doc>
+    <doc:para>
+      Represent the result of a Query
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetResultCount">
+    <doc:doc>
+      <doc:description>Return the number of items in the query result</doc:description>
+    </doc:doc>
+    <arg type="i" name="count" direction="out">
+        <doc:doc>
+            <doc:summary>Number of items in the query result</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+  
+  <method name="GetResult">
+    <doc:doc>
+      <doc:description>Return the next item in the query result, and move the query to the next item
+      </doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="item" direction="out">
+        <doc:doc>
+            <doc:summary>fields of the result</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Dispose">
+    <doc:doc>
+      <doc:description>Delete the query result object
+      </doc:description>
+    </doc:doc>
+  </method>
+  
+  <method name="GetMultipleResults">
+    <doc:doc>
+      <doc:description>Return several results from the query
+      </doc:description>
+    </doc:doc>
+    <arg type="(a{sv})" name="item" direction="out">
+        <doc:doc>
+            <doc:summary>fields of the result</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>
