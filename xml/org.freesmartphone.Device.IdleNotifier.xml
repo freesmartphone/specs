@@ -6,6 +6,15 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
       <arg direction="out" type="s" name="status"/>
     </method>
+    <method name="GetTimeouts">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
+      <arg direction="out" type="a{si}" name="status"/>
+    </method>
+    <method name="SetTimeout">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
+      <arg direction="in" type="s" name="state"/>
+      <arg direction="in" type="i" name="timeout"/>
+    </method>
     <method name="SetState">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
       <arg direction="in" type="s" name="status"/>

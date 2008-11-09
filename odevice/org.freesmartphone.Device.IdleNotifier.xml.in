@@ -37,6 +37,41 @@
     </arg>
   </method>
 
+  <method name="GetTimeouts">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
+    <doc:doc>
+      <doc:description>Gets a list of all the idle states and their correspondent timeouts.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{si}" name="status">
+      <doc:doc>
+        <doc:summary>
+          The list of the idle states, and their correspondent timeouts.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetTimeout">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
+    <doc:doc>
+      <doc:description>Sets a timeout value for a given state.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="state">
+      <doc:doc>
+        <doc:summary>
+          The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for valid values.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="i" name="timeout">
+      <doc:doc>
+        <doc:summary>
+          The timeout value. Set it to -1 to disable the state.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <method name="SetState">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
     <doc:doc>
