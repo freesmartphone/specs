@@ -37,29 +37,29 @@
 <li><a href="#UserUnknown">UserUnknown</a></li>
 </ul>
 <h1>Methods</h1><h3><a name="ListResources">ListResources</a> ( ) &rarr; as</h3>
-<p><i>Description:</i> List available resources.</p><h4>Returns</h4><i>as: resources</i><p>An array of resource names.</p>
+<p><i>Description:</i> List available resources. </p><h4>Returns</h4><i>as: resources</i><p>An array of resource names.</p>
 <h3><a name="GetResourcePolicy">GetResourcePolicy</a> ( s ) &rarr; s</h3>
-<p><i>Description:</i> Get the current resource policy for a given resource.</p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><h4>Returns</h4><i>s: policy</i><p>The resource policy. Expected values are:  <ul>  <li>"disabled" - using this resource is currently not allowed,</li>  <li>"auto" - the resource is enabled as long as it is used by at least one client,</li>  <li>"enabled" - the resource is enabled even without a client.</li>  </ul></p>
+<p><i>Description:</i> Get the current resource policy for a given resource. </p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><h4>Returns</h4><i>s: policy</i><p>The resource policy. Expected values are:  <ul>  <li>"disabled" - using this resource is currently not allowed,</li>  <li>"auto" - the resource is enabled as long as it is used by at least one client,</li>  <li>"enabled" - the resource is enabled even without a client.</li>  </ul></p>
 <h3><a name="SetResourcePolicy">SetResourcePolicy</a> ( ss )</h3>
-<p><i>Description:</i> Set a new resource policy for a given resource.</p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><i>s: policy</i><p>The new resource policy. See 'GetResourcePolicy' for valid values.</p>
+<p><i>Description:</i> Set a new resource policy for a given resource. </p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><i>s: policy</i><p>The new resource policy. See 'GetResourcePolicy' for valid values.</p>
 <h3><a name="GetResourceState">GetResourceState</a> ( s ) &rarr; b</h3>
-<p><i>Description:</i> Get the current state for a given resource.</p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><h4>Returns</h4><i>b: state</i><p>The resource state. True if the resource is currently enabled.</p>
+<p><i>Description:</i> Get the current state for a given resource. </p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><h4>Returns</h4><i>b: state</i><p>The resource state. True if the resource is currently enabled.</p>
 <h3><a name="GetResourceUsers">GetResourceUsers</a> ( s ) &rarr; as</h3>
-<p><i>Description:</i> Get the users which currently use a given resource.</p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><h4>Returns</h4><i>as: users</i><p>An array of bus names using the resource.</p>
+<p><i>Description:</i> Get the users which currently use a given resource. </p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p><h4>Returns</h4><i>as: users</i><p>An array of bus names using the resource.</p>
 <h3><a name="RequestResource">RequestResource</a> ( s )</h3>
-<p><i>Description:</i> Occupy a given resource. An error is returned if the resource was not occupied sucessfully.</p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p>
+<p><i>Description:</i> Occupy a given resource. An error is returned if the resource was not occupied sucessfully. </p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p>
 <h3><a name="ReleaseResource">ReleaseResource</a> ( s )</h3>
-<p><i>Description:</i> Release a given resource.</p><p><div class="rationale"><p>Resources in use get autoreleased when a client leaves the bus.</p></div></p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p>
-<h3><a name="Suspend">Suspend</a> ( )</h3><p><i>Description:</i> Triggers a suspend on all managed resources and puts the device into suspend mode.  When the device comes back from suspend, all resources are resumed.</p><p><div class="rationale"><p>Resources need to implement org.freesmartphone.Resource.Suspend and  org.freesmartphone.Resource.Resume if they have anything to do  on suspend and resume.</p></div></p>
-<h1>Signals</h1><h3><h3><a name="ResourceAvailable">ResourceAvailable</a> ( sb )</h3><p><i>Description:</i> Sent whenever a resource is added or removed.</p><h4>Parameters</h4><i>s: name</i><p>The name of the resource.</p><i>b: availability</i><p>The resource availability. True if the resource is currently available.</p></h3>
-<h3><h3><a name="ResourceChanged">ResourceChanged</a> ( sba{sv} )</h3><p><i>Description:</i> Sent whenever a resource status changes.</p><h4>Parameters</h4><i>s: name</i><p>The name of the resource.</p><i>b: state</i><p>The resource state. True if the resource is currently enabled.</p><i>a{sv}: attributes</i><p>The new status of the resource. Expected values are:  <ul>  <li>"policy": The current resource policy</li>  <li>"refcount": The count of clients that have requested the resource</li>  </ul>  Further information can be part of the properties.</p></h3>
-<h1>Errors</h1><h3><a name="PolicyUnknown">PolicyUnknown</a></h3><p><i>Description:</i> Raised, if the requested policy is unknown.</p>
-<h3><a name="PolicyDisabled">PolicyDisabled</a></h3><p><i>Description:</i> Raised, if the requested resource is set to policy "disabled".</p>
-<h3><a name="ResourceUnknown">ResourceUnknown</a></h3><p><i>Description:</i> Raised, if the requested resource is unknown.</p>
-<h3><a name="ResourceExists">ResourceExists</a></h3><p><i>Description:</i> Raised, if a (new) resource has already been registered.</p>
-<h3><a name="ResourceInUse">ResourceInUse</a></h3><p><i>Description:</i> Raised, if the to-be-disabled (by policy) resource is still in use.</p>
-<h3><a name="UserExists">UserExists</a></h3><p><i>Description:</i> Raised, if the requested resource has already been requested by the same user.</p>
-<h3><a name="UserUnknown">UserUnknown</a></h3><p><i>Description:</i> Raised, if the to-be-released resource has never been requested by the user.</p>
+<p><i>Description:</i> Release a given resource. </p><p><div class="rationale"><p>Resources in use get autoreleased when a client leaves the bus.</p></div></p><h4>Parameters</h4><i>s: name</i><p>The resource name.</p>
+<h3><a name="Suspend">Suspend</a> ( )</h3><p><i>Description:</i> Triggers a suspend on all managed resources and puts the device into suspend mode.  When the device comes back from suspend, all resources are resumed. </p><p><div class="rationale"><p>Resources need to implement org.freesmartphone.Resource.Suspend and  org.freesmartphone.Resource.Resume if they have anything to do  on suspend and resume.</p></div></p>
+<h1>Signals</h1><h3><h3><a name="ResourceAvailable">ResourceAvailable</a> ( sb )</h3><p><i>Description:</i> Sent whenever a resource is added or removed. </p><h4>Parameters</h4><i>s: name</i><p>The name of the resource.</p><i>b: availability</i><p>The resource availability. True if the resource is currently available.</p></h3>
+<h3><h3><a name="ResourceChanged">ResourceChanged</a> ( sba{sv} )</h3><p><i>Description:</i> Sent whenever a resource status changes. </p><h4>Parameters</h4><i>s: name</i><p>The name of the resource.</p><i>b: state</i><p>The resource state. True if the resource is currently enabled.</p><i>a{sv}: attributes</i><p>The new status of the resource. Expected values are:  <ul>  <li>"policy": The current resource policy</li>  <li>"refcount": The count of clients that have requested the resource</li>  </ul>  Further information can be part of the properties.</p></h3>
+<h1>Errors</h1><h3><a name="PolicyUnknown">PolicyUnknown</a></h3><p><i>Description:</i> Raised, if the requested policy is unknown. </p>
+<h3><a name="PolicyDisabled">PolicyDisabled</a></h3><p><i>Description:</i> Raised, if the requested resource is set to policy "disabled". </p>
+<h3><a name="ResourceUnknown">ResourceUnknown</a></h3><p><i>Description:</i> Raised, if the requested resource is unknown. </p>
+<h3><a name="ResourceExists">ResourceExists</a></h3><p><i>Description:</i> Raised, if a (new) resource has already been registered. </p>
+<h3><a name="ResourceInUse">ResourceInUse</a></h3><p><i>Description:</i> Raised, if the to-be-disabled (by policy) resource is still in use. </p>
+<h3><a name="UserExists">UserExists</a></h3><p><i>Description:</i> Raised, if the requested resource has already been requested by the same user. </p>
+<h3><a name="UserUnknown">UserUnknown</a></h3><p><i>Description:</i> Raised, if the to-be-released resource has never been requested by the user. </p>
 
     <hr/>
     <small>

@@ -24,13 +24,13 @@
 </ul>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetInfo">GetInfo</a> ( ) &rarr; a{sv}</h3>
-<p><i>Description:</i> Retrieve information about the power supply.</p><h4>Returns</h4><i>a{sv}: properties</i><p>The properties of the power supply. Expected tuples are:  <ul>  <li>...to be defined ...</li>  </ul></p>
+<p><i>Description:</i> Retrieve information about the power supply. </p><h4>Returns</h4><i>a{sv}: properties</i><p>The properties of the power supply. Expected tuples are:  <ul>  <li>...to be defined ...</li>  </ul></p>
 <h3><a name="GetCapacity">GetCapacity</a> ( ) &rarr; i</h3>
-<p><i>Description:</i> Retrieve the capacity of this power supply.</p><p><div class="rationale"><p>A wall power supply will always return 100.</p></div></p><h4>Returns</h4><i>i: energy</i><p>The capacity in percent (0-100).</p>
+<p><i>Description:</i> Retrieve the capacity of this power supply. </p><p><div class="rationale"><p>A wall power supply will always return 100.</p></div></p><h4>Returns</h4><i>i: energy</i><p>The capacity in percent (0-100).</p>
 <h3><a name="GetPowerStatus">GetPowerStatus</a> ( ) &rarr; s</h3>
-<p><i>Description:</i> Retrieve the power status for this power supply.</p><p><div class="rationale"><p>A wall power supply will always return "full".</p></div></p><h4>Returns</h4><i>s: status</i><p>The power status. Expected values are:  <ul>  <li>"charging"</li>  <li>"discharging"</li>  <li>"full"</li>  <li>"empty"</li>  <li>"critical"</li>  </ul></p>
-<h1>Signals</h1><h3><h3><a name="PowerStatus">PowerStatus</a> ( s )</h3><p><i>Description:</i> Sent, when the power status changes significantly.</p><h4>Parameters</h4><i>s: status</i><p>The power status. See 'GetPowerStatus' for expected values.</p></h3>
-<h3><h3><a name="Capacity">Capacity</a> ( s )</h3><p><i>Description:</i> Sent, when the capacity changes.</p><h4>Parameters</h4><i>s: status</i><p>The capacity in percent (0-100).</p></h3>
+<p><i>Description:</i> Retrieve the power status for this power supply. </p><p><div class="rationale"><p>A wall power supply will always return "full".</p></div></p><h4>Returns</h4><i>s: status</i><p>The power status. Expected values are:  <ul>  <li>"charging"</li>  <li>"discharging"</li>  <li>"full"</li>  <li>"empty"</li>  <li>"critical"</li>  </ul></p>
+<h1>Signals</h1><h3><h3><a name="PowerStatus">PowerStatus</a> ( s )</h3><p><i>Description:</i> Sent, when the power status changes significantly. </p><h4>Parameters</h4><i>s: status</i><p>The power status. See 'GetPowerStatus' for expected values.</p></h3>
+<h3><h3><a name="Capacity">Capacity</a> ( s )</h3><p><i>Description:</i> Sent, when the capacity changes. </p><h4>Parameters</h4><i>s: status</i><p>The capacity in percent (0-100).</p></h3>
 
     <hr/>
     <small>
