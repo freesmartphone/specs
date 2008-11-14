@@ -98,7 +98,7 @@
     <arg type="s" name="status">
       <doc:doc>
         <doc:summary>
-          The authentication status for the SIM card. See method GetAuthStatus for expected values.
+          The authentication status for the SIM card. See org.freesmartphone.GSM.SIM.GetAuthStatus for a list of expected values.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -365,7 +365,7 @@
       <doc:doc>
         <doc:summary>
           The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
-          for valid categories.
+          for a list of valid categories.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -393,7 +393,7 @@
       <doc:doc>
         <doc:summary>
           The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
-          for valid categories.
+          for a list of valid categories.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -414,7 +414,7 @@
       <doc:doc>
         <doc:summary>
           The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
-          for valid categories.
+          for a list of valid categories.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -442,7 +442,7 @@
       <doc:doc>
         <doc:summary>
           The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
-          for valid categories.
+          for a list of valid categories.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -514,7 +514,7 @@
             [li](string:status) = status of message, one of ("read", "unread", "sent", "unsent"),[/li]
             [li](string:number) = sender or receiver number.[/li]
             [li](string:content) = contents of the message.[/li]
-            [li](map:properties) = Map with additional properties (see RetrieveMessage)[/li]
+            [li](map:properties) = Map with additional properties (see org.freesmartphone.GSM.SIM.RetrieveMessage method)[/li]
           [/ul]
         </doc:summary>
       </doc:doc>

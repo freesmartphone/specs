@@ -129,7 +129,7 @@
       <doc:description>
         Retrieve whether incoming SMS are buffered on the SIM (in which case
         org.freesmartphone.GSM.SIM.IncomingStoredMessage is sent) or sent directly via
-        the org.freesmartphone.GSM.SIM.IncomingMessage signal).
+        the org.freesmartphone.GSM.SMS.IncomingMessage signal).
       </doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CNMI?, see 3GPP TS 07.05 Chapter 3.4.1</doc:inote>
     </doc:doc>
@@ -145,7 +145,7 @@
     <doc:description>
       Set whether incoming SMS should be buffered on the SIM (in which case
       org.freesmartphone.GSM.SIM.IncomingStoredMessage is sent) or sent directly via
-      the org.freesmartphone.GSM.SIM.IncomingMessage signal).
+      the org.freesmartphone.GSM.SMS.IncomingMessage signal).
     </doc:description>
     <doc:doc>
       <doc:inote>This maps to the GSM 07.07 command +CNMI=..., see 3GPP TS 07.05 Chapter 3.4.1</doc:inote>
