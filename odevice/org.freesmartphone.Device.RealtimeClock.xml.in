@@ -10,7 +10,7 @@
 
   <doc:doc>
     <doc:para>
-      This interface provides access to a realtimeclock device.
+      This interface provides access to a Realtime Clock device.
     </doc:para>
   </doc:doc>
 

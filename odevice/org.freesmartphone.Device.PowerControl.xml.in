@@ -10,7 +10,7 @@
 
   <doc:doc>
     <doc:para>
-      This interface provides access to a powercontrol device.
+      This interface provides access to a power-controllable device.
     </doc:para>
   </doc:doc>
 
@@ -29,7 +29,7 @@
   <method name="SetPower">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol" />
     <doc:doc>
-      <doc:description>Power the device on or turn the device off.</doc:description>
+      <doc:description>Power the device on, or turn the device off.</doc:description>
     </doc:doc>
     <arg direction="in" type="b" name="on">
       <doc:doc>

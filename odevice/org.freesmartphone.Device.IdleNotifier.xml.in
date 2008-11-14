@@ -59,14 +59,14 @@
     <arg direction="in" type="s" name="state">
       <doc:doc>
         <doc:summary>
-          The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for valid values.
+          The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for a list of valid values.
         </doc:summary>
       </doc:doc>
     </arg>
     <arg direction="in" type="i" name="timeout">
       <doc:doc>
         <doc:summary>
-          The timeout value. Set it to -1 to disable the state.
+          The timeout value. Set to -1 to disable the state.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -95,7 +95,7 @@
     <arg type="s" name="status">
       <doc:doc>
         <doc:summary>
-          The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for expected values.
+          The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for a list of expected values.
         </doc:summary>
       </doc:doc>
     </arg>

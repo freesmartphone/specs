@@ -10,7 +10,7 @@
 
   <doc:doc>
     <doc:para>
-      This interface provides access to a led device.
+      This interface provides access to a LED device.
     </doc:para>
   </doc:doc>
 

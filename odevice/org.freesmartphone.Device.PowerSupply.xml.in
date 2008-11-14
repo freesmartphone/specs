@@ -69,7 +69,7 @@
     </doc:doc>
     <arg type="s" name="status">
       <doc:doc>
-        <doc:summary>The power status. See 'GetPowerStatus' for expected values.</doc:summary>
+        <doc:summary>The power status. See org.freesmartphone.PowerSupply.GetPowerStatus for a list of expected values.</doc:summary>
       </doc:doc>
     </arg>
   </signal>
