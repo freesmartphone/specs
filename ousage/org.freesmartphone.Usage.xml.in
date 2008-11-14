@@ -126,7 +126,7 @@
     </arg>
     <arg direction="in" type="s" name="policy">
       <doc:doc>
-        <doc:summary>The new resource policy. See 'GetResourcePolicy' for valid values.</doc:summary>
+        <doc:summary>The new resource policy. See org.freesmartphone.Usage.GetResourcePolicy for a list of valid values.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -171,7 +171,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
     <doc:doc>
       <doc:description>
-        Occupy a given resource. An error is returned if the resource was not occupied sucessfully.
+        Request occupation of a given resource. An error is returned if the resource was not occupied sucessfully.
       </doc:description>
     </doc:doc>
     <arg direction="in" type="s" name="name">
@@ -200,12 +200,10 @@
       <doc:description>
         Triggers a suspend on all managed resources and puts the device into suspend mode.
         When the device comes back from suspend, all resources are resumed.
-      </doc:description>
-      <doc:inote>
-        Resources need to implement org.freesmartphone.Resource.Suspend and
-        org.freesmartphone.Resource.Resume if they have anything to do
+        All Resources need to implement org.freesmartphone.Resource.Suspend and
+        org.freesmartphone.Resource.Resume if they have anything to prepare / recover
         on suspend and resume.
-      </doc:inote>
+      </doc:description>
     </doc:doc>
   </method>
 

@@ -11,8 +11,9 @@
   <doc:doc>
     <doc:para>
       The Resource interface provides access to a resource as visible from the OUsage subsystem.
-      If you provide resource to OUsage, you have to implement this interface.
-      Applications usually are not allowed to use this interface.
+      If a resource is to be provided for OUsage, this interface has to be implemented.
+      Applications usually are not allowed to use this interface directly, they will
+      solely interact using the org.freesmartphone.Usage API.
     </doc:para>
   </doc:doc>
 
@@ -52,7 +53,7 @@
   <method name="Resume">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource" />
     <doc:doc>
-      <doc:description>Suspend the resource.</doc:description>
+      <doc:description>Resume the resource.</doc:description>
     </doc:doc>
   </method>
 

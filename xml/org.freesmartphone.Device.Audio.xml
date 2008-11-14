@@ -2,6 +2,13 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.Device.Audio">
+    <error name="UnknownFormat"/>
+    <error name="PlayerError"/>
+    <error name="NotPlaying"/>
+    <error name="AlreadyPlaying"/>
+    <error name="ScenarioInvalid"/>
+    <error name="ScenarioStackUnderflow"/>
+    <error name="DeviceFailed"/>
     <method name="GetInfo">
       <arg direction="out" type="a{sv}" name="info"/>
     </method>

@@ -12,13 +12,67 @@
 
   <doc:doc>
     <doc:para>
-      This interface provides access to notification sounds, sound scenarios, and mixer controls.c
+      This interface provides access to notification sounds, sound scenarios, and mixer controls.
     </doc:para>
   </doc:doc>
 
   <!-- Errors -->
 
-  <!-- FIXME ... -->
+  <error name="UnknownFormat">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio format is not supported.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="PlayerError">
+    <doc:doc>
+      <doc:description>
+        Raised, if the player emits an (internal) error.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NotPlaying">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio file is not playing.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="AlreadyPlaying">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio file is already playing.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ScenarioInvalid">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio scenario can not be activated.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ScenarioStackUnderflow">
+    <doc:doc>
+      <doc:description>
+        Raised, if there is no more scenario to pull from the stack.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="DeviceFailed">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio device reported a problem.
+      </doc:description>
+    </doc:doc>
+  </error>
 
   <!-- INFORMATIONAL -->
 

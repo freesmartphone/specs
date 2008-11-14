@@ -10,7 +10,7 @@
 
 
 <h1>org.freesmartphone.Resource</h1><h2>Description</h2>
-<p>The Resource interface provides access to a resource as visible from the OUsage subsystem.  If you provide resource to OUsage, you have to implement this interface.  Applications usually are not allowed to use this interface.</p>
+<p>The Resource interface provides access to a resource as visible from the OUsage subsystem.  If a resource is to be provided for OUsage, this interface has to be implemented.  Applications usually are not allowed to use this interface directly, they will  solely interact using the org.freesmartphone.Usage API.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Resource</tt></p>
 <h2>Methods</h2><ul>
@@ -26,7 +26,7 @@
 <h1>Methods</h1><h3><a name="Enable">Enable</a> ( )</h3><p><i>Description:</i> Enable the resource. </p>
 <h3><a name="Disable">Disable</a> ( )</h3><p><i>Description:</i> Disable the resource. </p>
 <h3><a name="Suspend">Suspend</a> ( )</h3><p><i>Description:</i> Suspend the resource. </p>
-<h3><a name="Resume">Resume</a> ( )</h3><p><i>Description:</i> Suspend the resource. </p>
+<h3><a name="Resume">Resume</a> ( )</h3><p><i>Description:</i> Resume the resource. </p>
 <h1>Errors</h1><h3><a name="NotEnabled">NotEnabled</a></h3><p><i>Description:</i> Raised, if the resource is not enabled. </p>
 
     <hr/>
