@@ -45,7 +45,18 @@ class Entity( object ):
         return """<a name="%s">%s</a>""" % ( content, content )
 
     def outputDescription( self, content ):
-        return "<i>Description:</i> %s" % content
+        # check for crosslinks
+        result = "<i>Description:</i> "
+        for word in content.split( ' ' ):
+            if word.startswith( "org.freesmartphone" ):
+                dotted = word.split( '.' )
+                html, method = '.'.join( dotted[:-1] ), dotted[-1]
+                print "possible link to %s/%s detected" % ( html, method )
+                result += """<a href="%s.html#%s">%s</a>""" % ( html, method.strip( ",." ), method.strip( ",." ) )
+            else:
+                result += word
+            result += " "
+        return result
 
     def outputImplementationNote( self, content ):
         return """<div class="rationale">%s</div>""" % self.outputSemiFormatted( content )
