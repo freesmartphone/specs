@@ -52,7 +52,7 @@ class Entity( object ):
                 dotted = word.split( '.' )
                 html, method = '.'.join( dotted[:-1] ), dotted[-1]
                 print "possible link to %s/%s detected" % ( html, method )
-                result += """<a href="%s.html#%s">%s</a>""" % ( html, method.strip( ",." ), method.strip( ",." ) )
+                result += """<a href="http://docs.freesmartphone.org/%s.html#%s">%s</a>""" % ( html, method.strip( ",." ), method.strip( ",." ) )
             else:
                 result += word
             result += " "
