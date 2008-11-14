@@ -37,6 +37,7 @@
     <method name="GetCountryCode">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
       <arg type="s" name="dial_code" direction="out"/>
+      <arg type="s" name="country_name" direction="out"/>
     </method>
     <method name="GetCallForwarding">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>

@@ -196,7 +196,7 @@
   <method name="GetCountryCode">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
     <doc:doc>
-      <doc:description>Compute the country code of the current service provider.</doc:description>
+      <doc:description>Compute the country information of the current service provider.</doc:description>
       <doc:inote>
         This maps to the GSM 07.07 command +COPS?, see 3GPP TS 07.07 Chapter 5.6.
         Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
@@ -205,6 +205,11 @@
     <arg type="s" name="dial_code" direction="out">
       <doc:doc>
         <doc:summary>The country dial code (including the +).</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="country_name" direction="out">
+      <doc:doc>
+        <doc:summary>The name of the country.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -362,7 +367,10 @@
   <method name="SendUssdRequest">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
     <doc:doc>
-      <doc:description>Send an Unstructured Supplementary Service Data (USSD) request to the network.</doc:description>
+      <doc:description>
+        Send an Unstructured Supplementary Service Data (USSD) request to the network.
+        Responses will be delivered via the signal org.freesmartphone.GSM.Network.IncomingUssd.
+      </doc:description>
       <doc:inote>This can map to the GSM 07.07 command +CUSD=1,"(request)",(code), see 3GPP TS 07.07 Chapter 7.14.</doc:inote>
     </doc:doc>
     <arg type="s" name="request" direction="in">
@@ -375,7 +383,8 @@
   <signal name="IncomingUssd">
     <doc:doc>
       <doc:description>
-        Sent, when an USSD result or a network initiated request arrives.
+        Sent, when an USSD result or a network initiated request arrives. This signal is usually
+        sent in response to the method org.freesmartphone.GSM.Network.SendUssdRequest.
       </doc:description>
     </doc:doc>
     <arg type="s" name="mode">
