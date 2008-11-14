@@ -12,7 +12,7 @@
       The Home Zone interface allows you to be informed about the home zone status.
 
       Home Zone is a marketing instrument that is used by several operators.
-      By defining so called 'home zones' on your SIM plus, they adjust how much
+      By defining so called 'home zones' on your SIM card, they adjust how much
       they charge for your phone calls.
     </doc:para>
   </doc:doc>
@@ -50,7 +50,7 @@
     </doc:doc>
     <arg name="name" type="s">
       <doc:doc>
-        <doc:summary>The home zone you are currently on. See 'GetHomeZoneStatus'.
+        <doc:summary>The home zone you are currently on. See org.freesmartphone.GSM.HZ.GetHomeZoneStatus.
         </doc:summary>
       </doc:doc>
     </arg>

@@ -128,7 +128,7 @@
     </arg>
     <arg type="s" name="status" direction="out">
       <doc:doc>
-        <doc:summary>The context status. See 'ContextStatus' for valid values.</doc:summary>
+        <doc:summary>The context status. See org.freesmartphone.GSM.PDP.ContextStatus for a list of valid values.</doc:summary>
       </doc:doc>
     </arg>
   </method>

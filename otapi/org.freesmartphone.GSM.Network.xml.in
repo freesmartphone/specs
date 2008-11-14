@@ -126,7 +126,7 @@
     <arg type="a{sv}" name="status">
       <doc:doc>
         <doc:summary>
-          The registration status. See method GetStatus for expected values.
+          The registration status. See org.freesmartphone.GSM.Network.GetStatus for expected values.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -269,7 +269,7 @@
     <arg type="s" name="class" direction="in">
       <doc:doc>
         <doc:summary>
-          Call class for which you want to enable network call forwarding. See GetCallForwarding for valid classes.
+          Call class for which you want to enable network call forwarding. See  org.freesmartphone.GSM.Network.GetCallForwarding for valid classes.
         </doc:summary>
       </doc:doc>
     </arg>

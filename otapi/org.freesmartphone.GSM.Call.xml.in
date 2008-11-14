@@ -214,7 +214,7 @@
       <doc:doc>
         <doc:summary>
           The call status. This is an array containing a call status record for every single call.
-          For the format description, please see the CallStatus signal.
+          See org.freesmartphone.GSM.Call.CallStatus for a description of the format.
         </doc:summary>
       </doc:doc>
     </arg>
