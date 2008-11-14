@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Device Interface</doc:summary>
-  <doc:version>0.9.0</doc:version>
+  <doc:version>0.9.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Device">
@@ -75,6 +75,7 @@
   <method name="GetAntennaPower">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
     <doc:doc>
+        <doc:description>Retrieve antenna power status from the device.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +CFUN=?, see 3GPP TS 07.07 Chapter 8.2.</doc:inote>
     </doc:doc>
     <arg type="b" name="antenna_power" direction="out">
@@ -87,6 +88,7 @@
   <method name="SetAntennaPower">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
     <doc:doc>
+        <doc:description>Set antenna power status for this device. Will raise org.freesmartphone.GSM.SIM.AuthFailed, if the SIM is protected with an authentication code.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +CFUN=(antenna_power), see 3GPP TS 07.07 Chapter 8.2</doc:inote>
     </doc:doc>
     <arg type="b" name="antenna_power" direction="in">
@@ -124,6 +126,11 @@
   <method name="GetSimBuffersSms">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
     <doc:doc>
+      <doc:description>
+        Retrieve whether incoming SMS are buffered on the SIM (in which case
+        org.freesmartphone.GSM.SIM.IncomingStoredMessage is sent) or sent directly via
+        the org.freesmartphone.GSM.SIM.IncomingMessage signal).
+      </doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CNMI?, see 3GPP TS 07.05 Chapter 3.4.1</doc:inote>
     </doc:doc>
     <arg type="b" name="sim_buffers_sms" direction="out">
@@ -135,6 +142,11 @@
 
   <method name="SetSimBuffersSms">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <doc:description>
+      Set whether incoming SMS should be buffered on the SIM (in which case
+      org.freesmartphone.GSM.SIM.IncomingStoredMessage is sent) or sent directly via
+      the org.freesmartphone.GSM.SIM.IncomingMessage signal).
+    </doc:description>
     <doc:doc>
       <doc:inote>This maps to the GSM 07.07 command +CNMI=..., see 3GPP TS 07.05 Chapter 3.4.1</doc:inote>
     </doc:doc>
