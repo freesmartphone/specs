@@ -71,5 +71,9 @@
       <arg type="s" name="mode"/>
       <arg type="s" name="message"/>
     </signal>
+    <signal name="CipherStatus">
+      <arg type="s" name="gsm"/>
+      <arg type="s" name="gprs"/>
+    </signal>
   </interface>
 </node>

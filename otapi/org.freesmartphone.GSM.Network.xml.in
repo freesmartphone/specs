@@ -3,6 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Network Interface</doc:summary>
+  <doc:version>0.8.9</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Network">
@@ -411,16 +412,24 @@
     </arg>
   </signal>
 
-  <!-- FIXME Do we want methods for:
-       [li]List available GSM bands
-       [li]Get/set preferred GSM band
-       [li]List preferred provider
-       [li]Add preferred provider to list
-       [li]Remove preferred provider from list
-       [li]Get home provider ID (if roaming)
-       [li]Get time from network
-       [li]Get cell ID
-       -->
+  <signal name="CipherStatus">
+    <doc:doc>
+      <doc:description>
+        Sent, when the network reports a change in GSM or GPRS cipher indication.
+        Only few modems support forwarding this to the AT command layer, hence implementation of this signal is optional.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="gsm">
+      <doc:doc>
+        <doc:summary>The GSM cipher: "enabled", "disabled", or "unknown"</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="gprs">
+      <doc:doc>
+        <doc:summary>The GPRS cipher: "enabled", "disabled", or "unknown"</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 </node>
