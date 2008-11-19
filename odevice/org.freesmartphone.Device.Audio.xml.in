@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Audio Interface</doc:summary>
-  <doc:version>0.9.1</doc:version>
+  <doc:version>0.9.2</doc:version>
   <doc:source>git.freesmartphone.org</doc:source>
   <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
 </doc:doc>
@@ -136,6 +136,8 @@
       <doc:doc>
         <doc:summary>
           The identification of the sound resource. Will be treated as filename, if no schema is given.
+          Format-specific options may be supplied by appending multiple ";foo=bar" statements to the
+          filename. Player engines that do not support these options should ignore them.
         </doc:summary>
       </doc:doc>
     </arg>
