@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Audio Interface</doc:summary>
-  <doc:version>0.9.2</doc:version>
+  <doc:version>0.9.3</doc:version>
   <doc:source>git.freesmartphone.org</doc:source>
   <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
 </doc:doc>
@@ -138,6 +138,22 @@
           The identification of the sound resource. Will be treated as filename, if no schema is given.
           Format-specific options may be supplied by appending multiple ";foo=bar" statements to the
           filename. Player engines that do not support these options should ignore them.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="i" name="loop">
+      <doc:doc>
+        <doc:summary>
+          Loop. Set this to 1, if you want the sound resource to be restarted, once it ends. 0, otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="i" name="length">
+      <doc:doc>
+        <doc:summary>
+          Length in seconds. Set this to anything other than 0 if you want to override the length of the sound resource.
+          Note that some audio resources have no concept of length or do know when the sound resource ends.
+          In these cases, you have to provide a reasonable length value or the sound will play endlessly.
         </doc:summary>
       </doc:doc>
     </arg>
