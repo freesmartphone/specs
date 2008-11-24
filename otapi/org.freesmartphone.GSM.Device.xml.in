@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Device Interface</doc:summary>
-  <doc:version>0.9.1</doc:version>
+  <doc:version>0.9.1.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Device">
@@ -60,12 +60,12 @@
           Information about this GSM device. Mandatory tuples are:
           [ul]
             [li]( "manufacturer", string ),[/li]
-            [li]( "model", string ).[/li]
+            [li]( "imei", string ).[/li]
           [/ul]
           Optional tuples are:
           [ul]
-            [li]( "revision", string ),[/li]
-            [li]( "serial", string ).[/li]
+            [li]( "model", string ),[/li]
+            [li]( "revision", string ).[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
