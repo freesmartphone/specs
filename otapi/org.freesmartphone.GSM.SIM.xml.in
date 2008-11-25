@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM SIM Interface</doc:summary>
-  <doc:version>0.9.3</doc:version>
+  <doc:version>0.9.3.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.SIM">
@@ -321,7 +321,17 @@
     </doc:doc>
     <arg type="as" name="categories" direction="out">
       <doc:doc>
-        <doc:summary>The available phonebooks.</doc:summary>
+        <doc:summary>
+          The available phonebooks, if any. Expected values are:
+          [ul]
+            [li]"contacts",[/li]
+            [li]"dialed",[/li]
+            [li]"received",[/li]
+            [li]"own",[/li]
+            [li]"missed",[/li]
+            [li]"emergency",[/li]
+          [/ul]
+        </doc:summary>
       </doc:doc>
     </arg>
   </method>

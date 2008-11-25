@@ -88,8 +88,11 @@
   <method name="SetAntennaPower">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
     <doc:doc>
-        <doc:description>Set antenna power status for this device. Will raise org.freesmartphone.GSM.SIM.AuthFailed, if the SIM is protected with an authentication code.</doc:description>
-        <doc:inote>This maps to the GSM 07.07 command +CFUN=(antenna_power), see 3GPP TS 07.07 Chapter 8.2</doc:inote>
+        <doc:description>
+          Set antenna power status for this device. Will raise org.freesmartphone.GSM.SIM.AuthFailed,
+          if the SIM is protected with an authentication code.
+        </doc:description>
+        <doc:inote>This maps to the GSM 07.07 command +CFUN=(antenna_power), see 3GPP TS 07.07 Chapter 8.2.</doc:inote>
     </doc:doc>
     <arg type="b" name="antenna_power" direction="in">
       <doc:doc>
@@ -109,15 +112,14 @@
       <doc:summary>
         The telephony features supported by this device. Expected tuples are:
         [ul]
-          [li]("GSM", string),[/li]
-          [li]("FAX", string),[/li]
-          [li]("WS", string),[/li]
-          [li]("GPRS", string).[/li]
+          [li]("GSM", string) = "TA" (mandatory),[/li]
+          [li]("GPRS", string) = GPRS classes (optional),[/li]
+          [li]("FAX", string) ] = FAX classes (optional).[/li]
         [/ul]
       </doc:summary>
       <doc:inote>
-        This also maps to the GSM 07.07 commands +FCLASS=?, +WS46=?, and +CGCLASS=?,
-        see 3GPP TS 07.07 Chapters 5.10, 5.10, and 10.1.11.
+        This also maps to the GSM 07.07 commands +GCAP, +FCLASS=?, and +CGCLASS=?,
+        see 3GPP TS 07.07 Chapters 6.1.9, 10.1.11, and C.2.1.
       </doc:inote>
     </doc:doc>
     </arg>
@@ -131,7 +133,7 @@
         org.freesmartphone.GSM.SIM.IncomingStoredMessage is sent) or sent directly via
         the org.freesmartphone.GSM.SMS.IncomingMessage signal).
       </doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CNMI?, see 3GPP TS 07.05 Chapter 3.4.1</doc:inote>
+      <doc:inote>This maps to the GSM 07.07 command +CNMI?, see 3GPP TS 07.05 Chapter 3.4.1.</doc:inote>
     </doc:doc>
     <arg type="b" name="sim_buffers_sms" direction="out">
       <doc:doc>
@@ -148,7 +150,7 @@
       the org.freesmartphone.GSM.SMS.IncomingMessage signal).
     </doc:description>
     <doc:doc>
-      <doc:inote>This maps to the GSM 07.07 command +CNMI=..., see 3GPP TS 07.05 Chapter 3.4.1</doc:inote>
+      <doc:inote>This maps to the GSM 07.07 command +CNMI=..., see 3GPP TS 07.05 Chapter 3.4.1.</doc:inote>
     </doc:doc>
     <arg type="b" name="sim_buffers_sms" direction="in">
       <doc:doc>
