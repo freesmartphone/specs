@@ -3,23 +3,25 @@
 <node name="/">
   <interface name="org.freesmartphone.Preferences">
     <method name="GetServices">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences"/>
       <arg type="as" name="services" direction="out"/>
     </method>
     <method name="GetService">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences"/>
       <arg type="s" name="name" direction="in"/>
       <arg type="o" name="service" direction="out"/>
     </method>
     <method name="GetProfiles">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences"/>
       <arg type="as" name="profile" direction="out"/>
     </method>
     <method name="GetProfile">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences"/>
       <arg type="s" name="profile" direction="out"/>
     </method>
     <method name="SetProfile">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences"/>
       <arg type="s" name="profile" direction="in"/>
-    </method>
-    <method name="GetProfiles">
-      <arg type="as" name="profiles" direction="out"/>
     </method>
   </interface>
 </node>

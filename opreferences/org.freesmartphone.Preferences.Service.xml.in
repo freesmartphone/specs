@@ -3,6 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Preferences Service Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Preferences.Service">
@@ -12,30 +13,31 @@
         The service object deals with configuration values of a given service
 
         The service can set and get the value of parameters.
-        
+
         The services are used to group related parameters together.
         Basically, every application using the config server should use its own service name.
-         
+
         For each service we need a schema file describing the parameters the service provides.
-        
+
         The configurations values are stored in yaml file.
         Each conf file contains all the parameters for a given service in a given context.
         The conf files are organised with the following file hierachy : 
         conf/$(service)/$(profile).yaml
-        
+
         All the parameters that are independant of the profile are stored in the 'default' profile file.
-        
+
         When we set or get parameters, the service server takes into account the current profile,
         so the applications using the service don't need to know about the current profile.
     </doc:para>
   </doc:doc>
 
   <method name="GetKeys">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
     <doc:doc>
       <doc:description>
         Retrieve all the keys of the service.
-        
-        This method should be used only for introspection purposes.            
+
+        This method should be used only for introspection purposes.
       </doc:description>
     </doc:doc>
     <arg type="as" name="keys" direction="out">
@@ -44,8 +46,9 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="GetValue">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
     <doc:doc>
       <doc:description>
         Get a parameter value.
@@ -62,11 +65,12 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="SetValue">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
     <doc:doc>
       <doc:description>
-        Set a parameter value.   
+        Set a parameter value.
       </doc:description>
     </doc:doc>
     <arg type="s" name="key" direction="in">
@@ -80,9 +84,10 @@
         </doc:doc>
     </arg>
   </method>
-  
-  
+
+
   <method name="IsProfilable">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
     <doc:doc>
       <doc:description>
         Return true if a parameter depends on the current profile.
@@ -99,8 +104,9 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="GetType">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
     <doc:doc>
       <doc:description>
         Return a string representing the type of the parameter.
@@ -117,8 +123,9 @@
         </doc:doc>
     </arg>
   </method>
- 
+
   <signal name="Notify">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
     <doc:doc>
       <doc:description>
         Sent whenever there is a change in a parameter value in the service

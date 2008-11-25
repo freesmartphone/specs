@@ -3,6 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Preferences Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Preferences">
@@ -10,13 +11,14 @@
   <doc:doc>
     <doc:para>
       All the preferences values are grouped into services.
-      
+
       The Preferences object is used to get the preferences Services objects.
       It can also set the current profile value.
     </doc:para>
   </doc:doc>
 
   <method name="GetServices">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
     <doc:doc>
       <doc:description>Return the list of all available services.</doc:description>
     </doc:doc>
@@ -26,8 +28,9 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="GetService">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
     <doc:doc>
       <doc:description>Retrieve a given service.</doc:description>
     </doc:doc>
@@ -42,8 +45,9 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="GetProfiles">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
     <doc:doc>
       <doc:description>Return a list of all the available profiles.</doc:description>
     </doc:doc>
@@ -53,8 +57,9 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="GetProfile">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
     <doc:doc>
       <doc:description>Retrieve the current top profile.</doc:description>
     </doc:doc>
@@ -64,8 +69,9 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="SetProfile">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
     <doc:doc>
       <doc:description>Set the current top profile.</doc:description>
     </doc:doc>
@@ -75,18 +81,6 @@
         </doc:doc>
     </arg>
   </method>
-  
-  <method name="GetProfiles">
-    <doc:doc>
-      <doc:description>Return a list of all the available profiles.</doc:description>
-    </doc:doc>
-    <arg type="as" name="profiles" direction="out">
-        <doc:doc>
-            <doc:summary>An array of all the profile names.</doc:summary>
-        </doc:doc>
-    </arg>
-  </method>
-
 
 </interface>
 </node>
