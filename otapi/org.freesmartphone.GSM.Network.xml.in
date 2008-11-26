@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Network Interface</doc:summary>
-  <doc:version>0.8.9.1</doc:version>
+  <doc:version>0.8.9.2</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Network">
@@ -103,7 +103,8 @@
               [li]"automatic" = automatic selection,[/li]
               [li]"manual" = manual selection,[/li]
               [li]"manual;automatic" = manual first, then automatic,[/li]
-              [li]"unknown" = unknown.[/li]
+              [li]"unregister" = manual unregister,[/li]
+              [li]"unknown" = unknown (this should never occur in production).[/li]
             [/ul][/li]
           [/ul]
           Optional tuples are:
