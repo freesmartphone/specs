@@ -44,9 +44,8 @@ class Entity( object ):
     def outputAnchorLabel( self, content ):
         return """<a name="%s">%s</a>""" % ( content, content )
 
-    def outputDescription( self, content ):
-        # check for crosslinks
-        result = "<i>Description:</i> "
+    def outputCrosslinked( self, content ):
+        result = ""
         for word in content.split( ' ' ):
             if word.startswith( "org.freesmartphone" ):
                 dotted = word.split( '.' )
@@ -58,10 +57,17 @@ class Entity( object ):
             result += " "
         return result
 
+    def outputDescription( self, content ):
+        # check for crosslinks
+        result = "<i>Description:</i> "
+        result += self.outputCrosslinked( content )
+        return result
+
     def outputImplementationNote( self, content ):
         return """<div class="rationale">%s</div>""" % self.outputSemiFormatted( content )
 
     def outputSemiFormatted( self, content ):
+        content = self.outputCrosslinked( content )
         """convert known html entities"""
         for i in "ul ol li".split():
             content = content.replace( "[%s]" % i, "<%s>" % i )
