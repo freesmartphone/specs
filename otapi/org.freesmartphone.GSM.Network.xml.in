@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Network Interface</doc:summary>
-  <doc:version>0.8.9.2</doc:version>
+  <doc:version>0.8.9.3</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Network">
@@ -49,7 +49,7 @@
   <error name="NotFound">
     <doc:doc>
       <doc:description>
-        Raised, if the requested network provider is not present.
+        Raised, if a requested network provider is not present.
       </doc:description>
     </doc:doc>
   </error>
@@ -196,10 +196,13 @@
     </arg>
   </method>
 
-  <method name="GetCountryCode">
+  <method name="GetNetworkCountryCode">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
     <doc:doc>
-      <doc:description>Compute the country information of the current service provider.</doc:description>
+      <doc:description>
+        Compute the country information of the current service provider.
+        Will raise org.freesmartphone.Network.NotFound, if not registered to any service provider.
+      </doc:description>
       <doc:inote>
         This maps to the GSM 07.07 command +COPS?, see 3GPP TS 07.07 Chapter 5.6.
         Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan).

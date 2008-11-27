@@ -20,7 +20,7 @@
 <li><a href="#GetSignalStrength">GetSignalStrength</a></li>
 <li><a href="#ListProviders">ListProviders</a></li>
 <li><a href="#RegisterWithProvider">RegisterWithProvider</a></li>
-<li><a href="#GetCountryCode">GetCountryCode</a></li>
+<li><a href="#GetNetworkCountryCode">GetNetworkCountryCode</a></li>
 <li><a href="#GetCallForwarding">GetCallForwarding</a></li>
 <li><a href="#EnableCallForwarding">EnableCallForwarding</a></li>
 <li><a href="#DisableCallForwarding">DisableCallForwarding</a></li>
@@ -50,8 +50,8 @@
 <p><i>Description:</i> List available service providers. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3. </p></div></p><h4>Returns</h4><i>a(isss): providers</i><p>An array of four-tuples with the following structure:  <ul>  <li>Unique numerical operator code,</li>  <li>Status ("unknown", "available", "current", "forbidden"),</li>  <li>Long Name,</li>  <li>Short Name (optional, may be empty).</li>  </ul> </p>
 <h3><a name="RegisterWithProvider">RegisterWithProvider</a> ( i )</h3>
 <p><i>Description:</i> Register to a dedicated service provider. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3. </p></div></p><h4>Parameters</h4><i>i: operator_code</i><p>The operator code. </p>
-<h3><a name="GetCountryCode">GetCountryCode</a> ( ) &rarr; ss</h3>
-<p><i>Description:</i> Compute the country information of the current service provider. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS?, see 3GPP TS 07.07 Chapter 5.6.  Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan). </p></div></p><h4>Returns</h4><i>s: dial_code</i><p>The country dial code (including the +). </p><i>s: country_name</i><p>The name of the country. </p>
+<h3><a name="GetNetworkCountryCode">GetNetworkCountryCode</a> ( ) &rarr; ss</h3>
+<p><i>Description:</i> Compute the country information of the current service provider.  Will raise <a href="http://docs.freesmartphone.org/org.freesmartphone.Network.html#NotFound">NotFound</a> if not registered to any service provider. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS?, see 3GPP TS 07.07 Chapter 5.6.  Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan). </p></div></p><h4>Returns</h4><i>s: dial_code</i><p>The country dial code (including the +). </p><i>s: country_name</i><p>The name of the country. </p>
 <h3><a name="GetCallForwarding">GetCallForwarding</a> ( ) &rarr; a{sv}</h3>
 <p><i>Description:</i> Get the network call forwarding status. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CCFC=(reason),2, see 3GPP TS 07.07 Chapter 7.10. </p></div></p><h4>Returns</h4><i>a{sv}: status</i><p>A dictionary containing entries for call classes. Expected keywords are:  <ul>  <li>"voice",</li>  <li>"data",</li>  <li>"voice+data",</li>  <li>"fax",</li>  <li>"voice+data+fax".</li>  </ul>  Rarely you might also encounter:  <ul>  <li>"sms",</li>  <li>"dcs",</li>  <li>"dca",</li>  <li>"dpa",</li>  <li>"pad".</li>  </ul>  The value is a three-tuple with the following structure:  <ul>  <li>boolean: Whether the feature is enabled or not,</li>  <li>string: Call forwarding number,</li>  <li>int: Number of seconds after which the call forwarding gets active.</li>  </ul> </p>
 <h3><a name="EnableCallForwarding">EnableCallForwarding</a> ( sssi )</h3>
@@ -71,7 +71,7 @@
 <h1>Errors</h1><h3><a name="NotPresent">NotPresent</a></h3><p><i>Description:</i> Raised, if no network service is available. </p>
 <h3><a name="Unauthorized">Unauthorized</a></h3><p><i>Description:</i> Raised, if registering with the specified network is not possible. </p>
 <h3><a name="NotSupported">NotSupported</a></h3><p><i>Description:</i> Raised, if the requested network operation is not supported. </p>
-<h3><a name="NotFound">NotFound</a></h3><p><i>Description:</i> Raised, if the requested network provider is not present. </p>
+<h3><a name="NotFound">NotFound</a></h3><p><i>Description:</i> Raised, if a requested network provider is not present. </p>
 
     <hr/>
     <small>
