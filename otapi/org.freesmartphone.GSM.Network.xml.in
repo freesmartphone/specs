@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Network Interface</doc:summary>
-  <doc:version>0.8.9.3</doc:version>
+  <doc:version>0.8.9.4</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Network">
@@ -226,10 +226,25 @@
       <doc:description>Get the network call forwarding status.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CCFC=(reason),2, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
     </doc:doc>
+    <arg type="s" name="reason" direction="in">
+      <doc:doc>
+        <doc:summary>
+          Reason for which you want to enable network call forwarding. Valid reasons are:
+          [ul]
+            [li]"unconditional",[/li]
+            [li]"mobile busy",[/li]
+            [li]"no reply",[/li]
+            [li]"not reachable",[/li]
+            [li]"all",[/li]
+            [li]"all conditional".[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <arg type="a{sv}" name="status" direction="out">
       <doc:doc>
         <doc:summary>
-          A dictionary containing entries for call classes. Expected keywords are:
+          A dictionary containing entries for call classes. Expected classes are:
           [ul]
             [li]"voice",[/li]
             [li]"data",[/li]
@@ -265,36 +280,28 @@
     <arg type="s" name="reason" direction="in">
       <doc:doc>
         <doc:summary>
-          Reason for which you want to enable network call forwarding. Valid reasons are:
-          [ul]
-            [li]"unconditional",[/li]
-            [li]"mobile busy",[/li]
-            [li]"no reply",[/li]
-            [li]"not reachable",[/li]
-            [li]"all",[/li]
-            [li]"all conditional".[/li]
-          [/ul]
+          The reason for which you want to enable network call forwarding. See org.freesmartphone.GSM.Network.GetCallForwarding for valid reasons.
         </doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="class" direction="in">
       <doc:doc>
         <doc:summary>
-          Call class for which you want to enable network call forwarding. See  org.freesmartphone.GSM.Network.GetCallForwarding for valid classes.
+          The call class for which you want to enable network call forwarding. See org.freesmartphone.GSM.Network.GetCallForwarding for valid classes.
         </doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="number" direction="in">
       <doc:doc>
         <doc:summary>
-          Phone number to which the network call will be forwarded.
+          The phone number to which the network call will be forwarded.
         </doc:summary>
       </doc:doc>
     </arg>
     <arg type="i" name="timeout" direction="in">
       <doc:doc>
         <doc:summary>
-          Number of seconds, after which network call forwarding launches (only for reason "no reply").
+          The number of seconds, after which network call forwarding launches (only valid for reason "no reply").
         </doc:summary>
       </doc:doc>
     </arg>
@@ -309,15 +316,7 @@
     <arg type="s" name="reason" direction="in">
       <doc:doc>
         <doc:summary>
-          Reason for which you want to disable network call forwarding. Valid reasons are:
-          [ul]
-            [li]"unconditional",[/li]
-            [li]"mobile busy",[/li]
-            [li]"no reply",[/li]
-            [li]"not reachable",[/li]
-            [li]"all",[/li]
-            [li]"all conditional".[/li]
-          [/ul]
+          The reason for which you want to enable network call forwarding. See org.freesmartphone.GSM.Network.GetCallForwarding for valid reasons.
         </doc:summary>
       </doc:doc>
     </arg>

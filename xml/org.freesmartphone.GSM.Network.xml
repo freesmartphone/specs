@@ -41,6 +41,7 @@
     </method>
     <method name="GetCallForwarding">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <arg type="s" name="reason" direction="in"/>
       <arg type="a{sv}" name="status" direction="out"/>
     </method>
     <method name="EnableCallForwarding">
