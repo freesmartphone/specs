@@ -71,7 +71,7 @@
     </arg>
     <arg type="i" name="transaction_index" direction="out">
       <doc:doc>
-        <doc:summary>The given transaction index for this message</doc:summary>
+        <doc:summary>The given transaction index for this message.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -103,7 +103,8 @@
     </arg>
     <arg type="a{sv}" name="properties">
       <doc:doc>
-        <doc:summary>Additional properties of the message. See org.freesmartphone.GSM.SIM.SendMessage.</doc:summary>
+        <doc:summary>
+          Additional properties of the message. See org.freesmartphone.GSM.SMS.SendMessage for details.</doc:summary>
       </doc:doc>
     </arg>
   </signal>
