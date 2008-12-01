@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Device Interface</doc:summary>
-  <doc:version>0.9.1.1</doc:version>
+  <doc:version>0.9.2.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Device">
@@ -122,6 +122,36 @@
         see 3GPP TS 07.07 Chapters 6.1.9, 10.1.11, and C.2.1.
       </doc:inote>
     </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetSpeakerVolume">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <doc:doc>
+      <doc:description>
+        Retrieve the current loudspeaker volume.
+      </doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CLVL?, see 3GPP TS 07.07 Chapter 8.2.3.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="volume" direction="out">
+      <doc:doc>
+        <doc:summary>The volume in percent (0-100).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetSpeakerVolume">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <doc:description>
+      Set the current loudspeaker volume.
+    </doc:description>
+    <doc:doc>
+      <doc:inote>This maps to the GSM 07.07 command +CLVL=... see 3GPP TS 07.07 Chapter 8.2.3.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="volume" direction="in">
+      <doc:doc>
+        <doc:summary>The volume in percent (0-100).</doc:summary>
+      </doc:doc>
     </arg>
   </method>
 
