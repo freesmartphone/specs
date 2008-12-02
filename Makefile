@@ -11,3 +11,6 @@ clean:
 check:
 	@for i in $(SUBDIRS); do (cd $$i && $(MAKE) check) || exit 1 ; done
 
+docs:
+	@for i in $(SUBDIRS); do (cd $$i && $(MAKE) docs) || exit 1 ; done
+

@@ -207,7 +207,25 @@
     </doc:doc>
   </method>
 
-  <!-- Signals -->
+  <method name="Shutdown">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
+    <doc:doc>
+      <doc:description>
+        Triggers a shutdown of all managed resources and powers the device down.
+      </doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Reboot">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
+    <doc:doc>
+      <doc:description>
+        Triggers a reboot of the device.
+      </doc:description>
+    </doc:doc>
+  </method>
+
+<!-- Signals -->
 
   <signal name="ResourceAvailable">
     <doc:doc>
@@ -252,6 +270,25 @@
             [li]"refcount": The count of clients that have requested the resource[/li]
          [/ul]
           Further information can be part of the properties.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="SystemAction">
+    <doc:doc>
+      <doc:description>Sent whenever a system state action is performed.</doc:description>
+    </doc:doc>
+    <arg type="s" name="action">
+      <doc:doc>
+        <doc:summary>
+          The name of the action. Expected values are:
+          [ul]
+            [li]"suspend": The system is suspending.[/li]
+            [li]"resume": The system has resumed.[/li]
+            [li]"reboot": The system is rebooting.[/li]
+            [li]"shutdown": The system is shutting down.[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>
