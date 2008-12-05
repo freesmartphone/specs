@@ -22,10 +22,13 @@
 <li><a href="#RequestResource">RequestResource</a></li>
 <li><a href="#ReleaseResource">ReleaseResource</a></li>
 <li><a href="#Suspend">Suspend</a></li>
+<li><a href="#Shutdown">Shutdown</a></li>
+<li><a href="#Reboot">Reboot</a></li>
 </ul>
 <h2>Signals</h2><ul>
 <li><a href="#ResourceAvailable">ResourceAvailable</a></li>
 <li><a href="#ResourceChanged">ResourceChanged</a></li>
+<li><a href="#SystemAction">SystemAction</a></li>
 </ul>
 <h2>Errors</h2><ul>
 <li><a href="#PolicyUnknown">PolicyUnknown</a></li>
@@ -51,8 +54,11 @@
 <h3><a name="ReleaseResource">ReleaseResource</a> ( s )</h3>
 <p><i>Description:</i> Release a given resource. </p><p><div class="rationale"><p>Resources in use get autoreleased when a client leaves the bus. </p></div></p><h4>Parameters</h4><i>s: name</i><p>The resource name. </p>
 <h3><a name="Suspend">Suspend</a> ( )</h3><p><i>Description:</i> Triggers a suspend on all managed resources and puts the device into suspend mode.  When the device comes back from suspend, all resources are resumed.  All Resources need to implement <a href="http://docs.freesmartphone.org/org.freesmartphone.Resource.html#Suspend">Suspend</a> and  <a href="http://docs.freesmartphone.org/org.freesmartphone.Resource.html#Resume">Resume</a> if they have anything to prepare / recover  on suspend and resume. </p>
+<h3><a name="Shutdown">Shutdown</a> ( )</h3><p><i>Description:</i> Triggers a shutdown of all managed resources and powers the device down. </p>
+<h3><a name="Reboot">Reboot</a> ( )</h3><p><i>Description:</i> Triggers a reboot of the device. </p>
 <h1>Signals</h1><h3><h3><a name="ResourceAvailable">ResourceAvailable</a> ( sb )</h3><p><i>Description:</i> Sent whenever a resource is added or removed. </p><h4>Parameters</h4><i>s: name</i><p>The name of the resource. </p><i>b: availability</i><p>The resource availability. True if the resource is currently available. </p></h3>
 <h3><h3><a name="ResourceChanged">ResourceChanged</a> ( sba{sv} )</h3><p><i>Description:</i> Sent whenever a resource status changes. </p><h4>Parameters</h4><i>s: name</i><p>The name of the resource. </p><i>b: state</i><p>The resource state. True if the resource is currently enabled. </p><i>a{sv}: attributes</i><p>The new status of the resource. Expected values are:  <ul>  <li>"policy": The current resource policy</li>  <li>"refcount": The count of clients that have requested the resource</li>  </ul>  Further information can be part of the properties. </p></h3>
+<h3><h3><a name="SystemAction">SystemAction</a> ( s )</h3><p><i>Description:</i> Sent whenever a system state action is performed. </p><h4>Parameters</h4><i>s: action</i><p>The name of the action. Expected values are:  <ul>  <li>"suspend": The system is suspending.</li>  <li>"resume": The system has resumed.</li>  <li>"reboot": The system is rebooting.</li>  <li>"shutdown": The system is shutting down.</li>  </ul> </p></h3>
 <h1>Errors</h1><h3><a name="PolicyUnknown">PolicyUnknown</a></h3><p><i>Description:</i> Raised, if the requested policy is unknown. </p>
 <h3><a name="PolicyDisabled">PolicyDisabled</a></h3><p><i>Description:</i> Raised, if the requested resource is set to policy "disabled". </p>
 <h3><a name="ResourceUnknown">ResourceUnknown</a></h3><p><i>Description:</i> Raised, if the requested resource is unknown. </p>

@@ -16,13 +16,16 @@
 <h2>Methods</h2><ul>
 <li><a href="#SetBrightness">SetBrightness</a></li>
 <li><a href="#SetBlinking">SetBlinking</a></li>
+<li><a href="#SetNetworking">SetNetworking</a></li>
 </ul>
 <h2>Signals</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="SetBrightness">SetBrightness</a> ( i )</h3>
 <p><i>Description:</i> Set the brightness level. </p><h4>Parameters</h4><i>i: brightness</i><p>The brightness level in percent (0-100). </p>
 <h3><a name="SetBlinking">SetBlinking</a> ( ii )</h3>
-<p><i>Description:</i> Start blinking. </p><h4>Parameters</h4><i>i: on_duration</i><p>Duration of being lit in milliseconds. </p><i>i: off_duration</i><p>Duration of being unlit in milliseconds. </p>
+<p><i>Description:</i> Start blinking. </p><p><div class="rationale"><p>This requires the Linux 2.6 LED class trigger 'timer' to be available. </p></div></p><h4>Parameters</h4><i>i: on_duration</i><p>Duration of being lit in milliseconds. </p><i>i: off_duration</i><p>Duration of being unlit in milliseconds. </p>
+<h3><a name="SetNetworking">SetNetworking</a> ( ss )</h3>
+<p><i>Description:</i> Start visualizing the network status. </p><p><div class="rationale"><p>This requires the Linux 2.6 LED class trigger 'netdev' to be available. </p></div></p><h4>Parameters</h4><i>s: interface</i><p>The interface to visualize. </p><i>s: mode</i><p>A string combined of elements describing the visualization mode. Valid elements are:  <ul>  <li>"link": Visualizes the interface link status (up = lit),</li>  <li>"rx": Visualizes the interface receiving data,</li>  <li>"tx": Visualizes the interface transmitting data.</li> </p>
 
     <hr/>
     <small>

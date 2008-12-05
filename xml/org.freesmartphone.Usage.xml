@@ -44,6 +44,12 @@
     <method name="Suspend">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
     </method>
+    <method name="Shutdown">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+    </method>
+    <method name="Reboot">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+    </method>
     <signal name="ResourceAvailable">
       <arg type="s" name="name"/>
       <arg type="b" name="availability"/>
@@ -52,6 +58,9 @@
       <arg type="s" name="name"/>
       <arg type="b" name="state"/>
       <arg type="a{sv}" name="attributes"/>
+    </signal>
+    <signal name="SystemAction">
+      <arg type="s" name="action"/>
     </signal>
   </interface>
 </node>
