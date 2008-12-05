@@ -29,6 +29,14 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
       <arg type="i" name="volume" direction="in"/>
     </method>
+    <method name="GetMicrophoneMuted">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="b" name="muted" direction="out"/>
+    </method>
+    <method name="SetMicrophoneMuted">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="b" name="muted" direction="in"/>
+    </method>
     <method name="GetSimBuffersSms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
       <arg type="b" name="sim_buffers_sms" direction="out"/>

@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Device Interface</doc:summary>
-  <doc:version>0.9.2.0</doc:version>
+  <doc:version>0.9.3.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Device">
@@ -151,6 +151,36 @@
     <arg type="i" name="volume" direction="in">
       <doc:doc>
         <doc:summary>The volume in percent (0-100).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetMicrophoneMuted">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <doc:doc>
+      <doc:description>
+        Retrieve whether the microphone is currently muted.
+      </doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CMUT?, see 3GPP TS 07.07 Chapter 8.2.4.</doc:inote>
+    </doc:doc>
+    <arg type="b" name="muted" direction="out">
+      <doc:doc>
+        <doc:summary>True, if the microphone is muted. False, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetMicrophoneMuted">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <doc:description>
+      Set the current loudspeaker volume.
+    </doc:description>
+    <doc:doc>
+      <doc:inote>This maps to the GSM 07.07 command +CMUT=... see 3GPP TS 07.07 Chapter 8.2.4.</doc:inote>
+    </doc:doc>
+    <arg type="b" name="muted" direction="in">
+      <doc:doc>
+        <doc:summary>True, to mute the microphone. Fals, otherwise.</doc:summary>
       </doc:doc>
     </arg>
   </method>
