@@ -61,6 +61,10 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
       <arg type="a(siii)" name="homezones" direction="out"/>
     </method>
+    <method name="GetIssuer">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <arg type="s" name="name" direction="out"/>
+    </method>
     <method name="ListPhonebooks">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
       <arg type="as" name="categories" direction="out"/>
