@@ -173,7 +173,7 @@
   <method name="SetMicrophoneMuted">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
     <doc:description>
-      Set the current loudspeaker volume.
+      Mute or unmute the microphone.
     </doc:description>
     <doc:doc>
       <doc:inote>This maps to the GSM 07.07 command +CMUT=... see 3GPP TS 07.07 Chapter 8.2.4.</doc:inote>
