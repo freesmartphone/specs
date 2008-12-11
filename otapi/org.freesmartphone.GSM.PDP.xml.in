@@ -3,6 +3,7 @@
 
   <doc:doc>
     <doc:summary>freesmartphone.org GSM Packet Data Protocol Interface</doc:summary>
+    <doc:version>0.5.0</doc:version>
   </doc:doc>
 
   <interface name="org.freesmartphone.GSM.PDP">
@@ -62,6 +63,52 @@
       </doc:doc>
     </arg>
   </method>
+
+  <method name="GetNetworkStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <doc:doc>
+      <doc:description>Retrieves the current GPRS registration status.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CGREG?, see 3GPP TS 07.07 Chapter 10.1.14.</doc:inote>
+    </doc:doc>
+    <arg type="a{sv}" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>
+          GPRS registration status information. Mandatory tuples are:
+          [ul]
+            [li]( "registration", string ):
+            [ul] The registration status. Expected values are:
+              [li]"unregistered" = not registered, not trying,[/li]
+              [li]"home" = registered to home network,[/li]
+              [li]"busy" = not registered, but currently trying,[/li]
+              [li]"denied" = no permitted network available,[/li]
+              [li]"unknown" = no idea,[/li]
+              [li]"roaming" = registered to foreign network.[/li]
+            [/ul][/li]
+          [/ul]
+          Optional tuples are:
+          [ul]
+            [li]( "lac", string ): The location area code string (if available).[/li]
+            [li]( "cid", string ): The cell id string (if available).[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="NetworkStatus">
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is a GPRS registration status or property change.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="status">
+      <doc:doc>
+        <doc:summary>
+          The new status. See org.freesmartphone.GSM.PDP.GetNetworkStatus for a list of valid values.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
   <method name="ActivateContext">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />

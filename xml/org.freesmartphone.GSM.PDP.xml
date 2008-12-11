@@ -15,6 +15,13 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
       <arg type="s" name="device_class" direction="in"/>
     </method>
+    <method name="GetNetworkStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <arg type="a{sv}" name="status" direction="out"/>
+    </method>
+    <signal name="NetworkStatus">
+      <arg type="s" name="status"/>
+    </signal>
     <method name="ActivateContext">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
       <arg type="s" name="apn" direction="in"/>
