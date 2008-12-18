@@ -44,5 +44,9 @@
     <method name="PullScenario">
       <arg direction="out" type="s" name="scenario"/>
     </method>
+    <signal name="Scenario">
+      <arg type="s" name="scenario"/>
+      <arg type="s" name="reason"/>
+    </signal>
   </interface>
 </node>

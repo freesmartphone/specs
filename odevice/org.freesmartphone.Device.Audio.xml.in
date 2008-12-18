@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Audio Interface</doc:summary>
-  <doc:version>0.9.3</doc:version>
+  <doc:version>0.9.3.1</doc:version>
   <doc:source>git.freesmartphone.org</doc:source>
   <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
 </doc:doc>
@@ -185,10 +185,8 @@
   <signal name="SoundStatus">
     <doc:doc>
       <doc:description>
-        Sent whenever there is any status or property change on a call in the system,
-        no matter whether this is an incoming, active, held, or released call.
+        Sent whenever a sound has been started or stopped.
       </doc:description>
-      <doc:inote>This signal is emitted once for every 'RING' from the modem.</doc:inote>
     </doc:doc>
     <arg type="s" name="id">
       <doc:doc>
@@ -209,7 +207,7 @@
         <doc:summary>
           An array of property values. Note that properties are optional. Expected tuples are:
           [ul]
-          [li]...to be defined...[/li]
+            [li]...to be defined...[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
@@ -277,6 +275,31 @@
       </doc:doc>
     </arg>
   </method>
+
+  <signal name="Scenario">
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is a change of the global sound scenario.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="scenario">
+      <doc:doc>
+        <doc:summary>
+          The scenario that is now active.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="reason">
+      <doc:doc>
+        <doc:summary>
+          The reason for this change. Expected reasons are:
+          [ul]
+          [li]...to be defined...[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 </node>

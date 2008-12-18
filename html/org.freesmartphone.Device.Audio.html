@@ -27,6 +27,7 @@
 </ul>
 <h2>Signals</h2><ul>
 <li><a href="#SoundStatus">SoundStatus</a></li>
+<li><a href="#Scenario">Scenario</a></li>
 </ul>
 <h2>Errors</h2><ul>
 <li><a href="#UnknownFormat">UnknownFormat</a></li>
@@ -56,7 +57,8 @@
 <p><i>Description:</i> Set a new audio scenario and push the previous one on the stack. </p><h4>Parameters</h4><i>s: scenario</i><p>The name of the scenario. </p>
 <h3><a name="PullScenario">PullScenario</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Set the previously active audio scenario. </p><h4>Returns</h4><i>s: scenario</i><p>The current scenario. </p>
-<h1>Signals</h1><h3><h3><a name="SoundStatus">SoundStatus</a> ( ssa{sv} )</h3><p><i>Description:</i> Sent whenever there is any status or property change on a call in the system,  no matter whether this is an incoming, active, held, or released call. </p><h4>Parameters</h4><i>s: id</i><p>The identification of sound resource that changed its status. </p><i>s: status</i><p>The new status for the sound resource. </p><i>a{sv}: properties</i><p>An array of property values. Note that properties are optional. Expected tuples are:  <ul>  <li>...to be defined...</li>  </ul> </p></h3>
+<h1>Signals</h1><h3><h3><a name="SoundStatus">SoundStatus</a> ( ssa{sv} )</h3><p><i>Description:</i> Sent whenever a sound has been started or stopped. </p><h4>Parameters</h4><i>s: id</i><p>The identification of sound resource that changed its status. </p><i>s: status</i><p>The new status for the sound resource. </p><i>a{sv}: properties</i><p>An array of property values. Note that properties are optional. Expected tuples are:  <ul>  <li>...to be defined...</li>  </ul> </p></h3>
+<h3><h3><a name="Scenario">Scenario</a> ( ss )</h3><p><i>Description:</i> Sent whenever there is a change of the global sound scenario. </p><h4>Parameters</h4><i>s: scenario</i><p>The scenario that is now active. </p><i>s: reason</i><p>The reason for this change. Expected reasons are:  <ul>  <li>...to be defined...</li>  </ul> </p></h3>
 <h1>Errors</h1><h3><a name="UnknownFormat">UnknownFormat</a></h3><p><i>Description:</i> Raised, if the audio format is not supported. </p>
 <h3><a name="PlayerError">PlayerError</a></h3><p><i>Description:</i> Raised, if the player emits an (internal) error. </p>
 <h3><a name="NotPlaying">NotPlaying</a></h3><p><i>Description:</i> Raised, if the audio file is not playing. </p>
