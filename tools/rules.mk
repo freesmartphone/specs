@@ -9,7 +9,7 @@ docbook_xhtml_files = $(addprefix xhtml/, $(docbook_xml_files:.xml=.xhtml))
 pydoc_html_files = $(files:.xml=.html)
 
 # choose your style sheet
-docbook_style_sheet = /usr/share/sgml/docbook/xsl-stylesheets-1.73.2/xhtml/docbook.xsl
+docbook_style_sheet = /usr/share/sgml/docbook/xsl-stylesheets/xhtml/docbook.xsl
 #docbook_style_sheet = /usr/share/xml/docbook/stylesheet/nwalsh/xhtml/docbook.xsl
 
 all: pydocs

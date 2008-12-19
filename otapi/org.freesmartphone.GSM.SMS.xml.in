@@ -74,6 +74,11 @@
         <doc:summary>The given transaction index for this message.</doc:summary>
       </doc:doc>
     </arg>
+    <arg type="s" name="timestamp" direction="out">
+      <doc:doc>
+        <doc:summary>The timestamp this message was received by the SMSC</doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
 <!-- Does initial sending sometimes fail and we get a delayed response that
