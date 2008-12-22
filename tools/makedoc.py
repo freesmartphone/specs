@@ -11,6 +11,8 @@ but I really couldn't get it. Then I gave up and wrote this.
 It's not versatile, but it gets my job done.
 """
 
+__version__ = "0.9.9.1"
+
 import sys
 from xml.sax import parse
 from xml.sax.handler import ContentHandler
@@ -48,10 +50,11 @@ class Entity( object ):
         result = ""
         for word in content.split( ' ' ):
             if word.startswith( "org.freesmartphone" ):
+                word = word.strip( ",./:;" )
                 dotted = word.split( '.' )
                 html, method = '.'.join( dotted[:-1] ), dotted[-1]
-                print "possible link to %s/%s detected" % ( html, method )
-                result += """<a href="http://docs.freesmartphone.org/%s.html#%s">%s</a>""" % ( html, method.strip( ",." ), method.strip( ",." ) )
+                print "possible link to %s.%s detected" % ( html, method )
+                result += """<a href="http://docs.freesmartphone.org/%s.html#%s">%s</a>""" % ( html, method, method )
             else:
                 result += word
             result += " "
