@@ -20,7 +20,7 @@
       <arg type="a{sv}" name="status" direction="out"/>
     </method>
     <signal name="NetworkStatus">
-      <arg type="s" name="status"/>
+      <arg type="a{sv}" name="status"/>
     </signal>
     <method name="ActivateContext">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>

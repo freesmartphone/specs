@@ -116,6 +116,7 @@
               [li]"HSDPA" = High Speed Downlink Packet Access[/li]
               [li]"HSUPA" = High Speed Uplink Packet Access[/li]
               [li]"HSDPA/HSUPA" = High Speed Packet Access (both downlink and uplink)[/li]
+            [/ul][/li]
           [/ul]
           Optional tuples are:
           [ul]
