@@ -28,7 +28,7 @@
     </signal>
     <method name="ListProviders">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
-      <arg type="a(isss)" name="providers" direction="out"/>
+      <arg type="a(issss)" name="providers" direction="out"/>
     </method>
     <method name="RegisterWithProvider">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>

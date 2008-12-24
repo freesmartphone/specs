@@ -106,6 +106,16 @@
               [li]"unregister" = manual unregister,[/li]
               [li]"unknown" = unknown (this should never occur in production).[/li]
             [/ul][/li]
+            [li]( "act", string ):
+            [ul]
+              The network access type. Will default to "GSM" if a modem doesn't support reporting. Expected values are:
+              [li]"GSM" = GPRS access[/li]
+              [li]"Compact GSM" = [/li]
+              [li]"UMTS" = UMTS access[/li]
+              [li]"EDGE" = Enhanced Data Rates for GSM Evolution [/li]
+              [li]"HSDPA" = High Speed Downlink Packet Access[/li]
+              [li]"HSUPA" = High Speed Uplink Packet Access[/li]
+              [li]"HSDPA/HSUPA" = High Speed Packet Access (both downlink and uplink)[/li]
           [/ul]
           Optional tuples are:
           [ul]
@@ -114,7 +124,6 @@
             [li]( "strength", int ): The signal strength in percentage (0-100).[/li]
             [li]( "lac", string ): The location area code string (if available).[/li]
             [li]( "cid", string ): The cell id string (if available).[/li]
-            [li]( "act", string ): The network access type (GSM, UMTS, HS{D,U}PA).[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
@@ -169,7 +178,7 @@
         <doc:description>List available service providers.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
       </doc:doc>
-    <arg type="a(isss)" name="providers" direction="out">
+    <arg type="a(issss)" name="providers" direction="out">
       <doc:doc>
         <doc:summary>
           An array of four-tuples with the following structure:
@@ -178,7 +187,7 @@
             [li]Status ("unknown", "available", "current", "forbidden"),[/li]
             [li]Long Name,[/li]
             [li]Short Name (optional, may be empty).[/li]
-            [li]Network access type (optional, may be empty).[/li]
+            [li]Network access type (defaults to "GSM").[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
