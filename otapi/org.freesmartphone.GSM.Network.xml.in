@@ -114,6 +114,7 @@
             [li]( "strength", int ): The signal strength in percentage (0-100).[/li]
             [li]( "lac", string ): The location area code string (if available).[/li]
             [li]( "cid", string ): The cell id string (if available).[/li]
+            [li]( "act", string ): The network access type (GSM, UMTS, HS{D,U}PA).[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
@@ -177,6 +178,7 @@
             [li]Status ("unknown", "available", "current", "forbidden"),[/li]
             [li]Long Name,[/li]
             [li]Short Name (optional, may be empty).[/li]
+            [li]Network access type (optional, may be empty).[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
