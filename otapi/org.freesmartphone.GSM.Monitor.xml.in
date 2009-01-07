@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-monitor-interface">
+
+  <doc:doc>
+    <doc:summary>freesmartphone.org GSM Network Monitoring Interface</doc:summary>
+    <doc:version>0.1.0</doc:version>
+  </doc:doc>
+
+  <interface name="org.freesmartphone.GSM.Monitor">
+
+    <doc:doc>
+      <doc:para>
+        The Monitor interface is used to gather auxiallary information
+        about the GSM network, serving cells, network cells, and more,
+        beyond what is defined in 3GPP 07.07. Implementing this interface
+        is optional.
+      </doc:para>
+    </doc:doc>
+
+  <method name="GetServingCellInformation">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_monitor" />
+    <doc:doc>
+      <doc:description>Retrieves serving cell information.</doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="serving_cell" direction="out">
+      <doc:doc>
+        <doc:summary>
+          Information about the serving cell.
+          Format: TBD
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetNeighbourCellInformation">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_monitor" />
+    <doc:doc>
+      <doc:description>Retrieves neighbour cell information.</doc:description>
+    </doc:doc>
+    <arg type="a(a{sv})" name="neighbour_cells" direction="out">
+      <doc:doc>
+        <doc:summary>
+          Information about the neighbour cells.
+          Format: TBD
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>
