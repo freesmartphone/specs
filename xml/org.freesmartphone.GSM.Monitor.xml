@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.GSM.Monitor">
+    <method name="GetServingCellInformation">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_monitor"/>
+      <arg type="a{sv}" name="serving_cell" direction="out"/>
+    </method>
+    <method name="GetNeighbourCellInformation">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_monitor"/>
+      <arg type="a(a{sv})" name="neighbour_cells" direction="out"/>
+    </method>
+  </interface>
+</node>
