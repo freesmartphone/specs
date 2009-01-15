@@ -50,7 +50,7 @@ class Entity( object ):
         result = ""
         for word in content.split( ' ' ):
             if word.startswith( "org.freesmartphone" ):
-                word = word.strip( ",./:;" )
+                word = word.strip( ",./:;()" )
                 dotted = word.split( '.' )
                 html, method = '.'.join( dotted[:-1] ), dotted[-1]
                 print "possible link to %s.%s detected" % ( html, method )
