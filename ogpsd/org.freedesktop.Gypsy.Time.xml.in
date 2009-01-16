@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gypsy-time-interface">
+
+<doc:doc>
+  <doc:summary>freedesktop.org Gypsy Time Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freedesktop.Gypsy.Time">
+
+  <doc:doc>
+    <doc:para>
+      The Time interface is used to get the GPS time.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetTime">
+    <doc:doc>
+      <doc:description>Get the GPS time.</doc:description>
+    </doc:doc>
+    <arg type="i" name="time" direction="out">
+      <doc:doc>
+        <doc:summary>This is the seconds elapsed since epoch.</doc:summary>
+        <doc:inote>Same value as returned by some other methods (e.g. GetPosition, GetCourse, etc.).</doc:inote>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="TimeChanged">
+    <doc:doc>
+      <doc:description>
+        Emitted when GPS time has changed.
+	See GetTime() for values.
+      </doc:description>
+    </doc:doc>
+  </signal>
+
+</interface>
+</node>

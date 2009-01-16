@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gypsy-device-interface">
+
+<doc:doc>
+  <doc:summary>freedesktop.org Gypsy Device Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freedesktop.Gypsy.Position">
+
+  <doc:doc>
+    <doc:para>
+      The Device interface is used to get information about the status of the GPS device.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetConnectionStatus">
+    <doc:doc>
+      <doc:description>Get the GPS connection status.</doc:description>
+    </doc:doc>
+    <arg type="b" name="constatus" direction="out">
+      <doc:doc>
+        <doc:summary>True if the device is connected, False otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetFixStatus">
+    <doc:doc>
+      <doc:description>Get the GPS fix status.</doc:description>
+    </doc:doc>
+    <arg type="i" name="fixstatus" direction="out">
+      <doc:doc>
+        <doc:summary>One of the following value:
+          [ul]
+            [li]Invalid: 0[/li]
+            [li]None: 1[/li]
+            [li]2 dimensions: 2[/li]
+            [li]3 dimensions: 3[li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Start">
+    <doc:doc>
+      <doc:description>Start the GPS device.</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Stop">
+    <doc:doc>
+      <doc:description>Stop the GPS device.</doc:description>
+    </doc:doc>
+  </method>
+  
+  <signal name="ConnectionStatusChanged">
+    <doc:doc>
+      <doc:description>
+        Emitted when the connection status has changed.
+	See GetConnectionStatus() for values.
+      </doc:description>
+    </doc:doc>
+  </signal>
+  
+  <signal name="FixStatusChanged">
+    <doc:doc>
+      <doc:description>
+        Emitted when the fix status has changed.
+	See GetFixStatus() for values.
+      </doc:description>
+    </doc:doc>
+  </signal>
+
+
+</interface>
+</node>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gypsy-course-interface">
+
+<doc:doc>
+  <doc:summary>freedesktop.org Gypsy Course Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freedesktop.Gypsy.Course">
+
+  <doc:doc>
+    <doc:para>
+      The Course interface is used to get the GPS course.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetCourse">
+    <doc:doc>
+      <doc:description>Get the GPS course.</doc:description>
+    </doc:doc>
+    <arg type="i" name="fields" direction="out">
+      <doc:doc>
+        <doc:summary>Bit mask, gives fields validity.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="tstamp" direction="out">
+      <doc:doc>
+        <doc:summary>This is the seconds elapsed since epoch.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="d" name="speed" direction="out">
+      <doc:doc>
+        <doc:summary>Speed in knots.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="d" name="heading" direction="out">
+      <doc:doc>
+        <doc:summary>Direction in decimal degree.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="d" name="climb" direction="out">
+      <doc:doc>
+        <doc:summary>Rate of ascent or descent in knots. The device is descending if value is positive.</doc:summary>
+        <doc:inote>Only UBX devices report this value. There is no calculation for it for NMEA parser.</doc:inote>
+      </doc:doc>
+    </arg>
+  </method>
+  
+  <signal name="CourseChanged">
+    <doc:doc>
+      <doc:description>
+        Emitted when one or more of the fields has changed.
+	See GetCourse() for values.
+      </doc:description>
+    </doc:doc>
+  </signal>
+
+
+</interface>
+</node>
