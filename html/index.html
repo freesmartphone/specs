@@ -8,7 +8,7 @@
         <div class="topbox">freesmartphone.org Framework DBus Interface Specification</div>
         <p>The <a href="http://www.freesmartphone.org">freesmartphone.org</a> development platform includes a number of low level and high level services which are accessible via the <a href="http://dbus.freedesktop.org">DBus</a> IPC system. This page links to reference works which can be used when programming for devices running the freesmartphone.org development platform. This reference is primarily intended for software developers. You may want to try out a few DBus Tutorials before diving into these documents.</p>
         <hr/>
-        <h2 align="center">Table of Contents &#8212; FSO Framework Version 0.4.1</h2>
+        <h2 align="center">Table of Contents &#8212; FSO Framework Version 0.5.0</h2>
         <hr/>
         <h1>0. Introduction</h1>
         <ul>
@@ -18,50 +18,58 @@
           <li><a href="org.freesmartphone.docs.components.html">Freesmartphone.org Development Platform</a> &#8212; The components [to be done]</li>
           <li><a href="org.freesmartphone.docs.components.html">Freesmartphone.org Development Platform</a> &#8212; The components</li> -->
         </ul>
-        <h1>1. Device API</h1>
+        <h1>1. Device API: <tt>org.freesmartphone.Device</tt></h1>
           <p><em>Note: This is a lowlevel API. Consider using the high level APIs instead.</em></p>
             <ul>
-            <li><a href="org.freesmartphone.Device.Audio.html">org.freesmartphone.Device.Audio</a> &#8212; Audio Device Access</li>
-            <li><a href="org.freesmartphone.Device.Display.html">org.freesmartphone.Device.Display</a> &#8212; Display Device Access</li>
-            <li><a href="org.freesmartphone.Device.LED.html">org.freesmartphone.Device.LED</a> &#8212; LED Device Access</li>
-            <li><a href="org.freesmartphone.Device.Input.html">org.freesmartphone.Device.Input</a> &#8212; Input Device Access</li>
-            <li><a href="org.freesmartphone.Device.IdleNotifier.html">org.freesmartphone.Device.IdleNotifier</a> &#8212; Idle Notification Service</li>
-            <li><a href="org.freesmartphone.Device.PowerControl.html">org.freesmartphone.Device.PowerControl</a> &#8212; Device Power Control</li>
-            <li><a href="org.freesmartphone.Device.PowerSupply.html">org.freesmartphone.Device.PowerSupply</a> &#8212; Power Supply Access</li>
-            <li><a href="org.freesmartphone.Device.RealtimeClock.html">org.freesmartphone.Device.RealtimeClock</a> &#8212; Realtime Clock</li>
+              <li><a href="org.freesmartphone.Device.Audio.html">org.freesmartphone.Device.Audio</a> &#8212; Audio Device Access</li>
+              <li><a href="org.freesmartphone.Device.Display.html">org.freesmartphone.Device.Display</a> &#8212; Display Device Access</li>
+              <li><a href="org.freesmartphone.Device.LED.html">org.freesmartphone.Device.LED</a> &#8212; LED Device Access</li>
+              <li><a href="org.freesmartphone.Device.Input.html">org.freesmartphone.Device.Input</a> &#8212; Input Device Access</li>
+              <li><a href="org.freesmartphone.Device.IdleNotifier.html">org.freesmartphone.Device.IdleNotifier</a> &#8212; Idle Notification Service</li>
+              <li><a href="org.freesmartphone.Device.PowerControl.html">org.freesmartphone.Device.PowerControl</a> &#8212; Device Power Control</li>
+              <li><a href="org.freesmartphone.Device.PowerSupply.html">org.freesmartphone.Device.PowerSupply</a> &#8212; Power Supply Access</li>
+              <li><a href="org.freesmartphone.Device.RealtimeClock.html">org.freesmartphone.Device.RealtimeClock</a> &#8212; Realtime Clock</li>
             </ul>
-        <h1>2. GSM Telephony API</h1>
+        <h1>2. GSM Telephony API: <tt>org.freesmartphone.GSM</tt></h1>
           <p><em>Note: This is a lowlevel API. Consider using the high level APIs instead.</em></p>
             <ul>
-            <li><a href="org.freesmartphone.GSM.MUX.html">org.freesmartphone.GSM.MUX</a> &#8212; GSM 07.10 Multiplexing</li>
-            <li><a href="org.freesmartphone.GSM.Device.html">org.freesmartphone.GSM.Device</a> &#8212; Device Inquiry</li>
-            <li><a href="org.freesmartphone.GSM.SIM.html">org.freesmartphone.GSM.SIM</a> &#8212; SIM Card Access</li>
-            <li><a href="org.freesmartphone.GSM.Network.html">org.freesmartphone.GSM.Network</a> &#8212; GSM Network Access</li>
-            <li><a href="org.freesmartphone.GSM.Call.html">org.freesmartphone.GSM.Call</a> &#8212; GSM Voice Calls</li>
-            <li><a href="org.freesmartphone.GSM.SMS.html">org.freesmartphone.GSM.SMS</a> &#8212; Short Message Service</li>
-            <li><a href="org.freesmartphone.GSM.PDP.html">org.freesmartphone.GSM.PDP</a> &#8212; Packet Data Protocol Connections</li>
-            <li><a href="org.freesmartphone.GSM.CB.html">org.freesmartphone.GSM.CB</a> &#8212; Cell Broadcast Service</li>
-            <li><a href="org.freesmartphone.GSM.Monitor.html">org.freesmartphone.GSM.Monitor</a> &#8212; GSM Network Monitoring</li>
-            <li><a href="org.freesmartphone.GSM.HZ.html">org.freesmartphone.GSM.HZ</a> &#8212; O2/Genion HomeZone Service</li>
+              <li><a href="org.freesmartphone.GSM.MUX.html">org.freesmartphone.GSM.MUX</a> &#8212; GSM 07.10 Multiplexing</li>
+              <li><a href="org.freesmartphone.GSM.Device.html">org.freesmartphone.GSM.Device</a> &#8212; Device Inquiry</li>
+              <li><a href="org.freesmartphone.GSM.SIM.html">org.freesmartphone.GSM.SIM</a> &#8212; SIM Card Access</li>
+              <li><a href="org.freesmartphone.GSM.Network.html">org.freesmartphone.GSM.Network</a> &#8212; GSM Network Access</li>
+              <li><a href="org.freesmartphone.GSM.Call.html">org.freesmartphone.GSM.Call</a> &#8212; GSM Voice Calls</li>
+              <li><a href="org.freesmartphone.GSM.SMS.html">org.freesmartphone.GSM.SMS</a> &#8212; Short Message Service</li>
+              <li><a href="org.freesmartphone.GSM.PDP.html">org.freesmartphone.GSM.PDP</a> &#8212; Packet Data Protocol Connections</li>
+              <li><a href="org.freesmartphone.GSM.CB.html">org.freesmartphone.GSM.CB</a> &#8212; Cell Broadcast Service</li>
+              <li><a href="org.freesmartphone.GSM.Monitor.html">org.freesmartphone.GSM.Monitor</a> &#8212; GSM Network Monitoring</li>
+              <li><a href="org.freesmartphone.GSM.HZ.html">org.freesmartphone.GSM.HZ</a> &#8212; O2/Genion HomeZone Service</li>
         </ul>
-        <h1>3. Usage API</h1>
+        <h1>3. Usage API: <tt>org.freesmartphone.Usage</tt></h1>
             <ul>
-            <li><a href="org.freesmartphone.Usage.html">org.freesmartphone.Usage</a> &#8212; Resource Manager Service</li>
-            <li><a href="org.freesmartphone.Resource.html">org.freesmartphone.Resource</a> &#8212; Resource Control Interface</li>
+              <li><a href="org.freesmartphone.Usage.html">org.freesmartphone.Usage</a> &#8212; Resource Manager Service</li>
+              <li><a href="org.freesmartphone.Resource.html">org.freesmartphone.Resource</a> &#8212; Resource Control Interface</li>
             </ul>
-        <h1>4. Phone API</h1>
+        <h1>4. Phone API: <tt>org.freesmartphone.Phone</tt></h1>
             <ul>
-            <li><a href="org.freesmartphone.Phone.html">org.freesmartphone.Phone</a></li>
-            <li><a href="org.freesmartphone.Phone.Call.html">org.freesmartphone.Phone.Call</a></li>
+              <li><a href="org.freesmartphone.Phone.html">org.freesmartphone.Phone</a></li>
+              <li><a href="org.freesmartphone.Phone.Call.html">org.freesmartphone.Phone.Call</a></li>
             </ul>
-        <h1>5. Preferences API</h1>
+        <h1>5. Preferences API: <tt>org.freesmartphone.Preferences</tt></h1>
             <ul>
-            <li><a href="org.freesmartphone.Preferences.html">org.freesmartphone.Preferences</a></li>
-            <li><a href="org.freesmartphone.Preferences.Service.html">org.freesmartphone.Preferences.Service</a></li>
+              <li><a href="org.freesmartphone.Preferences.html">org.freesmartphone.Preferences</a></li>
+              <li><a href="org.freesmartphone.Preferences.Service.html">org.freesmartphone.Preferences.Service</a></li>
             </ul>
-        <h1>6. Rules API</h1>
+        <h1>6. Events API: <tt>org.freesmartphone.Events</tt></h1>
             <ul>
-            <li><a href="org.freesmartphone.Events.html">org.freesmartphone.Events</a></li>
+              <li><a href="org.freesmartphone.Events.html">org.freesmartphone.Events</a></li>
+            </ul>
+        <h1>7. GPS API: <tt>org.freedesktop.Gypsy</tt></h1>
+            <ul>
+              <li><a href="org.freedesktop.Gypsy.Accuracy.html">org.freedesktop.Gypsy.Accuracy</a></li>
+              <li><a href="org.freedesktop.Gypsy.Course.html">org.freedesktop.Gypsy.Course.html</a></li>
+              <li><a href="org.freedesktop.Gypsy.Device.html">org.freedesktop.Gypsy.Device.html</a></li>
+              <li><a href="org.freedesktop.Gypsy.Position.html">org.freedesktop.Gypsy.Position.html</a></li>
+              <li><a href="org.freedesktop.Gypsy.Time.html">org.freedesktop.Gypsy.Time.html</a></li>
             </ul>
         <h1>Under development / Brainstorming</h1>
           <ul>

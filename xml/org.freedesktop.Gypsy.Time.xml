@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freedesktop.Gypsy.Time">
+    <method name="GetTime">
+      <arg type="i" name="time" direction="out"/>
+    </method>
+    <signal name="TimeChanged"/>
+  </interface>
+</node>
