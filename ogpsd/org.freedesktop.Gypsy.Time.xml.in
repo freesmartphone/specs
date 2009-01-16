@@ -28,8 +28,7 @@
   <signal name="TimeChanged">
     <doc:doc>
       <doc:description>
-        Emitted when GPS time has changed.
-	See GetTime() for values.
+        Emitted when GPS time has changed. See GetTime() for values.
       </doc:description>
     </doc:doc>
   </signal>

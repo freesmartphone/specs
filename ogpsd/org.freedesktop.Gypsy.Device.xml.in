@@ -5,7 +5,7 @@
   <doc:summary>freedesktop.org Gypsy Device Interface</doc:summary>
 </doc:doc>
 
-<interface name="org.freedesktop.Gypsy.Position">
+<interface name="org.freedesktop.Gypsy.Device">
 
   <doc:doc>
     <doc:para>
@@ -57,8 +57,7 @@
   <signal name="ConnectionStatusChanged">
     <doc:doc>
       <doc:description>
-        Emitted when the connection status has changed.
-	See GetConnectionStatus() for values.
+        Emitted when the connection status has changed. See GetConnectionStatus() for values.
       </doc:description>
     </doc:doc>
   </signal>
@@ -66,8 +65,7 @@
   <signal name="FixStatusChanged">
     <doc:doc>
       <doc:description>
-        Emitted when the fix status has changed.
-	See GetFixStatus() for values.
+        Emitted when the fix status has changed. See GetFixStatus() for values.
       </doc:description>
     </doc:doc>
   </signal>
