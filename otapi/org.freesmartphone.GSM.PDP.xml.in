@@ -224,7 +224,7 @@
           Expected tuples are:
           [ul]
             [li]( "reason", string ) = The reason for the status change,[/li]
-            [li( "apn", string ) = The number of the access point.[/li]
+            [li]( "apn", string ) = The number of the access point.[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
