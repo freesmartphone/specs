@@ -1,19 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 
-<!-- # xml does not allow double-dash in comments :/
-dbus-binding-tool -\
--mode=glib-server -\
--prefix=mux src/mux.xml > src/mux.h
--->
-<!-- other types sample
-            <arg type="u" name="x" direction="in" />
-            <arg type="d" name="trouble" direction="in" />
-            <arg type="d" name="d_ret" direction="out" />
-    -->
 <node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-mux-interface">
 <doc:doc>
   <doc:summary>freesmartphone.org GSM MUX Interface</doc:summary>
+  <doc:version>0.9.0</doc:version>
 </doc:doc>
 <interface name="org.freesmartphone.GSM.MUX">
 
@@ -25,6 +16,14 @@ dbus-binding-tool -\
       power and reset handling.
     </doc:para>
   </doc:doc>
+
+  <error name="NoChannel">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device can't allocate a new channel.
+      </doc:description>
+    </doc:doc>
+  </error>
 
     <!-- switch modem on/off -->
     <method name="SetPower">
@@ -68,16 +67,15 @@ dbus-binding-tool -\
     <method name="AllocChannel">
       <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_alloc_channel"/>
       <doc:doc>
-        <doc:description>Allocate a new virtual channel.</doc:description>
+        <doc:description>
+          Allocate a new virtual channel. Raises org.freesmartphone.GSM.MUX.NoChannel,
+          if the channel can not be allocated.
+        </doc:description>
       </doc:doc>
       <arg name="origin" type="s" direction="in">
       <doc:doc>
         <doc:summary>
-        For now, the origin will be used for logging only. you will
-        see which channels are closed not only by number but with an
-        explaining name like 'ppp'. future use may be to allocate a
-        special channel because some modems allow some operations on
-        specific channels only.
+          Identifies the channel user. Solely for logging.
         </doc:summary>
       </doc:doc>
       </arg>

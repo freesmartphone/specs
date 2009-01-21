@@ -2,6 +2,7 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.MUX">
+    <error name="NoChannel"/>
     <method name="SetPower">
       <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
       <arg name="origin" type="s" direction="in"/>
