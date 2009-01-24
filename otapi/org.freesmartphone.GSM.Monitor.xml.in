@@ -48,6 +48,7 @@
             [li]( "ctype", int ):         Cell Type Indicator           NA/GSM/GPRS[/li]
             [li]( "vocoder" ):            Vocoder                       Sig/speech/efr/amr/14.4/9.6/4.8/2.4[/li]
           [/ul]
+          See http://www.tele-servizi.com/janus/engfield1.html for more details.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -69,7 +70,7 @@
           [li]( "rxlev", int ):         Received Field Strength (in percentage, comparable with signal strength)
           [li]( "bsic", int ):          Base Station ID Code[/li]
           [li]( "cid", string ):        Cell Identifier[/li]
-          [li]( "lac", string ):        Location Area Code[/li]
+          [li]( "lac", string ):        Location Area Cod[e/li]
           [li]( "dsc", int ):           Downlink Signaling Counter    actual value[/li]
           [li]( "foffset, int ):        Frame Offset[/li]
           [li]( "timea, int ):          Time Alignment[/li]
@@ -81,6 +82,7 @@
           [li]( "toffset, int ):        Temporary Offset[/li]
           [li]( "rxlevam, int ):        Rxlev access min (in percentage, comparable with signal strength)[/li]
           [/ul]
+          See http://www.tele-servizi.com/janus/engfield1.html for more details.
         </doc:summary>
       </doc:doc>
     </arg>
