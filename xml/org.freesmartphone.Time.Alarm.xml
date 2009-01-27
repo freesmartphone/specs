@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Time.Alarm">
+    <method name="ClearAlarm">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm"/>
+      <arg type="s" name="busname" direction="in"/>
+    </method>
+    <method name="SetAlarm">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm"/>
+      <arg type="s" name="busname" direction="in"/>
+      <arg type="i" name="timestamp" direction="in"/>
+    </method>
+  </interface>
+</node>
