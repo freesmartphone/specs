@@ -10,7 +10,7 @@
 
 
 <h1>org.freesmartphone.Time.Alarm</h1><h2>Description</h2>
-<p>The Alarm interface is used to register wakeup alarms. Alarm notifications  will be submitted as dbus method calls, hence alarm receivers need to  implement the interface org.freesmartphone.Time.AlarmNotification.  Alarm receivers can either be running dbus services or dbus-activatable.  If the system features a suspend mode, the framework will ensure that the  system is awake at the time the alarm triggers. Per bus name only one  alarm can be registered. If you need more than one alarm, consider using  the PIM event interface org.freesmartphone.PIM.ScheduleEvent.</p>
+<p>The Alarm interface is used to register wakeup alarms. Alarm notifications  will be submitted as dbus method calls, hence alarm receivers need to  implement the interface org.freesmartphone.Notification on the root object.  Alarm receivers need to be running dbus system services or dbus system-activatable.  If the system features a suspend mode, the framework will ensure that the  system is awake at the time the alarm triggers. Per bus name only one  alarm can be registered. If you need more than one alarm or want to run  on the dbus session bus, consider using the org.freesmartphone.PIM event  interface instead.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Time.Alarm</tt></p>
 <h2>Methods</h2><ul>
@@ -20,9 +20,9 @@
 <h2>Signals</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="ClearAlarm">ClearAlarm</a> ( s )</h3>
-<p><i>Description:</i> Clears the alarm for a certain dbus service. </p><h4>Parameters</h4><i>s: busname</i><p>The dbus bus name to clear the alarm for. </p>
+<p><i>Description:</i> Clears the alarm for a certain dbus system service. </p><h4>Parameters</h4><i>s: busname</i><p>The dbus bus name to clear the alarm for. </p>
 <h3><a name="SetAlarm">SetAlarm</a> ( si )</h3>
-<p><i>Description:</i> Set an alarm time for a certain dbus service. </p><h4>Parameters</h4><i>s: busname</i><p>The dbus bus name to set the alarm for. </p><i>i: timestamp</i><p>The timestamp for sending the alarm notification in seconds since 1970 (epoch). </p>
+<p><i>Description:</i> Sets an alarm time for a certain dbus system service. </p><h4>Parameters</h4><i>s: busname</i><p>The dbus bus name to set the alarm for. </p><i>i: timestamp</i><p>The timestamp for sending the alarm notification in seconds since 1970 (epoch). </p>
 
     <hr/>
     <small>
