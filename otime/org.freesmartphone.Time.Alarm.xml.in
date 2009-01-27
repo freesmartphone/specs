@@ -12,19 +12,20 @@
     <doc:para>
       The Alarm interface is used to register wakeup alarms. Alarm notifications
       will be submitted as dbus method calls, hence alarm receivers need to
-      implement the interface org.freesmartphone.Time.AlarmNotification.
-      Alarm receivers can either be running dbus services or dbus-activatable.
+      implement the interface org.freesmartphone.Notification on the root object.
+      Alarm receivers need to be running dbus system services or dbus system-activatable.
       If the system features a suspend mode, the framework will ensure that the
       system is awake at the time the alarm triggers. Per bus name only one
-      alarm can be registered. If you need more than one alarm, consider using
-      the PIM event interface org.freesmartphone.PIM.ScheduleEvent.
-    </doc:para>
+      alarm can be registered. If you need more than one alarm or want to run
+      on the dbus session bus, consider using the org.freesmartphone.PIM event
+      interface instead.
+     </doc:para>
   </doc:doc>
 
   <method name="ClearAlarm">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm" />
     <doc:doc>
-      <doc:description>Clears the alarm for a certain dbus service.</doc:description>
+      <doc:description>Clears the alarm for a certain dbus system service.</doc:description>
     </doc:doc>
     <arg type="s" name="busname" direction="in">
       <doc:doc>
@@ -36,7 +37,7 @@
   <method name="SetAlarm">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm" />
     <doc:doc>
-      <doc:description>Set an alarm time for a certain dbus service.</doc:description>
+      <doc:description>Sets an alarm time for a certain dbus system service.</doc:description>
     </doc:doc>
     <arg type="s" name="busname" direction="in">
       <doc:doc>
