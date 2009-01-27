@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-time-alarm-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Time Alarm Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Time.Alarm">
+
+  <doc:doc>
+    <doc:para>
+      The Alarm interface is used to register wakeup alarms. Alarm notifications
+      will be submitted as dbus method calls, hence alarm receivers need to
+      implement the interface org.freesmartphone.Time.AlarmNotification.
+      Alarm receivers can either be running dbus services or dbus-activatable.
+      If the system features a suspend mode, the framework will ensure that the
+      system is awake at the time the alarm triggers. Per bus name only one
+      alarm can be registered. If you need more than one alarm, consider using
+      the PIM event interface org.freesmartphone.PIM.ScheduleEvent.
+    </doc:para>
+  </doc:doc>
+
+  <method name="ClearAlarm">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm" />
+    <doc:doc>
+      <doc:description>Clears the alarm for a certain dbus service.</doc:description>
+    </doc:doc>
+    <arg type="s" name="busname" direction="in">
+      <doc:doc>
+        <doc:summary>The dbus bus name to clear the alarm for.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetAlarm">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm" />
+    <doc:doc>
+      <doc:description>Set an alarm time for a certain dbus service.</doc:description>
+    </doc:doc>
+    <arg type="s" name="busname" direction="in">
+      <doc:doc>
+        <doc:summary>The dbus bus name to set the alarm for.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="timestamp" direction="in">
+      <doc:doc>
+        <doc:summary>The timestamp for sending the alarm notification in seconds since 1970 (epoch).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>
