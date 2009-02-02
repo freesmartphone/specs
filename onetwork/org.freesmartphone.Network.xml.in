@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-network-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Network Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Network">
+
+  <doc:doc>
+    <doc:para>
+      The Network interface provides access to high level networking functions.
+      Please see org.moblin.connman for low level networking functions.
+    </doc:para>
+  </doc:doc>
+
+  <!-- Errors -->
+
+  <error name="NoInterface">
+    <doc:doc>
+      <doc:description>
+        Raised, when the requested interface is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <!-- Methods -->
+
+  <method name="StartConnectionSharingWithInterface">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_network" />
+    <doc:doc>
+      <doc:description>
+        Start sharing the internet connection of this device with any clients
+        connected to the specified network interface. As a consequence of this call,
+        a dhcp server will be started on the device and ip tables will be adjusted.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="interface" direction="in">
+      <doc:doc>
+        <doc:summary>The interface to start sharing the connectivity with.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+</node>
