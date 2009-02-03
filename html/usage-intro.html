@@ -81,14 +81,14 @@
 <h2>Accessing the resource</h2>
 <p>
   Once
-  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#RequestResource"><tt>RequestResource</tt></a>.
+  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#RequestResource"><tt>RequestResource</tt></a>
   returned without an error, a client may access the resource. The actual way of accessing a resource is specific to
   the resource hence out of scope of this document. In certain conditions, resources may become unavailable while
-  clients are still accessing them. In this case, a client is requested to immediately stop a resource. Some resources
-  may enforce this through access control, some may not &#151; in that case, clients have to explicitly continue
-  listening for
+  clients are still accessing them. In this case, a client is requested to immediately stop accessing the resource.
+  Some resources may enforce this through access control, some may not &#151; to handle that case, it is recommended
+  that clients listen for
   <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#ResourceAvailable"><tt>ResourceAvailable</tt></a>
-  announcements.
+  announcements throughout their life cycle.
 </p>
 
 <h2>Releasing the resource</h2>
