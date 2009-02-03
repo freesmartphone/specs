@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>freesmartphone.org: Resource Handling</title>
+        <link rel="stylesheet" type="text/css" href="http://git.freesmartphone.org/?p=specs.git;a=blob_plain;f=html/style.css;hb=HEAD" />
+    </head>
+    <body>
+    <div class="topbox">freesmartphone.org: Resource Handling</div>
+
+<h1>Introduction</h1>
+
+<p>
+  One of the most important aspects of middleware for mobile devices is saving energy.
+  To do this, the system needs to make sure that peripherals are only powered when
+  they are actually in use by at least one application.
+  In order to support multiple concurrent applications, it is not possible to leave
+  peripheral control up to individual applications &#151; otherwise one application
+  could shut down e.g. a GPS receiver, while another application still wants to access it.
+</p>
+
+<p>
+  One solution to this is a centralized registry where applications announce when they
+  need access to peripherals. The registry can then perform the necessary actions and grant
+  or deny access. Once such a registry is being used, it is most undesirable that applications
+  bypass this facility by controlling power directly &#151; doing so can severly disturb the system. 
+</p>
+
+<p>
+  FSO introduces the concept of resources. A <em>resource</em> is a high-level entity with
+  a <em>name</em> and a <em>state</em>. The name is used to identify a resource (e.g. <b>WiFi</b>),
+  the state is describing its condition (e.g. <b>enabled</b>).
+  It is important to understand that a resource not necessarily correlates to a peripheral device.
+  Although enabling a resource such as <b>Bluetooth</b> most likely has the consequence of powering up
+  a device, there may as well be more to it, such as launching a low level device handling services or
+  allocating related resources.
+</p>
+
+<h1>Client-side resource handling</h1>
+<p>
+  As a client, FSO resource handling works by accessing
+  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html"><tt>org.freesmartphone.Usage</tt></a>.
+  A typical usage pattern is defined through
+  <ul>
+    <li>Checking resource availability</li>
+    <li>Requesting the resource</li>
+    <li>Accessing the resource</li>
+    <li>Releasing the resource</li>
+  </ul>
+</p>
+
+<h2>Checking resource availability</h2>
+<p>
+  Resources can be dynamic, i.e. they may not always be available. Although not strictly
+  necessary, it is recommended that clients check whether a resource is available before
+  requesting it. To check for availability, call
+  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#ListResources"><tt>ListResources</tt></a>.
+  The result is an array of available resource names that are to be used to identify a resource when requesting
+  or releasing it.
+</p>
+
+<p>
+  A resource is not necessarily present throughout the whole life-cycle of an application.
+  Some Resources may enter or leave the system at any time. The resource system will notify
+  when a resource has been made available by sending out the signal
+  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#ResourceAvailable"><tt>ResourceAvailable</tt></a>.
+  Subscribe to this signal to stay informed about resources becoming available or unavailable.
+</p>
+
+<h2>Requesting the resource</h2>
+<p>
+  ...
+</p>
+
+<h2>Accessing the resource</h2>
+<p>
+  ...
+</p>
+
+<h2>Releasing the resource</h2>
+<p>
+  ...
+</p>
+
+<h1>Server-side resource handling</h1>
+<p>
+  ... using org.freesmartphone.Resource, best practices, hardware abstraction, ...
+</p>
+
+    <hr/>
+    <small>
+    | (C) 2009 the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. | Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org
+    </small>
+    <hr/>
+    </body>
+</html>
+
