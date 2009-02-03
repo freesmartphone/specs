@@ -18,10 +18,13 @@
 </p>
 
 <p>
-  One solution to this is a centralized registry where applications announce when they
+  One solution to this is a centralized registry, where applications announce when they
   need access to peripherals. The registry can then perform the necessary actions and grant
-  or deny access. Once such a registry is being used, it is most undesirable that applications
-  bypass this facility by controlling power directly &#151; doing so can severly disturb the system. 
+  or deny access. It can also keep track of a usage counter so that resources are only
+  started up when the first client arrives, likewise only shutdown once the last client leaves
+  the sytem. Keep in mind though that once such a registry is being used, it is most undesirable for
+  clients to bypass this facility by controlling power directly &#151; doing so can severly disturb
+  the system.
 </p>
 
 <p>
@@ -53,31 +56,56 @@
   necessary, it is recommended that clients check whether a resource is available before
   requesting it. To check for availability, call
   <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#ListResources"><tt>ListResources</tt></a>.
-  The result is an array of available resource names that are to be used to identify a resource when requesting
-  or releasing it.
+  The result is a list of available resource names that can to be used to identify resources when requesting
+  or releasing.
 </p>
 
 <p>
-  A resource is not necessarily present throughout the whole life-cycle of an application.
-  Some Resources may enter or leave the system at any time. The resource system will notify
-  when a resource has been made available by sending out the signal
+  Since a resource is not necessarily present throughout the whole life-cycle of an application,
+  it may enter or leave the system at any time. The resource system will notify clients,
+  when a resource has been made available by broadcasting the signal
   <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#ResourceAvailable"><tt>ResourceAvailable</tt></a>.
   Subscribe to this signal to stay informed about resources becoming available or unavailable.
 </p>
 
 <h2>Requesting the resource</h2>
 <p>
-  ...
+  A client that wants to access the resource can call
+  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#RequestResource"><tt>RequestResource</tt></a>.
+  This call does not need parameters, since the system will keep track about the identification of the client.
+  If the resource system can not grant access, the client will be sent an error. This can happen if the resource
+  is not available, has been explicitly disabled, or is in a state that otherwise prohibits access. Depending
+  on the actual error, a client may or may not retry the call after a while.
 </p>
 
 <h2>Accessing the resource</h2>
 <p>
-  ...
+  Once
+  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#RequestResource"><tt>RequestResource</tt></a>.
+  returned without an error, a client may access the resource. The actual way of accessing a resource is specific to
+  the resource hence out of scope of this document. In certain conditions, resources may become unavailable while
+  clients are still accessing them. In this case, a client is requested to immediately stop a resource. Some resources
+  may enforce this through access control, some may not &#151; in that case, clients have to explicitly continue
+  listening for
+  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#ResourceAvailable"><tt>ResourceAvailable</tt></a>
+  announcements.
 </p>
 
 <h2>Releasing the resource</h2>
 <p>
-  ...
+  When a client is finished accessing a resource, it calls
+  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#ReleaseResource"><tt>ReleaseResource</tt></a>
+  to inform the system. After issuing this call, clients must no longer access the resource through whatever means.
+  Note that due to the way the dbus interprocess communication works, the system can detect a client leaving the bus,
+  no matter whether this has been a regular detach or happened due to unforseen circumstances, such as a crash.
+  In that case, the system will automatically release all resources the client has previously requested.
+  It is important to remember that resource requests are <em>not</em> persistent over the clients life cycle.
+  Once a client starts up again, it has to treat all resources as being released and need to request them again.
+</p>
+
+<h1>Resource Policies</h1>
+<p>
+  ... when and how to use the policy interface
 </p>
 
 <h1>Server-side resource handling</h1>
