@@ -60,10 +60,8 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
       <doc:doc>
         <doc:description>Initiate a new multiplexing session.</doc:description>
+        <doc:inote>The device needs to support the +CMUX command.</doc:inote>
       </doc:doc>
-      <doc:inote>
-        <doc:description>The device needs to support the +CMUX command.</doc:description>
-      </doc:inote>
       <arg name="advanced" type="b" direction="in">
         <doc:doc>
           <doc:summary>True, to use 07.10 Advanced Mode multiplexing, False to use 07.10 Basic Mode multiplexing.</doc:summary>
@@ -90,10 +88,8 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
       <doc:doc>
         <doc:description>Closes a multiplexing session.</doc:description>
+        <doc:inote>The device will be left in AT command mode.</doc:inote>
       </doc:doc>
-      <doc:inote>
-        <doc:description>The device will be left in AT command mode.</doc:description>
-      </doc:inote>
     </method>
 
     <method name="AllocChannel">
@@ -158,7 +154,7 @@
           Sent whenever there is v.24 incoming status change on a virtual channel.
         </doc:description>
       </doc:doc>
-      <arg type="s" name="s">
+      <arg type="s" name="status">
         <doc:doc>
           <doc:summary>
             The new v.24 status, which is a string combined of elements that make up the status. Valid elements are:
