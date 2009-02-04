@@ -102,14 +102,24 @@
         </doc:description>
       </doc:doc>
       <arg name="origin" type="s" direction="in">
-      <doc:doc>
-        <doc:summary>A handle for channel user identification.</doc:summary>
-      </doc:doc>
+        <doc:doc>
+          <doc:summary>A handle for channel user identification.</doc:summary>
+        </doc:doc>
       </arg>
       <arg name="channel" type="i" direction="in">
-      <doc:doc>
-        <doc:summary>The requested channel. Submit 0 to request the next free channel.</doc:summary>
-      </doc:doc>
+        <doc:doc>
+          <doc:summary>The requested channel. Submit 0 to request the next free channel.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="path" type="s" direction="out">
+        <doc:doc>
+          <doc:summary>The pseudo tty connected to the virtual channel.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="allocated_channel" type="i" direction="out">
+        <doc:doc>
+          <doc:summary>The channel number that has been allocated.</doc:summary>
+        </doc:doc>
       </arg>
     </method>
 

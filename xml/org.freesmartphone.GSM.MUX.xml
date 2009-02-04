@@ -21,6 +21,8 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
       <arg name="origin" type="s" direction="in"/>
       <arg name="channel" type="i" direction="in"/>
+      <arg name="path" type="s" direction="out"/>
+      <arg name="allocated_channel" type="i" direction="out"/>
     </method>
     <method name="ReleaseChannel">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
@@ -32,7 +34,7 @@
       <arg name="status" type="s" direction="in"/>
     </method>
     <signal name="Status">
-      <arg type="s" name="s" direction="in"/>
+      <arg type="s" name="status" direction="in"/>
     </signal>
   </interface>
 </node>
