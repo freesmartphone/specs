@@ -2,25 +2,37 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.MUX">
+    <error name="ChannelTaken"/>
     <error name="NoChannel"/>
-    <method name="SetPower">
-      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
-      <arg name="origin" type="s" direction="in"/>
-      <arg name="on" type="b" direction="in"/>
+    <error name="NoSession"/>
+    <error name="SessionAlreadyOpen"/>
+    <error name="SessionOpenError"/>
+    <method name="OpenSession">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <arg name="advanced" type="b" direction="in"/>
+      <arg name="framesize" type="i" direction="in"/>
+      <arg name="portname" type="s" direction="in"/>
+      <arg name="portspeed" type="i" direction="in"/>
     </method>
-    <method name="GetPower">
-      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
-      <arg name="origin" type="s" direction="in"/>
-      <arg name="on" type="b" direction="out"/>
-    </method>
-    <method name="Reset">
-      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_reset_modem"/>
-      <arg name="origin" type="s" direction="in"/>
+    <method name="CloseSession">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
     </method>
     <method name="AllocChannel">
-      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_alloc_channel"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
       <arg name="origin" type="s" direction="in"/>
-      <arg name="channel" type="s" direction="out"/>
+      <arg name="channel" type="i" direction="in"/>
     </method>
+    <method name="ReleaseChannel">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <arg name="origin" type="s" direction="in"/>
+    </method>
+    <method name="SetStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <arg name="channel" type="i" direction="in"/>
+      <arg name="status" type="s" direction="in"/>
+    </method>
+    <signal name="Status">
+      <arg type="s" name="s" direction="in"/>
+    </signal>
   </interface>
 </node>

@@ -4,87 +4,173 @@
 <node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-mux-interface">
 <doc:doc>
   <doc:summary>freesmartphone.org GSM MUX Interface</doc:summary>
-  <doc:version>0.9.0</doc:version>
+  <doc:version>1.1.0</doc:version>
 </doc:doc>
 <interface name="org.freesmartphone.GSM.MUX">
 
   <doc:doc>
     <doc:para>
-      The MUX interface is used to request virtual serial channels
+      The MUX interface is used to manage and control virtual serial channels
       (implemented through pseudo TTYs) which are multiplexed to one serial
-      line as described in 3GPP TS 07.10. It also allows to control modem
-      power and reset handling.
+      line as described in 3GPP TS 07.10.
     </doc:para>
   </doc:doc>
 
-  <error name="NoChannel">
+  <error name="ChannelTaken">
     <doc:doc>
       <doc:description>
-        Raised, when the device can't allocate a new channel.
+        Raised, when the requested channel is already allocated.
       </doc:description>
     </doc:doc>
   </error>
 
-    <!-- switch modem on/off -->
-    <method name="SetPower">
-      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
+  <error name="NoChannel">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device can't allocate the requested channel.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NoSession">
+    <doc:doc>
+      <doc:description>
+        Raised, when there is no active session.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="SessionAlreadyOpen">
+    <doc:doc>
+      <doc:description>
+        Raised, when a session has already been opened.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="SessionOpenError">
+    <doc:doc>
+      <doc:description>
+        Raised, when the session can not be opened.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+    <method name="OpenSession">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
       <doc:doc>
-        <doc:description>Set modem power.</doc:description>
+        <doc:description>Initiate a new multiplexing session.</doc:description>
       </doc:doc>
-      <arg name="origin" type="s" direction="in">
+      <doc:inote>
+        <doc:description>The device needs to support the +CMUX command.</doc:description>
+      </doc:inote>
+      <arg name="advanced" type="b" direction="in">
+        <doc:doc>
+          <doc:summary>True, to use 07.10 Advanced Mode multiplexing, False to use 07.10 Basic Mode multiplexing.</doc:summary>
+        </doc:doc>
       </arg>
-      <arg name="on" type="b" direction="in">
-      <doc:doc>
-        <doc:summary>True, to turn power on. False, otherwise.</doc:summary>
-      </doc:doc>
+      <arg name="framesize" type="i" direction="in">
+        <doc:doc>
+          <doc:summary>The maximum framesize for 07.10 multiplexing frames.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="portname" type="s" direction="in">
+        <doc:doc>
+          <doc:summary>The port name to use.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="portspeed" type="i" direction="in">
+        <doc:doc>
+          <doc:summary>The port speed to use.</doc:summary>
+        </doc:doc>
       </arg>
     </method>
 
-    <method name="GetPower">
-      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_power"/>
+    <method name="CloseSession">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
       <doc:doc>
-        <doc:description>Retrieve modem power status.</doc:description>
+        <doc:description>Closes a multiplexing session.</doc:description>
       </doc:doc>
-      <arg name="origin" type="s" direction="in">
-      </arg>
-      <arg name="on" type="b" direction="out">
-      <doc:doc>
-        <doc:summary>True, if the modem is powered on. False, otherwise.</doc:summary>
-      </doc:doc>
-      </arg>
+      <doc:inote>
+        <doc:description>The device will be left in AT command mode.</doc:description>
+      </doc:inote>
     </method>
 
-    <method name="Reset">
-      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_reset_modem"/>
-      <doc:doc>
-        <doc:description>Reset the modem.</doc:description>
-      </doc:doc>
-      <arg name="origin" type="s" direction="in">
-      </arg>
-    </method>
-
-    <!-- allocate a muxed channel -->
     <method name="AllocChannel">
-      <annotation name="org.freedesktop.DBus.GLib.CSymbol" value="muxer_control_alloc_channel"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
       <doc:doc>
         <doc:description>
           Allocate a new virtual channel. Raises org.freesmartphone.GSM.MUX.NoChannel,
-          if the channel can not be allocated.
+          if the requested channel can not be allocated. Raises org.freesmartphone.GSM.MUX.ChannelTaken,
+          if the requested channel is already allocated.
         </doc:description>
       </doc:doc>
       <arg name="origin" type="s" direction="in">
       <doc:doc>
-        <doc:summary>
-          Identifies the channel user. Solely for logging.
-        </doc:summary>
+        <doc:summary>A handle for channel user identification.</doc:summary>
       </doc:doc>
       </arg>
-      <arg name="channel" type="s" direction="out">
+      <arg name="channel" type="i" direction="in">
       <doc:doc>
-        <doc:summary>UNIX path to the pseudo serial device.</doc:summary>
+        <doc:summary>The requested channel. Submit 0 to request the next free channel.</doc:summary>
       </doc:doc>
       </arg>
     </method>
-</interface>
+
+    <method name="ReleaseChannel">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <doc:doc>
+        <doc:description>
+          Release all channels requested by a specified user.
+        </doc:description>
+      </doc:doc>
+      <arg name="origin" type="s" direction="in">
+        <doc:doc>
+          <doc:summary>A handle for channel user identification.</doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+
+    <method name="SetStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <doc:doc>
+        <doc:description>
+          Modify the v24 status of a virtual channel.
+        </doc:description>
+      </doc:doc>
+      <arg name="channel" type="i" direction="in">
+        <doc:doc>
+          <doc:summary>The virtual channel you want to change the outgoing status for.</doc:summary>
+        </doc:doc>
+      </arg>
+      <arg name="status" type="s" direction="in">
+        <doc:doc>
+          <doc:summary>
+            The new v.24 status. See org.freesmartphone.GSM.MUX.Status for the format.
+          </doc:summary>
+        </doc:doc>
+      </arg>
+    </method>
+
+    <signal name="Status">
+      <doc:doc>
+        <doc:description>
+          Sent whenever there is v.24 incoming status change on a virtual channel.
+        </doc:description>
+      </doc:doc>
+      <arg type="s" name="s">
+        <doc:doc>
+          <doc:summary>
+            The new v.24 status, which is a string combined of elements that make up the status. Valid elements are:
+            [ul]
+              [li]...[/li]
+              [li]...[/li]
+            [/ul]
+          </doc:summary>
+        </doc:doc>
+      </arg>
+    </signal>
+
+  </interface>
 </node>
 

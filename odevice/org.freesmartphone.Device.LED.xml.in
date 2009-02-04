@@ -89,6 +89,7 @@
             [li]"link": Visualizes the interface link status (up = lit),[/li]
             [li]"rx": Visualizes the interface receiving data,[/li]
             [li]"tx": Visualizes the interface transmitting data.[/li]
+          [/ul]
         </doc:summary>
       </doc:doc>
     </arg>

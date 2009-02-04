@@ -10,28 +10,41 @@
 
 
 <h1>org.freesmartphone.GSM.MUX</h1><h2>Description</h2>
-<p>The MUX interface is used to request virtual serial channels  (implemented through pseudo TTYs) which are multiplexed to one serial  line as described in 3GPP TS 07.10. It also allows to control modem  power and reset handling.</p>
+<p>The MUX interface is used to manage and control virtual serial channels  (implemented through pseudo TTYs) which are multiplexed to one serial  line as described in 3GPP TS 07.10.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.GSM.MUX</tt></p>
 <h2>Methods</h2><ul>
-<li><a href="#SetPower">SetPower</a></li>
-<li><a href="#GetPower">GetPower</a></li>
-<li><a href="#Reset">Reset</a></li>
+<li><a href="#OpenSession">OpenSession</a></li>
+<li><a href="#CloseSession">CloseSession</a></li>
 <li><a href="#AllocChannel">AllocChannel</a></li>
+<li><a href="#ReleaseChannel">ReleaseChannel</a></li>
+<li><a href="#SetStatus">SetStatus</a></li>
 </ul>
-<h2>Signals</h2><i>None</i>
+<h2>Signals</h2><ul>
+<li><a href="#Status">Status</a></li>
+</ul>
 <h2>Errors</h2><ul>
+<li><a href="#ChannelTaken">ChannelTaken</a></li>
 <li><a href="#NoChannel">NoChannel</a></li>
+<li><a href="#NoSession">NoSession</a></li>
+<li><a href="#SessionAlreadyOpen">SessionAlreadyOpen</a></li>
+<li><a href="#SessionOpenError">SessionOpenError</a></li>
 </ul>
-<h1>Methods</h1><h3><a name="SetPower">SetPower</a> ( sb )</h3>
-<p><i>Description:</i> Set modem power. </p><h4>Parameters</h4><i>s: origin</i><p> </p><i>b: on</i><p>True, to turn power on. False, otherwise. </p>
-<h3><a name="GetPower">GetPower</a> ( s ) &rarr; b</h3>
-<p><i>Description:</i> Retrieve modem power status. </p><h4>Parameters</h4><i>s: origin</i><p> </p><h4>Returns</h4><i>b: on</i><p>True, if the modem is powered on. False, otherwise. </p>
-<h3><a name="Reset">Reset</a> ( s )</h3>
-<p><i>Description:</i> Reset the modem. </p><h4>Parameters</h4><i>s: origin</i><p> </p>
-<h3><a name="AllocChannel">AllocChannel</a> ( s ) &rarr; s</h3>
-<p><i>Description:</i> Allocate a new virtual channel. Raises <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.MUX.html#NoChannel">NoChannel</a>  if the channel can not be allocated. </p><h4>Parameters</h4><i>s: origin</i><p>Identifies the channel user. Solely for logging. </p><h4>Returns</h4><i>s: channel</i><p>UNIX path to the pseudo serial device. </p>
-<h1>Errors</h1><h3><a name="NoChannel">NoChannel</a></h3><p><i>Description:</i> Raised, when the device can't allocate a new channel. </p>
+<h1>Methods</h1><h3><a name="OpenSession">OpenSession</a> ( bisi )</h3>
+<p><i>Description:</i> The device needs to support the +CMUX command. </p><p><div class="rationale"><p> </p></div></p><h4>Parameters</h4><i>b: advanced</i><p>True, to use 07.10 Advanced Mode multiplexing, False to use 07.10 Basic Mode multiplexing. </p><i>i: framesize</i><p>The maximum framesize for 07.10 multiplexing frames. </p><i>s: portname</i><p>The port name to use. </p><i>i: portspeed</i><p>The port speed to use. </p>
+<h3><a name="CloseSession">CloseSession</a> ( )</h3><p><i>Description:</i> The device will be left in AT command mode. </p><p><div class="rationale"><p> </p></div></p>
+<h3><a name="AllocChannel">AllocChannel</a> ( si )</h3>
+<p><i>Description:</i> Allocate a new virtual channel. Raises <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.MUX.html#NoChannel">NoChannel</a>  if the requested channel can not be allocated. Raises <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.MUX.html#ChannelTaken">ChannelTaken</a>  if the requested channel is already allocated. </p><h4>Parameters</h4><i>s: origin</i><p>A handle for channel user identification. </p><i>i: channel</i><p>The requested channel. Submit 0 to request the next free channel. </p>
+<h3><a name="ReleaseChannel">ReleaseChannel</a> ( s )</h3>
+<p><i>Description:</i> Release all channels requested by a specified user. </p><h4>Parameters</h4><i>s: origin</i><p>A handle for channel user identification. </p>
+<h3><a name="SetStatus">SetStatus</a> ( is )</h3>
+<p><i>Description:</i> Modify the v24 status of a virtual channel. </p><h4>Parameters</h4><i>i: channel</i><p>The virtual channel you want to change the outgoing status for. </p><i>s: status</i><p>The new v.24 status. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.MUX.html#Status">Status</a> for the format. </p>
+<h1>Signals</h1><h3><h3><a name="Status">Status</a> ( s )</h3><p><i>Description:</i> Sent whenever there is v.24 incoming status change on a virtual channel. </p><h4>Parameters</h4><i>s: s</i><p>The new v.24 status, which is a string combined of elements that make up the status. Valid elements are:  <ul>  <li>...</li>  <li>...</li>  </ul> </p></h3>
+<h1>Errors</h1><h3><a name="ChannelTaken">ChannelTaken</a></h3><p><i>Description:</i> Raised, when the requested channel is already allocated. </p>
+<h3><a name="NoChannel">NoChannel</a></h3><p><i>Description:</i> Raised, when the device can't allocate the requested channel. </p>
+<h3><a name="NoSession">NoSession</a></h3><p><i>Description:</i> Raised, when there is no active session. </p>
+<h3><a name="SessionAlreadyOpen">SessionAlreadyOpen</a></h3><p><i>Description:</i> Raised, when a session has already been opened. </p>
+<h3><a name="SessionOpenError">SessionOpenError</a></h3><p><i>Description:</i> Raised, when the session can not be opened. </p>
 
     <hr/>
     <small>
