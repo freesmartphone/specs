@@ -102,10 +102,14 @@
   It is important to remember that resource requests are <em>not</em> persistent over the clients life cycle.
   Once a client starts up again, it has to treat all resources as being released and need to request them again.
 </p>
+<p>
+  Note that the automatic release behaviour especially affects dbus command line tools such as <b>dbus-send</b> or <b>mdbus</b>, which usually only stay on the bus for very short periods. If a client can not stay on the bus while it wants to access a resource, you need to resort to the policy interface (see next section).
+</p>
 
 <h1>Resource Policies</h1>
 <p>
-  ... when and how to use the policy interface
+  Once in a while, reference counted handling of resources gets in your way, for example when you are running legacy applications or want to configure or debug peripherals. In that case it may become necessary for a resource to be always enabled or always disabled. While not recommended, it is possible to switch from automatic resource control to manual control by calling <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#SetResourcePolicy"><tt>SetResourcePolicy</tt></a>.
+  Valid values are <b>auto</b> (which is the default on system startup), <b>enabled</b>, and <b>disabled</b>.
 </p>
 
 <h1>Server-side resource handling</h1>
