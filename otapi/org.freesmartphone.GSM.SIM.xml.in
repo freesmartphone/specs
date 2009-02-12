@@ -329,7 +329,11 @@
   <method name="GetProviderList">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>
-      <doc:description>Retrieve the list of known providers, if stored on the SIM.</doc:description>
+      <doc:description>
+        Retrieve the list of known providers, if stored on the SIM. Note that this needs an unlocked SIM on some devices.
+        Additionally, some devices have a fallback table in ROM that gets sent when the SIM is not unlocked while other
+        devices only use a ROM-based table.
+      </doc:description>
       <doc:inote>This maps to the GSM 07.07 command +COPN, see 3GPP TS 07.07 Chapter 7.19.</doc:inote>
     </doc:doc>
     <arg type="a{is}" name="providers" direction="out">
