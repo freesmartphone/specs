@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM SIM Interface</doc:summary>
-  <doc:version>0.9.4.0</doc:version>
+  <doc:version>0.9.5.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.SIM">
@@ -321,6 +321,21 @@
       <doc:doc>
         <doc:summary>
           The name of the SIM issuer. This can be an actual network provider or a mobile virtual network operator (MVNO).
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetProviderList">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve the list of known providers, if stored on the SIM.</doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +COPN, see 3GPP TS 07.07 Chapter 7.19.</doc:inote>
+    </doc:doc>
+    <arg type="a{is}" name="providers" direction="out">
+      <doc:doc>
+        <doc:summary>
+          An map containing of known providers as tuples. The key is the numerical provider code (mccmnc), the value is the alphanumerical provider name.
         </doc:summary>
       </doc:doc>
     </arg>
