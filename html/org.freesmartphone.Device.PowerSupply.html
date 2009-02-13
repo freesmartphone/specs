@@ -30,7 +30,7 @@
 <h3><a name="GetPowerStatus">GetPowerStatus</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Retrieve the power status for this power supply. </p><p><div class="rationale"><p>A wall power supply will always return "full". </p></div></p><h4>Returns</h4><i>s: status</i><p>The power status. Expected values are:  <ul>  <li>"charging"</li>  <li>"discharging"</li>  <li>"full"</li>  <li>"empty"</li>  <li>"critical"</li>  </ul> </p>
 <h1>Signals</h1><h3><h3><a name="PowerStatus">PowerStatus</a> ( s )</h3><p><i>Description:</i> Sent, when the power status changes significantly. </p><h4>Parameters</h4><i>s: status</i><p>The power status. See <a href="http://docs.freesmartphone.org/org.freesmartphone.PowerSupply.html#GetPowerStatus">GetPowerStatus</a> for a list of expected values. </p></h3>
-<h3><h3><a name="Capacity">Capacity</a> ( s )</h3><p><i>Description:</i> Sent, when the capacity changes. </p><h4>Parameters</h4><i>s: status</i><p>The capacity in percent (0-100). </p></h3>
+<h3><h3><a name="Capacity">Capacity</a> ( i )</h3><p><i>Description:</i> Sent, when the capacity changes. </p><h4>Parameters</h4><i>i: energy</i><p>The capacity in percent (0-100). </p></h3>
 
     <hr/>
     <small>

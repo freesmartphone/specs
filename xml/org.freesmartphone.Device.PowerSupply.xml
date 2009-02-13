@@ -15,7 +15,7 @@
       <arg type="s" name="status"/>
     </signal>
     <signal name="Capacity">
-      <arg type="s" name="status"/>
+      <arg type="i" name="energy"/>
     </signal>
   </interface>
 </node>
