@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM SIM Interface</doc:summary>
-  <doc:version>0.9.5.0</doc:version>
+  <doc:version>0.9.5.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.SIM">
@@ -195,7 +195,7 @@
         free from raising org.freesmartphone.GSM.SIM.Busy, when appropriate.
       </doc:inote>
     </doc:doc>
-    <arg type="s" name="status" direction="out">
+    <arg type="b" name="status" direction="out">
       <doc:doc>
         <doc:summary>
           True, if the data files on the SIM can be accessed. False, otherwise.
@@ -208,7 +208,7 @@
     <doc:doc>
       <doc:description>Sent, when the data files on the SIM become (not) ready for access.</doc:description>
     </doc:doc>
-    <arg type="s" name="status">
+    <arg type="b" name="status">
       <doc:doc>
         <doc:summary>
           True, if the data files on the SIM can be accessed. False, otherwise.

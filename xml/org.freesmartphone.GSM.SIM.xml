@@ -40,10 +40,10 @@
     </method>
     <method name="GetSimReady">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
-      <arg type="s" name="status" direction="out"/>
+      <arg type="b" name="status" direction="out"/>
     </method>
     <signal name="ReadyStatus">
-      <arg type="s" name="status"/>
+      <arg type="b" name="status"/>
     </signal>
     <method name="GetSimInfo">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
