@@ -186,6 +186,37 @@
 
   <!-- INFO & LOW-LEVEL ACCESS -->
 
+  <method name="GetSimReady">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
+    <doc:doc>
+      <doc:description>Retrieve whether the SIM data can be accessed.</doc:description>
+      <doc:inote>
+        Implementation of this command is optional. Implementing this method does not
+        free from raising org.freesmartphone.GSM.SIM.Busy, when appropriate.
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>
+          True, if the data files on the SIM can be accessed. False, otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="ReadyStatus">
+    <doc:doc>
+      <doc:description>Sent, when the data files on the SIM become (not) ready for access.</doc:description>
+    </doc:doc>
+    <arg type="s" name="status">
+      <doc:doc>
+        <doc:summary>
+          True, if the data files on the SIM can be accessed. False, otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
   <method name="GetSimInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim" />
     <doc:doc>

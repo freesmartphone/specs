@@ -38,6 +38,13 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
       <arg type="b" name="check" direction="out"/>
     </method>
+    <method name="GetSimReady">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <arg type="s" name="status" direction="out"/>
+    </method>
+    <signal name="ReadyStatus">
+      <arg type="s" name="status"/>
+    </signal>
     <method name="GetSimInfo">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
       <arg type="a{sv}" name="info" direction="out"/>
