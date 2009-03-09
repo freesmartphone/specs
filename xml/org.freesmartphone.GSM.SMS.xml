@@ -10,7 +10,22 @@
       <arg type="i" name="transaction_index" direction="out"/>
       <arg type="s" name="timestamp" direction="out"/>
     </method>
+    <method name="AckMessage">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms"/>
+      <arg type="s" name="contents" direction="in"/>
+      <arg type="a{sv}" name="properties" direction="in"/>
+    </method>
+    <method name="NackMessage">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms"/>
+      <arg type="s" name="contents" direction="in"/>
+      <arg type="a{sv}" name="properties" direction="in"/>
+    </method>
     <signal name="IncomingMessage">
+      <arg type="s" name="sender_number"/>
+      <arg type="s" name="contents"/>
+      <arg type="a{sv}" name="properties"/>
+    </signal>
+    <signal name="IncomingMessageReceipt">
       <arg type="s" name="sender_number"/>
       <arg type="s" name="contents"/>
       <arg type="a{sv}" name="properties"/>

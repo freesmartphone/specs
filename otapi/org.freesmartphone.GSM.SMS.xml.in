@@ -48,10 +48,17 @@
     </arg>
     <arg type="a{sv}" name="properties" direction="in">
       <doc:doc>
-        <doc:summary>Additional properties of the message. Valid tuples are:
+        <doc:summary>Additional properties of the message.
+          Valid properties are:
           [ul]
-            [li](string:type) = type of the SMS, must be one of ("SMS_SUBMIT", "SMS_DELIVER", "SMS_COMMAND", "SMS_SUBMIT_REPORT", "SMS_DELIVER_REPORT"),[/li]
-            [li](string:alphabet) = Encoding of the short message, must be one of ("binary", "gsm", "usc2"),[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of "gsm_default", "usc2" or "binary"[/li]
+            [li](bool:reject-duplicates) = If true the SMSC shall reject messages with the same message-reference as this one (default false)[/li]
+            [li](bool:reply-path) = If true requests a reply path, see 3GPP TS 03.40 Annex D for more information.[/li]
+            [li](bool:status-report-request) = If true the SMSC will send us reports about the status of our message. These can be received via the org.freesmartphone.GSM.SMS.IncomingMessageReceipt signal.[/li]
+            [li](int:message-reference) = Message reference number with which the message can be identified.[/li]
+            [li](int:pid) = Numerical representation of the protocol identifier[/li]
+            [li](int:message-class) = Numerical representation of the message class[/li]
+            [li](a(int):data) = If alphabet is "binary" the userdata is stored in this field[/li]
             [li]Properties for concatenated short messages (CSM):
               [ul]
                 [li](int:csm_id) = Id of the csm (messages belonging to the same csm must have the same id),[/li]
@@ -62,7 +69,14 @@
             [li]Properties for port addressing (similar to UDP ports):
               [ul]
                 [li](int:src_port) = Source port this short message comes from,[/li]
-                [li](int:dst_port) = Destination port this short message should be routed to.[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to,[/li]
+                [li](int:port_size) = Either 8 for 8-bit or 16 for 16-bit port addressing.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for message indication:
+              [/ul]
+                [li](int:message-indication-type) = Type of messages that are waiting,[/li]
+                [li](int:message-indication-count) = Number of messages that are waiting.[/li]
               [/ul]
             [/li]
           [/ul]
@@ -71,12 +85,109 @@
     </arg>
     <arg type="i" name="transaction_index" direction="out">
       <doc:doc>
-        <doc:summary>The given transaction index for this message.</doc:summary>
+        <doc:summary>The given transaction index for this message. This is the message-reference number of this message.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="timestamp" direction="out">
       <doc:doc>
-        <doc:summary>The timestamp this message was received by the SMSC</doc:summary>
+        <doc:summary>The timestamp this message was received by the SMSC.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="AckMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
+    <doc:doc>
+      <doc:description>Acknoledges the receipt of a message via the GSM Short Message Service (SMS). Every message that has been delivered with the IncomingMessage signal needs to be either acked or nacked.</doc:description>
+      <doc:inote>
+        This maps to the GSM 07.05 command +CNMA=..., see 3GPP TS 07.05 Chapter 3.4.4 (text mode)  and 4.6 (pdu mode).
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="contents" direction="in">
+      <doc:doc>
+        <doc:summary>Optional text to send along with the acknoledgement. Will usually be empty.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties" direction="in">
+      <doc:doc>
+        <doc:summary>Additional properties of the message.
+          Valid properties are:
+          [ul]
+            [li](string:alphabet) = Encoding of the short message, must be one of "gsm_default", "usc2" or "binary"[/li]
+            [li](int:pid) = Numerical representation of the protocol identifier[/li]
+            [li](int:message-class) = Numerical representation of the message class[/li]
+            [li](a(int):data) = If alphabet is "binary" the userdata is stored in this field[/li]
+            [li]Properties for concatenated short messages (CSM):
+              [ul]
+                [li](int:csm_id) = Id of the csm (messages belonging to the same csm must have the same id),[/li]
+                [li](int:csm_num) = Total number of messages in this csm,[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the csm.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for port addressing (similar to UDP ports):
+              [ul]
+                [li](int:src_port) = Source port this short message comes from,[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to,[/li]
+                [li](int:port_size) = Either 8 for 8-bit or 16 for 16-bit port addressing.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for message indication:
+              [ul]
+                [li](int:message-indication-type) = Type of messages that are waiting,[/li]
+                [li](int:message-indication-count) = Number of messages that are waiting.[/li]
+              [/ul]
+            [/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="NackMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
+    <doc:doc>
+      <doc:description>Reports that an error has occured during the receipt of a message via the GSM Short Message Service (SMS). Every message that has been delivered with the IncomingMessage signal needs to be either acked or nacked.</doc:description>
+      <doc:inote>
+        This maps to the GSM 07.05 command +CNMA=..., see 3GPP TS 07.05 Chapter 3.4.4 (text mode)  and 4.6 (pdu mode).
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="contents" direction="in">
+      <doc:doc>
+        <doc:summary>Optional text to send along with the negative acknoledgement. Will usually be empty.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties" direction="in">
+      <doc:doc>
+        <doc:summary>Additional properties of the message.
+          Valid properties are:
+          [ul]
+            [li](int:fcs) = Integer representation of the failure cause. If unset it will be 0xff (unspecified error).[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of "gsm_default", "usc2" or "binary"[/li]
+            [li](int:pid) = Numerical representation of the protocol identifier[/li]
+            [li](int:message-class) = Numerical representation of the message class[/li]
+            [li](a(int):data) = If alphabet is "binary" the userdata is stored in this field[/li]
+            [li]Properties for concatenated short messages (CSM):
+              [ul]
+                [li](int:csm_id) = Id of the csm (messages belonging to the same csm must have the same id),[/li]
+                [li](int:csm_num) = Total number of messages in this csm,[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the csm.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for port addressing (similar to UDP ports):
+              [ul]
+                [li](int:src_port) = Source port this short message comes from,[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to,[/li]
+                [li](int:port_size) = Either 8 for 8-bit or 16 for 16-bit port addressing.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for message indication:
+              [ul]
+                [li](int:message-indication-type) = Type of messages that are waiting,[/li]
+                [li](int:message-indication-count) = Number of messages that are waiting.[/li]
+              [/ul]
+            [/li]
+          [/ul]
+        </doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -92,7 +203,7 @@
 
   <signal name="IncomingMessage">
     <doc:doc>
-      <doc:description>Sent, when a message has been received</doc:description>
+      <doc:description>Sent, when a message has been received. The receipt of a message needs to be either acked or nacked with the org.freesmartphones.GSM.SMS.AckMessage() or org.freesmartphone.GSM.SMS.NackMessage() methods.</doc:description>
       <doc:inote>
       </doc:inote>
     </doc:doc>
@@ -108,8 +219,99 @@
     </arg>
     <arg type="a{sv}" name="properties">
       <doc:doc>
-        <doc:summary>
-          Additional properties of the message. See org.freesmartphone.GSM.SMS.SendMessage for details.</doc:summary>
+        <doc:summary>Additional properties of the message.
+          Valid properties are:
+          [ul]
+            [li](string:type) = Type of the message, will be "sms-deliver"[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of "gsm_default", "usc2" or "binary"[/li]
+            [li](bool:more-messages-to-send) = If true indicates that the SMSC will send more messages.[/li]
+            [li](bool:reply-path) = If true indicates that a reply path has been set, see 3GPP TS 03.40 Annex D for more information.[/li]
+            [li](bool:status-report-indicator) = If true the sender of this message has requested status reports.[/li]
+            [li](int:pid) = Numerical representation of the protocol identifier[/li]
+            [li](int:message-class) = Numerical representation of the message class[/li]
+            [li](a(int):data) = If alphabet is "binary" the userdata is stored in this field[/li]
+            [li](string:timestamp) = A timestamp indicating when the SMSC received the message.
+            [li]Properties for concatenated short messages (CSM):
+              [ul]
+                [li](int:csm_id) = Id of the csm (messages belonging to the same csm must have the same id),[/li]
+                [li](int:csm_num) = Total number of messages in this csm,[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the csm.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for port addressing (similar to UDP ports):
+              [ul]
+                [li](int:src_port) = Source port this short message comes from,[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to,[/li]
+                [li](int:port_size) = Either 8 for 8-bit or 16 for 16-bit port addressing.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for message indication:
+              [ul]
+                [li](int:message-indication-type) = Type of messages that are waiting,[/li]
+                [li](int:message-indication-count) = Number of messages that are waiting.[/li]
+              [/ul]
+            [/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="IncomingMessageReceipt">
+    <doc:doc>
+      <doc:description>Sent when a status report for a message has been received. Status reports for messages can be requested by setting the property "status-report-request" to True when sending messages through org.freesmartphone.GSM.SMS.SendMessage.</doc:description>
+      <doc:inote>
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="sender_number">
+      <doc:doc>
+        <doc:summary>The number of the sender.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="contents">
+      <doc:doc>
+              <doc:summary>Optional contents of the receipt. Will usually be empty.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties">
+      <doc:doc>
+        <doc:summary>Additional properties of the message.
+          Valid properties are:
+          [ul]
+            [li](string:type) = Type of the message, will be "sms-status-report"[/li]
+            [li](string:alphabet) = Encoding of the short message, must be one of "gsm_default", "usc2" or "binary" if present.[/li]
+            [li](bool:more-messages-to-send) = If true indicates that the SMSC will send more messages.[/li]
+            [li](bool:status-report-qualifier) = Indicates what triggered this status report, will be one of "sms-submit" or "sms-command".[/li]
+            [li](int:pid) = Numerical representation of the protocol identifier[/li]
+            [li](int:message-class) = Numerical representation of the message class[/li]
+            [li](a(int):data) = If alphabet is "binary" the userdata is stored in this field[/li]
+            [li](int:message-reference) = Message reference number of the message the status report is about.[/li]
+            [li](string:timestamp) = A timestamp indicating when the SMSC received the original message.[/li]
+            [li](string:discharge-time) = A timestamp indicating when the current status change has taken place.[/li]
+            [li](int:status) = Integer representation of the status.[/li]
+            [li](string:status-message) = A string conveying the meaning of the status.[/li]
+            [li]Properties for concatenated short messages (CSM):
+              [ul]
+                [li](int:csm_id) = Id of the csm (messages belonging to the same csm must have the same id),[/li]
+                [li](int:csm_num) = Total number of messages in this csm,[/li]
+                [li](int:csm_seq) = Number defining the order of the messages in the csm.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for port addressing (similar to UDP ports):
+              [ul]
+                [li](int:src_port) = Source port this short message comes from,[/li]
+                [li](int:dst_port) = Destination port this short message should be routed to,[/li]
+                [li](int:port_size) = Either 8 for 8-bit or 16 for 16-bit port addressing.[/li]
+              [/ul]
+            [/li]
+            [li]Properties for message indication:
+              [ul]
+                [li](int:message-indication-type) = Type of messages that are waiting,[/li]
+                [li](int:message-indication-count) = Number of messages that are waiting.[/li]
+              [/ul]
+            [/li]
+          [/ul]
+        </doc:summary>
       </doc:doc>
     </arg>
   </signal>
