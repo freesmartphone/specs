@@ -70,7 +70,7 @@
           [li]( "rxlev", int ):         Received Field Strength (in percentage, comparable with signal strength)
           [li]( "bsic", int ):          Base Station ID Code[/li]
           [li]( "cid", string ):        Cell Identifier[/li]
-          [li]( "lac", string ):        Location Area Cod[e/li]
+          [li]( "lac", string ):        Location Area Code[/li]
           [li]( "dsc", int ):           Downlink Signaling Counter    actual value[/li]
           [li]( "foffset, int ):        Frame Offset[/li]
           [li]( "timea, int ):          Time Alignment[/li]
