@@ -185,6 +185,40 @@
     </arg>
   </method>
 
+  <method name="GetPowerStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <doc:doc>
+      <doc:description>
+        Retrieve the power status. This call is not implemented on most smartphones,
+        since the battery is monitored by the application processor (as opposed to the
+        baseband processor) there.
+      </doc:description>
+      <doc:inote>This maps to the GSM 07.07 command +CBC, see 3GPP TS 07.07 Chapter 8.4.</doc:inote>
+    </doc:doc>
+    <arg type="s" name="status" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The power status. Valid values are:
+          [ul]
+            [li]"battery" = A battery is built in and is the current power source,[/li]
+            [li]"ac" = A battery is built in, but is not powered by it currently,[/li]
+            [li]"usb" = There is no battery built in,[/li]
+            [li]"error" = The battery is malfunctioning,[/li]
+            [li]"unknown" = Power status could not be found.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="level" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The charging level in percent (0-100), if a battery is built in.
+          -1, otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <method name="GetSimBuffersSms">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
     <doc:doc>

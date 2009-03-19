@@ -37,6 +37,11 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
       <arg type="b" name="muted" direction="in"/>
     </method>
+    <method name="GetPowerStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <arg type="s" name="status" direction="out"/>
+      <arg type="i" name="level" direction="out"/>
+    </method>
     <method name="GetSimBuffersSms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
       <arg type="b" name="sim_buffers_sms" direction="out"/>
