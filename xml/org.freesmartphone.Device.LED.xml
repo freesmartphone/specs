@@ -11,6 +11,12 @@
       <arg direction="in" type="i" name="on_duration"/>
       <arg direction="in" type="i" name="off_duration"/>
     </method>
+    <method name="BlinkSeconds">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led"/>
+      <arg direction="in" type="i" name="seconds"/>
+      <arg direction="in" type="i" name="on_duration"/>
+      <arg direction="in" type="i" name="off_duration"/>
+    </method>
     <method name="SetNetworking">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led"/>
       <arg direction="in" type="s" name="interface"/>

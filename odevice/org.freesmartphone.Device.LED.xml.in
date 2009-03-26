@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org LED Interface</doc:summary>
-  <doc:version>0.2.0</doc:version>
+  <doc:version>0.3.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.LED">
@@ -52,6 +52,35 @@
       <doc:description>Start blinking.</doc:description>
       <doc:inote>This requires the Linux 2.6 LED class trigger 'timer' to be available.</doc:inote>
     </doc:doc>
+    <arg direction="in" type="i" name="on_duration">
+      <doc:doc>
+        <doc:summary>
+          Duration of being lit in milliseconds.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="i" name="off_duration">
+      <doc:doc>
+        <doc:summary>
+          Duration of being unlit in milliseconds.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="BlinkSeconds">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <doc:doc>
+      <doc:description>Blink the LED for a number of seconds.</doc:description>
+      <doc:inote>This requires the Linux 2.6 LED class trigger 'timer' to be available.</doc:inote>
+    </doc:doc>
+    <arg direction="in" type="i" name="seconds">
+      <doc:doc>
+        <doc:summary>
+          The amount of time (in seconds) to blink this LED.
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <arg direction="in" type="i" name="on_duration">
       <doc:doc>
         <doc:summary>
