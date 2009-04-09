@@ -98,14 +98,14 @@
   <method name="AckMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
     <doc:doc>
-      <doc:description>Acknoledges the receipt of a message via the GSM Short Message Service (SMS). Every message that has been delivered with the IncomingMessage signal needs to be either acked or nacked.</doc:description>
+      <doc:description>Acknowledges the receipt of a message via the GSM Short Message Service (SMS). Every message that has been delivered with the IncomingMessage signal needs to be either acked or nacked.</doc:description>
       <doc:inote>
         This maps to the GSM 07.05 command +CNMA=..., see 3GPP TS 07.05 Chapter 3.4.4 (text mode)  and 4.6 (pdu mode).
       </doc:inote>
     </doc:doc>
     <arg type="s" name="contents" direction="in">
       <doc:doc>
-        <doc:summary>Optional text to send along with the acknoledgement. Will usually be empty.</doc:summary>
+        <doc:summary>Optional text to send along with the acknowledgement. Will usually be empty.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="a{sv}" name="properties" direction="in">
@@ -153,7 +153,7 @@
     </doc:doc>
     <arg type="s" name="contents" direction="in">
       <doc:doc>
-        <doc:summary>Optional text to send along with the negative acknoledgement. Will usually be empty.</doc:summary>
+        <doc:summary>Optional text to send along with the negative acknowledgement. Will usually be empty.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="a{sv}" name="properties" direction="in">
