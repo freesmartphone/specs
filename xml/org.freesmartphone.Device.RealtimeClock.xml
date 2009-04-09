@@ -16,7 +16,7 @@
     </method>
     <method name="SetWakeupTime">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock"/>
-      <arg direction="in" type="b" name="time"/>
+      <arg direction="in" type="i" name="time"/>
     </method>
   </interface>
 </node>

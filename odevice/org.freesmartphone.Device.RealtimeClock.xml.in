@@ -55,7 +55,7 @@
     <doc:doc>
       <doc:description>Program a wakeup time in the RTC.</doc:description>
     </doc:doc>
-    <arg direction="in" type="b" name="time">
+    <arg direction="in" type="i" name="time">
       <doc:doc>
         <doc:summary>The wakeuptime in seconds since epoch. Set to 0, if you want to disable wakeup.</doc:summary>
       </doc:doc>
