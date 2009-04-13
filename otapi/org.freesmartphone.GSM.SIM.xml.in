@@ -367,10 +367,10 @@
       </doc:description>
       <doc:inote>This maps to the GSM 07.07 command +COPN, see 3GPP TS 07.07 Chapter 7.19.</doc:inote>
     </doc:doc>
-    <arg type="a{is}" name="providers" direction="out">
+    <arg type="a{ss}" name="providers" direction="out">
       <doc:doc>
         <doc:summary>
-          An map containing of known providers as tuples. The key is the numerical provider code (mccmnc), the value is the alphanumerical provider name.
+          An map containing of known providers as tuples. The key is the provider code (mccmnc), the value is the alphanumerical provider name.
         </doc:summary>
       </doc:doc>
     </arg>

@@ -28,11 +28,11 @@
     </signal>
     <method name="ListProviders">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
-      <arg type="a(issss)" name="providers" direction="out"/>
+      <arg type="a(sssss)" name="providers" direction="out"/>
     </method>
     <method name="RegisterWithProvider">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
-      <arg type="i" name="operator_code" direction="in"/>
+      <arg type="s" name="operator_code" direction="in"/>
     </method>
     <method name="GetNetworkCountryCode">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>

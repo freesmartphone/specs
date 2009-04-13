@@ -180,7 +180,7 @@
     </doc:doc>
     <arg type="b" name="muted" direction="in">
       <doc:doc>
-        <doc:summary>True, to mute the microphone. Fals, otherwise.</doc:summary>
+        <doc:summary>True, to mute the microphone. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
   </method>

@@ -121,7 +121,7 @@
           Optional tuples are:
           [ul]
             [li]( "provider", string ): The network provider (if registered or roaming).[/li]
-            [li]( "code", int ): MCC and MNC of the network provider (if registered or roaming).[/li]
+            [li]( "code", string ): MCC and MNC of the network provider (if registered or roaming).[/li]
             [li]( "strength", int ): The signal strength in percentage (0-100).[/li]
             [li]( "lac", string ): The location area code string (if available).[/li]
             [li]( "cid", string ): The cell id string (if available).[/li]
@@ -179,12 +179,12 @@
         <doc:description>List available service providers.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
       </doc:doc>
-    <arg type="a(issss)" name="providers" direction="out">
+    <arg type="a(sssss)" name="providers" direction="out">
       <doc:doc>
         <doc:summary>
           An array of four-tuples with the following structure:
           [ul]
-            [li]Unique numerical operator code,[/li]
+            [li]Unique operator code,[/li]
             [li]Status ("unknown", "available", "current", "forbidden"),[/li]
             [li]Long Name,[/li]
             [li]Short Name (optional, may be empty).[/li]
@@ -201,7 +201,7 @@
         <doc:description>Register to a dedicated service provider.</doc:description>
           <doc:inote>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
       </doc:doc>
-    <arg type="i" name="operator_code" direction="in">
+    <arg type="s" name="operator_code" direction="in">
       <doc:doc>
         <doc:summary>The operator code.</doc:summary>
       </doc:doc>
