@@ -9,6 +9,12 @@
       <arg type="d" name="lon" direction="out"/>
       <arg type="d" name="alt" direction="out"/>
     </method>
-    <signal name="PositionChanged"/>
+    <signal name="PositionChanged">
+      <arg type="i" name="fields" direction="out"/>
+      <arg type="i" name="tstamp" direction="out"/>
+      <arg type="d" name="lat" direction="out"/>
+      <arg type="d" name="lon" direction="out"/>
+      <arg type="d" name="alt" direction="out"/>
+    </signal>
   </interface>
 </node>

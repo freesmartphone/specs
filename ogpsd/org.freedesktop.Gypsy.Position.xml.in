@@ -51,6 +51,31 @@
 	See GetPosition() for values.
       </doc:description>
     </doc:doc>
+    <arg type="i" name="fields" direction="out">
+        <doc:doc>
+            <doc:summary>Bit mask, gives fields validity.</doc:summary>
+        </doc:doc>
+    </arg>
+    <arg type="i" name="tstamp" direction="out">
+      <doc:doc>
+        <doc:summary>This is the seconds elapsed since epoch.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="d" name="lat" direction="out">
+      <doc:doc>
+        <doc:summary>Latitude in decimal degrees.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="d" name="lon" direction="out">
+      <doc:doc>
+        <doc:summary>Longitude in decimal degrees.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="d" name="alt" direction="out">
+      <doc:doc>
+        <doc:summary>Altitude in meters.</doc:summary>
+      </doc:doc>
+    </arg>
   </signal>
 
 

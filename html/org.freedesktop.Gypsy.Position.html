@@ -22,7 +22,7 @@
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetPosition">GetPosition</a> ( ) &rarr; iiddd</h3>
 <p><i>Description:</i> Get the GPS coordinates. </p><h4>Returns</h4><i>i: fields</i><p>Bit mask, gives fields validity. </p><i>i: tstamp</i><p>This is the seconds elapsed since epoch. </p><i>d: lat</i><p>Latitude in decimal degrees. </p><i>d: lon</i><p>Longitude in decimal degrees. </p><i>d: alt</i><p>Altitude in meters. </p>
-<h1>Signals</h1><h3><a name="PositionChanged">PositionChanged</a> ( )</h3>
+<h1>Signals</h1><h3><h3><a name="PositionChanged">PositionChanged</a> ( iiddd )</h3><p><i>Description:</i> Emitted when one or more of the fields has changed.  See GetPosition() for values. </p><h4>Parameters</h4><i>i: fields</i><p>Bit mask, gives fields validity. </p><i>i: tstamp</i><p>This is the seconds elapsed since epoch. </p><i>d: lat</i><p>Latitude in decimal degrees. </p><i>d: lon</i><p>Longitude in decimal degrees. </p><i>d: alt</i><p>Altitude in meters. </p></h3>
 
     <hr/>
     <small>
