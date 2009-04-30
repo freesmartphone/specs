@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-call-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-call-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Call Interface</doc:summary>
@@ -57,7 +57,7 @@
         <doc:summary>The index of the call that changed its status or properties.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="status">
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CallStatusEnum">
       <doc:doc>
         <doc:summary>
           The new status of the call. Expected values are:
@@ -237,4 +237,12 @@
   </method>
 
 </interface>
+
+<fso:enumeration type="s" name="org.freesmartphone.GSM.CallStatusEnum">
+  <fso:member name="incoming" value="INCOMING"/>
+  <fso:member name="outgoing" value="OUTGOING"/>
+  <fso:member name="active" value="ACTIVE"/>
+  <fso:member name="held" value="HELD"/>
+  <fso:member name="release" value="RELEASE"/>
+</fso:enumeration>
 </node>
