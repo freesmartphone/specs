@@ -9,43 +9,34 @@
 
   <doc:doc>
     <doc:para>
-      Pim Sources can be use to access a set of PIM data sources
+      This interface gives access to PIM Sources.
     </doc:para>
   </doc:doc>
 
-  <method name="Add">
+  <method name="InitAllEntries">
     <doc:doc>
-      <doc:description>Add a contact into the default backend source.</doc:description>
+      <doc:description>
+        Initialize all backend sources.
+      </doc:description>
     </doc:doc>
-    <arg type="a{sv}" name="contact_data" direction="in">
-        <doc:doc>
-            <doc:summary>contacts fields</doc:summary>
-        </doc:doc>
-    </arg>
-    <arg type="s" name="path" direction="out">
-        <doc:doc>
-            <doc:summary>Path of the newly created d-bus contact object</doc:summary>
-        </doc:doc>
-    </arg>
-  </method>
-  
-  <method name="Query">
-    <doc:doc>
-      <doc:description>Create a new Call to a given number, with an optional protocol.</doc:description>
-    </doc:doc>
-    <arg type="a{sv}" name="query" direction="in">
-        <doc:doc>
-            <doc:summary>contacts fields that are queried</doc:summary>
-        </doc:doc>
-    </arg>
-    <arg type="s" name="protocol" direction="out">
-        <doc:doc>
-            <doc:summary>Path to the query object</doc:summary>
-        </doc:doc>
-    </arg>
   </method>
 
-
+  <method name="GetEntryCount">
+    <doc:doc>
+      <doc:description>
+        Get the number of sources available.
+      </doc:description>
+    </doc:doc>
+    <arg type="i" name="count" direction="out">
+      <doc:doc>
+        <doc:summary>
+          Amount of sources.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
 
 </interface>
+
 </node>
+

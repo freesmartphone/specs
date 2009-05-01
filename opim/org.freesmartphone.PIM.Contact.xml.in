@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Contact Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Contact">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to one PIM contact.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetContent">
+    <doc:doc>
+      <doc:description>
+        Get the fields of one contact.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{sv}" name="contact_data">
+      <doc:doc>
+        <doc:summary>
+          The contact's data.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetMultipleFields">
+    <doc:doc>
+      <doc:description>
+        Get a specified field list of the contact's data.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="field_list">
+      <doc:doc>
+        <doc:summary>
+          The list of fields to get.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="a{sv}" name="field_data">
+      <doc:doc>
+        <doc:summary>
+          The data of the requested fields.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Update">
+    <doc:doc>
+      <doc:description>
+        Update one or more fields of this contact.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="contact_data">
+      <doc:doc>
+        <doc:summary>
+          The list of fields/values to update for this contact.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Delete">
+    <doc:doc>
+      <doc:description>
+        Delete this contact.
+      </doc:description>
+    </doc:doc>
+  </method>
+
+</interface>
+
+</node>
+

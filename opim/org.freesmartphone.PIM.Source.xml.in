@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Source Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Source">
+
+  <doc:doc>
+    <doc:para>
+      Get information about one PIM data source 
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetName">
+    <doc:doc>
+      <doc:description>Get the sources name.</doc:description>
+    </doc:doc>
+    <arg type="s" name="source_name" direction="out">
+        <doc:doc>
+            <doc:summary>The name of the PIM data source</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetStatus">
+    <doc:doc>
+      <doc:description>Get the sources status.</doc:description>
+    </doc:doc>
+    <arg type="s" name="source_status" direction="out">
+        <doc:doc>
+            <doc:summary>The status of the PIM data source</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetSupportedPIMDomains">
+    <doc:doc>
+      <doc:description>Get the list of PIM domains this sources supports.</doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="source_domains" direction="out">
+        <doc:doc>
+            <doc:summary>The list of supported PIM domains</doc:summary>
+        </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+
+</node>

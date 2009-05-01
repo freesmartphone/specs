@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Contacts Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Contacts">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to the collection of PIM contacts.
+    </doc:para>
+  </doc:doc>
+
+  <method name="Add">
+    <doc:doc>
+      <doc:description>
+        Add a new contact to the default backend for contacts.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="contact_data">
+      <doc:doc>
+        <doc:summary>
+          The new contacts data.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s" name="contact_path">
+      <doc:doc>
+        <doc:summary>
+          The contact path of the added contact.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetSingleContactSingleField">
+    <doc:doc>
+      <doc:description>
+        Query the content of one field of one contact.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="query">
+      <doc:doc>
+        <doc:summary>
+          The query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="s" name="field">
+      <doc:doc>
+        <doc:summary>
+          The name of the field to query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s" name="value">
+      <doc:doc>
+        <doc:summary>
+          The content of the queried field.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Query">
+    <doc:doc>
+      <doc:description>
+        Start a query for contacts.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="query">
+      <doc:doc>
+        <doc:summary>
+          The query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s" name="query_path">
+      <doc:doc>
+        <doc:summary>
+          The path for the started query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+
+</node>
+

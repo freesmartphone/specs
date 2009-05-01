@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.MessageFolder Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.MessageFolder">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to a message folder.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetMessageCount">
+    <doc:doc>
+      <doc:description>
+        Get the count of messages that reside in this folder.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="i" name="count">
+      <doc:doc>
+        <doc:summary>
+          The amount of messages in this folder.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetMessagePaths">
+    <doc:doc>
+      <doc:description>
+        Get the message paths for some messages in this folder.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="first">
+      <doc:doc>
+        <doc:summary>
+          The first message to get the path for.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="i" name="count">
+      <doc:doc>
+        <doc:summary>
+          The amount of messages to get the path for.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="as" name="message_paths">
+      <doc:doc>
+        <doc:summary>
+          The list of message paths.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="MessageMoved">
+    <arg type="s" name="message_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the message that got moved.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="new_folder">
+      <doc:doc>
+        <doc:summary>
+          The name of the folder the message got moved to.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+</interface>
+
+</node>
+        
+

@@ -2,14 +2,14 @@
 <node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
 
 <doc:doc>
-  <doc:summary>freesmartphone.org PIM.ContactQuery Interface</doc:summary>
+  <doc:summary>freesmartphone.org PIM.MessageQuery Interface</doc:summary>
 </doc:doc>
 
-<interface name="org.freesmartphone.PIM.ContactQuery">
+<interface name="org.freesmartphone.PIM.MessageQuery">
 
   <doc:doc>
     <doc:para>
-      This interface gives access to a contact query.
+      Represent the result of a Query
     </doc:para>
   </doc:doc>
 
@@ -20,7 +20,7 @@
     <arg direction="out" type="i" name="count">
       <doc:doc>
         <doc:summary>
-          Amount of contacts in the query result.
+          Number of contacts in the query result.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -29,7 +29,7 @@
   <method name="Rewind">
     <doc:doc>
       <doc:description>
-        Rewind the result cursor to the first contact (for this dbus client only).
+        Rewind the result cursor to the first message (for this dbus client only)
       </doc:description>
     </doc:doc>
   </method>
@@ -37,28 +37,28 @@
   <method name="Skip">
     <doc:doc>
       <doc:description>
-        Skip n contacts in the result cursor (for this dbus client only).
+        Skip n messages in the result cursor (for this dbus client only)
       </doc:description>
     </doc:doc>
     <arg direction="in" type="i" name="count">
       <doc:doc>
         <doc:summary>
-          Amount of contacts to skip.
+          Amount of messages to skip
         </doc:summary>
       </doc:doc>
     </arg>
   </method>
 
-  <method name="GetContactPath">
+  <method name="GetMessagePath">
     <doc:doc>
       <doc:description>
-        Path for the contact the result cursor points to.
+        Path for the message the result cursor points to.
       </doc:description>
     </doc:doc>
-    <arg direction="out" type="s" name="contact_path">
+    <arg direction="out" type="s" name="message_path">
       <doc:doc>
         <doc:summary>
-          The path to the contact.
+          The path to the message.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -67,13 +67,13 @@
   <method name="GetResult">
     <doc:doc>
       <doc:description>
-        Return the next contact in the query result, and move the query to the next contact.
+        Return the next message in the query result, and move the query to the next message.
       </doc:description>
     </doc:doc>
     <arg type="a{sv}" name="item" direction="out">
       <doc:doc>
         <doc:summary>
-          fields of the result.
+          Fields of the message.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -82,20 +82,20 @@
   <method name="GetMultipleResults">
     <doc:doc>
       <doc:description>
-        Get multiple contacts from the result set at once.
+        Get multiple message from the result set at once.
       </doc:description>
     </doc:doc>
     <arg direction="in" type="i" name="count">
       <doc:doc>
         <doc:summary>
-          The number of contacts to get from the result set.
+          The amount of messages to get from the result set.
         </doc:summary>
       </doc:doc>
     </arg>
     <arg direction="out" type="aa{sv}" name="resultset">
       <doc:doc>
         <doc:summary>
-          The list of the returned contacts data.
+          The list of the returned messages data.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -112,3 +112,4 @@
 </interface>
 
 </node>
+
