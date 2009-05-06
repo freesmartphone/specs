@@ -253,4 +253,10 @@
   </error>
 </fso:errordomain>
 
+<fso:struct name="org.freesmartphone.GSM.CallDetail">
+  <fso:field name="id" type="i" />
+  <fso:field name="status" type="s" fso:type="org.freesmartphone.GSM.CallStatus" />
+  <fso:field name="properties" type="a{sv}" />
+</fso:struct>
+
 </node>
