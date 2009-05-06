@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-sim-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-sim-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM SIM Interface</doc:summary>
@@ -73,7 +73,7 @@
       <doc:description>Retrieve the authentication status for the SIM card.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CPIN=?, see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
     </doc:doc>
-    <arg type="s" name="status" direction="out">
+    <arg type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.SIMAuthStatus">
       <doc:doc>
         <doc:summary>
           The authentication status for the SIM card. Values to expect:
@@ -95,7 +95,7 @@
     <doc:doc>
       <doc:description>Sent, when the authentication status for the SIM card changes.</doc:description>
     </doc:doc>
-    <arg type="s" name="status">
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.SIMAuthStatus">
       <doc:doc>
         <doc:summary>
           The authentication status for the SIM card. See org.freesmartphone.GSM.SIM.GetAuthStatus for a list of expected values.
@@ -746,4 +746,12 @@
   </method>
 
 </interface>
+
+<fso:enumeration type="s" name="org.freesmartphone.GSM.SIMAuthStatus">
+  <fso:member name="ready" value="READY"/>
+  <fso:member name="pin-required" value="SIM PIN"/>
+  <fso:member name="puk-required" value="SIM PUK"/>
+  <fso:member name="pin2-required" value="SIM PIN2"/>
+  <fso:member name="puk2-required" value="SIM PUK2"/>
+</fso:enumeration>
 </node>
