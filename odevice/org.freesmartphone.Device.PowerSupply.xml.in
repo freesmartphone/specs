@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-powersupply-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-powersupply-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org PowerSupply Interface</doc:summary>
@@ -47,7 +47,7 @@
       <doc:description>Retrieve the power status for this power supply.</doc:description>
       <doc:inote>A wall power supply will always return "full".</doc:inote>
     </doc:doc>
-    <arg direction="out" type="s" name="status">
+    <arg direction="out" type="s" name="status" fso:type="org.freesmartphone.Device.PowerStatus">
       <doc:doc>
         <doc:summary>
           The power status. Expected values are:
@@ -67,7 +67,7 @@
     <doc:doc>
       <doc:description>Sent, when the power status changes significantly.</doc:description>
     </doc:doc>
-    <arg type="s" name="status">
+    <arg type="s" name="status" fso:type="org.freesmartphone.Device.PowerStatus">
       <doc:doc>
         <doc:summary>The power status. See org.freesmartphone.PowerSupply.GetPowerStatus for a list of expected values.</doc:summary>
       </doc:doc>
@@ -86,4 +86,12 @@
   </signal>
 
 </interface>
+
+<fso:enumeration name="org.freesmartphone.Device.PowerStatus" type="s">
+  <fso:member name="charging" value="charging"/>
+  <fso:member name="discharging" value="discharging"/>
+  <fso:member name="full" value="full"/>
+  <fso:member name="empty" value="empty"/>
+  <fso:member name="critical" value="critical"/>
+</fso:enumeration>
 </node>
