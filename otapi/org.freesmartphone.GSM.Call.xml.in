@@ -42,7 +42,7 @@
         <doc:summary>The index of the call that changed its status or properties.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CallStatusEnum">
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CallStatus">
       <doc:doc>
         <doc:summary>
           The new status of the call. Expected values are:
@@ -199,11 +199,11 @@
     <doc:doc>
       <doc:description>Retrieve the status for all calls in the system.</doc:description>
     </doc:doc>
-    <arg type="a(isa{sv})" name="call_status" direction="out">
+    <arg type="a(isa{sv})" name="call_details" direction="out">
       <doc:doc>
         <doc:summary>
           The call status. This is an array containing a call status record for every single call.
-          See org.freesmartphone.GSM.Call.CallStatus for a description of the format.
+          See org.freesmartphone.GSM.Call.CallStatus signal for a description of the format.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -227,7 +227,7 @@
 
 </interface>
 
-<fso:enumeration type="s" name="org.freesmartphone.GSM.CallStatusEnum">
+<fso:enumeration type="s" name="org.freesmartphone.GSM.CallStatus">
   <fso:member name="incoming" value="INCOMING"/>
   <fso:member name="outgoing" value="OUTGOING"/>
   <fso:member name="active" value="ACTIVE"/>
