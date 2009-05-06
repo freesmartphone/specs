@@ -15,22 +15,6 @@
     </doc:para>
   </doc:doc>
 
-  <error name="NotFound">
-    <doc:doc>
-      <doc:description>
-        Raised, if the specified call is not present.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="NotAnEmergencyNumber">
-    <doc:doc>
-      <doc:description>
-        Raised, if the number is not allowed to dial as emergency call.
-      </doc:description>
-    </doc:doc>
-  </error>
-
   <method name="Emergency">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
     <doc:doc>
@@ -42,6 +26,7 @@
         <doc:summary>The emergency number to dial. National and world-wide restrictions apply.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Call.Error" />
   </method>
 
   <signal name="CallStatus">
@@ -104,6 +89,7 @@
       </doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
+    <fso:throws type="org.freesmartphone.GSM.Call.Error" />
   </method>
 
   <method name="ActivateConference">
@@ -117,6 +103,7 @@
       <doc:inote>This maps to GSM 07.07 +CHLD=..., see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
+    <fso:throws type="org.freesmartphone.GSM.Call.Error" />
   </method>
 
   <method name="Release">
@@ -128,7 +115,8 @@
       </doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
-  </method>
+    <fso:throws type="org.freesmartphone.GSM.Call.Error" />
+</method>
 
   <method name="HoldActive">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call" />
@@ -203,6 +191,7 @@
         <doc:summary>The reference id for this call. It will get assigned by the system.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Call.Error"/>
   </method>
 
   <method name="ListCalls">
@@ -245,4 +234,23 @@
   <fso:member name="held" value="HELD"/>
   <fso:member name="release" value="RELEASE"/>
 </fso:enumeration>
+
+<fso:errordomain name="org.freesmartphone.GSM.Call.Error">
+  <error name="NotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if the specified call is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NotAnEmergencyNumber">
+    <doc:doc>
+      <doc:description>
+        Raised, if the number is not allowed to dial as emergency call.
+      </doc:description>
+    </doc:doc>
+  </error>
+</fso:errordomain>
+
 </node>
