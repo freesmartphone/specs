@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-audio-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-audio-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org Audio Interface</doc:summary>
-  <doc:version>0.9.3.1</doc:version>
+  <doc:version>0.9.4</doc:version>
   <doc:source>git.freesmartphone.org</doc:source>
   <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
 </doc:doc>
@@ -195,7 +195,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="status">
+    <arg type="s" name="status" fso:type="org.freesmartphone.Device.AudioState">
       <doc:doc>
         <doc:summary>
           The new status for the sound resource.
@@ -302,4 +302,10 @@
   </signal>
 
 </interface>
+
+<fso:enumeration name="org.freesmartphone.Device.SoundState" type="s">
+  <fso:member name="playing" value="playing"/>
+  <fso:member name="stopped" value="stopped"/>
+</fso:enumeration>
+
 </node>
