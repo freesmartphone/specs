@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-input-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-input-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org Input Interface</doc:summary>
@@ -30,7 +30,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="action">
+    <arg type="s" name="action" fso:type="org.freesmartphone.Device.InputState">
       <doc:doc>
         <doc:summary>
           The action that triggered the event. Expected values are:
@@ -52,4 +52,11 @@
   </signal>
 
 </interface>
+
+<fso:enumeration name="org.freesmartphone.Device.InputState" type="s">
+  <fso:member name="pressed" value="pressed"/>
+  <fso:member name="held" value="held"/>
+  <fso:member name="released" value="released"/>
+</fso:enumeration>
+              
 </node>
