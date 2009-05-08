@@ -1,9 +1,43 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-network-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-common-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org Common Interface</doc:summary>
   <doc:version>1.0.0</doc:version>
 </doc:doc>
+
+<fso:errordomain name="org.freesmartphone">
+  <error name="InvalidParameter">
+    <doc:doc>
+      <doc:description>
+        Raised, if a parameter is currently beyond the accepted values.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="InternalError">
+    <doc:doc>
+      <doc:description>
+        Raised, if the service has encountered an internal problem.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="SystemError">
+    <doc:doc>
+      <doc:description>
+        Raised, if the service has encountered an error during the use of a system function.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="Unsupported">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested function is not supported.
+      </doc:description>
+    </doc:doc>
+  </error>
+</fso:errordomain>
 
 </node>

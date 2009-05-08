@@ -1,4 +1,4 @@
-SUBDIRS := odevice otapi ophone ousage opreferences oevents ogpsd otime onetwork opim
+SUBDIRS := common odevice otapi ophone ousage opreferences oevents ogpsd otime onetwork opim
 
 .PHONY: all clean check
 
