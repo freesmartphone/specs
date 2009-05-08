@@ -235,7 +235,7 @@
   <fso:member name="release" value="RELEASE"/>
 </fso:enumeration>
 
-<fso:errordomain name="org.freesmartphone.GSM.Call.Error">
+<fso:errordomain name="org.freesmartphone.GSM.Call">
   <error name="NotFound">
     <doc:doc>
       <doc:description>
