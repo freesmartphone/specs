@@ -16,64 +16,6 @@
     </doc:para>
   </doc:doc>
 
-  <!-- Errors -->
-
-  <error name="UnknownFormat">
-    <doc:doc>
-      <doc:description>
-        Raised, if the audio format is not supported.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="PlayerError">
-    <doc:doc>
-      <doc:description>
-        Raised, if the player emits an (internal) error.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="NotPlaying">
-    <doc:doc>
-      <doc:description>
-        Raised, if the audio file is not playing.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="AlreadyPlaying">
-    <doc:doc>
-      <doc:description>
-        Raised, if the audio file is already playing.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="ScenarioInvalid">
-    <doc:doc>
-      <doc:description>
-        Raised, if the audio scenario can not be activated.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="ScenarioStackUnderflow">
-    <doc:doc>
-      <doc:description>
-        Raised, if there is no more scenario to pull from the stack.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="DeviceFailed">
-    <doc:doc>
-      <doc:description>
-        Raised, if the audio device reported a problem.
-      </doc:description>
-    </doc:doc>
-  </error>
-
   <!-- INFORMATIONAL -->
 
   <method name="GetInfo">
@@ -302,6 +244,64 @@
   </signal>
 
 </interface>
+
+<fso:errordomain name="org.freesmartphone.Device.Audio">
+  <error name="UnknownFormat">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio format is not supported.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="PlayerError">
+    <doc:doc>
+      <doc:description>
+        Raised, if the player emits an (internal) error.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NotPlaying">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio file is not playing.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="AlreadyPlaying">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio file is already playing.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ScenarioInvalid">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio scenario can not be activated.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ScenarioStackUnderflow">
+    <doc:doc>
+      <doc:description>
+        Raised, if there is no more scenario to pull from the stack.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="DeviceFailed">
+    <doc:doc>
+      <doc:description>
+        Raised, if the audio device reported a problem.
+      </doc:description>
+    </doc:doc>
+  </error>
+</fso:errordomain>
 
 <fso:enumeration name="org.freesmartphone.Device.SoundState" type="s">
   <fso:member name="playing" value="playing"/>
