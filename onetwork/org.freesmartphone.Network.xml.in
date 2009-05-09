@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-network-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-network-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org Network Interface</doc:summary>
@@ -15,18 +15,6 @@
     </doc:para>
   </doc:doc>
 
-  <!-- Errors -->
-
-  <error name="NoInterface">
-    <doc:doc>
-      <doc:description>
-        Raised, when the requested interface is not present.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <!-- Methods -->
-
   <method name="StartConnectionSharingWithInterface">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_network" />
     <doc:doc>
@@ -41,6 +29,7 @@
         <doc:summary>The interface to start sharing the connectivity with.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.InvalidParameter" />
   </method>
 
 </interface>
