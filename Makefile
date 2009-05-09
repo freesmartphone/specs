@@ -1,4 +1,15 @@
-SUBDIRS := common odevice otapi ophone ousage opreferences oevents ogpsd otime onetwork opim
+SUBDIRS := \
+  org.freesmartphone \
+  org.freesmartphone.Device \
+  org.freesmartphone.Phone \
+  org.freesmartphone.Usage \
+  org.freesmartphone.Events \
+  org.freesmartphone.PIM \
+  org.freedesktop.Gypsy \
+  org.freesmartphone.GSM \
+  org.freesmartphone.Preferences \
+  org.freesmartphone.Network \
+  org.freesmartphone.Time
 
 .PHONY: all clean check
 
