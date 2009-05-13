@@ -137,7 +137,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="status" fso:type="org.freesmartphone.Device.AudioState">
+    <arg type="s" name="status" fso:type="org.freesmartphone.Device.SoundState">
       <doc:doc>
         <doc:summary>
           The new status for the sound resource.
