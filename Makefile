@@ -11,7 +11,7 @@ SUBDIRS := \
   org.freesmartphone.Network \
   org.freesmartphone.Time
 
-.PHONY: all clean check
+.PHONY: all clean check docs xml
 
 all:
 	@for i in $(SUBDIRS); do (cd $$i && $(MAKE) all docs xml) || exit 1 ; done
@@ -25,3 +25,6 @@ check:
 docs:
 	@for i in $(SUBDIRS); do (cd $$i && $(MAKE) docs) || exit 1 ; done
 
+xml:
+	@for i in $(SUBDIRS); do (cd $$i && $(MAKE) xml) || exit 1 ; done
+    
