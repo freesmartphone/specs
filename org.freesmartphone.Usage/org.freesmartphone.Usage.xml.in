@@ -6,6 +6,15 @@
   <doc:version>0.5.0</doc:version>
 </doc:doc>
 
+<fso:enumeration type="s" name="org.freesmartphone.ResourceName">
+  <fso:member name="gsm" value="GSM"/>
+  <fso:member name="gps" value="GPS"/>
+  <fso:member name="wifi" value="WiFi"/>
+  <fso:member name="bluetooth" value="Bluetooth"/>
+  <fso:member name="display" value="Display"/>
+  <fso:member name="cpu" value="CPU"/>
+</fso:enumeration>
+
 <fso:errordomain name="org.freesmartphone.Usage" fso:no-container="true">
   <error name="PolicyUnknown">
     <doc:doc>
@@ -83,7 +92,7 @@
     <doc:doc>
       <doc:description>List available resources.</doc:description>
     </doc:doc>
-    <arg direction="out" type="as" name="resources">
+    <arg direction="out" type="as" name="resources" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>An array of resource names.</doc:summary>
       </doc:doc>
@@ -95,7 +104,7 @@
     <doc:doc>
       <doc:description>Get the current resource policy for a given resource.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name">
+    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -120,7 +129,7 @@
     <doc:doc>
       <doc:description>Set a new resource policy for a given resource.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name">
+    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -138,7 +147,7 @@
     <doc:doc>
       <doc:description>Get the current state for a given resource.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name">
+    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -158,7 +167,7 @@
     <doc:doc>
       <doc:description>Get the users which currently use a given resource.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name">
+    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -178,7 +187,7 @@
         Request occupation of a given resource. An error is returned if the resource was not occupied sucessfully.
       </doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name">
+    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -192,7 +201,7 @@
       <doc:description>Release a given resource.</doc:description>
       <doc:inote>Resources in use get autoreleased when a client leaves the bus.</doc:inote>
     </doc:doc>
-    <arg direction="in" type="s" name="name">
+    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -237,7 +246,7 @@
     <doc:doc>
       <doc:description>Sent whenever a resource is added or removed.</doc:description>
     </doc:doc>
-    <arg type="s" name="name">
+    <arg type="s" name="name" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>The name of the resource.</doc:summary>
       </doc:doc>
@@ -255,7 +264,7 @@
     <doc:doc>
       <doc:description>Sent whenever a resource status changes.</doc:description>
     </doc:doc>
-    <arg type="s" name="name">
+    <arg type="s" name="name" fso:type="org.freesmartphone.ResourceName">
       <doc:doc>
         <doc:summary>The name of the resource.</doc:summary>
       </doc:doc>
