@@ -6,7 +6,7 @@
   <doc:version>1.0.0</doc:version>
 </doc:doc>
 
-<fso:errordomain name="org.freesmartphone">
+<fso:errordomain name="org.freesmartphone" fso:no-container="true">
   <error name="InvalidParameter">
     <doc:doc>
       <doc:description>

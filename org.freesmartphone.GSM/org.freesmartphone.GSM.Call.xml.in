@@ -26,7 +26,7 @@
         <doc:summary>The emergency number to dial. National and world-wide restrictions apply.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Call.Error" />
+    <fso:throws type="org.freesmartphone.GSM.Call" />
   </method>
 
   <signal name="CallStatus">
@@ -89,7 +89,7 @@
       </doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
-    <fso:throws type="org.freesmartphone.GSM.Call.Error" />
+    <fso:throws type="org.freesmartphone.GSM.Call" />
   </method>
 
   <method name="ActivateConference">
@@ -103,7 +103,7 @@
       <doc:inote>This maps to GSM 07.07 +CHLD=..., see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
-    <fso:throws type="org.freesmartphone.GSM.Call.Error" />
+    <fso:throws type="org.freesmartphone.GSM.Call" />
   </method>
 
   <method name="Release">
@@ -115,7 +115,7 @@
       </doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
-    <fso:throws type="org.freesmartphone.GSM.Call.Error" />
+    <fso:throws type="org.freesmartphone.GSM.Call" />
 </method>
 
   <method name="HoldActive">
@@ -191,7 +191,7 @@
         <doc:summary>The reference id for this call. It will get assigned by the system.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Call.Error"/>
+    <fso:throws type="org.freesmartphone.GSM.Call" />
   </method>
 
   <method name="ListCalls">
@@ -235,7 +235,7 @@
   <fso:member name="release" value="RELEASE"/>
 </fso:enumeration>
 
-<fso:errordomain name="org.freesmartphone.GSM.Call">
+<fso:errordomain name="org.freesmartphone.GSM.Call" fso:no-container="true">
   <error name="NotFound">
     <doc:doc>
       <doc:description>
