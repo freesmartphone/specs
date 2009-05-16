@@ -1,25 +1,12 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-usage-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-usage-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org Usage Interface</doc:summary>
   <doc:version>0.5.0</doc:version>
 </doc:doc>
 
-<interface name="org.freesmartphone.Usage">
-
-  <doc:doc>
-    <doc:para>
-      The Usage interface provides access to subsystem resource management policies.
-      The usage manager keeps track of all users per resource and will enable or disable the
-      associated hardware/software as requested. Before an application can make use of a subsystem,
-      it needs to request the resource first and is only allowed to use it if the request
-      has been granted.
-    </doc:para>
-  </doc:doc>
-
-  <!-- Errors -->
-
+<fso:errordomain name="org.freesmartphone.Usage" fso:no-container="true">
   <error name="PolicyUnknown">
     <doc:doc>
       <doc:description>
@@ -75,6 +62,19 @@
       </doc:description>
     </doc:doc>
   </error>
+</fso:errordomain>
+
+<interface name="org.freesmartphone.Usage">
+
+  <doc:doc>
+    <doc:para>
+      The Usage interface provides access to subsystem resource management policies.
+      The usage manager keeps track of all users per resource and will enable or disable the
+      associated hardware/software as requested. Before an application can make use of a subsystem,
+      it needs to request the resource first and is only allowed to use it if the request
+      has been granted.
+    </doc:para>
+  </doc:doc>
 
   <!-- Methods -->
 
@@ -112,6 +112,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
   </method>
 
   <method name="SetResourcePolicy">
@@ -129,6 +130,7 @@
         <doc:summary>The new resource policy. See org.freesmartphone.Usage.GetResourcePolicy for a list of valid values.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
   </method>
 
   <method name="GetResourceState">
@@ -148,6 +150,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
   </method>
 
   <method name="GetResourceUsers">
@@ -165,6 +168,7 @@
         <doc:summary>An array of bus names using the resource.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
   </method>
 
   <method name="RequestResource">
@@ -179,6 +183,7 @@
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
   </method>
 
   <method name="ReleaseResource">
@@ -192,6 +197,7 @@
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
   </method>
 
   <method name="Suspend">

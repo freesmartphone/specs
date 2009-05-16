@@ -1,10 +1,20 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-resource-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-resource-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org Resource Interface</doc:summary>
   <doc:version>0.5.0</doc:version>
 </doc:doc>
+
+<fso:errordomain name="org.freesmartphone.Resource" fso:no-container="true">
+  <error name="NotEnabled">
+    <doc:doc>
+      <doc:description>
+        Raised, if the resource is not enabled.
+      </doc:description>
+    </doc:doc>
+  </error>
+</fso:errordomain>
 
 <interface name="org.freesmartphone.Resource">
 
@@ -16,16 +26,6 @@
       solely interact using the org.freesmartphone.Usage API.
     </doc:para>
   </doc:doc>
-
-  <!-- Errors -->
-
-  <error name="NotEnabled">
-    <doc:doc>
-      <doc:description>
-        Raised, if the resource is not enabled.
-      </doc:description>
-    </doc:doc>
-  </error>
 
   <!-- Methods -->
 
@@ -41,6 +41,7 @@
     <doc:doc>
       <doc:description>Disable the resource.</doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone.Resource" />
   </method>
 
   <method name="Suspend">
@@ -48,6 +49,7 @@
     <doc:doc>
       <doc:description>Suspend the resource.</doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone.Resource" />
   </method>
 
   <method name="Resume">
@@ -55,6 +57,7 @@
     <doc:doc>
       <doc:description>Resume the resource.</doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone.Resource" />
   </method>
 
 </interface>
