@@ -219,6 +219,31 @@
     </arg>
   </method>
 
+  <signal name="KeypadEvent">
+    <doc:doc>
+      <doc:description>
+        Sent, when a keypad input event occurs.
+      </doc:description>
+      <doc:inote>
+        This usually maps to the 3GPP URC +CKEV, see 3GPP 07.10, Chapter 8.
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="name">
+      <doc:doc>
+        <doc:summary>
+          The name of the event source.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="b" name="pressed">
+      <doc:doc>
+        <doc:summary>
+          True, if the keypad key has been pressed. False, otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
   <method name="GetSimBuffersSms">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
     <doc:doc>
