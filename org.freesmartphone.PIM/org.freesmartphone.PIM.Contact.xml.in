@@ -37,7 +37,7 @@
     <arg direction="in" type="s" name="field_list">
       <doc:doc>
         <doc:summary>
-          The list of fields to get.
+          The list of fields to get, split by "," (coma) char.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -45,6 +45,21 @@
       <doc:doc>
         <doc:summary>
           The data of the requested fields.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetUsedBackends">
+    <doc:doc>
+      <doc:description>
+        Get used backends in one contact.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="as" name="backends">
+      <doc:doc>
+        <doc:summary>
+          The list of backends used in this contact.
         </doc:summary>
       </doc:doc>
     </arg>
