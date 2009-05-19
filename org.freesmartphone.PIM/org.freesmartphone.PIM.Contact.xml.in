@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-contact-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org PIM.Contact Interface</doc:summary>
@@ -14,6 +14,7 @@
   </doc:doc>
 
   <method name="GetContent">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
     <doc:doc>
       <doc:description>
         Get the fields of one contact.
@@ -29,6 +30,7 @@
   </method>
 
   <method name="GetMultipleFields">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
     <doc:doc>
       <doc:description>
         Get a specified field list of the contact's data.
@@ -66,6 +68,7 @@
   </method>
 
   <method name="Update">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
     <doc:doc>
       <doc:description>
         Update one or more fields of this contact.
@@ -81,6 +84,7 @@
   </method>
 
   <method name="Delete">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
     <doc:doc>
       <doc:description>
         Delete this contact.

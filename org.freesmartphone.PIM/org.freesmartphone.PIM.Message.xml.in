@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-message-interface">
 
 <doc:doc>
-  <doc:summary>freesmartphone.org PIM.Messages Interface</doc:summary>
+  <doc:summary>freesmartphone.org PIM.Message Interface</doc:summary>
 </doc:doc>
 
-<interface name="org.freesmartphone.PIM.Messages">
+<interface name="org.freesmartphone.PIM.Message">
 
   <doc:doc>
     <doc:para>
@@ -14,6 +14,7 @@
   </doc:doc>
 
   <method name="GetContent">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
     <doc:doc>
       <doc:description>
         Get the content of one message.
@@ -29,6 +30,7 @@
   </method>
 
   <method name="GetMultipleFields">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
     <doc:doc>
       <doc:description>
         Get the content for a list of fields from the message.
@@ -44,6 +46,7 @@
   </method>
 
   <method name="MoveToFolder">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
     <doc:doc>
       <doc:description>
         Move this message to a different folder.

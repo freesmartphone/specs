@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-message-folder-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org PIM.MessageFolder Interface</doc:summary>
@@ -14,6 +14,7 @@
   </doc:doc>
 
   <method name="GetMessageCount">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messagefolder" />
     <doc:doc>
       <doc:description>
         Get the count of messages that reside in this folder.
@@ -29,6 +30,7 @@
   </method>
 
   <method name="GetMessagePaths">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messagefolder" />
     <doc:doc>
       <doc:description>
         Get the message paths for some messages in this folder.

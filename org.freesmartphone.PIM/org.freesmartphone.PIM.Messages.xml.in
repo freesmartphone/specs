@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-messages-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org PIM.Messages Interface</doc:summary>
@@ -14,6 +14,7 @@
   </doc:doc>
 
   <method name="Add">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messages" />
     <doc:doc>
       <doc:description>
         Add a new message to the default message backend.
@@ -36,6 +37,7 @@
   </method>
 
   <method name="GetSingleMessageSingleField">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messages" />
     <doc:doc>
       <doc:description>
         Query the content of a single field of one message.
@@ -65,6 +67,7 @@
   </method>
 
   <method name="Query">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messages" />
     <doc:doc>
       <doc:description>
         Query a list of messages.
@@ -87,6 +90,7 @@
   </method>
 
   <method name="GetFolderNames">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messages" />
     <doc:doc>
       <doc:description>
         Get the list of folder names that exist in the message backends.
@@ -102,6 +106,7 @@
   </method>
 
   <method name="GetFolderPathFromName">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messages" />
     <doc:doc>
       <doc:description>
         Get a folder's dbus path from its name.

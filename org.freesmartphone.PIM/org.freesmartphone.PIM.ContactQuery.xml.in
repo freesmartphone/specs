@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-phone-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-contactquery-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org PIM.ContactQuery Interface</doc:summary>
@@ -14,6 +14,7 @@
   </doc:doc>
 
   <method name="GetResultCount">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contactquery" />
     <doc:doc>
       <doc:description>Return the number of items in the query result</doc:description>
     </doc:doc>
@@ -27,6 +28,7 @@
   </method>
 
   <method name="Rewind">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contactquery" />
     <doc:doc>
       <doc:description>
         Rewind the result cursor to the first contact (for this dbus client only).
@@ -35,6 +37,7 @@
   </method>
 
   <method name="Skip">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contactquery" />
     <doc:doc>
       <doc:description>
         Skip n contacts in the result cursor (for this dbus client only).
@@ -50,6 +53,7 @@
   </method>
 
   <method name="GetContactPath">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contactquery" />
     <doc:doc>
       <doc:description>
         Path for the contact the result cursor points to.
@@ -63,8 +67,9 @@
       </doc:doc>
     </arg>
   </method>
-  
+
   <method name="GetResult">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contactquery" />
     <doc:doc>
       <doc:description>
         Return the next contact in the query result, and move the query to the next contact.
@@ -102,6 +107,7 @@
   </method>
 
   <method name="Dispose">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contactquery" />
     <doc:doc>
       <doc:description>
         Delete the query result object.
