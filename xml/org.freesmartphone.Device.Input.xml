@@ -2,6 +2,14 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.Device.Input">
+    <method name="GetId">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_input"/>
+      <arg direction="out" type="s" name="id"/>
+    </method>
+    <method name="GetCapabilities">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_input"/>
+      <arg direction="out" type="s" name="id"/>
+    </method>
     <signal name="Event">
       <arg type="s" name="name"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="action" fso:type="org.freesmartphone.Device.InputState"/>

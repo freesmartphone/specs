@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Input Interface</doc:summary>
-  <doc:version>0.1.1</doc:version>
+  <doc:version>0.2.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.Input">
@@ -13,6 +13,44 @@
       The Input Interface provides information about the device's buttons, switches, and similar peripheral entities.
     </doc:para>
   </doc:doc>
+
+  <method name="GetId">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_input" />
+    <doc:doc>
+      <doc:description>Get the identification of the input device.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="s" name="id">
+      <doc:doc>
+        <doc:summary>
+          The identification.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetCapabilities">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_input" />
+    <doc:doc>
+      <doc:description>Get the capabilities of the input device.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="s" name="id">
+      <doc:doc>
+        <doc:summary>
+          The capabilities. Valid elements are:
+          [ul]
+            [li]"keys"[/li],
+            [li]"relative"[/li],
+            [li]"absolute"[/li],
+            [li]"misc"[/li],
+            [li]"switches"[/li],
+            [li]"leds"[/li],
+            [li]"sound"[/li],
+            [li]"force-feedback"[/li].
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
 
   <signal name="Event">
     <doc:doc>
@@ -58,5 +96,5 @@
   <fso:member name="held" value="held"/>
   <fso:member name="released" value="released"/>
 </fso:enumeration>
-              
+
 </node>
