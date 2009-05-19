@@ -49,11 +49,15 @@
     </arg>
   </method>
 
+<!-- leads to a name collission in vala-dbus-binding-tool (free_smartphone_pim_source_init also used as type init)
+
   <method name="Init">
     <doc:doc>
       <doc:description>Init backend source.</doc:description>
     </doc:doc>
   </method>
+
+-->
 
   <method name="Enable">
     <doc:doc>
