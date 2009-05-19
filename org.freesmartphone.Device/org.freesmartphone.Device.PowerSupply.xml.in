@@ -50,7 +50,7 @@
     <arg direction="out" type="s" name="status" fso:type="org.freesmartphone.Device.PowerStatus">
       <doc:doc>
         <doc:summary>
-          The power status. Expected values are:
+          The power status. Expected values for a battery are:
           [ul]
             [li]"charging"[/li]
             [li]"discharging"[/li]
@@ -59,6 +59,11 @@
             [li]"critical"[/li]
             [li]"ac"[/li]
             [li]"unknown"[/li]
+          [/ul]
+          Expected values for an ac adapter are:
+          [ul]
+            [li]"online"[/li]
+            [li]"offline"[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
@@ -97,5 +102,7 @@
   <fso:member name="critical" value="critical"/>
   <fso:member name="ac" value="ac"/>
   <fso:member name="unknown" value="unknown"/>
+  <fso:member name="online" value="online"/>
+  <fso:member name="offline" value="offline"/>
 </fso:enumeration>
 </node>

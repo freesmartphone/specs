@@ -26,5 +26,7 @@
     <fso:member name="critical" value="critical"/>
     <fso:member name="ac" value="ac"/>
     <fso:member name="unknown" value="unknown"/>
+    <fso:member name="online" value="online"/>
+    <fso:member name="offline" value="offline"/>
   </fso:enumeration>
 </node>
