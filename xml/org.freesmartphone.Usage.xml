@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
-  <interface name="org.freesmartphone.Usage">
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.ResourceName">
+    <fso:member name="gsm" value="GSM"/>
+    <fso:member name="gps" value="GPS"/>
+    <fso:member name="wifi" value="WiFi"/>
+    <fso:member name="bluetooth" value="Bluetooth"/>
+    <fso:member name="display" value="Display"/>
+    <fso:member name="cpu" value="CPU"/>
+  </fso:enumeration>
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Usage" fso:no-container="true">
     <error name="PolicyUnknown"/>
     <error name="PolicyDisabled"/>
     <error name="ResourceUnknown"/>
@@ -9,37 +17,45 @@
     <error name="ResourceInUse"/>
     <error name="UserExists"/>
     <error name="UserUnknown"/>
+  </fso:errordomain>
+  <interface name="org.freesmartphone.Usage">
     <method name="ListResources">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
-      <arg direction="out" type="as" name="resources"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="out" type="as" name="resources" fso:type="org.freesmartphone.ResourceName"/>
     </method>
     <method name="GetResourcePolicy">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
-      <arg direction="in" type="s" name="name"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
       <arg direction="out" type="s" name="policy"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="SetResourcePolicy">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
-      <arg direction="in" type="s" name="name"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
       <arg direction="in" type="s" name="policy"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="GetResourceState">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
-      <arg direction="in" type="s" name="name"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
       <arg direction="out" type="b" name="state"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="GetResourceUsers">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
-      <arg direction="in" type="s" name="name"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
       <arg direction="out" type="as" name="users"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="RequestResource">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
-      <arg direction="in" type="s" name="name"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="ReleaseResource">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
-      <arg direction="in" type="s" name="name"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="Suspend">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
@@ -51,11 +67,11 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
     </method>
     <signal name="ResourceAvailable">
-      <arg type="s" name="name"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
       <arg type="b" name="availability"/>
     </signal>
     <signal name="ResourceChanged">
-      <arg type="s" name="name"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
       <arg type="b" name="state"/>
       <arg type="a{sv}" name="attributes"/>
     </signal>

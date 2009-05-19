@@ -24,9 +24,10 @@
     <fso:member name="full" value="full"/>
     <fso:member name="empty" value="empty"/>
     <fso:member name="critical" value="critical"/>
-    <fso:member name="ac" value="ac"/>
+    <fso:member name="removed" value="critical"/>
     <fso:member name="unknown" value="unknown"/>
     <fso:member name="online" value="online"/>
     <fso:member name="offline" value="offline"/>
+    <fso:member name="ac" value="ac"/>
   </fso:enumeration>
 </node>
