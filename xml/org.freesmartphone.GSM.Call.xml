@@ -2,28 +2,30 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.Call">
-    <error name="NotFound"/>
-    <error name="NotAnEmergencyNumber"/>
     <method name="Emergency">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
       <arg type="s" name="number" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Call.Error"/>
     </method>
     <signal name="CallStatus">
       <arg type="i" name="id"/>
-      <arg type="s" name="status"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.CallStatus"/>
       <arg type="a{sv}" name="properties"/>
     </signal>
     <method name="Activate">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
       <arg type="i" name="id" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Call.Error"/>
     </method>
     <method name="ActivateConference">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
       <arg type="i" name="id" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Call.Error"/>
     </method>
     <method name="Release">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
       <arg type="i" name="id" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Call.Error"/>
     </method>
     <method name="HoldActive">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
@@ -46,14 +48,31 @@
       <arg type="s" name="number" direction="in"/>
       <arg type="s" name="type" direction="in"/>
       <arg type="i" name="id" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Call.Error"/>
     </method>
     <method name="ListCalls">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
-      <arg type="a(isa{sv})" name="call_status" direction="out"/>
+      <arg type="a(isa{sv})" name="call_details" direction="out"/>
     </method>
     <method name="SendDtmf">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_call"/>
       <arg type="s" name="tones" direction="in"/>
     </method>
   </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.CallStatus">
+    <fso:member name="incoming" value="INCOMING"/>
+    <fso:member name="outgoing" value="OUTGOING"/>
+    <fso:member name="active" value="ACTIVE"/>
+    <fso:member name="held" value="HELD"/>
+    <fso:member name="release" value="RELEASE"/>
+  </fso:enumeration>
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.Call">
+    <error name="NotFound"/>
+    <error name="NotAnEmergencyNumber"/>
+  </fso:errordomain>
+  <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.CallDetail">
+    <fso:field name="id" type="i"/>
+    <fso:field name="status" type="s" fso:type="org.freesmartphone.GSM.CallStatus"/>
+    <fso:field name="properties" type="a{sv}"/>
+  </fso:struct>
 </node>

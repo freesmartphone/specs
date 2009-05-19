@@ -9,13 +9,22 @@
       <arg direction="out" type="i" name="energy"/>
     </method>
     <method name="GetPowerStatus">
-      <arg direction="out" type="s" name="status"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="out" type="s" name="status" fso:type="org.freesmartphone.Device.PowerStatus"/>
     </method>
     <signal name="PowerStatus">
-      <arg type="s" name="status"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.Device.PowerStatus"/>
     </signal>
     <signal name="Capacity">
       <arg type="i" name="energy"/>
     </signal>
   </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.PowerStatus" type="s">
+    <fso:member name="charging" value="charging"/>
+    <fso:member name="discharging" value="discharging"/>
+    <fso:member name="full" value="full"/>
+    <fso:member name="empty" value="empty"/>
+    <fso:member name="critical" value="critical"/>
+    <fso:member name="ac" value="ac"/>
+    <fso:member name="unknown" value="unknown"/>
+  </fso:enumeration>
 </node>

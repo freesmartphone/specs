@@ -2,13 +2,6 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.Device.Audio">
-    <error name="UnknownFormat"/>
-    <error name="PlayerError"/>
-    <error name="NotPlaying"/>
-    <error name="AlreadyPlaying"/>
-    <error name="ScenarioInvalid"/>
-    <error name="ScenarioStackUnderflow"/>
-    <error name="DeviceFailed"/>
     <method name="GetInfo">
       <arg direction="out" type="a{sv}" name="info"/>
     </method>
@@ -29,7 +22,7 @@
     <method name="StopAllSounds"/>
     <signal name="SoundStatus">
       <arg type="s" name="id"/>
-      <arg type="s" name="status"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.Device.SoundState"/>
       <arg type="a{sv}" name="properties"/>
     </signal>
     <method name="GetScenario">
@@ -49,4 +42,17 @@
       <arg type="s" name="reason"/>
     </signal>
   </interface>
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.Audio">
+    <error name="UnknownFormat"/>
+    <error name="PlayerError"/>
+    <error name="NotPlaying"/>
+    <error name="AlreadyPlaying"/>
+    <error name="ScenarioInvalid"/>
+    <error name="ScenarioStackUnderflow"/>
+    <error name="DeviceFailed"/>
+  </fso:errordomain>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.SoundState" type="s">
+    <fso:member name="playing" value="playing"/>
+    <fso:member name="stopped" value="stopped"/>
+  </fso:enumeration>
 </node>

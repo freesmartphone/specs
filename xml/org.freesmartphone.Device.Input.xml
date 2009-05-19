@@ -4,8 +4,13 @@
   <interface name="org.freesmartphone.Device.Input">
     <signal name="Event">
       <arg type="s" name="name"/>
-      <arg type="s" name="action"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="action" fso:type="org.freesmartphone.Device.InputState"/>
       <arg type="i" name="seconds"/>
     </signal>
   </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.InputState" type="s">
+    <fso:member name="pressed" value="pressed"/>
+    <fso:member name="held" value="held"/>
+    <fso:member name="released" value="released"/>
+  </fso:enumeration>
 </node>

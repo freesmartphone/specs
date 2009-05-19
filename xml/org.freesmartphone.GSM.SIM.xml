@@ -10,10 +10,10 @@
     <error name="InvalidIndex"/>
     <method name="GetAuthStatus">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
-      <arg type="s" name="status" direction="out"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.SIMAuthStatus"/>
     </method>
     <signal name="AuthStatus">
-      <arg type="s" name="status"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.SIMAuthStatus"/>
     </signal>
     <method name="SendAuthCode">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
@@ -155,4 +155,11 @@
       <arg type="a{sv}" name="properties" direction="out"/>
     </method>
   </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.SIMAuthStatus">
+    <fso:member name="ready" value="READY"/>
+    <fso:member name="pin-required" value="SIM PIN"/>
+    <fso:member name="puk-required" value="SIM PUK"/>
+    <fso:member name="pin2-required" value="SIM PIN2"/>
+    <fso:member name="puk2-required" value="SIM PUK2"/>
+  </fso:enumeration>
 </node>

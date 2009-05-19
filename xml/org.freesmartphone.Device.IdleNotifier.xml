@@ -4,7 +4,7 @@
   <interface name="org.freesmartphone.Device.IdleNotifier">
     <method name="GetState">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
-      <arg direction="out" type="s" name="status"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="out" type="s" name="status" fso:type="org.freesmartphone.Device.IdleState"/>
     </method>
     <method name="GetTimeouts">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
@@ -17,10 +17,19 @@
     </method>
     <method name="SetState">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
-      <arg direction="in" type="s" name="status"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="status" fso:type="org.freesmartphone.Device.IdleState"/>
     </method>
     <signal name="State">
-      <arg type="s" name="status"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.Device.IdleState"/>
     </signal>
   </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.IdleState" type="s">
+    <fso:member name="busy" value="busy"/>
+    <fso:member name="idle" value="idle"/>
+    <fso:member name="idle-dim" value="idle_dim"/>
+    <fso:member name="idle-prelock" value="idle_prelock"/>
+    <fso:member name="lock" value="lock"/>
+    <fso:member name="suspend" value="suspend"/>
+    <fso:member name="awake" value="awake"/>
+  </fso:enumeration>
 </node>

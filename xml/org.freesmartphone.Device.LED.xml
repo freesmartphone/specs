@@ -10,17 +10,20 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led"/>
       <arg direction="in" type="i" name="on_duration"/>
       <arg direction="in" type="i" name="off_duration"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="BlinkSeconds">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led"/>
       <arg direction="in" type="i" name="seconds"/>
       <arg direction="in" type="i" name="on_duration"/>
       <arg direction="in" type="i" name="off_duration"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="SetNetworking">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led"/>
       <arg direction="in" type="s" name="interface"/>
       <arg direction="in" type="s" name="mode"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
   </interface>
 </node>
