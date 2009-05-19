@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-info-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Device Information Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.Info">
+
+  <doc:doc>
+    <doc:para>
+      The Device Information Interface provides information about the device's software and hardware parameters.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetCpuInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_info" />
+    <doc:doc>
+      <doc:description>Get the CPU information.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{sv}" name="info">
+      <doc:doc>
+        <doc:summary>
+          The CPU information.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+
+</node>
+
