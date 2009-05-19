@@ -91,7 +91,7 @@
 
   <method name="SetAsDefault">
     <doc:doc>
-      <doc:description>Set this backend as default in specified domain.</doc:descriptio$
+      <doc:description>Set this backend as default in specified domain.</doc:description>
     </doc:doc>
     <arg type="s" name="domain" direction="in">
         <doc:doc>
