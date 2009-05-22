@@ -49,7 +49,7 @@
       <arg type="s" name="reason"/>
     </signal>
   </interface>
-  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.Audio">
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.Audio" fso:no-container="true">
     <error name="UnknownFormat"/>
     <error name="PlayerError"/>
     <error name="NotPlaying"/>

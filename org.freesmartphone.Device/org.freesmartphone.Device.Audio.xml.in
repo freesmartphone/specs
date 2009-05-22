@@ -251,7 +251,7 @@
 
 </interface>
 
-<fso:errordomain name="org.freesmartphone.Device.Audio">
+<fso:errordomain name="org.freesmartphone.Device.Audio" fso:no-container="true">
   <error name="UnknownFormat">
     <doc:doc>
       <doc:description>
