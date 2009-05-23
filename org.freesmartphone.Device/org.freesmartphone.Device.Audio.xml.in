@@ -78,7 +78,7 @@
         Play a sound resource.
       </doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="id">
+    <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>
           The identification of the sound resource. Will be treated as filename, if no schema is given.
@@ -113,7 +113,7 @@
         Stop playing a sound resource.
       </doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="id">
+    <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>
           The identification of the sound resource. Will be treated as filename, if no schema is given.

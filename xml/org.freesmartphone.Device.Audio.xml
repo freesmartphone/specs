@@ -16,14 +16,14 @@
     </method>
     <method name="PlaySound">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
-      <arg direction="in" type="s" name="id"/>
+      <arg direction="in" type="s" name="name"/>
       <arg direction="in" type="i" name="loop"/>
       <arg direction="in" type="i" name="length"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.Audio"/>
     </method>
     <method name="StopSound">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
-      <arg direction="in" type="s" name="id"/>
+      <arg direction="in" type="s" name="name"/>
     </method>
     <method name="StopAllSounds">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
