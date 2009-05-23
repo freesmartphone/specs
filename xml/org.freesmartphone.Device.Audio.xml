@@ -41,11 +41,11 @@
     </method>
     <method name="PushScenario">
       <arg direction="in" type="s" name="scenario"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.AudioError"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.Audio"/>
     </method>
     <method name="PullScenario">
       <arg direction="out" type="s" name="scenario"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.AudioError"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.Audio"/>
     </method>
     <signal name="Scenario">
       <arg type="s" name="scenario"/>
