@@ -103,6 +103,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Device.AudioError" />
   </method>
 
   <method name="StopSound">
@@ -207,6 +208,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Device.AudioError" />
   </method>
 
   <method name="PullScenario">
@@ -222,6 +224,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Device.AudioError" />
   </method>
 
   <signal name="Scenario">

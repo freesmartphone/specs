@@ -19,6 +19,7 @@
       <arg direction="in" type="s" name="id"/>
       <arg direction="in" type="i" name="loop"/>
       <arg direction="in" type="i" name="length"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.AudioError"/>
     </method>
     <method name="StopSound">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
@@ -40,9 +41,11 @@
     </method>
     <method name="PushScenario">
       <arg direction="in" type="s" name="scenario"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.AudioError"/>
     </method>
     <method name="PullScenario">
       <arg direction="out" type="s" name="scenario"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.AudioError"/>
     </method>
     <signal name="Scenario">
       <arg type="s" name="scenario"/>
