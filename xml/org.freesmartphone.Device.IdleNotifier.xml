@@ -12,7 +12,7 @@
     </method>
     <method name="SetTimeout">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
-      <arg direction="in" type="s" name="state"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="status" fso:type="org.freesmartphone.Device.IdleState"/>
       <arg direction="in" type="i" name="timeout"/>
     </method>
     <method name="SetState">

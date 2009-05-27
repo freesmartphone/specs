@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Idle Notification Interface</doc:summary>
-  <doc:version>0.4.2</doc:version>
+  <doc:version>0.4.3</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.IdleNotifier">
@@ -56,7 +56,7 @@
     <doc:doc>
       <doc:description>Sets a timeout value for a given state.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="state">
+    <arg direction="in" type="s" name="status" fso:type="org.freesmartphone.Device.IdleState">
       <doc:doc>
         <doc:summary>
           The idle status. See org.freesmartphone.Device.IdleNotifier.GetState for a list of valid values.
