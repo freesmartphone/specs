@@ -58,7 +58,7 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
     </method>
     <signal name="ResourceAvailable">
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="name" fso:type="org.freesmartphone.ResourceName"/>
+      <arg type="s" name="name"/>
       <arg type="b" name="availability"/>
     </signal>
     <signal name="ResourceChanged">

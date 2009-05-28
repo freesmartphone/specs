@@ -219,7 +219,7 @@
     <doc:doc>
       <doc:description>Sent whenever a resource is added or removed.</doc:description>
     </doc:doc>
-    <arg type="s" name="name" fso:type="org.freesmartphone.ResourceName">
+    <arg type="s" name="name">
       <doc:doc>
         <doc:summary>The name of the resource.</doc:summary>
       </doc:doc>
