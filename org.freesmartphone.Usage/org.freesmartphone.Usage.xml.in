@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Usage Interface</doc:summary>
-  <doc:version>0.9.0</doc:version>
+  <doc:version>0.9.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Usage">
@@ -88,7 +88,7 @@
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
     </arg>
-    <arg direction="out" type="s" name="policy">
+    <arg direction="out" type="s" name="policy" fso:type="org.freesmartphone.Usage.ResourcePolicy">
       <doc:doc>
         <doc:summary>
           The resource policy. Expected values are:
@@ -113,7 +113,7 @@
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
     </arg>
-    <arg direction="in" type="s" name="policy">
+    <arg direction="in" type="s" name="policy" fso:type="org.freesmartphone.Usage.ResourcePolicy">
       <doc:doc>
         <doc:summary>The new resource policy. See org.freesmartphone.Usage.GetResourcePolicy for a list of valid values.</doc:summary>
       </doc:doc>
@@ -346,5 +346,11 @@
     </doc:doc>
   </error>
 </fso:errordomain>
+
+<fso:enumeration name="org.freesmartphone.Usage.ResourcePolicy" type="s">
+  <fso:member name="auto" value="auto"/>
+  <fso:member name="disabled" value="disabled"/>
+  <fso:member name="enabled" value="enabled"/>
+</fso:enumeration>
 
 </node>

@@ -19,13 +19,13 @@
     <method name="GetResourcePolicy">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
       <arg direction="in" type="s" name="name"/>
-      <arg direction="out" type="s" name="policy"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="out" type="s" name="policy" fso:type="org.freesmartphone.Usage.ResourcePolicy"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="SetResourcePolicy">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
       <arg direction="in" type="s" name="name"/>
-      <arg direction="in" type="s" name="policy"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="policy" fso:type="org.freesmartphone.Usage.ResourcePolicy"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="GetResourceState">
@@ -81,4 +81,9 @@
     <error name="UserExists"/>
     <error name="UserUnknown"/>
   </fso:errordomain>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Usage.ResourcePolicy" type="s">
+    <fso:member name="auto" value="auto"/>
+    <fso:member name="disabled" value="disabled"/>
+    <fso:member name="enabled" value="enabled"/>
+  </fso:enumeration>
 </node>
