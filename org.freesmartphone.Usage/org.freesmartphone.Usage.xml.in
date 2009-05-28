@@ -43,6 +43,11 @@
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
     </arg>
+    <arg direction="in" type="o" name="path">
+      <doc:doc>
+        <doc:summary>The resource path.</doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
   <method name="UnregisterResource">

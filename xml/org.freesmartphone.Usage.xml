@@ -5,6 +5,7 @@
     <method name="RegisterResource">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
       <arg direction="in" type="s" name="name"/>
+      <arg direction="in" type="o" name="path"/>
     </method>
     <method name="UnregisterResource">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
