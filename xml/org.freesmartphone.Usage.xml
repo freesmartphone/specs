@@ -6,6 +6,7 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
       <arg direction="in" type="s" name="name"/>
       <arg direction="in" type="o" name="path"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="UnregisterResource">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
