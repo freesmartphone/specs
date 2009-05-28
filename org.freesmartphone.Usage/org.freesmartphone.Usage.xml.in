@@ -3,81 +3,14 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Usage Interface</doc:summary>
-  <doc:version>0.5.0</doc:version>
+  <doc:version>0.9.0</doc:version>
 </doc:doc>
-
-<fso:enumeration type="s" name="org.freesmartphone.ResourceName">
-  <fso:member name="gsm" value="GSM"/>
-  <fso:member name="gps" value="GPS"/>
-  <fso:member name="wifi" value="WiFi"/>
-  <fso:member name="bluetooth" value="Bluetooth"/>
-  <fso:member name="display" value="Display"/>
-  <fso:member name="cpu" value="CPU"/>
-</fso:enumeration>
-
-<fso:errordomain name="org.freesmartphone.Usage" fso:no-container="true">
-  <error name="PolicyUnknown">
-    <doc:doc>
-      <doc:description>
-        Raised, if the requested policy is unknown.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="PolicyDisabled">
-    <doc:doc>
-      <doc:description>
-        Raised, if the requested resource is set to policy "disabled".
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="ResourceUnknown">
-    <doc:doc>
-      <doc:description>
-        Raised, if the requested resource is unknown.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="ResourceExists">
-    <doc:doc>
-      <doc:description>
-        Raised, if a (new) resource has already been registered.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="ResourceInUse">
-    <doc:doc>
-      <doc:description>
-        Raised, if the to-be-disabled (by policy) resource is still in use.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="UserExists">
-    <doc:doc>
-      <doc:description>
-        Raised, if the requested resource has already been requested by the same user.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="UserUnknown">
-    <doc:doc>
-      <doc:description>
-        Raised, if the to-be-released resource has never been requested by the user.
-      </doc:description>
-    </doc:doc>
-  </error>
-</fso:errordomain>
 
 <interface name="org.freesmartphone.Usage">
 
   <doc:doc>
     <doc:para>
-      The Usage interface provides access to subsystem resource management policies.
+      The Usage interface provides access to subsystem resource management.
       The usage manager keeps track of all users per resource and will enable or disable the
       associated hardware/software as requested. Before an application can make use of a subsystem,
       it needs to request the resource first and is only allowed to use it if the request
@@ -85,14 +18,54 @@
     </doc:para>
   </doc:doc>
 
-  <!-- Methods -->
+  <!-- Methods for providers -->
+
+  <method name="RegisterResource">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
+    <doc:doc>
+      <doc:description>Register yourself as provider for a given resource.</doc:description>
+      <doc:inote>
+        Providers can chose the name of the resource freely, note that there are
+        some well known names such as:
+          [ul]
+            [li]"GSM",[/li]
+            [li]"GPS",[/li]
+            [li]"Bluetooth",[/li]
+            [li]"WiFi",[/li]
+            [li]"Display",[/li]
+            [li]"CPU".[/li]
+          [/ul]
+        In any case, only one provider per resource can be registered at a given time.
+      </doc:inote>
+    </doc:doc>
+    <arg direction="in" type="s" name="name">
+      <doc:doc>
+        <doc:summary>The resource name.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="UnregisterResource">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
+    <doc:doc>
+      <doc:description>Unregister yourself as provider for a given resource.</doc:description>
+      <doc:inote>Leaving the bus will automatically unregister yourself for all resources you are providing.</doc:inote>
+    </doc:doc>
+    <arg direction="in" type="s" name="name">
+      <doc:doc>
+        <doc:summary>The resource name.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <!-- Methods for consumers -->
 
   <method name="ListResources">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage" />
     <doc:doc>
       <doc:description>List available resources.</doc:description>
     </doc:doc>
-    <arg direction="out" type="as" name="resources" fso:type="org.freesmartphone.ResourceName">
+    <arg direction="out" type="as" name="resources">
       <doc:doc>
         <doc:summary>An array of resource names.</doc:summary>
       </doc:doc>
@@ -104,7 +77,7 @@
     <doc:doc>
       <doc:description>Get the current resource policy for a given resource.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
+    <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -129,7 +102,7 @@
     <doc:doc>
       <doc:description>Set a new resource policy for a given resource.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
+    <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -147,7 +120,7 @@
     <doc:doc>
       <doc:description>Get the current state for a given resource.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
+    <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -167,7 +140,7 @@
     <doc:doc>
       <doc:description>Get the users which currently use a given resource.</doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
+    <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -187,7 +160,7 @@
         Request occupation of a given resource. An error is returned if the resource was not occupied sucessfully.
       </doc:description>
     </doc:doc>
-    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
+    <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -201,7 +174,7 @@
       <doc:description>Release a given resource.</doc:description>
       <doc:inote>Resources in use get autoreleased when a client leaves the bus.</doc:inote>
     </doc:doc>
-    <arg direction="in" type="s" name="name" fso:type="org.freesmartphone.ResourceName">
+    <arg direction="in" type="s" name="name">
       <doc:doc>
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
@@ -264,7 +237,7 @@
     <doc:doc>
       <doc:description>Sent whenever a resource status changes.</doc:description>
     </doc:doc>
-    <arg type="s" name="name" fso:type="org.freesmartphone.ResourceName">
+    <arg type="s" name="name">
       <doc:doc>
         <doc:summary>The name of the resource.</doc:summary>
       </doc:doc>
@@ -310,4 +283,62 @@
   </signal>
 
 </interface>
+<fso:errordomain name="org.freesmartphone.Usage" fso:no-container="true">
+  <error name="PolicyUnknown">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested policy is unknown.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="PolicyDisabled">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested resource is set to policy "disabled".
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ResourceUnknown">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested resource is unknown.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ResourceExists">
+    <doc:doc>
+      <doc:description>
+        Raised, if a (new) resource has already been registered.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="ResourceInUse">
+    <doc:doc>
+      <doc:description>
+        Raised, if the to-be-disabled (by policy) resource is still in use.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="UserExists">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested resource has already been requested by the same user.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="UserUnknown">
+    <doc:doc>
+      <doc:description>
+        Raised, if the to-be-released resource has never been requested by the user.
+      </doc:description>
+    </doc:doc>
+  </error>
+</fso:errordomain>
+
 </node>
