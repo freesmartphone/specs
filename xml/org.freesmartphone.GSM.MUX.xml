@@ -34,7 +34,7 @@
       <arg name="status" type="s" direction="in"/>
     </method>
     <signal name="Status">
-      <arg type="s" name="status" direction="in"/>
+      <arg type="s" name="status"/>
     </signal>
   </interface>
 </node>

@@ -273,7 +273,7 @@
     <doc:doc>
       <doc:description>Sent whenever a system state action is performed.</doc:description>
     </doc:doc>
-    <arg type="s" name="action">
+    <arg type="s" name="action" fso:type="org.freesmartphone.Usage.SystemAction">
       <doc:doc>
         <doc:summary>
           The name of the action. Expected values are:
@@ -348,9 +348,16 @@
 </fso:errordomain>
 
 <fso:enumeration name="org.freesmartphone.Usage.ResourcePolicy" type="s">
-  <fso:member name="auto" value="auto"/>
+  <fso:member name="auto"     value="auto"/>
   <fso:member name="disabled" value="disabled"/>
-  <fso:member name="enabled" value="enabled"/>
+  <fso:member name="enabled"  value="enabled"/>
+</fso:enumeration>
+
+<fso:enumeration name="org.freesmartphone.Usage.SystemAction" type="s">
+  <fso:member name="suspend"  value="suspend"/>
+  <fso:member name="resume"   value="resume"/>
+  <fso:member name="shutdown" value="shutdown"/>
+  <fso:member name="reboot"   value="reboot"/>
 </fso:enumeration>
 
 </node>

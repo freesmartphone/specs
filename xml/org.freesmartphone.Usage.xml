@@ -69,7 +69,7 @@
       <arg type="a{sv}" name="attributes"/>
     </signal>
     <signal name="SystemAction">
-      <arg type="s" name="action"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="action" fso:type="org.freesmartphone.Usage.SystemAction"/>
     </signal>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Usage" fso:no-container="true">
@@ -85,5 +85,11 @@
     <fso:member name="auto" value="auto"/>
     <fso:member name="disabled" value="disabled"/>
     <fso:member name="enabled" value="enabled"/>
+  </fso:enumeration>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Usage.SystemAction" type="s">
+    <fso:member name="suspend" value="suspend"/>
+    <fso:member name="resume" value="resume"/>
+    <fso:member name="shutdown" value="shutdown"/>
+    <fso:member name="reboot" value="reboot"/>
   </fso:enumeration>
 </node>

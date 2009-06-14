@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
-<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-mux-interface">
 
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-mux-interface">
 <doc:doc>
   <doc:summary>freesmartphone.org GSM MUX Interface</doc:summary>
   <doc:version>1.1.0</doc:version>
