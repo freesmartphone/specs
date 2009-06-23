@@ -131,17 +131,33 @@
   <signal name="NewMessage">
     <doc:doc>
       <doc:description>
-        Sent when a new message arrives.
+        Sent when a new message is loaded.
       </doc:description>
     </doc:doc>
     <arg type="s" name="message_path">
       <doc:doc>
         <doc:summary>
-          The path of the newly arrived message.
+          The path of the newly loaded message.
         </doc:summary>
       </doc:doc>
     </arg>
   </signal>
+
+  <signal name="IncomingMessage">
+    <doc:doc>
+      <doc:description>
+        Sent when a incoming message arrives.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="message_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the newly arrived incoming message.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
 
 </interface>
 
