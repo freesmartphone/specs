@@ -61,6 +61,32 @@
     </arg>
   </method>
 
+  <method name="Update">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
+    <doc:doc>
+      <doc:description>
+        Update one or more fields of this message.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="message_data">
+      <doc:doc>
+        <doc:summary>
+          The list of fields/values to update for this message.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Delete">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
+    <doc:doc>
+      <doc:description>
+        Delete this message.
+      </doc:description>
+    </doc:doc>
+  </method>
+
+
 </interface>
 
 </node>
