@@ -62,7 +62,7 @@
   </method>
 
   <method name="Update">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
     <doc:doc>
       <doc:description>
         Update one or more fields of this message.
@@ -78,7 +78,7 @@
   </method>
 
   <method name="Delete">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
     <doc:doc>
       <doc:description>
         Delete this message.
