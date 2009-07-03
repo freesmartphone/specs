@@ -14,7 +14,7 @@
   </doc:doc>
 
   <method name="GetContent">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the fields of one contact.
@@ -30,7 +30,7 @@
   </method>
 
   <method name="GetMultipleFields">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get a specified field list of the contact's data.
@@ -68,7 +68,7 @@
   </method>
 
   <method name="Update">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Update one or more fields of this contact.
@@ -84,7 +84,7 @@
   </method>
 
   <method name="Delete">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contact" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Delete this contact.

@@ -14,7 +14,7 @@
   </doc:doc>
 
   <method name="GetMessageCount">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messagefolder" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the count of messages that reside in this folder.
@@ -30,7 +30,7 @@
   </method>
 
   <method name="GetMessagePaths">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_messagefolder" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the message paths for some messages in this folder.

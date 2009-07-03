@@ -41,7 +41,7 @@
   </error>
 
   <method name="GetInfo" implementation="mandatory">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get information about the GSM device.</doc:description>
       <doc:inote>
@@ -73,7 +73,7 @@
   </method>
 
   <method name="GetAntennaPower">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
         <doc:description>Retrieve antenna power status from the device.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +CFUN=?, see 3GPP TS 07.07 Chapter 8.2.</doc:inote>
@@ -86,7 +86,7 @@
   </method>
 
   <method name="SetAntennaPower">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
         <doc:description>
           Set antenna power status for this device. Will raise org.freesmartphone.GSM.SIM.AuthFailed,
@@ -102,7 +102,7 @@
   </method>
 
   <method name="GetFeatures">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get information about the telephony features supported by this device.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +GCAP, see 3GPP TS 07.07 Chapter 5.8.</doc:inote>
@@ -126,7 +126,7 @@
   </method>
 
   <method name="GetSpeakerVolume">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Retrieve the current loudspeaker volume.
@@ -141,7 +141,7 @@
   </method>
 
   <method name="SetSpeakerVolume">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:description>
       Set the current loudspeaker volume.
     </doc:description>
@@ -156,7 +156,7 @@
   </method>
 
   <method name="GetMicrophoneMuted">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Retrieve whether the microphone is currently muted.
@@ -171,7 +171,7 @@
   </method>
 
   <method name="SetMicrophoneMuted">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:description>
       Mute or unmute the microphone.
     </doc:description>
@@ -186,7 +186,7 @@
   </method>
 
   <method name="GetPowerStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Retrieve the power status. This call is not implemented on most smartphones,
@@ -245,7 +245,7 @@
   </signal>
 
   <method name="GetSimBuffersSms">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Retrieve whether incoming SMS are buffered on the SIM (in which case
@@ -262,7 +262,7 @@
   </method>
 
   <method name="SetSimBuffersSms">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:description>
       Set whether incoming SMS should be buffered on the SIM (in which case
       org.freesmartphone.GSM.SIM.IncomingStoredMessage is sent) or sent directly via

@@ -14,7 +14,7 @@
   </doc:doc>
 
   <method name="Add">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contacts" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Add a new contact to the default backend for contacts.
@@ -37,7 +37,7 @@
   </method>
 
   <method name="GetSingleContactSingleField">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contacts" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Query the content of one field of one contact.
@@ -67,7 +67,7 @@
   </method>
 
   <method name="Query">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_contacts" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Start a query for contacts.

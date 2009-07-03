@@ -15,7 +15,7 @@
   </doc:doc>
 
   <method name="GetPower">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the power status.</doc:description>
     </doc:doc>
@@ -27,7 +27,7 @@
   </method>
 
   <method name="SetPower">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Power the device on, or turn the device off.</doc:description>
     </doc:doc>

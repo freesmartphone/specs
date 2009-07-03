@@ -32,7 +32,7 @@
   </doc:doc>
 
   <method name="GetKeys">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Retrieve all the keys of the service.
@@ -48,7 +48,7 @@
   </method>
 
   <method name="GetValue">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get a parameter value.
@@ -67,7 +67,7 @@
   </method>
 
   <method name="SetValue">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Set a parameter value.
@@ -87,7 +87,7 @@
 
 
   <method name="IsProfilable">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Return true if a parameter depends on the current profile.
@@ -106,7 +106,7 @@
   </method>
 
   <method name="GetType">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Return a string representing the type of the parameter.
@@ -125,7 +125,7 @@
   </method>
 
   <signal name="Notify">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences_service" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Sent whenever there is a change in a parameter value in the service

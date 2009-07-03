@@ -19,7 +19,7 @@
   <!-- INFORMATIONAL -->
 
   <method name="GetInfo">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Returns information about the audio hardware.
@@ -38,7 +38,7 @@
   </method>
 
   <method name="GetSupportedFormats">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Returns a list of supported audio formats given by extension.
@@ -54,7 +54,7 @@
   </method>
 
   <method name="GetAvailableScenarios">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Returns a list of supported audio scenarios.
@@ -72,7 +72,7 @@
   <!-- SIMPLE SOUND API -->
 
   <method name="PlaySound">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Play a sound resource.
@@ -107,7 +107,7 @@
   </method>
 
   <method name="StopSound">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Stop playing a sound resource.
@@ -123,7 +123,7 @@
   </method>
 
   <method name="StopAllSounds">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Stop all currently played sound resources.

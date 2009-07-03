@@ -26,7 +26,7 @@
     </error>
 
   <method name="ListGprsClasses">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>List available GPRS device classes.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CGCLASS=?, see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
@@ -39,7 +39,7 @@
   </method>
 
   <method name="GetCurrentGprsClass">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieves the current GPRS device class mode.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CGCLASS?, see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
@@ -52,7 +52,7 @@
   </method>
 
   <method name="SetCurrentGprsClass">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Sets the current GPRS device class mode.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CGCLASS=(device_class), see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
@@ -65,7 +65,7 @@
   </method>
 
   <method name="GetNetworkStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieves the current GPRS registration status.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CGREG?, see 3GPP TS 07.07 Chapter 10.1.14.</doc:inote>
@@ -122,7 +122,7 @@
   </signal>
 
   <method name="ActivateContext">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Request a PDP context activation to an IP-based network service provider and launch a ppp session.
@@ -162,7 +162,7 @@
   </method>
 
   <method name="DeactivateContext">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Cancel an ongoing ppp session and request a PDP context deactivation.</doc:description>
       <doc:inote>This command might change your network default route.</doc:inote>
@@ -175,7 +175,7 @@
   </method>
 
   <method name="GetContextStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the current PDP context status.</doc:description>
     </doc:doc>

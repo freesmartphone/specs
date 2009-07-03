@@ -20,7 +20,7 @@
   </doc:doc>
 
   <method name="GetCellBroadcastSubscriptions">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_cb" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get current cell broadcast subscription channels.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CSCB=?, see 3GPP TS 07.05 Chapter 3.3.4.</doc:inote>
@@ -36,7 +36,7 @@
   </method>
 
   <method name="SetCellBroadcastSubscriptions">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_cb" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set cell broadcast subscription channels.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CSCB=(...), see 3GPP TS 07.05 Chapter 3.3.4.</doc:inote>

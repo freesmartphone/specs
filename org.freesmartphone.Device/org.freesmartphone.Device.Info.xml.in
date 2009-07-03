@@ -15,7 +15,7 @@
   </doc:doc>
 
   <method name="GetCpuInfo">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_info" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the CPU information.</doc:description>
     </doc:doc>

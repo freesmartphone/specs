@@ -15,7 +15,7 @@
   </doc:doc>
 
   <method name="GetId">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_input" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the identification of the input device.</doc:description>
     </doc:doc>
@@ -29,7 +29,7 @@
   </method>
 
   <method name="GetCapabilities">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_input" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the capabilities of the input device.</doc:description>
     </doc:doc>

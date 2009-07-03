@@ -15,7 +15,7 @@
   </doc:doc>
 
   <method name="GetCurrentTime">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the current time from the RTC.</doc:description>
     </doc:doc>
@@ -28,7 +28,7 @@
   </method>
 
   <method name="SetCurrentTime">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set the current time in the RTC.</doc:description>
     </doc:doc>
@@ -41,7 +41,7 @@
   </method>
 
   <method name="GetWakeupTime">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the currently programmed wakeup time from the RTC..</doc:description>
     </doc:doc>
@@ -54,7 +54,7 @@
   </method>
 
   <method name="SetWakeupTime">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Program a wakeup time in the RTC.</doc:description>
     </doc:doc>

@@ -23,7 +23,7 @@
   </doc:doc>
 
   <method name="ClearAlarm">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Clears the alarm for a certain dbus system service.</doc:description>
     </doc:doc>
@@ -35,7 +35,7 @@
   </method>
 
   <method name="SetAlarm">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Sets an alarm time for a certain dbus system service.</doc:description>
     </doc:doc>

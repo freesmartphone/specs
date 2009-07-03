@@ -56,7 +56,7 @@
   </error>
 
     <method name="OpenSession">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>Initiate a new multiplexing session.</doc:description>
         <doc:inote>The device needs to support the +CMUX command.</doc:inote>
@@ -84,7 +84,7 @@
     </method>
 
     <method name="CloseSession">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>Closes a multiplexing session.</doc:description>
         <doc:inote>The device will be left in AT command mode.</doc:inote>
@@ -92,7 +92,7 @@
     </method>
 
     <method name="AllocChannel">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>
           Allocate a new virtual channel. Raises org.freesmartphone.GSM.MUX.NoChannel,
@@ -123,7 +123,7 @@
     </method>
 
     <method name="ReleaseChannel">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>
           Release all channels requested by a specified user.
@@ -137,7 +137,7 @@
     </method>
 
     <method name="SetStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>
           Modify the v24 status of a virtual channel.

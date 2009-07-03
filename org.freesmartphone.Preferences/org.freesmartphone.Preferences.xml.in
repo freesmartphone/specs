@@ -18,7 +18,7 @@
   </doc:doc>
 
   <method name="GetServices">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Return the list of all available services.</doc:description>
     </doc:doc>
@@ -30,7 +30,7 @@
   </method>
 
   <method name="GetService">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve a given service.</doc:description>
     </doc:doc>
@@ -47,7 +47,7 @@
   </method>
 
   <method name="GetProfiles">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Return a list of all the available profiles.</doc:description>
     </doc:doc>
@@ -59,7 +59,7 @@
   </method>
 
   <method name="GetProfile">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the current top profile.</doc:description>
     </doc:doc>
@@ -71,7 +71,7 @@
   </method>
 
   <method name="SetProfile">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_preferences" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set the current top profile.</doc:description>
     </doc:doc>

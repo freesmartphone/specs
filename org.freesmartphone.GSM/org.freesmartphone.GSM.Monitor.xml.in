@@ -18,7 +18,7 @@
     </doc:doc>
 
   <method name="GetServingCellInformation">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_monitor" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieves serving cell information.</doc:description>
     </doc:doc>
@@ -55,7 +55,7 @@
   </method>
 
   <method name="GetNeighbourCellInformation">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_monitor" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieves neighbour cell information.</doc:description>
     </doc:doc>

@@ -16,7 +16,7 @@
   </doc:doc>
 
   <method name="StartConnectionSharingWithInterface">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_network" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Start sharing the internet connection of this device with any clients

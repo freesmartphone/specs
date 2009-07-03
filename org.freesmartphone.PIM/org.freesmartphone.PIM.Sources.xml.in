@@ -14,7 +14,7 @@
   </doc:doc>
 
   <method name="InitAllEntries">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_sources" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Initialize all backend sources.
@@ -23,7 +23,7 @@
   </method>
 
   <method name="GetEntryCount">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_sources" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the number of sources available.

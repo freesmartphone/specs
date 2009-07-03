@@ -55,7 +55,7 @@
   </error>
 
   <method name="Register">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     <doc:doc>
         <doc:description>Register with any available service provider.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +COPS=0, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
@@ -63,7 +63,7 @@
   </method>
 
   <method name="Unregister">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     <doc:doc>
         <doc:description>Unregister from service provider.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +COPS=2, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
@@ -71,7 +71,7 @@
   </method>
 
   <method name="GetStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     <doc:doc>
       <doc:description>Get Network Status.</doc:description>
       <doc:inote>
@@ -151,7 +151,7 @@
   </signal>
 
   <method name="GetSignalStrength">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     <doc:doc>
       <doc:description>Query the current signal strength, if registered with a service provider.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CSQ, see 3GPP TS 07.07 Chapter 8.5.</doc:inote>
@@ -178,7 +178,7 @@
   </signal>
 
   <method name="ListProviders">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>List available service providers.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
@@ -200,7 +200,7 @@
   </method>
 
   <method name="RegisterWithProvider">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>Register to a dedicated service provider.</doc:description>
           <doc:inote>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
@@ -213,7 +213,7 @@
   </method>
 
   <method name="GetNetworkCountryCode">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Compute the country information of the current service provider.
@@ -237,7 +237,7 @@
   </method>
 
   <method name="GetCallForwarding">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the network call forwarding status.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CCFC=(reason),2, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
@@ -288,7 +288,7 @@
   </method>
 
   <method name="EnableCallForwarding">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Enable network call forwarding.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CCFC=(...),3, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
@@ -324,7 +324,7 @@
   </method>
 
   <method name="DisableCallForwarding">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Disable network call forwarding.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CCFC=(...),4, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
@@ -346,7 +346,7 @@
   </method>
 
   <method name="SetCallingIdentification">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set whether your subscriber number is visible during a call.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CLIR=(value), see 3GPP TS 07.07 Chapter 7.7.</doc:inote>
@@ -366,7 +366,7 @@
   </method>
 
   <method name="GetCallingIdentification">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get whether your subscriber number is visible during a call.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CLIR?, see 3GPP TS 07.07 Chapter 7.7.</doc:inote>
@@ -386,7 +386,7 @@
   </method>
 
   <method name="SendUssdRequest">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Send an Unstructured Supplementary Service Data (USSD) request to the network.

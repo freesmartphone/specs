@@ -17,7 +17,7 @@
   <!--
 
   <method name="GetBrightness">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the current brightness level.</doc:description>
     </doc:doc>
@@ -33,7 +33,7 @@
   -->
 
   <method name="SetBrightness">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set the brightness level.</doc:description>
     </doc:doc>
@@ -47,7 +47,7 @@
   </method>
 
   <method name="SetBlinking">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Start blinking.</doc:description>
       <doc:inote>This requires the Linux 2.6 LED class trigger 'timer' to be available.</doc:inote>
@@ -70,7 +70,7 @@
   </method>
 
   <method name="BlinkSeconds">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Blink the LED for a number of seconds.</doc:description>
       <doc:inote>This requires the Linux 2.6 LED class trigger 'timer' to be available.</doc:inote>
@@ -100,7 +100,7 @@
   </method>
 
   <method name="SetNetworking">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_led" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Start visualizing the network status.</doc:description>
       <doc:inote>This requires the Linux 2.6 LED class trigger 'netdev' to be available.</doc:inote>

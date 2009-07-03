@@ -18,7 +18,7 @@
   </doc:doc>
 
   <method name="GetKnownHomeZones">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_hz" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the names of known home zones as stored on your SIM card.</doc:description>
     </doc:doc>
@@ -30,7 +30,7 @@
   </method>
 
   <method name="GetHomeZoneStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_hz" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get current zone name.</doc:description>
     </doc:doc>

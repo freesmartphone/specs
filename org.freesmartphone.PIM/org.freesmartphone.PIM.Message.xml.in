@@ -14,7 +14,7 @@
   </doc:doc>
 
   <method name="GetContent">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the content of one message.
@@ -30,7 +30,7 @@
   </method>
 
   <method name="GetMultipleFields">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the content for a list of fields from the message.
@@ -46,7 +46,7 @@
   </method>
 
   <method name="MoveToFolder">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Move this message to a different folder.
@@ -62,7 +62,7 @@
   </method>
 
   <method name="Update">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Update one or more fields of this message.
@@ -78,7 +78,7 @@
   </method>
 
   <method name="Delete">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_pim_message" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Delete this message.

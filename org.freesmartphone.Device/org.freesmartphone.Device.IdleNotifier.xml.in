@@ -15,7 +15,7 @@
   </doc:doc>
 
   <method name="GetState">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the current idleness status.</doc:description>
     </doc:doc>
@@ -38,7 +38,7 @@
   </method>
 
   <method name="GetTimeouts">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Gets a list of all the idle states and their correspondent timeouts.</doc:description>
     </doc:doc>
@@ -52,7 +52,7 @@
   </method>
 
   <method name="SetTimeout">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Sets a timeout value for a given state.</doc:description>
     </doc:doc>
@@ -73,7 +73,7 @@
   </method>
 
   <method name="SetState">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Forces a new idleness status.</doc:description>
     </doc:doc>

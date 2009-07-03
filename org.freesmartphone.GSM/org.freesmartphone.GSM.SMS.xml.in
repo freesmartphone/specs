@@ -18,18 +18,18 @@
 
 <!-- Not clear whether we want to have this
   <method name="GetServiceBearer">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <arg type="s" name="mode" direction="out" />
   </method>
 
   <method name="SetServiceBearer">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <arg type="s" name="mode" direction="in" />
   </method>
   -->
 
   <method name="SendMessage">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Sends a message via the GSM Short Message Service (SMS)</doc:description>
       <doc:inote>
@@ -96,7 +96,7 @@
   </method>
 
   <method name="AckMessage">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Acknowledges the receipt of a message via the GSM Short Message Service (SMS). Every message that has been delivered with the IncomingMessage signal needs to be either acked or nacked.</doc:description>
       <doc:inote>
@@ -144,7 +144,7 @@
   </method>
 
   <method name="NackMessage">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Reports that an error has occured during the receipt of a message via the GSM Short Message Service (SMS). Every message that has been delivered with the IncomingMessage signal needs to be either acked or nacked.</doc:description>
       <doc:inote>
