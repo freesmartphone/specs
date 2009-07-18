@@ -2,14 +2,14 @@
 <node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-contacts-interface">
 
 <doc:doc>
-  <doc:summary>freesmartphone.org PIM.Contacts Interface</doc:summary>
+  <doc:summary>freesmartphone.org PIM.Calls Interface</doc:summary>
 </doc:doc>
 
-<interface name="org.freesmartphone.PIM.Contacts">
+<interface name="org.freesmartphone.PIM.Calls">
 
   <doc:doc>
     <doc:para>
-      This interface provides access to the collection of PIM contacts.
+      This interface provides access to the collection of PIM calls.
     </doc:para>
   </doc:doc>
 
@@ -17,30 +17,30 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Add a new contact to the default backend for contacts.
+        Add a new call to the default backend for calls.
       </doc:description>
     </doc:doc>
-    <arg direction="in" type="a{sv}" name="contact_data">
+    <arg direction="in" type="a{sv}" name="call_data">
       <doc:doc>
         <doc:summary>
-          The new contacts data.
+          The new calls data.
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg direction="out" type="s" name="contact_path">
+    <arg direction="out" type="s" name="call_path">
       <doc:doc>
         <doc:summary>
-          The contact path of the added contact.
+          The contact path of the added call.
         </doc:summary>
       </doc:doc>
     </arg>
   </method>
 
-  <method name="GetSingleContactSingleField">
+  <method name="GetSingleCallSingleField">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Query the content of one field of one contact.
+        Query the content of one field of one call.
       </doc:description>
     </doc:doc>
     <arg direction="in" type="a{sv}" name="query">
@@ -70,7 +70,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Start a query for contacts.
+        Start a query for calls.
       </doc:description>
     </doc:doc>
     <arg direction="in" type="a{sv}" name="query">
@@ -89,16 +89,31 @@
     </arg>
   </method>
 
-  <signal name="NewContact">
+  <signal name="NewCall">
     <doc:doc>
       <doc:description>
-        Sent when a new contact is loaded.
+        Sent when a new call is loaded.
       </doc:description>
     </doc:doc>
-    <arg type="s" name="contact_path">
+    <arg type="s" name="call_path">
       <doc:doc>
         <doc:summary>
-          The path of the newly loaded contact.
+          The path of the newly loaded call.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="NewMissedCalls">
+    <doc:doc>
+      <doc:description>
+        Sent when amount of new missed calls changes.
+      </doc:description>
+    </doc:doc>
+    <arg type="i" name="amount">
+      <doc:doc>
+        <doc:summary>
+          Amount of new missed calls.
         </doc:summary>
       </doc:doc>
     </arg>

@@ -158,6 +158,21 @@
     </arg>
   </signal>
 
+  <signal name="UnreadMessages">
+    <doc:doc>
+      <doc:description>
+        Sent when amount of unread incoming messages changes.
+      </doc:description>
+    </doc:doc>
+    <arg type="i" name="amount">
+      <doc:doc>
+        <doc:summary>
+          Amount of unread incoming messages.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
 
 </interface>
 

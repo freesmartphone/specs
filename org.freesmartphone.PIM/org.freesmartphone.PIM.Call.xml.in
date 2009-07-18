@@ -2,14 +2,14 @@
 <node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-contact-interface">
 
 <doc:doc>
-  <doc:summary>freesmartphone.org PIM.Contact Interface</doc:summary>
+  <doc:summary>freesmartphone.org PIM.Call Interface</doc:summary>
 </doc:doc>
 
-<interface name="org.freesmartphone.PIM.Contact">
+<interface name="org.freesmartphone.PIM.Call">
 
   <doc:doc>
     <doc:para>
-      This interface provides access to one PIM contact.
+      This interface provides access to one PIM call.
     </doc:para>
   </doc:doc>
 
@@ -17,13 +17,13 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Get the fields of one contact.
+        Get the fields of one call.
       </doc:description>
     </doc:doc>
-    <arg direction="out" type="a{sv}" name="contact_data">
+    <arg direction="out" type="a{sv}" name="call_data">
       <doc:doc>
         <doc:summary>
-          The contact's data.
+          The call's data.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -33,7 +33,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Get a specified field list of the contact's data.
+        Get a specified field list of the call's data.
       </doc:description>
     </doc:doc>
     <arg direction="in" type="s" name="field_list">
@@ -55,13 +55,13 @@
   <method name="GetUsedBackends">
     <doc:doc>
       <doc:description>
-        Get used backends in contact.
+        Get used backends in call.
       </doc:description>
     </doc:doc>
     <arg direction="out" type="as" name="backends">
       <doc:doc>
         <doc:summary>
-          The list of backends used in this contact.
+          The list of backends used in this call.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -71,13 +71,13 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Update one or more fields of this contact.
+        Update one or more fields of this call.
       </doc:description>
     </doc:doc>
-    <arg direction="in" type="a{sv}" name="contact_data">
+    <arg direction="in" type="a{sv}" name="call_data">
       <doc:doc>
         <doc:summary>
-          The list of fields/values to update for this contact.
+          The list of fields/values to update for this call.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -87,7 +87,7 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Delete this contact.
+        Delete this call.
       </doc:description>
     </doc:doc>
   </method>
