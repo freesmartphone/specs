@@ -10,19 +10,24 @@
 
 
 <h1>org.freesmartphone.PIM.Sources</h1><h2>Description</h2>
-<p>Pim Sources can be use to access a set of PIM data sources</p>
+<p>This interface gives access to PIM Sources.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.PIM.Sources</tt></p>
 <h2>Methods</h2><ul>
-<li><a href="#Add">Add</a></li>
-<li><a href="#Query">Query</a></li>
+<li><a href="#InitAllEntries">InitAllEntries</a></li>
+<li><a href="#GetEntryCount">GetEntryCount</a></li>
+<li><a href="#GetDomains">GetDomains</a></li>
+<li><a href="#GetDefaultBackend">GetDefaultBackend</a></li>
 </ul>
 <h2>Signals</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
-<h1>Methods</h1><h3><a name="Add">Add</a> ( a{sv} ) &rarr; s</h3>
-<p><i>Description:</i> Add a contact into the default backend source.</p><h4>Parameters</h4><i>a{sv}: contact_data</i><p>contacts fields</p><h4>Returns</h4><i>s: path</i><p>Path of the newly created d-bus contact object</p>
-<h3><a name="Query">Query</a> ( a{sv} ) &rarr; s</h3>
-<p><i>Description:</i> Create a new Call to a given number, with an optional protocol.</p><h4>Parameters</h4><i>a{sv}: query</i><p>contacts fields that are queried</p><h4>Returns</h4><i>s: protocol</i><p>Path to the query object</p>
+<h1>Methods</h1><h3><a name="InitAllEntries">InitAllEntries</a> ( )</h3><p><i>Description:</i> Initialize all backend sources. </p>
+<h3><a name="GetEntryCount">GetEntryCount</a> ( ) &rarr; i</h3>
+<p><i>Description:</i> Get the number of sources available. </p><h4>Returns</h4><i>i: count</i><p>Amount of sources. </p>
+<h3><a name="GetDomains">GetDomains</a> ( ) &rarr; as</h3>
+<p><i>Description:</i> Get the list of PIM domains. </p><h4>Returns</h4><i>as: domains</i><p>List of available PIM domains. </p>
+<h3><a name="GetDefaultBackend">GetDefaultBackend</a> ( s ) &rarr; s</h3>
+<p><i>Description:</i> Get the default backend for specified domain. </p><h4>Parameters</h4><i>s: domain</i><p>Name of domain. </p><h4>Returns</h4><i>s: backend</i><p>Name of default backend for given domain. </p>
 
     <hr/>
     <small>

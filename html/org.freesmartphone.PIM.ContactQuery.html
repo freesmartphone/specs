@@ -10,21 +10,32 @@
 
 
 <h1>org.freesmartphone.PIM.ContactQuery</h1><h2>Description</h2>
-<p>Represent the result of a Query</p>
+<p>This interface gives access to a contact query.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.PIM.ContactQuery</tt></p>
 <h2>Methods</h2><ul>
 <li><a href="#GetResultCount">GetResultCount</a></li>
+<li><a href="#Rewind">Rewind</a></li>
+<li><a href="#Skip">Skip</a></li>
+<li><a href="#GetContactPath">GetContactPath</a></li>
 <li><a href="#GetResult">GetResult</a></li>
+<li><a href="#GetMultipleResults">GetMultipleResults</a></li>
 <li><a href="#Dispose">Dispose</a></li>
 </ul>
 <h2>Signals</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetResultCount">GetResultCount</a> ( ) &rarr; i</h3>
-<p><i>Description:</i> Return the number of items in the query result</p><h4>Returns</h4><i>i: count</i><p>Number of items in the query result</p>
+<p><i>Description:</i> Return the number of items in the query result </p><h4>Returns</h4><i>i: count</i><p>Amount of contacts in the query result. </p>
+<h3><a name="Rewind">Rewind</a> ( )</h3><p><i>Description:</i> Rewind the result cursor to the first contact (for this dbus client only). </p>
+<h3><a name="Skip">Skip</a> ( i )</h3>
+<p><i>Description:</i> Skip n contacts in the result cursor (for this dbus client only). </p><h4>Parameters</h4><i>i: count</i><p>Amount of contacts to skip. </p>
+<h3><a name="GetContactPath">GetContactPath</a> ( ) &rarr; s</h3>
+<p><i>Description:</i> Path for the contact the result cursor points to. </p><h4>Returns</h4><i>s: contact_path</i><p>The path to the contact. </p>
 <h3><a name="GetResult">GetResult</a> ( ) &rarr; a{sv}</h3>
-<p><i>Description:</i> Return the next item in the query result, and move the query to the next item</p><h4>Returns</h4><i>a{sv}: item</i><p>fields of the result</p>
-<h3><a name="Dispose">Dispose</a> ( )</h3><p><i>Description:</i> Delete the query result object</p>
+<p><i>Description:</i> Return the next contact in the query result, and move the query to the next contact. </p><h4>Returns</h4><i>a{sv}: item</i><p>fields of the result. </p>
+<h3><a name="GetMultipleResults">GetMultipleResults</a> ( i ) &rarr; aa{sv}</h3>
+<p><i>Description:</i> Get multiple contacts from the result set at once. </p><h4>Parameters</h4><i>i: count</i><p>The number of contacts to get from the result set. </p><h4>Returns</h4><i>aa{sv}: resultset</i><p>The list of the returned contacts data. </p>
+<h3><a name="Dispose">Dispose</a> ( )</h3><p><i>Description:</i> Delete the query result object. </p>
 
     <hr/>
     <small>
