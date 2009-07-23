@@ -125,6 +125,8 @@ class Interface( Entity ):
         self.signals = []
         self.errors = []
         self.outfile = None
+        self.namespace = "Unknown"
+        self.description = "Unknown"
 
     def output( self ):
         import os.path
