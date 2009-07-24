@@ -3,11 +3,11 @@
 <node name="/">
   <interface name="org.freesmartphone.GSM.Monitor">
     <method name="GetServingCellInformation">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_monitor"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="serving_cell" direction="out"/>
     </method>
     <method name="GetNeighbourCellInformation">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_monitor"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a(a{sv})" name="neighbour_cells" direction="out"/>
     </method>
   </interface>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.PIM.MessageFolder">
+    <method name="GetMessageCount">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="out" type="i" name="count"/>
+    </method>
+    <method name="GetMessagePaths">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="i" name="first"/>
+      <arg direction="in" type="i" name="count"/>
+      <arg direction="out" type="as" name="message_paths"/>
+    </method>
+    <signal name="MessageMoved">
+      <arg type="s" name="message_path"/>
+      <arg type="s" name="new_folder"/>
+    </signal>
+  </interface>
+</node>

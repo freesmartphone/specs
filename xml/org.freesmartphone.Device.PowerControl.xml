@@ -3,11 +3,11 @@
 <node name="/">
   <interface name="org.freesmartphone.Device.PowerControl">
     <method name="GetPower">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="b" name="on"/>
     </method>
     <method name="SetPower">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_powercontrol"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="b" name="on"/>
     </method>
     <signal name="Power">

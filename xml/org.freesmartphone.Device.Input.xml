@@ -3,11 +3,11 @@
 <node name="/">
   <interface name="org.freesmartphone.Device.Input">
     <method name="GetId">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_input"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="s" name="id"/>
     </method>
     <method name="GetCapabilities">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_input"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="s" name="id"/>
     </method>
     <signal name="Event">

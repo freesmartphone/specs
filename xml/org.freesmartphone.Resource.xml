@@ -6,18 +6,18 @@
   </fso:errordomain>
   <interface name="org.freesmartphone.Resource">
     <method name="Enable">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
     <method name="Disable">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Resource"/>
     </method>
     <method name="Suspend">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Resource"/>
     </method>
     <method name="Resume">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_ousage_resource"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Resource"/>
     </method>
   </interface>

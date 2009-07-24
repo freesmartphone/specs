@@ -3,22 +3,22 @@
 <node name="/">
   <interface name="org.freesmartphone.Device.RealtimeClock">
     <method name="GetCurrentTime">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="i" name="time"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="SetCurrentTime">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="i" name="time"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="GetWakeupTime">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="i" name="time"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="SetWakeupTime">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_realtimeclock"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="i" name="time"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>

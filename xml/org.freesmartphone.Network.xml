@@ -3,7 +3,7 @@
 <node name="/">
   <interface name="org.freesmartphone.Network">
     <method name="StartConnectionSharingWithInterface">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="interface" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>

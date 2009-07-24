@@ -3,30 +3,30 @@
 <node name="/">
   <interface name="org.freesmartphone.Device.Audio">
     <method name="GetInfo">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="a{sv}" name="info"/>
     </method>
     <method name="GetSupportedFormats">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="as" name="formats"/>
     </method>
     <method name="GetAvailableScenarios">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="as" name="scenarios"/>
     </method>
     <method name="PlaySound">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <arg direction="in" type="i" name="loop"/>
       <arg direction="in" type="i" name="length"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.Audio"/>
     </method>
     <method name="StopSound">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
     </method>
     <method name="StopAllSounds">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_audio"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
     <signal name="SoundStatus">
       <arg type="s" name="id"/>

@@ -4,37 +4,37 @@
   <interface name="org.freesmartphone.GSM.PDP">
     <error name="NotFound"/>
     <method name="ListGprsClasses">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="as" name="classes" direction="out"/>
     </method>
     <method name="GetCurrentGprsClass">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="device_class" direction="out"/>
     </method>
     <method name="SetCurrentGprsClass">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="device_class" direction="in"/>
     </method>
     <method name="GetNetworkStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="status" direction="out"/>
     </method>
     <signal name="NetworkStatus">
       <arg type="a{sv}" name="status"/>
     </signal>
     <method name="ActivateContext">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="apn" direction="in"/>
       <arg type="s" name="username" direction="in"/>
       <arg type="s" name="password" direction="in"/>
       <arg type="i" name="index" direction="out"/>
     </method>
     <method name="DeactivateContext">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="index" direction="in"/>
     </method>
     <method name="GetContextStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_pdp"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="index" direction="in"/>
       <arg type="s" name="status" direction="out"/>
     </method>

@@ -3,7 +3,7 @@
 <node name="/">
   <interface name="org.freesmartphone.Device.Info">
     <method name="GetCpuInfo">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_info"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="a{sv}" name="info"/>
     </method>
   </interface>

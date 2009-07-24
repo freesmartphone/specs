@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
-  <interface name="org.freesmartphone.Device.Display">
-    <method name="GetInfo">
+  <interface name="org.freesmartphone.PIM.Call">
+    <method name="GetContent">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="out" type="a{sv}" name="properties"/>
+      <arg direction="out" type="a{sv}" name="call_data"/>
     </method>
-    <method name="GetBrightness">
+    <method name="GetMultipleFields">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="out" type="i" name="brightness"/>
+      <arg direction="in" type="s" name="field_list"/>
+      <arg direction="out" type="a{sv}" name="field_data"/>
     </method>
-    <method name="SetBrightness">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="in" type="i" name="brightness"/>
+    <method name="GetUsedBackends">
+      <arg direction="out" type="as" name="backends"/>
     </method>
-    <method name="GetBacklightPower">
+    <method name="Update">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="out" type="b" name="power"/>
+      <arg direction="in" type="a{sv}" name="call_data"/>
     </method>
-    <method name="SetBacklightPower">
+    <method name="Delete">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="in" type="b" name="power"/>
     </method>
   </interface>
 </node>

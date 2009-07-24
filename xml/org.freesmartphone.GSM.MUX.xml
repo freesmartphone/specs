@@ -8,28 +8,28 @@
     <error name="SessionAlreadyOpen"/>
     <error name="SessionOpenError"/>
     <method name="OpenSession">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="advanced" type="b" direction="in"/>
       <arg name="framesize" type="i" direction="in"/>
       <arg name="portname" type="s" direction="in"/>
       <arg name="portspeed" type="i" direction="in"/>
     </method>
     <method name="CloseSession">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
     <method name="AllocChannel">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="origin" type="s" direction="in"/>
       <arg name="channel" type="i" direction="in"/>
       <arg name="path" type="s" direction="out"/>
       <arg name="allocated_channel" type="i" direction="out"/>
     </method>
     <method name="ReleaseChannel">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="origin" type="s" direction="in"/>
     </method>
     <method name="SetStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_mux"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="channel" type="i" direction="in"/>
       <arg name="status" type="s" direction="in"/>
     </method>

@@ -3,7 +3,7 @@
 <node name="/">
   <interface name="org.freesmartphone.GSM.SMS">
     <method name="SendMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="recipient_number" direction="in"/>
       <arg type="s" name="contents" direction="in"/>
       <arg type="a{sv}" name="properties" direction="in"/>
@@ -11,12 +11,12 @@
       <arg type="s" name="timestamp" direction="out"/>
     </method>
     <method name="AckMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="contents" direction="in"/>
       <arg type="a{sv}" name="properties" direction="in"/>
     </method>
     <method name="NackMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sms"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="contents" direction="in"/>
       <arg type="a{sv}" name="properties" direction="in"/>
     </method>

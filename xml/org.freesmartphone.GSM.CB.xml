@@ -3,11 +3,11 @@
 <node name="/">
   <interface name="org.freesmartphone.GSM.CB">
     <method name="GetCellBroadcastSubscriptions">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_cb"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="channels" direction="out"/>
     </method>
     <method name="SetCellBroadcastSubscriptions">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_cb"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="channels" direction="in"/>
     </method>
     <signal name="IncomingCellBroadcast">

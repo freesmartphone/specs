@@ -3,61 +3,61 @@
 <node name="/">
   <interface name="org.freesmartphone.Usage">
     <method name="RegisterResource">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <arg direction="in" type="o" name="path"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="UnregisterResource">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
     </method>
     <method name="ListResources">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="as" name="resources"/>
     </method>
     <method name="GetResourcePolicy">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="out" type="s" name="policy" fso:type="org.freesmartphone.Usage.ResourcePolicy"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="SetResourcePolicy">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="policy" fso:type="org.freesmartphone.Usage.ResourcePolicy"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="GetResourceState">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <arg direction="out" type="b" name="state"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="GetResourceUsers">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <arg direction="out" type="as" name="users"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="RequestResource">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="ReleaseResource">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
     </method>
     <method name="Suspend">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
     <method name="Shutdown">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
     <method name="Reboot">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_usage"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
     <signal name="ResourceAvailable">
       <arg type="s" name="name"/>

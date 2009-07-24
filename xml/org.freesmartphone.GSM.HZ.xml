@@ -3,11 +3,11 @@
 <node name="/">
   <interface name="org.freesmartphone.GSM.HZ">
     <method name="GetKnownHomeZones">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_hz"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="as" name="zones" direction="out"/>
     </method>
     <method name="GetHomeZoneStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_hz"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="zone" direction="out"/>
     </method>
     <signal name="HomeZoneStatus">

@@ -7,65 +7,65 @@
     <error name="NotSupported"/>
     <error name="NotFound"/>
     <method name="Register">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
     <method name="Unregister">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
     <method name="GetStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="status" direction="out"/>
     </method>
     <signal name="Status">
       <arg type="a{sv}" name="status"/>
     </signal>
     <method name="GetSignalStrength">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="signal_strength" direction="out"/>
     </method>
     <signal name="SignalStrength">
       <arg type="i" name="signal_strength"/>
     </signal>
     <method name="ListProviders">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a(sssss)" name="providers" direction="out"/>
     </method>
     <method name="RegisterWithProvider">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="operator_code" direction="in"/>
     </method>
     <method name="GetNetworkCountryCode">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="dial_code" direction="out"/>
       <arg type="s" name="country_name" direction="out"/>
     </method>
     <method name="GetCallForwarding">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="reason" direction="in"/>
       <arg type="a{sv}" name="status" direction="out"/>
     </method>
     <method name="EnableCallForwarding">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="reason" direction="in"/>
       <arg type="s" name="class" direction="in"/>
       <arg type="s" name="number" direction="in"/>
       <arg type="i" name="timeout" direction="in"/>
     </method>
     <method name="DisableCallForwarding">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="reason" direction="in"/>
       <arg type="s" name="class" direction="in"/>
     </method>
     <method name="SetCallingIdentification">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="visible" direction="in"/>
     </method>
     <method name="GetCallingIdentification">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="visible" direction="out"/>
     </method>
     <method name="SendUssdRequest">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_network"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="request" direction="in"/>
     </method>
     <signal name="IncomingUssd">

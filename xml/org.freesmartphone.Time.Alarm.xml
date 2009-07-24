@@ -3,11 +3,11 @@
 <node name="/">
   <interface name="org.freesmartphone.Time.Alarm">
     <method name="ClearAlarm">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="busname" direction="in"/>
     </method>
     <method name="SetAlarm">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_time_alarm"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="busname" direction="in"/>
       <arg type="i" name="timestamp" direction="in"/>
     </method>

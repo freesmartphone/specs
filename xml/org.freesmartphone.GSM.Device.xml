@@ -6,39 +6,39 @@
     <error name="Timeout"/>
     <error name="Failed"/>
     <method name="GetInfo" implementation="mandatory">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="info" direction="out"/>
     </method>
     <method name="GetAntennaPower">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="antenna_power" direction="out"/>
     </method>
     <method name="SetAntennaPower">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="antenna_power" direction="in"/>
     </method>
     <method name="GetFeatures">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="features" direction="out"/>
     </method>
     <method name="GetSpeakerVolume">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="volume" direction="out"/>
     </method>
     <method name="SetSpeakerVolume">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="volume" direction="in"/>
     </method>
     <method name="GetMicrophoneMuted">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="muted" direction="out"/>
     </method>
     <method name="SetMicrophoneMuted">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="muted" direction="in"/>
     </method>
     <method name="GetPowerStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="status" direction="out"/>
       <arg type="i" name="level" direction="out"/>
     </method>
@@ -47,11 +47,11 @@
       <arg type="b" name="pressed"/>
     </signal>
     <method name="GetSimBuffersSms">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="sim_buffers_sms" direction="out"/>
     </method>
     <method name="SetSimBuffersSms">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_device"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="sim_buffers_sms" direction="in"/>
     </method>
   </interface>

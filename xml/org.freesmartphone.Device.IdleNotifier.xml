@@ -3,20 +3,20 @@
 <node name="/">
   <interface name="org.freesmartphone.Device.IdleNotifier">
     <method name="GetState">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="out" type="s" name="status" fso:type="org.freesmartphone.Device.IdleState"/>
     </method>
     <method name="GetTimeouts">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="a{si}" name="status"/>
     </method>
     <method name="SetTimeout">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="status" fso:type="org.freesmartphone.Device.IdleState"/>
       <arg direction="in" type="i" name="timeout"/>
     </method>
     <method name="SetState">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_device_idlenotifier"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="status" fso:type="org.freesmartphone.Device.IdleState"/>
     </method>
     <signal name="State">

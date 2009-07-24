@@ -9,53 +9,53 @@
     <error name="MemoryFull"/>
     <error name="InvalidIndex"/>
     <method name="GetAuthStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.SIMAuthStatus"/>
     </method>
     <signal name="AuthStatus">
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.SIMAuthStatus"/>
     </signal>
     <method name="SendAuthCode">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="pin" direction="in"/>
     </method>
     <method name="Unlock">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="puk" direction="in"/>
       <arg type="s" name="new_pin" direction="in"/>
     </method>
     <method name="ChangeAuthCode">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="old_pin" direction="in"/>
       <arg type="s" name="new_pin" direction="in"/>
     </method>
     <method name="SetAuthCodeRequired">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="check" direction="in"/>
       <arg type="s" name="pin" direction="in"/>
     </method>
     <method name="GetAuthCodeRequired">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="check" direction="out"/>
     </method>
     <method name="GetSimReady">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="status" direction="out"/>
     </method>
     <signal name="ReadyStatus">
       <arg type="b" name="status"/>
     </signal>
     <method name="GetSimInfo">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="info" direction="out"/>
     </method>
     <method name="SendGenericSimCommand">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="command" direction="in"/>
       <arg type="s" name="result" direction="out"/>
     </method>
     <method name="SendRestrictedSimCommand">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="command" direction="in"/>
       <arg type="i" name="fileid" direction="in"/>
       <arg type="i" name="p1" direction="in"/>
@@ -65,89 +65,89 @@
       <arg type="s" name="result" direction="out"/>
     </method>
     <method name="GetHomeZones">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a(siii)" name="homezones" direction="out"/>
     </method>
     <method name="GetIssuer">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="name" direction="out"/>
     </method>
     <method name="GetProviderList">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{ss}" name="providers" direction="out"/>
     </method>
     <method name="ListPhonebooks">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="as" name="categories" direction="out"/>
     </method>
     <method name="GetPhonebookInfo">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
       <arg type="a{sv}" name="info" direction="out"/>
     </method>
     <method name="RetrievePhonebook">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
       <arg type="a(iss)" name="entries" direction="out"/>
     </method>
     <method name="DeleteEntry">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
       <arg type="i" name="index" direction="in"/>
     </method>
     <method name="StoreEntry">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
       <arg type="i" name="index" direction="in"/>
       <arg type="s" name="name" direction="in"/>
       <arg type="s" name="number" direction="in"/>
     </method>
     <method name="RetrieveEntry">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
       <arg type="i" name="index" direction="in"/>
       <arg type="s" name="name" direction="out"/>
       <arg type="s" name="number" direction="out"/>
     </method>
     <method name="GetMessagebookInfo">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="info" direction="out"/>
     </method>
     <method name="RetrieveMessagebook">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
       <arg type="a(isssa{sv})" name="messages" direction="out"/>
     </method>
     <method name="GetServiceCenterNumber">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="number" direction="out"/>
     </method>
     <method name="SetServiceCenterNumber">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="number" direction="in"/>
     </method>
     <signal name="IncomingStoredMessage">
       <arg type="i" name="index"/>
     </signal>
     <method name="DeleteMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="index" direction="in"/>
     </method>
     <method name="StoreMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="recipient_number" direction="in"/>
       <arg type="s" name="contents" direction="in"/>
       <arg type="a{sv}" name="properties" direction="in"/>
       <arg type="i" name="index" direction="out"/>
     </method>
     <method name="SendStoredMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="index" direction="in"/>
       <arg type="i" name="transaction_index" direction="out"/>
       <arg type="s" name="timestamp" direction="out"/>
     </method>
     <method name="RetrieveMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="fso_gsm_sim"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="index" direction="in"/>
       <arg type="s" name="status" direction="out"/>
       <arg type="s" name="sender_number" direction="out"/>
