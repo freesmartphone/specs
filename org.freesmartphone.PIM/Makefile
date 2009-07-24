@@ -4,6 +4,9 @@ files = \
   org.freesmartphone.PIM.Contact.xml \
   org.freesmartphone.PIM.Contacts.xml \
   org.freesmartphone.PIM.ContactQuery.xml \
+  org.freesmartphone.PIM.Call.xml \
+  org.freesmartphone.PIM.Calls.xml \
+  org.freesmartphone.PIM.CallQuery.xml \
   org.freesmartphone.PIM.Message.xml \
   org.freesmartphone.PIM.Messages.xml \
   org.freesmartphone.PIM.MessageQuery.xml \
