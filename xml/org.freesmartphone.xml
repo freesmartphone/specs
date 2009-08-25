@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone" fso:no-container="true">
+    <error name="InvalidParameter"/>
+    <error name="InternalError"/>
+    <error name="SystemError"/>
+    <error name="Unsupported"/>
+  </fso:errordomain>
+</node>
