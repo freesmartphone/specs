@@ -30,7 +30,10 @@
         <doc:summary>
           Information about the audio hardware. Expected tuples:
           [ul]
-            [li]...to be defined...[/li]
+            [li]"name":string. The name of the audio device.[/li]
+            [li]"formats":list(string). The supported audio file formats.[/li]
+            [li]"scenario":string. The current audio scenario.[/li]
+            [li]"scenarios":list(string). The available audio scenarios.[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
@@ -245,7 +248,7 @@
         <doc:summary>
           The reason for this change. Expected reasons are:
           [ul]
-          [li]...to be defined...[/li]
+            [li]...to be defined...[/li]
           [/ul]
         </doc:summary>
       </doc:doc>
