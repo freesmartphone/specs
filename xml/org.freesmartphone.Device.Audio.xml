@@ -6,10 +6,6 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="a{sv}" name="info"/>
     </method>
-    <method name="GetSupportedFormats">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="out" type="as" name="formats"/>
-    </method>
     <method name="GetAvailableScenarios">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="as" name="scenarios"/>

@@ -15,7 +15,6 @@
 <p><tt>org.freesmartphone.Device.Audio</tt></p>
 <h2>Methods</h2><ul>
 <li><a href="#GetInfo">GetInfo</a></li>
-<li><a href="#GetSupportedFormats">GetSupportedFormats</a></li>
 <li><a href="#GetAvailableScenarios">GetAvailableScenarios</a></li>
 <li><a href="#PlaySound">PlaySound</a></li>
 <li><a href="#StopSound">StopSound</a></li>
@@ -39,9 +38,7 @@
 <li><a href="#DeviceFailed">DeviceFailed</a></li>
 </ul>
 <h1>Methods</h1><h3><a name="GetInfo">GetInfo</a> ( ) &rarr; a{sv}</h3>
-<p><i>Description:</i> Returns information about the audio hardware. </p><h4>Returns</h4><i>a{sv}: info</i><p>Information about the audio hardware. Expected tuples:  <ul>  <li>...to be defined...</li>  </ul> </p>
-<h3><a name="GetSupportedFormats">GetSupportedFormats</a> ( ) &rarr; as</h3>
-<p><i>Description:</i> Returns a list of supported audio formats given by extension. </p><h4>Returns</h4><i>as: formats</i><p>The supported audio formats. </p>
+<p><i>Description:</i> Returns information about the audio hardware. </p><h4>Returns</h4><i>a{sv}: info</i><p>Information about the audio hardware. Expected tuples:  <ul>  <li>"name":string. The name of the audio device.</li>  <li>"formats":list(string). The supported audio file formats.</li>  <li>"scenario":string. The current audio scenario.</li>  <li>"scenarios":list(string). The available audio scenarios.</li>  </ul> </p>
 <h3><a name="GetAvailableScenarios">GetAvailableScenarios</a> ( ) &rarr; as</h3>
 <p><i>Description:</i> Returns a list of supported audio scenarios. </p><h4>Returns</h4><i>as: scenarios</i><p>The supported audio scenarios. </p>
 <h3><a name="PlaySound">PlaySound</a> ( sii )</h3>

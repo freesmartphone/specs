@@ -40,22 +40,6 @@
     </arg>
   </method>
 
-  <method name="GetSupportedFormats">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Returns a list of supported audio formats given by extension.
-      </doc:description>
-    </doc:doc>
-    <arg direction="out" type="as" name="formats">
-      <doc:doc>
-        <doc:summary>
-          The supported audio formats.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <method name="GetAvailableScenarios">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
