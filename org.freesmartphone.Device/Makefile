@@ -5,6 +5,7 @@ files = \
   org.freesmartphone.Device.Info.xml \
   org.freesmartphone.Device.Input.xml \
   org.freesmartphone.Device.IdleNotifier.xml \
+  org.freesmartphone.Device.Orientation.xml \
   org.freesmartphone.Device.PowerControl.xml \
   org.freesmartphone.Device.PowerSupply.xml \
   org.freesmartphone.Device.RealtimeClock.xml

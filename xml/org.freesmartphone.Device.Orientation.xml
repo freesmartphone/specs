@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Device.Orientation">
+    <method name="GetInfo">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="out" type="a{sv}" name="info"/>
+    </method>
+    <method name="GetOrientation">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="out" type="s" name="orientation"/>
+    </method>
+    <signal name="OrientationChanged">
+      <arg type="s" name="orientation"/>
+    </signal>
+  </interface>
+</node>

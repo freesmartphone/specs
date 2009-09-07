@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-orientation-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Orientation Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+  <doc:source>git.freesmartphone.org</doc:source>
+  <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.Orientation">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to the device's physical orientation.
+    </doc:para>
+  </doc:doc>
+
+  <!-- INFORMATIONAL -->
+
+  <method name="GetInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Returns information about the orientation hardware.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{sv}" name="info">
+      <doc:doc>
+        <doc:summary>
+          Information about the orientation hardware. Expected tuples:
+          [ul]
+            [li]"name":string. The name of the orientation device.[/li]
+            [li]"type":string. The type of the orientation device (accelerometer, compass).[/li]
+            [li]"accuracy":string. The accuracy of the orientation device.[/li]
+            [li]"features":string. The features of the orientation device.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <!-- SIMPLE ORIENTATION API -->
+
+  <method name="GetOrientation">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Returns the orientation of the device.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="s" name="orientation">
+      <doc:doc>
+        <doc:summary>
+          The orientation. Expected substrings are:
+          [ul]
+            [li]"portrait",[/li]
+            [li]"landscape",[/li]
+            [li]"faceup",[/li]
+            [li]"facedown",[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="OrientationChanged">
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is a change of the device orientation.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="orientation">
+      <doc:doc>
+        <doc:summary>
+          The new orientation. See org.freesmartphone.Device.GetOrientation for supported values.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+</interface>
+
+<!--
+
+<fso:enumeration name="org.freesmartphone.Device.SoundState" type="s">
+  <fso:member name="playing" value="playing"/>
+  <fso:member name="stopped" value="stopped"/>
+</fso:enumeration>
+
+-->
+
+</node>
