@@ -108,7 +108,7 @@ class Entity( object ):
 """
     <hr/>
     <small>
-    | Specified 2008 by the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. | Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org
+    | Specified 2008-2009 by the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. | Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org
     </small>
     <hr/>
     </body>
