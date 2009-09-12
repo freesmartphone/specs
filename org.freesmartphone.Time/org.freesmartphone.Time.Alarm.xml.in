@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-time-alarm-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension"
+xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-time-alarm-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org Time Alarm Interface</doc:summary>
@@ -49,6 +50,7 @@
         <doc:summary>The timestamp for sending the alarm notification in seconds since 1970 (epoch).</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
   </method>
 
 </interface>
