@@ -12,10 +12,6 @@
       <arg direction="in" type="i" name="time"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <signal name="WakeupTimeChanged">
-      <arg type="i" name="time"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </signal>
     <method name="GetWakeupTime">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="i" name="time"/>
@@ -26,5 +22,11 @@
       <arg direction="in" type="i" name="time"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <signal name="WakeupTimeChanged">
+      <arg type="i" name="time"/>
+    </signal>
+    <signal name="Alarm">
+      <arg type="i" name="time"/>
+    </signal>
   </interface>
 </node>
