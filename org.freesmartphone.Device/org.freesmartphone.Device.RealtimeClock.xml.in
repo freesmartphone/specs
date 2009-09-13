@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org RealtimeClock Interface</doc:summary>
-  <doc:version>0.4.1</doc:version>
+  <doc:version>1.0.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.RealtimeClock">
@@ -40,18 +40,6 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <signal name="WakeupTimeChanged">
-    <doc:doc>
-      <doc:description>Retrieve the programmed wakeup time from the RTC when it's being changed.</doc:description>
-    </doc:doc>
-    <arg type="i" name="time">
-      <doc:doc>
-        <doc:summary>The wakeup time in seconds since epoch, if programmed. 0, otherwise.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone" />
-  </signal>
-
   <method name="GetWakeupTime">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -77,6 +65,28 @@
     </arg>
     <fso:throws type="org.freesmartphone" />
   </method>
+
+  <signal name="WakeupTimeChanged">
+    <doc:doc>
+      <doc:description>Sent, when the programmed RTC wakeup time has been changed.</doc:description>
+    </doc:doc>
+    <arg type="i" name="time">
+      <doc:doc>
+        <doc:summary>The wakeup time in seconds since epoch, if programmed. 0, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="Alarm">
+    <doc:doc>
+      <doc:description>Sent, when the programmed RTC wakeup time has been reached.</doc:description>
+    </doc:doc>
+    <arg type="i" name="time">
+      <doc:doc>
+        <doc:summary>The wakeup time in seconds since epoch, if programmed. 0, otherwise.</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 </node>
