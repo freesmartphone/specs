@@ -5,12 +5,28 @@
   <doc:summary>freesmartphone.org Music Player Playlist Interface</doc:summary>
 </doc:doc>
 
-<interface name="org.freesmartphone.MusicPlayer">
+<interface name="org.freesmartphone.MusicPlayer.Playlist">
   <doc:doc>
     <doc:para>
       The MusicPlayer Playlist objects manage the soundfile for the MusicPlayer.
     </doc:para>
   </doc:doc>
+
+  <method name="Add">
+    <doc:doc>
+      <doc:description>Append a file to the playlist</doc:description>
+    </doc:doc>
+    <arg type="s" name="file" direction="in">
+      <doc:doc>
+        <doc:summary>The file to be appended</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="position" direction="out">
+      <doc:doc>
+        <doc:summary>The position of the new file</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
 
   <method name="ChangeName">
     <doc:doc>
@@ -52,7 +68,7 @@
 
   <method name="GetMode">
     <doc:doc>
-      <doc:description>Delete an excisting playlist</doc:description>
+      <doc:description>Get the playlist mode</doc:description>
     </doc:doc>
     <arg type="s" name="mode" direction="out" fso:type="org.freesmartphone.MusicPlayer.Playlist.Mode">
       <doc:doc>
@@ -150,6 +166,7 @@
   <signal name="Deleted">
     <doc:doc>
       <doc:description>Emmitted when the playlist gets deleted</doc:description>
+    </doc:doc>
   </signal>
 
   <signal name="FileAdded">
@@ -215,8 +232,8 @@
 
 </interface>
 <fso:enumeration name="org.freesmartphone.MusicPlayer.Playlist.Mode" type="s">
-    <fso:member name="normal" value="normal">
-    <fso:member name="random" value="random">
-    <fso:member name="endless" value="endless">
+    <fso:member name="normal" value="normal"/>
+    <fso:member name="random" value="random"/>
+    <fso:member name="endless" value="endless"/>
 </fso:enumeration>
 </node>
