@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.MusicPlayer">
+    <method name="DeletePlaylist">
+      <arg type="o" name="list" direction="in"/>
+    </method>
+    <method name="GetCurrentPlaylist">
+      <arg type="o" name="list" direction="out"/>
+    </method>
+    <method name="GetInfoForFile">
+      <arg type="s" name="file" direction="in"/>
+      <arg type="a{sv}" name="info" direction="out"/>
+    </method>
+    <method name="GetPlaying">
+      <arg type="s" name="file" direction="out"/>
+    </method>
+    <method name="GetPlayingInfo">
+      <arg type="a{sv}" name="info" direction="out"/>
+    </method>
+    <method name="GetPlaylist">
+      <arg type="as" name="playlists" direction="out"/>
+    </method>
+    <method name="GetVolume">
+      <arg type="i" name="volume" direction="out"/>
+    </method>
+    <method name="Jump">
+      <arg type="i" name="position" direction="in"/>
+    </method>
+    <method name="NewPlaylist">
+      <arg type="s" name="name" direction="in"/>
+      <arg type="o" name="path" direction="out"/>
+    </method>
+    <method name="Next"/>
+    <method name="Pause"/>
+    <method name="Play"/>
+    <method name="Previous"/>
+    <method name="SeekBackward">
+      <arg type="i" name="step" direction="in"/>
+    </method>
+    <method name="SeekForward">
+      <arg type="i" name="step" direction="in"/>
+    </method>
+    <method name="SetCurrentPlaylist">
+      <arg type="o" name="list" direction="in"/>
+    </method>
+    <method name="SetPlaying">
+      <arg type="s" name="file" direction="in"/>
+    </method>
+    <method name="SetVolume">
+      <arg type="i" name="volume" direction="in"/>
+    </method>
+    <method name="Stop"/>
+    <signal name="PlayingChanged">
+      <arg type="s" name="file"/>
+    </signal>
+    <signal name="PlaylistAdded">
+      <arg type="o" name="path"/>
+    </signal>
+    <signal name="PlaylistRemoved">
+      <arg type="o" name="path"/>
+    </signal>
+    <signal name="Progress">
+      <arg type="i" name="progress"/>
+    </signal>
+    <signal name="State">
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="state" fso:type="org.freesmartphone.MusicPlayer.State"/>
+    </signal>
+  </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.MusicPlayer.State" type="s">
+    <fso:member value="stopped" name="stopped"/>
+    <fso:member value="playing" name="playing"/>
+    <fso:member value="pause" name="paused"/>
+    <fso:member value="buffering" name="buffering"/>
+  </fso:enumeration>
+</node>

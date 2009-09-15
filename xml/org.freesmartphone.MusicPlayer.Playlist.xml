@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.MusicPlayer.Playlist">
+    <method name="Add">
+      <arg type="s" name="file" direction="in"/>
+      <arg type="i" name="position" direction="out"/>
+    </method>
+    <method name="ChangeName">
+      <arg type="s" name="new_name" direction="in"/>
+    </method>
+    <method name="GetAtPosition">
+      <arg type="i" name="position" direction="in"/>
+      <arg type="s" name="result" direction="out"/>
+    </method>
+    <method name="GetFiles">
+      <arg type="as" name="result" direction="out"/>
+    </method>
+    <method name="GetMode">
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="mode" direction="out" fso:type="org.freesmartphone.MusicPlayer.Playlist.Mode"/>
+    </method>
+    <method name="GetName">
+      <arg type="s" name="name" direction="out"/>
+    </method>
+    <method name="Insert">
+      <arg type="i" name="position" direction="in"/>
+      <arg type="s" name="file" direction="in"/>
+    </method>
+    <method name="InsertDir">
+      <arg type="i" name="position" direction="in"/>
+      <arg type="s" name="file" direction="in"/>
+      <arg type="b" name="recursive" direction="in"/>
+    </method>
+    <method name="LoadFromFile">
+      <arg type="s" name="file" direction="in"/>
+    </method>
+    <method name="Remove">
+      <arg type="i" name="position" direction="in"/>
+    </method>
+    <method name="SetMode">
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="mode" direction="in" fso:type="org.freesmartphone.MusicPlayer.Playlist.Mode"/>
+    </method>
+    <signal name="Deleted"/>
+    <signal name="FileAdded">
+      <arg type="i" name="position"/>
+      <arg type="s" name="file"/>
+    </signal>
+    <signal name="FileRemoved">
+      <arg type="i" name="postion"/>
+    </signal>
+    <signal name="ModeChanged">
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="mode" fso:type="org.freesmartphone.MusicPlayer.Playlist.Mode"/>
+    </signal>
+    <signal name="Name">
+      <arg type="s" name="name"/>
+    </signal>
+    <signal name="Playing">
+      <arg type="s" name="file"/>
+    </signal>
+  </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.MusicPlayer.Playlist.Mode" type="s">
+    <fso:member name="normal" value="normal"/>
+    <fso:member name="random" value="random"/>
+    <fso:member name="endless" value="endless"/>
+  </fso:enumeration>
+</node>
