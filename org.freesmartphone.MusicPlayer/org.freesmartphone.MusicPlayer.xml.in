@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-idlenotifier-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Music Player Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.MusicPlayer">
+  <doc:doc>
+    <doc:para>
+      The MusicPlayer object manages playlists and playing soundfiles.
+    </doc:para>
+  </doc:doc>
+
+  <method name="DeletePlaylist">
+    <doc:doc>
+      <doc:description>Delete an excisting playlist</doc:description>
+    </doc:doc>
+    <arg type="o" name="list" direction="in">
+      <doc:doc>
+        <doc:summary>The playlist which should be deleted</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetCurrentPlaylist">
+    <doc:doc>
+      <doc:description>Get the current playlist</doc:description>
+    </doc:doc>
+    <arg type="o" name="list" direction="out">
+      <doc:doc>
+        <doc:summary>The current playlist</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetInfoForFile">
+    <doc:doc>
+      <doc:description>Get ID3 tags for a file</doc:description>
+    </doc:doc>
+    <arg type="s" name="file" direction="in">
+      <doc:doc>
+        <doc:summary>An absolute path to the file</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="info" direction="out">
+      <doc:doc>
+        <doc:summary>The fileinfo</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetPlaying">
+    <doc:doc>
+      <doc:description>Filename of the currently played song</doc:description>
+    </doc:doc>
+    <arg type="s" name="file" direction="out">
+      <doc:doc>
+        <doc:summary>Absolute path for the current song</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetPlayingInfo">
+    <doc:doc>
+      <doc:description>Fileinfo for the current file</doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="info" direction="out">
+      <doc:doc>
+        <doc:summary>Fileinfo of the file</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetPlaylist">
+    <doc:doc>
+      <doc:description>Get all available playlists</doc:description>
+    </doc:doc>
+    <arg type="as" name="playlists" direction="out">
+      <doc:doc>
+        <doc:summary>Object paths to available playlists</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetVolume">
+    <doc:doc>
+      <doc:description>Get the current volume</doc:description>
+    </doc:doc>
+    <arg type="i" name="volume" direction="out">
+      <doc:doc>
+        <doc:summary>The current volume in percent.
+                     Possible values: 0-1000</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Jump">
+    <doc:doc>
+      <doc:description>Jump to an absolute position in the file</doc:description>
+    </doc:doc>
+    <arg type="i" name="position" direction="in">
+      <doc:doc>
+        <doc:summary>Absolute position to new positition in seconds</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="NewPlaylist">
+    <doc:doc>
+      <doc:description>Create a new playlist</doc:description>
+    </doc:doc>
+    <arg type="s" name="name" direction="in">
+      <doc:doc>
+        <doc:summary>The name of the new playlist</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="o" name="path" direction="out">
+      <doc:doc>
+        <doc:summary>The object path to the new playlist</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Next">
+    <doc:doc>
+      <doc:description>Jump to next song</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Pause">
+    <doc:doc>
+      <doc:description>Pause playing</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Play">
+    <doc:doc>
+      <doc:description>Play current song</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Previous">
+    <doc:doc>
+      <doc:description>Jump to previous song</doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="SeekBackward">
+    <doc:doc>
+      <doc:description>Jump backward relative to current position</doc:description>
+    </doc:doc>
+    <arg type="i" name="step" direction="in">
+      <doc:doc>
+        <doc:summary>Step in seconds for seeking</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SeekForward">
+    <doc:doc>
+      <doc:description>Jump forward relative to current position</doc:description>
+    </doc:doc>
+    <arg type="i" name="step" direction="in">
+      <doc:doc>
+        <doc:summary>Step in seconds for seeking</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetCurrentPlaylist">
+    <doc:doc>
+      <doc:description>Set the current playlis</doc:description>
+    </doc:doc>
+    <arg type="o" name="list" direction="in">
+      <doc:doc>
+        <doc:description>Object path to the playlist</doc:description>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetPlaying">
+    <doc:doc>
+      <doc:description>Set the current playing file</doc:description>
+    </doc:doc>
+    <arg type="s" name="file" direction="in">
+      <doc:doc>
+        <doc:summary>Absolute path to the file</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetVolume">
+    <doc:doc>
+      <doc:description>Set the current volume</doc:description>
+    </doc:doc>
+    <arg type="i" name="volume" direction="in">
+      <doc:doc>
+        <doc:summary>The current volume in percent.
+                     Allowed values: 0-1000</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Stop">
+    <doc:doc>
+      <doc:description>Stop playing</doc:description>
+    </doc:doc>
+  </method>
+
+  <signal name="PlayingChanged">
+    <doc:doc>
+      <doc:description>Emmitted when the current song changes</doc:description>
+    </doc:doc>
+    <arg type="s" name="file">
+      <doc:doc>
+        <doc:summary>The new playing file</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="PlaylistAdded">
+    <doc:doc>
+      <doc:description>Emmitted when a client adds a playlist</doc:description>
+    </doc:doc>
+    <arg type="o" name="path">
+      <doc:doc>
+        <doc:summary>Object path for the new playlist</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="PlaylistRemoved">
+    <doc:doc>
+      <doc:description>Emmitted when a client deletes a playlist</doc:description>
+    </doc:doc>
+    <arg type="o" name="path">
+      <doc:doc>
+        <doc:summary>Object path of the deleted list</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="Progress">
+    <doc:doc>
+      <doc:description>Emmitted when the file position change</doc:description>
+    </doc:doc>
+    <arg type="i" name="progress">
+      <doc:doc>
+        <doc:summary>The new progress</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="State">
+    <doc:doc>
+      <doc:description>Emmitted when the current song changes</doc:description>
+    </doc:doc>
+    <arg type="s" name="state" fso:type="org.freesmartphone.MusicPlayer.State">
+      <doc:doc>
+        <doc:summary>The new state of the player.
+          Possible values:
+          [ul]
+            [li]"stopped"[/li]
+            [li]"playing"[/li]
+            [li]"paused"[/li]
+            [li]"buffering"[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+</interface>
+
+<fso:enumeration name="org.freesmartphone.MusicPlayer.State" type="s">
+  <fso:member value="stopped" name="stopped"/>
+  <fso:member value="playing" name="playing"/>
+  <fso:member value="pause" name="paused"/>
+  <fso:member value="buffering" name="buffering"/>
+</fso:enumeration>
+</node>

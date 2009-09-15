@@ -9,7 +9,8 @@ SUBDIRS := \
   org.freesmartphone.GSM \
   org.freesmartphone.Preferences \
   org.freesmartphone.Network \
-  org.freesmartphone.Time
+  org.freesmartphone.Time \
+  org.freesmartphone.MusicPlayer
 
 .PHONY: all clean check docs xml
 
