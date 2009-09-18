@@ -197,7 +197,6 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone.GSM.Call" />
   </method>
 
   <method name="ListCalls">

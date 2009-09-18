@@ -54,7 +54,6 @@
       <arg type="s" name="type" direction="in"/>
       <arg type="i" name="id" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Call"/>
     </method>
     <method name="ListCalls">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
