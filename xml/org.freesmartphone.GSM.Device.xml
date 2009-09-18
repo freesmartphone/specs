@@ -49,10 +49,12 @@
     <method name="GetSimBuffersSms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="sim_buffers_sms" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
     </method>
     <method name="SetSimBuffersSms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="sim_buffers_sms" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
     </method>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.Device" fso:no-container="true">
