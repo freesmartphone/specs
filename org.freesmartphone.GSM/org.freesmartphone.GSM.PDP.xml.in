@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-pdp-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-pdp-interface">
 
   <doc:doc>
     <doc:summary>freesmartphone.org GSM Packet Data Protocol Interface</doc:summary>
@@ -16,14 +16,6 @@
         via IP-based 2.5/3G provider networks.
       </doc:para>
     </doc:doc>
-
-    <error name="NotFound">
-      <doc:doc>
-        <doc:description>
-          Raised, if the specified PDP context is not present.
-        </doc:description>
-      </doc:doc>
-    </error>
 
   <method name="ListGprsClasses">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -241,4 +233,15 @@
        -->
 
 </interface>
+
+<fso:errordomain name="org.freesmartphone.GSM.PDP" fso:no-container="true">
+    <error name="NotFound">
+      <doc:doc>
+        <doc:description>
+          Raised, if the specified PDP context is not present.
+        </doc:description>
+      </doc:doc>
+    </error>
+</fso:errordomain>
+
 </node>

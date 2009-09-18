@@ -2,9 +2,6 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.Device">
-    <error name="NotPresent"/>
-    <error name="Timeout"/>
-    <error name="Failed"/>
     <method name="GetInfo" implementation="mandatory">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="info" direction="out"/>
@@ -55,4 +52,9 @@
       <arg type="b" name="sim_buffers_sms" direction="in"/>
     </method>
   </interface>
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.Device" fso:no-container="true">
+    <error name="NotPresent"/>
+    <error name="Timeout"/>
+    <error name="Failed"/>
+  </fso:errordomain>
 </node>

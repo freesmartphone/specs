@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-device-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-device-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Device Interface</doc:summary>
@@ -15,30 +15,6 @@
     subsystem (which is mandatory for implementing a flight mode).
     </doc:para>
   </doc:doc>
-
-  <error name="NotPresent">
-    <doc:doc>
-      <doc:description>
-        Raised, when the device is not present.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="Timeout">
-    <doc:doc>
-      <doc:description>
-        Raised, when the device does not answer within the specified time for this operation.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="Failed">
-    <doc:doc>
-      <doc:description>
-        Raised, when the device reported an unrecoverable error.
-      </doc:description>
-    </doc:doc>
-  </error>
 
   <method name="GetInfo" implementation="mandatory">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -279,4 +255,31 @@
   </method>
 
 </interface>
+
+<fso:errordomain name="org.freesmartphone.GSM.Device" fso:no-container="true">
+  <error name="NotPresent">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="Timeout">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device does not answer within the specified time for this operation.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="Failed">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device reported an unrecoverable error.
+      </doc:description>
+    </doc:doc>
+  </error>
+</fso:errordomain>
+
 </node>

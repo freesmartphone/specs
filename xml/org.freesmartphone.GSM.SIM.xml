@@ -2,12 +2,6 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.SIM">
-    <error name="NotPresent"/>
-    <error name="AuthFailed"/>
-    <error name="Blocked"/>
-    <error name="NotFound"/>
-    <error name="MemoryFull"/>
-    <error name="InvalidIndex"/>
     <method name="GetAuthStatus">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.SIMAuthStatus"/>
@@ -162,4 +156,12 @@
     <fso:member name="pin2-required" value="SIM PIN2"/>
     <fso:member name="puk2-required" value="SIM PUK2"/>
   </fso:enumeration>
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.SIM" fso:no-container="true">
+    <error name="NotPresent"/>
+    <error name="AuthFailed"/>
+    <error name="Blocked"/>
+    <error name="NotFound"/>
+    <error name="MemoryFull"/>
+    <error name="InvalidIndex"/>
+  </fso:errordomain>
 </node>

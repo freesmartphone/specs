@@ -17,54 +17,6 @@
     </doc:para>
   </doc:doc>
 
-  <error name="NotPresent">
-    <doc:doc>
-      <doc:description>
-        Raised, if there is no SIM card present.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="AuthFailed">
-    <doc:doc>
-      <doc:description>
-        Raised, if the SIM authentication code is not accepted.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="Blocked">
-    <doc:doc>
-      <doc:description>
-        Raised, if the SIM has been deactivated or is otherwise not allowed to join a network.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="NotFound">
-    <doc:doc>
-      <doc:description>
-        Raised, if a data record on the SIM is not present.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="MemoryFull">
-    <doc:doc>
-      <doc:description>
-        Raised, if there is not enough space for a data record on the SIM.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="InvalidIndex">
-    <doc:doc>
-      <doc:description>
-        Raised, if the requested messagebook or phonebook entry is out of bounds.
-      </doc:description>
-    </doc:doc>
-  </error>
-
   <!-- AUTHENTICATION -->
 
   <method name="GetAuthStatus">
@@ -754,4 +706,55 @@
   <fso:member name="pin2-required" value="SIM PIN2"/>
   <fso:member name="puk2-required" value="SIM PUK2"/>
 </fso:enumeration>
+
+<fso:errordomain name="org.freesmartphone.GSM.SIM" fso:no-container="true">
+  <error name="NotPresent">
+    <doc:doc>
+      <doc:description>
+        Raised, if there is no SIM card present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="AuthFailed">
+    <doc:doc>
+      <doc:description>
+        Raised, if the SIM authentication code is not accepted.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="Blocked">
+    <doc:doc>
+      <doc:description>
+        Raised, if the SIM has been deactivated or is otherwise not allowed to join a network.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if a data record on the SIM is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="MemoryFull">
+    <doc:doc>
+      <doc:description>
+        Raised, if there is not enough space for a data record on the SIM.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="InvalidIndex">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested messagebook or phonebook entry is out of bounds.
+      </doc:description>
+    </doc:doc>
+  </error>
+</fso:errordomain>
+
 </node>

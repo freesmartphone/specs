@@ -2,11 +2,6 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.MUX">
-    <error name="ChannelTaken"/>
-    <error name="NoChannel"/>
-    <error name="NoSession"/>
-    <error name="SessionAlreadyOpen"/>
-    <error name="SessionOpenError"/>
     <method name="OpenSession">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="advanced" type="b" direction="in"/>
@@ -37,4 +32,11 @@
       <arg type="s" name="status"/>
     </signal>
   </interface>
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.MUX" fso:no-container="true">
+    <error name="ChannelTaken"/>
+    <error name="NoChannel"/>
+    <error name="NoSession"/>
+    <error name="SessionAlreadyOpen"/>
+    <error name="SessionOpenError"/>
+  </fso:errordomain>
 </node>
