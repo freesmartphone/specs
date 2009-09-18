@@ -6,7 +6,7 @@
   <doc:version>0.9.3.0</doc:version>
 </doc:doc>
 
-<interface name="org.freesmartphone.GSM">
+<interface name="org.freesmartphone.GSM.Device">
 
   <doc:doc>
     <doc:para>
