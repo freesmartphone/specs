@@ -161,6 +161,7 @@
     </arg>
   </method>
 
+<!--
   <method name="GetPowerStatus">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -194,7 +195,7 @@
       </doc:doc>
     </arg>
   </method>
-
+-->
   <signal name="KeypadEvent">
     <doc:doc>
       <doc:description>
