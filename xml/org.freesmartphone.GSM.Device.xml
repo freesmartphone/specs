@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
-  <interface name="org.freesmartphone.GSM.Device">
+  <interface name="org.freesmartphone.GSM">
     <method name="GetInfo" implementation="mandatory">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="info" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="GetAntennaPower">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="antenna_power" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="SetAntennaPower">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="antenna_power" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="GetFeatures">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="features" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="GetSpeakerVolume">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="volume" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="SetSpeakerVolume">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="volume" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="GetMicrophoneMuted">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="muted" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="SetMicrophoneMuted">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="muted" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <signal name="KeypadEvent">
       <arg type="s" name="name"/>
@@ -49,17 +49,12 @@
     <method name="GetSimBuffersSms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="sim_buffers_sms" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="SetSimBuffersSms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="sim_buffers_sms" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
   </interface>
-  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.Device" fso:no-container="true">
-    <error name="NotPresent"/>
-    <error name="Timeout"/>
-    <error name="Failed"/>
-  </fso:errordomain>
 </node>

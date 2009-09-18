@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-errors">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org GSM Errors</doc:summary>
+  <doc:version>1.0.0</doc:version>
+</doc:doc>
+
+<fso:errordomain name="org.freesmartphone.GSM" fso:no-container="true">
+
+  <!-- DEVICE -->
+
+  <error name="DeviceNotPresent">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="DeviceTimeout">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device does not answer within the specified time for this operation.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="DeviceFailed">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device reported an unrecoverable error.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <!-- SIM -->
+
+  <error name="SimNotPresent">
+    <doc:doc>
+      <doc:description>
+        Raised, if there is no SIM card present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="SimAuthFailed">
+    <doc:doc>
+      <doc:description>
+        Raised, if the SIM authentication code is not accepted.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="SimBlocked">
+    <doc:doc>
+      <doc:description>
+        Raised, if the SIM has been deactivated or is otherwise not allowed to join a network.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="SimNotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if a data record on the SIM is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="SimMemoryFull">
+    <doc:doc>
+      <doc:description>
+        Raised, if there is not enough space for a data record on the SIM.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="SimInvalidIndex">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested messagebook or phonebook entry is out of bounds.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <!-- CALL -->
+
+  <error name="CallNotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if the specified call is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <!-- MUX -->
+
+    <error name="MuxChannelTaken">
+    <doc:doc>
+      <doc:description>
+        Raised, when the requested channel is already allocated.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="MuxNoChannel">
+    <doc:doc>
+      <doc:description>
+        Raised, when the device can't allocate the requested channel.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="MuxNoSession">
+    <doc:doc>
+      <doc:description>
+        Raised, when there is no active session.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="MuxSessionAlreadyOpen">
+    <doc:doc>
+      <doc:description>
+        Raised, when a session has already been opened.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="MuxSessionOpenError">
+    <doc:doc>
+      <doc:description>
+        Raised, when the session can not be opened.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <!-- NETWORK -->
+
+  <error name="NetworkNotPresent">
+    <doc:doc>
+      <doc:description>
+        Raised, if no network service is available.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NetworkUnauthorized">
+    <doc:doc>
+      <doc:description>
+        Raised, if registering with the specified network is not possible.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NetworkNotSupported">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested network operation is not supported.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="NetworkNotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if a requested network provider is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <!-- PDP -->
+
+  <error name="ContextNotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if the specified PDP context is not present.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+</fso:errordomain>
+
+</node>

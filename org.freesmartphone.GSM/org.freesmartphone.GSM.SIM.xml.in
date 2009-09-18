@@ -41,7 +41,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <signal name="AuthStatus">
@@ -68,7 +68,7 @@
         <doc:summary>The authentication code.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="Unlock">
@@ -87,7 +87,7 @@
         <doc:summary>The new authentication code.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="ChangeAuthCode">
@@ -106,7 +106,7 @@
         <doc:summary>The new authentication code.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="SetAuthCodeRequired">
@@ -125,7 +125,7 @@
         <doc:summary>A valid authentication code.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetAuthCodeRequired">
@@ -139,7 +139,7 @@
         <doc:summary>True, if SIM card authentification is turned on. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <!-- INFO & LOW-LEVEL ACCESS -->
@@ -160,7 +160,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <signal name="ReadyStatus">
@@ -174,7 +174,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </signal>
 
   <method name="GetSimInfo">
@@ -208,7 +208,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="SendGenericSimCommand">
@@ -227,7 +227,7 @@
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="SendRestrictedSimCommand">
@@ -281,7 +281,7 @@
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetHomeZones">
@@ -303,7 +303,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetIssuer">
@@ -319,7 +319,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetProviderList">
@@ -339,7 +339,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <!-- PHONEBOOK -->
@@ -365,7 +365,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetPhonebookInfo">
@@ -395,7 +395,7 @@
       </doc:summary>
     </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="RetrievePhonebook">
@@ -424,7 +424,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="DeleteEntry">
@@ -446,7 +446,7 @@
         <doc:summary>Index of entry to delete.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="StoreEntry">
@@ -479,7 +479,7 @@
         <doc:inote>We do not export the +CPBW "type" entry to the interface, but rather deal with that transparently.</doc:inote>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="RetrieveEntry">
@@ -507,7 +507,7 @@
         <doc:summary>The number corresponding to the name.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <!-- SHORT MESSAGE SERVICE -->
@@ -530,7 +530,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="RetrieveMessagebook">
@@ -567,7 +567,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetServiceCenterNumber">
@@ -581,7 +581,7 @@
         <doc:summary>The SMS Center Number.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="SetServiceCenterNumber">
@@ -595,7 +595,7 @@
         <doc:summary>The SMS Center Number.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <signal name="IncomingStoredMessage">
@@ -620,7 +620,7 @@
         <doc:summary>The storage index of the message to delete.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="StoreMessage">
@@ -651,7 +651,7 @@
         <doc:summary>The index of the new message.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="SendStoredMessage">
@@ -675,7 +675,7 @@
         <doc:summary>The timestamp this message was received by the SMSC</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="RetrieveMessage">
@@ -720,7 +720,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
 </interface>
@@ -732,55 +732,5 @@
   <fso:member name="pin2-required" value="SIM PIN2"/>
   <fso:member name="puk2-required" value="SIM PUK2"/>
 </fso:enumeration>
-
-<fso:errordomain name="org.freesmartphone.GSM.SIM" fso:no-container="true">
-  <error name="NotPresent">
-    <doc:doc>
-      <doc:description>
-        Raised, if there is no SIM card present.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="AuthFailed">
-    <doc:doc>
-      <doc:description>
-        Raised, if the SIM authentication code is not accepted.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="Blocked">
-    <doc:doc>
-      <doc:description>
-        Raised, if the SIM has been deactivated or is otherwise not allowed to join a network.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="NotFound">
-    <doc:doc>
-      <doc:description>
-        Raised, if a data record on the SIM is not present.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="MemoryFull">
-    <doc:doc>
-      <doc:description>
-        Raised, if there is not enough space for a data record on the SIM.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="InvalidIndex">
-    <doc:doc>
-      <doc:description>
-        Raised, if the requested messagebook or phonebook entry is out of bounds.
-      </doc:description>
-    </doc:doc>
-  </error>
-</fso:errordomain>
 
 </node>

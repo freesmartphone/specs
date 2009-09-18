@@ -34,12 +34,7 @@
 <li><a href="#IncomingUssd">IncomingUssd</a></li>
 <li><a href="#CipherStatus">CipherStatus</a></li>
 </ul>
-<h2>Errors</h2><ul>
-<li><a href="#NotPresent">NotPresent</a></li>
-<li><a href="#Unauthorized">Unauthorized</a></li>
-<li><a href="#NotSupported">NotSupported</a></li>
-<li><a href="#NotFound">NotFound</a></li>
-</ul>
+<h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="Register">Register</a> ( )</h3><p><i>Description:</i> Register with any available service provider. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS=0, see 3GPP TS 07.07 Chapter 7.3. </p></div></p>
 <h3><a name="Unregister">Unregister</a> ( )</h3><p><i>Description:</i> Unregister from service provider. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +COPS=2, see 3GPP TS 07.07 Chapter 7.3. </p></div></p>
 <h3><a name="GetStatus">GetStatus</a> ( ) &rarr; a{sv}</h3>
@@ -68,10 +63,6 @@
 <h3><h3><a name="SignalStrength">SignalStrength</a> ( i )</h3><p><i>Description:</i> (OPTIONAL) Sent, when registered with a service provider and the network signal strength changes. </p><h4>Parameters</h4><i>i: signal_strength</i><p>The signal strength in percent (0-100). </p></h3>
 <h3><h3><a name="IncomingUssd">IncomingUssd</a> ( ss )</h3><p><i>Description:</i> Sent, when an USSD result or a network initiated request arrives. This signal is usually  sent in response to the method <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.Network.html#SendUssdRequest">SendUssdRequest</a> </p><h4>Parameters</h4><i>s: mode</i><p>The message mode. Valid values are:  <ul>  <li>"completed", if the last user-initiated request has been successfully completed,</li>  <li>"useraction", if this is a network-initiated request and further user action is necessary,</li>  <li>"terminated", if the network terminated the request,</li>  <li>"localclient", if another local client on the network has responded,</li>  <li>"unsupported", if the last user-inititated request is unsupported,</li>  <li>"timeout", if the network has not answered in time.</li>  </ul> </p><i>s: message</i><p>The message. Only set if mode is "completed" or "useraction". "", otherwise. </p></h3>
 <h3><h3><a name="CipherStatus">CipherStatus</a> ( ss )</h3><p><i>Description:</i> Sent, when the network reports a change in GSM or GPRS cipher indication.  Only few modems support forwarding this to the AT command layer, hence implementation of this signal is optional. </p><h4>Parameters</h4><i>s: gsm</i><p>The GSM cipher: "enabled", "disabled", or "unknown" </p><i>s: gprs</i><p>The GPRS cipher: "enabled", "disabled", or "unknown" </p></h3>
-<h1>Errors</h1><h3><a name="NotPresent">NotPresent</a></h3><p><i>Description:</i> Raised, if no network service is available. </p>
-<h3><a name="Unauthorized">Unauthorized</a></h3><p><i>Description:</i> Raised, if registering with the specified network is not possible. </p>
-<h3><a name="NotSupported">NotSupported</a></h3><p><i>Description:</i> Raised, if the requested network operation is not supported. </p>
-<h3><a name="NotFound">NotFound</a></h3><p><i>Description:</i> Raised, if a requested network provider is not present. </p>
 
     <hr/>
     <small>

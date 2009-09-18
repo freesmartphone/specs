@@ -18,25 +18,21 @@
       <arg name="channel" type="i" direction="in"/>
       <arg name="path" type="s" direction="out"/>
       <arg name="allocated_channel" type="i" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="ReleaseChannel">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="origin" type="s" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="SetStatus">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="channel" type="i" direction="in"/>
       <arg name="status" type="s" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <signal name="Status">
       <arg type="s" name="status"/>
     </signal>
   </interface>
-  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.MUX" fso:no-container="true">
-    <error name="ChannelTaken"/>
-    <error name="NoChannel"/>
-    <error name="NoSession"/>
-    <error name="SessionAlreadyOpen"/>
-    <error name="SessionOpenError"/>
-  </fso:errordomain>
 </node>

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-common-interface">
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-common-errors">
 
 <doc:doc>
-  <doc:summary>freesmartphone.org Common Interface</doc:summary>
+  <doc:summary>freesmartphone.org Common Errors</doc:summary>
   <doc:version>1.0.0</doc:version>
 </doc:doc>
 

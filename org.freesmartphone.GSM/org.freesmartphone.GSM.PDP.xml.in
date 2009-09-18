@@ -28,7 +28,7 @@
         <doc:summary>The available GPRS device classes.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetCurrentGprsClass">
@@ -42,7 +42,7 @@
         <doc:summary>The GPRS device class mode.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="SetCurrentGprsClass">
@@ -56,7 +56,7 @@
         <doc:summary>The GPRS device class mode.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetNetworkStatus">
@@ -99,7 +99,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <signal name="NetworkStatus">
@@ -155,7 +155,7 @@
         <doc:summary>An index to identify context status changes.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="DeactivateContext">
@@ -169,7 +169,7 @@
         <doc:summary>The context to deactivate.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="GetContextStatus">
@@ -187,7 +187,7 @@
         <doc:summary>The context status. See org.freesmartphone.GSM.PDP.ContextStatus for a list of valid values.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM.Device" />
+    <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <signal name="ContextStatus">
@@ -240,15 +240,5 @@
        -->
 
 </interface>
-
-<fso:errordomain name="org.freesmartphone.GSM.PDP" fso:no-container="true">
-    <error name="NotFound">
-      <doc:doc>
-        <doc:description>
-          Raised, if the specified PDP context is not present.
-        </doc:description>
-      </doc:doc>
-    </error>
-</fso:errordomain>
 
 </node>

@@ -23,13 +23,7 @@
 <h2>Signals</h2><ul>
 <li><a href="#Status">Status</a></li>
 </ul>
-<h2>Errors</h2><ul>
-<li><a href="#ChannelTaken">ChannelTaken</a></li>
-<li><a href="#NoChannel">NoChannel</a></li>
-<li><a href="#NoSession">NoSession</a></li>
-<li><a href="#SessionAlreadyOpen">SessionAlreadyOpen</a></li>
-<li><a href="#SessionOpenError">SessionOpenError</a></li>
-</ul>
+<h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="OpenSession">OpenSession</a> ( bisi )</h3>
 <p><i>Description:</i> Initiate a new multiplexing session. </p><p><div class="rationale"><p>The device needs to support the +CMUX command. </p></div></p><h4>Parameters</h4><i>b: advanced</i><p>True, to use 07.10 Advanced Mode multiplexing, False to use 07.10 Basic Mode multiplexing. </p><i>i: framesize</i><p>The maximum framesize for 07.10 multiplexing frames. </p><i>s: portname</i><p>The port name to use. </p><i>i: portspeed</i><p>The port speed to use. </p>
 <h3><a name="CloseSession">CloseSession</a> ( )</h3><p><i>Description:</i> Closes a multiplexing session. </p><p><div class="rationale"><p>The device will be left in AT command mode. </p></div></p>
@@ -40,11 +34,6 @@
 <h3><a name="SetStatus">SetStatus</a> ( is )</h3>
 <p><i>Description:</i> Modify the v24 status of a virtual channel. </p><h4>Parameters</h4><i>i: channel</i><p>The virtual channel you want to change the outgoing status for. </p><i>s: status</i><p>The new v.24 status. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.MUX.html#Status">Status</a> for the format. </p>
 <h1>Signals</h1><h3><h3><a name="Status">Status</a> ( s )</h3><p><i>Description:</i> Sent whenever there is v.24 incoming status change on a virtual channel. </p><h4>Parameters</h4><i>s: status</i><p>The new v.24 status, which is a string combined of elements that make up the status. Valid elements are:  <ul>  <li>...</li>  <li>...</li>  </ul> </p></h3>
-<h1>Errors</h1><h3><a name="ChannelTaken">ChannelTaken</a></h3><p><i>Description:</i> Raised, when the requested channel is already allocated. </p>
-<h3><a name="NoChannel">NoChannel</a></h3><p><i>Description:</i> Raised, when the device can't allocate the requested channel. </p>
-<h3><a name="NoSession">NoSession</a></h3><p><i>Description:</i> Raised, when there is no active session. </p>
-<h3><a name="SessionAlreadyOpen">SessionAlreadyOpen</a></h3><p><i>Description:</i> Raised, when a session has already been opened. </p>
-<h3><a name="SessionOpenError">SessionOpenError</a></h3><p><i>Description:</i> Raised, when the session can not be opened. </p>
 
     <hr/>
     <small>

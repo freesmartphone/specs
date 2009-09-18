@@ -80,6 +80,7 @@
           <doc:summary>The channel number that has been allocated.</doc:summary>
         </doc:doc>
       </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
     </method>
 
     <method name="ReleaseChannel">
@@ -94,6 +95,7 @@
           <doc:summary>A handle for channel user identification.</doc:summary>
         </doc:doc>
       </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
     </method>
 
     <method name="SetStatus">
@@ -115,6 +117,7 @@
           </doc:summary>
         </doc:doc>
       </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
     </method>
 
     <signal name="Status">
@@ -137,49 +140,6 @@
     </signal>
 
   </interface>
-
-<fso:errordomain name="org.freesmartphone.GSM.MUX" fso:no-container="true">
-  <error name="ChannelTaken">
-    <doc:doc>
-      <doc:description>
-        Raised, when the requested channel is already allocated.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="NoChannel">
-    <doc:doc>
-      <doc:description>
-        Raised, when the device can't allocate the requested channel.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="NoSession">
-    <doc:doc>
-      <doc:description>
-        Raised, when there is no active session.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="SessionAlreadyOpen">
-    <doc:doc>
-      <doc:description>
-        Raised, when a session has already been opened.
-      </doc:description>
-    </doc:doc>
-  </error>
-
-  <error name="SessionOpenError">
-    <doc:doc>
-      <doc:description>
-        Raised, when the session can not be opened.
-      </doc:description>
-    </doc:doc>
-  </error>
-</fso:errordomain>
-
 
 </node>
 
