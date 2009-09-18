@@ -34,11 +34,6 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="b" name="muted" direction="in"/>
     </method>
-    <method name="GetPowerStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="status" direction="out"/>
-      <arg type="i" name="level" direction="out"/>
-    </method>
     <signal name="KeypadEvent">
       <arg type="s" name="name"/>
       <arg type="b" name="pressed"/>

@@ -22,7 +22,6 @@
 <li><a href="#SetSpeakerVolume">SetSpeakerVolume</a></li>
 <li><a href="#GetMicrophoneMuted">GetMicrophoneMuted</a></li>
 <li><a href="#SetMicrophoneMuted">SetMicrophoneMuted</a></li>
-<li><a href="#GetPowerStatus">GetPowerStatus</a></li>
 <li><a href="#GetSimBuffersSms">GetSimBuffersSms</a></li>
 <li><a href="#SetSimBuffersSms">SetSimBuffersSms</a></li>
 </ul>
@@ -50,8 +49,6 @@
 <p><i>Description:</i> Retrieve whether the microphone is currently muted. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CMUT?, see 3GPP TS 07.07 Chapter 8.2.4. </p></div></p><h4>Returns</h4><i>b: muted</i><p>True, if the microphone is muted. False, otherwise. </p>
 <h3><a name="SetMicrophoneMuted">SetMicrophoneMuted</a> ( b )</h3>
 <p><i>Description:</i> Mute or unmute the microphone. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CMUT=... see 3GPP TS 07.07 Chapter 8.2.4. </p></div></p><h4>Parameters</h4><i>b: muted</i><p>True, to mute the microphone. False, otherwise. </p>
-<h3><a name="GetPowerStatus">GetPowerStatus</a> ( ) &rarr; si</h3>
-<p><i>Description:</i> Retrieve the power status. This call is not implemented on most smartphones,  since the battery is monitored by the application processor (as opposed to the  baseband processor) there. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CBC, see 3GPP TS 07.07 Chapter 8.4. </p></div></p><h4>Returns</h4><i>s: status</i><p>The power status. Valid values are:  <ul>  <li>"battery" = A battery is built in and is the current power source,</li>  <li>"ac" = A battery is built in, but is not powered by it currently,</li>  <li>"usb" = There is no battery built in,</li>  <li>"error" = The battery is malfunctioning,</li>  <li>"unknown" = Power status could not be found.</li>  </ul> </p><i>i: level</i><p>The charging level in percent (0-100), if a battery is built in.  -1, otherwise. </p>
 <h3><a name="GetSimBuffersSms">GetSimBuffersSms</a> ( ) &rarr; b</h3>
 <p><i>Description:</i> Retrieve whether incoming SMS are buffered on the SIM (in which case  <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#IncomingStoredMessage">IncomingStoredMessage</a> is sent) or sent directly via  the <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SMS.html#IncomingMessage">IncomingMessage</a> signal). </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CNMI?, see 3GPP TS 07.05 Chapter 3.4.1. </p></div></p><h4>Returns</h4><i>b: sim_buffers_sms</i><p>True, if incoming SMS are buffered on the SIM. False, otherwise. </p>
 <h3><a name="SetSimBuffersSms">SetSimBuffersSms</a> ( b )</h3>
