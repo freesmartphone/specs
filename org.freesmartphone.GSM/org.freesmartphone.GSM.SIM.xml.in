@@ -41,6 +41,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <signal name="AuthStatus">
@@ -67,6 +68,7 @@
         <doc:summary>The authentication code.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="Unlock">
@@ -85,6 +87,7 @@
         <doc:summary>The new authentication code.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="ChangeAuthCode">
@@ -103,6 +106,7 @@
         <doc:summary>The new authentication code.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="SetAuthCodeRequired">
@@ -121,6 +125,7 @@
         <doc:summary>A valid authentication code.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="GetAuthCodeRequired">
@@ -134,6 +139,7 @@
         <doc:summary>True, if SIM card authentification is turned on. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <!-- INFO & LOW-LEVEL ACCESS -->
@@ -154,6 +160,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <signal name="ReadyStatus">
@@ -167,6 +174,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </signal>
 
   <method name="GetSimInfo">
@@ -200,6 +208,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="SendGenericSimCommand">
@@ -218,6 +227,7 @@
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="SendRestrictedSimCommand">
@@ -271,6 +281,7 @@
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="GetHomeZones">
@@ -292,6 +303,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="GetIssuer">
@@ -307,6 +319,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="GetProviderList">
@@ -326,6 +339,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <!-- PHONEBOOK -->
@@ -351,6 +365,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="GetPhonebookInfo">
@@ -380,6 +395,7 @@
       </doc:summary>
     </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="RetrievePhonebook">
@@ -408,6 +424,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="DeleteEntry">
@@ -429,6 +446,7 @@
         <doc:summary>Index of entry to delete.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="StoreEntry">
@@ -461,6 +479,7 @@
         <doc:inote>We do not export the +CPBW "type" entry to the interface, but rather deal with that transparently.</doc:inote>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="RetrieveEntry">
@@ -488,6 +507,7 @@
         <doc:summary>The number corresponding to the name.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <!-- SHORT MESSAGE SERVICE -->
@@ -510,6 +530,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="RetrieveMessagebook">
@@ -546,6 +567,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="GetServiceCenterNumber">
@@ -559,6 +581,7 @@
         <doc:summary>The SMS Center Number.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="SetServiceCenterNumber">
@@ -572,6 +595,7 @@
         <doc:summary>The SMS Center Number.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <signal name="IncomingStoredMessage">
@@ -596,6 +620,7 @@
         <doc:summary>The storage index of the message to delete.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="StoreMessage">
@@ -626,6 +651,7 @@
         <doc:summary>The index of the new message.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
   <method name="SendStoredMessage">
@@ -649,9 +675,8 @@
         <doc:summary>The timestamp this message was received by the SMSC</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
-
-  <!-- FIXME Do we want to include "status" and "arrival time" in RetrieveMessage? -->
 
   <method name="RetrieveMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -695,6 +720,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM.Device" />
   </method>
 
 </interface>
