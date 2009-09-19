@@ -115,6 +115,21 @@
     </doc:doc>
   </method>
   
+  <signal name="ContactAdded">
+    <doc:doc>
+      <doc:description>
+        Sent when a new contact which matces this query is loaded.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="contact_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the newly loaded contact.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+  
 </interface>
 
 </node>

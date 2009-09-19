@@ -91,6 +91,29 @@
       </doc:description>
     </doc:doc>
   </method>
+  
+  <signal name="ContactDeleted">
+    <doc:doc>
+      <doc:description>
+        Sent when contact is deleted.
+      </doc:description>
+    </doc:doc>
+  </signal>
+  
+  <signal name="ContactUpdated">
+    <doc:doc>
+      <doc:description>
+        Sent when contact is updated.
+      </doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="data">
+      <doc:doc>
+        <doc:summary>
+          Data used to update contact.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 

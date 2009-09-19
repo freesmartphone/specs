@@ -36,7 +36,7 @@
     </arg>
   </method>
 
-  <method name="GetSingleContactSingleField">
+  <method name="GetSingleEntrySingleField">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>

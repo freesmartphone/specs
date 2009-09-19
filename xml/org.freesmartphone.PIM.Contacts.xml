@@ -7,7 +7,7 @@
       <arg direction="in" type="a{sv}" name="contact_data"/>
       <arg direction="out" type="s" name="contact_path"/>
     </method>
-    <method name="GetSingleContactSingleField">
+    <method name="GetSingleEntrySingleField">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="a{sv}" name="query"/>
       <arg direction="in" type="s" name="field"/>
