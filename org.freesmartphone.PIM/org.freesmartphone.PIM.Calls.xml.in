@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-contacts-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-calls-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org PIM.Calls Interface</doc:summary>
@@ -36,7 +36,7 @@
     </arg>
   </method>
 
-  <method name="GetSingleCallSingleField">
+  <method name="GetSingleEntrySingleField">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
@@ -89,6 +89,22 @@
     </arg>
   </method>
 
+  <method name="GetNewMissedCalls">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get the amount of new missed calls.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="i" name="amount">
+      <doc:doc>
+        <doc:summary>
+          Amount of new missed calls
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <signal name="NewCall">
     <doc:doc>
       <doc:description>
@@ -99,6 +115,21 @@
       <doc:doc>
         <doc:summary>
           The path of the newly loaded call.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="IncomingCall">
+    <doc:doc>
+      <doc:description>
+        Sent when a new missed call is registered.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="call_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the newly registered missed call.
         </doc:summary>
       </doc:doc>
     </arg>

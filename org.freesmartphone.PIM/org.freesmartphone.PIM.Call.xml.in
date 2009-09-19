@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-contact-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-call-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org PIM.Call Interface</doc:summary>
@@ -91,6 +91,29 @@
       </doc:description>
     </doc:doc>
   </method>
+  
+  <signal name="CallDeleted">
+    <doc:doc>
+      <doc:description>
+        Sent when call is deleted.
+      </doc:description>
+    </doc:doc>
+  </signal>
+  
+  <signal name="CallUpdated">
+    <doc:doc>
+      <doc:description>
+        Sent when call is updated.
+      </doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="data">
+      <doc:doc>
+        <doc:summary>
+          Data used to update call.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 

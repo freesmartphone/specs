@@ -21,5 +21,9 @@
     <method name="Delete">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
+    <signal name="CallDeleted"/>
+    <signal name="CallUpdated">
+      <arg type="a{sv}" name="data"/>
+    </signal>
   </interface>
 </node>

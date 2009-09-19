@@ -28,5 +28,8 @@
     <method name="Dispose">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
+    <signal name="CallAdded">
+      <arg type="s" name="call_path"/>
+    </signal>
   </interface>
 </node>

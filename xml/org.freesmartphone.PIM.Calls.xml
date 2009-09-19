@@ -7,7 +7,7 @@
       <arg direction="in" type="a{sv}" name="call_data"/>
       <arg direction="out" type="s" name="call_path"/>
     </method>
-    <method name="GetSingleCallSingleField">
+    <method name="GetSingleEntrySingleField">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="a{sv}" name="query"/>
       <arg direction="in" type="s" name="field"/>
@@ -18,7 +18,14 @@
       <arg direction="in" type="a{sv}" name="query"/>
       <arg direction="out" type="s" name="query_path"/>
     </method>
+    <method name="GetNewMissedCalls">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="out" type="i" name="amount"/>
+    </method>
     <signal name="NewCall">
+      <arg type="s" name="call_path"/>
+    </signal>
+    <signal name="IncomingCall">
       <arg type="s" name="call_path"/>
     </signal>
     <signal name="NewMissedCalls">

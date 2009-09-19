@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-contactquery-interface">
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-callquery-interface">
 
 <doc:doc>
   <doc:summary>freesmartphone.org PIM.CallQuery Interface</doc:summary>
@@ -114,6 +114,21 @@
       </doc:description>
     </doc:doc>
   </method>
+  
+  <signal name="CallAdded">
+    <doc:doc>
+      <doc:description>
+        Sent when a new call which matches this query is loaded.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="call_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the newly loaded call.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
   
 </interface>
 
