@@ -46,8 +46,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetAntennaPower">
@@ -61,8 +61,8 @@
         <doc:summary>True, when the antenna is powered on. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetAntennaPower">
@@ -79,8 +79,8 @@
         <doc:summary>True, for powering on the antenna. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetFeatures">
@@ -105,8 +105,8 @@
       </doc:inote>
     </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetSpeakerVolume">
@@ -122,8 +122,8 @@
         <doc:summary>The volume in percent (0-100).</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetSpeakerVolume">
@@ -139,8 +139,8 @@
         <doc:summary>The volume in percent (0-100).</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetMicrophoneMuted">
@@ -156,8 +156,8 @@
         <doc:summary>True, if the microphone is muted. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetMicrophoneMuted">
@@ -173,8 +173,8 @@
         <doc:summary>True, to mute the microphone. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
 <!--
@@ -210,8 +210,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 -->
 
@@ -255,8 +255,8 @@
         <doc:summary>True, if incoming SMS are buffered on the SIM. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetSimBuffersSms">
@@ -274,8 +274,8 @@
         <doc:summary>True, if incoming SMS should be buffered on the SIM. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
 </interface>

@@ -20,15 +20,15 @@
   <method name="GetServiceBearer">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <arg type="s" name="mode" direction="out" />
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetServiceBearer">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <arg type="s" name="mode" direction="in" />
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
   -->
 
@@ -97,8 +97,8 @@
         <doc:summary>The timestamp this message was received by the SMSC.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="AckMessage">
@@ -147,8 +147,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="NackMessage">
@@ -198,8 +198,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
 <!-- Does initial sending sometimes fail and we get a delayed response that

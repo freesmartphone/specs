@@ -26,8 +26,8 @@
         <doc:summary>The emergency number to dial. National and world-wide restrictions apply.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <signal name="CallStatus">
@@ -90,8 +90,8 @@
       </doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="ActivateConference">
@@ -105,8 +105,8 @@
       <doc:inote>This maps to GSM 07.07 +CHLD=..., see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="Release">
@@ -118,8 +118,8 @@
       </doc:inote>
     </doc:doc>
     <arg type="i" name="id" direction="in" />
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
 </method>
 
   <method name="HoldActive">
@@ -128,8 +128,8 @@
       <doc:description>Hold the active call.</doc:description>
       <doc:inote>This maps to GSM 07.07 +CHLD=2, see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="Join">
@@ -138,8 +138,8 @@
       <doc:description>Join all active and held calls and release yourself from the conversation.</doc:description>
       <doc:inote>This maps to GSM 07.07 +CHLD=4, see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="Transfer">
@@ -153,8 +153,8 @@
         <doc:summary>The number to transfer the call to.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="ReleaseHeld">
@@ -163,8 +163,8 @@
       <doc:description>Release all held calls.</doc:description>
       <doc:inote>This maps to GSM 07.07 +CHLD=, see 3GPP TS 07.07 Chapter 7.12.</doc:inote>
     </doc:doc>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="ReleaseAll">
@@ -173,8 +173,8 @@
       <doc:description>Release all calls, no matter whether active or put on hold.</doc:description>
       <doc:inote>This maps to ATH, see v.250.</doc:inote>
     </doc:doc>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="Initiate">
@@ -205,8 +205,8 @@
         <doc:summary>The reference id for this call. It will get assigned by the system.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="ListCalls">
@@ -222,8 +222,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SendDtmf">
@@ -240,8 +240,8 @@
         <doc:summary>The tones to send. Allowed values are: (0-9,#,*,A-D)</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
 </interface>

@@ -52,8 +52,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetNeighbourCellInformation">
@@ -88,8 +88,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
 </interface>

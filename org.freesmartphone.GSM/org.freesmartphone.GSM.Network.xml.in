@@ -28,8 +28,8 @@
         <doc:description>Register with any available service provider.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +COPS=0, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
     </doc:doc>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="Unregister">
@@ -38,8 +38,8 @@
         <doc:description>Unregister from service provider.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +COPS=2, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
     </doc:doc>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetStatus">
@@ -105,8 +105,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <signal name="Status">
@@ -135,8 +135,8 @@
         <doc:summary>The signal strength in percent (0-100).</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <signal name="SignalStrength">
@@ -173,8 +173,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="RegisterWithProvider">
@@ -188,8 +188,8 @@
         <doc:summary>The operator code.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetNetworkCountryCode">
@@ -214,8 +214,8 @@
         <doc:summary>The name of the country.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetCallForwarding">
@@ -267,8 +267,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="EnableCallForwarding">
@@ -305,8 +305,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="DisableCallForwarding">
@@ -329,8 +329,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetCallingIdentification">
@@ -351,8 +351,8 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetCallingIdentification">
@@ -373,8 +373,8 @@
       </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SendUssdRequest">
@@ -391,8 +391,8 @@
         <doc:summary>The request to be sent to the network.</doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <signal name="IncomingUssd">
