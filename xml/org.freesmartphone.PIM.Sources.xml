@@ -16,5 +16,8 @@
       <arg type="s" name="domain" direction="in"/>
       <arg type="s" name="backend" direction="out"/>
     </method>
+    <method name="GetBackends">
+      <arg type="as" name="backends" direction="out"/>
+    </method>
   </interface>
 </node>

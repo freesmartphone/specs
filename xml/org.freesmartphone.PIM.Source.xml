@@ -19,11 +19,17 @@
     <method name="GetEnabled">
       <arg type="b" name="source_enabled" direction="out"/>
     </method>
+    <method name="GetInitialized">
+      <arg type="b" name="source_initialized" direction="out"/>
+    </method>
     <method name="GetProperties">
       <arg type="as" name="source_properties" direction="out"/>
     </method>
     <method name="SetAsDefault">
       <arg type="s" name="domain" direction="in"/>
+    </method>
+    <method name="Synchronize">
+      <arg type="b" name="success" direction="out"/>
     </method>
   </interface>
 </node>

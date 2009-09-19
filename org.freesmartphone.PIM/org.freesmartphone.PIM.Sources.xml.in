@@ -75,6 +75,21 @@
     </arg>
   </method>
 
+  <method name="GetBackends">
+    <doc:doc>
+      <doc:description>
+        Get list of available backends.
+      </doc:description>
+    </doc:doc>
+    <arg type="as" name="backends" direction="out">
+      <doc:doc>
+        <doc:summary>
+          List of backends.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
 
 </interface>
 
