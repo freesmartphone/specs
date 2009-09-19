@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-notes-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Notes Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Notes">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to the collection of PIM notes.
+    </doc:para>
+  </doc:doc>
+
+  <method name="Add">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Add a new note to the default backend for notes.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="note_data">
+      <doc:doc>
+        <doc:summary>
+          The new notes data.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s" name="note_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the added note.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetUsedTags">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Returns list of all tags used in loaded notes.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="as" name="used_tags">
+      <doc:doc>
+        <doc:summary>
+          List of tags.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetSingleEntrySingleField">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Query the content of one field of one note.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="query">
+      <doc:doc>
+        <doc:summary>
+          The query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="s" name="field">
+      <doc:doc>
+        <doc:summary>
+          The name of the field to query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s" name="value">
+      <doc:doc>
+        <doc:summary>
+          The content of the queried field.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Query">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Start a query for notes.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="query">
+      <doc:doc>
+        <doc:summary>
+          The query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s" name="query_path">
+      <doc:doc>
+        <doc:summary>
+          The path for the started query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <signal name="NewNote">
+    <doc:doc>
+      <doc:description>
+        Sent when a new note is loaded.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="note_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the newly loaded note.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="NewTag">
+    <doc:doc>
+      <doc:description>
+        Sent when a newly loaded or updated note has some unused before tag.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="tag">
+      <doc:doc>
+        <doc:summary>
+          The name of new tag.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="TagRemoved">
+    <doc:doc>
+      <doc:description>
+        Sent when last instance of tag in notes is removed.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="tag">
+      <doc:doc>
+        <doc:summary>
+          The name of removed tag.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+</interface>
+
+</node>
+

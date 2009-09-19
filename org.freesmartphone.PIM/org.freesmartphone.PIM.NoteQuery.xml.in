@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-pim-notequery-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.NoteQuery Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.NoteQuery">
+
+  <doc:doc>
+    <doc:para>
+      This interface gives access to a note query.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetResultCount">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Return the number of items in the query result</doc:description>
+    </doc:doc>
+    <arg direction="out" type="i" name="count">
+      <doc:doc>
+        <doc:summary>
+          Amount of notes in the query result.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Rewind">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Rewind the result cursor to the first note (for this dbus client only).
+      </doc:description>
+    </doc:doc>
+  </method>
+
+  <method name="Skip">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Skip n notes in the result cursor (for this dbus client only).
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="count">
+      <doc:doc>
+        <doc:summary>
+          Amount of notes to skip.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetNotePath">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Path for the note the result cursor points to.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="s" name="note_path">
+      <doc:doc>
+        <doc:summary>
+          The path to the note.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetResult">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Return the next note in the query result, and move the query to the next note.
+      </doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="item" direction="out">
+      <doc:doc>
+        <doc:summary>
+          fields of the result.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetMultipleResults">
+    <doc:doc>
+      <doc:description>
+        Get multiple notes from the result set at once.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="count">
+      <doc:doc>
+        <doc:summary>
+          The number of notes to get from the result set.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="aa{sv}" name="resultset">
+      <doc:doc>
+        <doc:summary>
+          The list of the returned notes data.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Dispose">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Delete the query result object.
+      </doc:description>
+    </doc:doc>
+  </method>
+  
+  <signal name="NoteAdded">
+    <doc:doc>
+      <doc:description>
+        Sent when a new note which matces this query is loaded.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="note_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the newly loaded note.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+  
+</interface>
+
+</node>
