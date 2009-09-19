@@ -20,12 +20,14 @@
   <method name="GetServiceBearer">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <arg type="s" name="mode" direction="out" />
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
   <method name="SetServiceBearer">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <arg type="s" name="mode" direction="in" />
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
   -->
@@ -95,6 +97,7 @@
         <doc:summary>The timestamp this message was received by the SMSC.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -144,6 +147,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -194,6 +198,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 

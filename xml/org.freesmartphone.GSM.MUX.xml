@@ -8,9 +8,13 @@
       <arg name="framesize" type="i" direction="in"/>
       <arg name="portname" type="s" direction="in"/>
       <arg name="portspeed" type="i" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="CloseSession">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="AllocChannel">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
@@ -18,17 +22,20 @@
       <arg name="channel" type="i" direction="in"/>
       <arg name="path" type="s" direction="out"/>
       <arg name="allocated_channel" type="i" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="ReleaseChannel">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="origin" type="s" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="SetStatus">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="channel" type="i" direction="in"/>
       <arg name="status" type="s" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <signal name="Status">

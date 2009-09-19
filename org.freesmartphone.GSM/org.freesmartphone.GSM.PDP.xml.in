@@ -28,6 +28,7 @@
         <doc:summary>The available GPRS device classes.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -42,6 +43,7 @@
         <doc:summary>The GPRS device class mode.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -56,6 +58,7 @@
         <doc:summary>The GPRS device class mode.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -99,6 +102,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -155,6 +159,7 @@
         <doc:summary>An index to identify context status changes.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -169,6 +174,7 @@
         <doc:summary>The context to deactivate.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -187,6 +193,7 @@
         <doc:summary>The context status. See org.freesmartphone.GSM.PDP.ContextStatus for a list of valid values.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 

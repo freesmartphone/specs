@@ -41,6 +41,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -68,6 +69,7 @@
         <doc:summary>The authentication code.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -87,6 +89,7 @@
         <doc:summary>The new authentication code.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -106,6 +109,7 @@
         <doc:summary>The new authentication code.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -125,6 +129,7 @@
         <doc:summary>A valid authentication code.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -139,6 +144,7 @@
         <doc:summary>True, if SIM card authentification is turned on. False, otherwise.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -160,6 +166,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -174,6 +181,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </signal>
 
@@ -208,6 +216,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -227,6 +236,7 @@
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -281,6 +291,7 @@
         <doc:summary>The result of the command, encoded as described in GSM 11.11.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -303,6 +314,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -319,6 +331,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -339,6 +352,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -365,6 +379,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -395,6 +410,7 @@
       </doc:summary>
     </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -424,6 +440,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -446,6 +463,7 @@
         <doc:summary>Index of entry to delete.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -479,6 +497,7 @@
         <doc:inote>We do not export the +CPBW "type" entry to the interface, but rather deal with that transparently.</doc:inote>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -507,6 +526,7 @@
         <doc:summary>The number corresponding to the name.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -530,6 +550,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -567,6 +588,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -581,6 +603,7 @@
         <doc:summary>The SMS Center Number.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -595,6 +618,7 @@
         <doc:summary>The SMS Center Number.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -620,6 +644,7 @@
         <doc:summary>The storage index of the message to delete.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -651,6 +676,7 @@
         <doc:summary>The index of the new message.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -675,6 +701,7 @@
         <doc:summary>The timestamp this message was received by the SMSC</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -720,6 +747,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 

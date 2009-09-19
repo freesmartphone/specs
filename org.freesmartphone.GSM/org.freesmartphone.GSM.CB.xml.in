@@ -33,6 +33,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 
@@ -50,6 +51,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
     <fso:throws type="org.freesmartphone.GSM" />
   </method>
 

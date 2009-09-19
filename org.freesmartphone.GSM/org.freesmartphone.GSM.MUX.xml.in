@@ -41,6 +41,8 @@
           <doc:summary>The port speed to use.</doc:summary>
         </doc:doc>
       </arg>
+      <fso:throws type="org.freesmartphone" />
+      <fso:throws type="org.freesmartphone.GSM" />
     </method>
 
     <method name="CloseSession">
@@ -49,6 +51,8 @@
         <doc:description>Closes a multiplexing session.</doc:description>
         <doc:inote>The device will be left in AT command mode.</doc:inote>
       </doc:doc>
+      <fso:throws type="org.freesmartphone" />
+      <fso:throws type="org.freesmartphone.GSM" />
     </method>
 
     <method name="AllocChannel">
@@ -80,7 +84,8 @@
           <doc:summary>The channel number that has been allocated.</doc:summary>
         </doc:doc>
       </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
+      <fso:throws type="org.freesmartphone" />
+      <fso:throws type="org.freesmartphone.GSM" />
     </method>
 
     <method name="ReleaseChannel">
@@ -95,7 +100,8 @@
           <doc:summary>A handle for channel user identification.</doc:summary>
         </doc:doc>
       </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
+      <fso:throws type="org.freesmartphone" />
+      <fso:throws type="org.freesmartphone.GSM" />
     </method>
 
     <method name="SetStatus">
@@ -117,7 +123,8 @@
           </doc:summary>
         </doc:doc>
       </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
+      <fso:throws type="org.freesmartphone" />
+      <fso:throws type="org.freesmartphone.GSM" />
     </method>
 
     <signal name="Status">
