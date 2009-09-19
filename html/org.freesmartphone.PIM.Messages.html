@@ -20,6 +20,7 @@
 <li><a href="#Query">Query</a></li>
 <li><a href="#GetFolderNames">GetFolderNames</a></li>
 <li><a href="#GetFolderPathFromName">GetFolderPathFromName</a></li>
+<li><a href="#GetUnreadMessages">GetUnreadMessages</a></li>
 </ul>
 <h2>Signals</h2><ul>
 <li><a href="#NewMessage">NewMessage</a></li>
@@ -39,6 +40,8 @@
 <p><i>Description:</i> Get the list of folder names that exist in the message backends. </p><h4>Returns</h4><i>as: folder_names</i><p>The list of folder names </p>
 <h3><a name="GetFolderPathFromName">GetFolderPathFromName</a> ( s ) &rarr; s</h3>
 <p><i>Description:</i> Get a folder's dbus path from its name. </p><h4>Parameters</h4><i>s: folder_name</i><p>The name of the folder </p><h4>Returns</h4><i>s: folder_path</i><p>The path of the folder </p>
+<h3><a name="GetUnreadMessages">GetUnreadMessages</a> ( ) &rarr; i</h3>
+<p><i>Description:</i> Get the amount of unread incoming messages. </p><h4>Returns</h4><i>i: amount</i><p>Amount of unread messages </p>
 <h1>Signals</h1><h3><h3><a name="NewMessage">NewMessage</a> ( s )</h3><p><i>Description:</i> Sent when a new message is loaded. </p><h4>Parameters</h4><i>s: message_path</i><p>The path of the newly loaded message. </p></h3>
 <h3><h3><a name="IncomingMessage">IncomingMessage</a> ( s )</h3><p><i>Description:</i> Sent when a incoming message arrives. </p><h4>Parameters</h4><i>s: message_path</i><p>The path of the newly arrived incoming message. </p></h3>
 <h3><h3><a name="UnreadMessages">UnreadMessages</a> ( i )</h3><p><i>Description:</i> Sent when amount of unread incoming messages changes. </p><h4>Parameters</h4><i>i: amount</i><p>Amount of unread incoming messages. </p></h3>

@@ -32,6 +32,10 @@
       <arg direction="in" type="s" name="folder_name"/>
       <arg direction="out" type="s" name="folder_path"/>
     </method>
+    <method name="GetUnreadMessages">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="out" type="i" name="amount"/>
+    </method>
     <signal name="NewMessage">
       <arg type="s" name="message_path"/>
     </signal>

@@ -151,6 +151,22 @@
     </arg>
   </method>
 
+  <method name="GetUnreadMessages">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get the amount of unread incoming messages.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="i" name="amount">
+      <doc:doc>
+        <doc:summary>
+          Amount of unread messages
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <signal name="NewMessage">
     <doc:doc>
       <doc:description>
