@@ -118,7 +118,7 @@
   <signal name="ContactAdded">
     <doc:doc>
       <doc:description>
-        Sent when a new contact which matces this query is loaded.
+        Sent when a new contact which matches this query is loaded.
       </doc:description>
     </doc:doc>
     <arg type="s" name="contact_path">

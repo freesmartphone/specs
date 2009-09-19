@@ -7,7 +7,12 @@
       <arg direction="in" type="a{sv}" name="message_data"/>
       <arg direction="out" type="s" name="message_path"/>
     </method>
-    <method name="GetSingleMessageSingleField">
+    <method name="AddIncoming">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="a{sv}" name="message_data"/>
+      <arg direction="out" type="s" name="message_path"/>
+    </method>
+    <method name="GetSingleEntrySingleField">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="a{sv}" name="query"/>
       <arg direction="in" type="s" name="field"/>

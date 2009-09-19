@@ -86,6 +86,28 @@
     </doc:doc>
   </method>
 
+  <signal name="MessageDeleted">
+    <doc:doc>
+      <doc:description>
+        Sent when message is deleted.
+      </doc:description>
+    </doc:doc>
+  </signal>
+  
+  <signal name="MessageUpdated">
+    <doc:doc>
+      <doc:description>
+        Sent when message is updated.
+      </doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="data">
+      <doc:doc>
+        <doc:summary>
+          Data used to update message.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 

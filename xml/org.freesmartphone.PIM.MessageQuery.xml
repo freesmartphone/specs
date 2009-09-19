@@ -29,5 +29,8 @@
     <method name="Dispose">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     </method>
+    <signal name="MessageAdded">
+      <arg type="s" name="message_path"/>
+    </signal>
   </interface>
 </node>

@@ -118,7 +118,7 @@
   <signal name="NoteAdded">
     <doc:doc>
       <doc:description>
-        Sent when a new note which matces this query is loaded.
+        Sent when a new note which matches this query is loaded.
       </doc:description>
     </doc:doc>
     <arg type="s" name="note_path">
