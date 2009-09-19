@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.PIM.Dates">
+    <method name="Add">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="a{sv}" name="date_data"/>
+      <arg direction="out" type="s" name="date_path"/>
+    </method>
+    <method name="GetSingleEntrySingleField">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="a{sv}" name="query"/>
+      <arg direction="in" type="s" name="field"/>
+      <arg direction="out" type="s" name="value"/>
+    </method>
+    <method name="Query">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="a{sv}" name="query"/>
+      <arg direction="out" type="s" name="query_path"/>
+    </method>
+    <signal name="NewDate">
+      <arg type="s" name="date_path"/>
+    </signal>
+  </interface>
+</node>

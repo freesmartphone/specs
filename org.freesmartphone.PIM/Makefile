@@ -13,6 +13,9 @@ files = \
   org.freesmartphone.PIM.MessageFolder.xml \
   org.freesmartphone.PIM.Note.xml \
   org.freesmartphone.PIM.Notes.xml \
-  org.freesmartphone.PIM.NoteQuery.xml
+  org.freesmartphone.PIM.NoteQuery.xml \
+  org.freesmartphone.PIM.Date.xml \
+  org.freesmartphone.PIM.Dates.xml \
+  org.freesmartphone.PIM.DateQuery.xml
 
 include ../tools/rules.mk

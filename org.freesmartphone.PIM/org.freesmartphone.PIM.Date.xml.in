@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-date-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Date Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Date">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to one PIM date.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetContent">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get the fields of one date.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{sv}" name="date_data">
+      <doc:doc>
+        <doc:summary>
+          The date's data.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetMultipleFields">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get a specified field list of the date's data.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="field_list">
+      <doc:doc>
+        <doc:summary>
+          The list of fields to get, split by "," (coma) char.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="a{sv}" name="field_data">
+      <doc:doc>
+        <doc:summary>
+          The data of the requested fields.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetUsedBackends">
+    <doc:doc>
+      <doc:description>
+        Get used backends in date.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="as" name="backends">
+      <doc:doc>
+        <doc:summary>
+          The list of backends used in this date.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Update">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Update one or more fields of this date.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="date_data">
+      <doc:doc>
+        <doc:summary>
+          The list of fields/values to update for this date.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Delete">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Delete this date.
+      </doc:description>
+    </doc:doc>
+  </method>
+  
+  <signal name="DateDeleted">
+    <doc:doc>
+      <doc:description>
+        Sent when date is deleted.
+      </doc:description>
+    </doc:doc>
+  </signal>
+  
+  <signal name="DateUpdated">
+    <doc:doc>
+      <doc:description>
+        Sent when date is updated.
+      </doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="data">
+      <doc:doc>
+        <doc:summary>
+          Data used to update date.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+</interface>
+
+</node>
+
