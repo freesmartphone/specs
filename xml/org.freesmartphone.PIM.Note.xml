@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.PIM.Note">
+    <method name="GetContent">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="out" type="a{sv}" name="note_data"/>
+    </method>
+    <method name="GetMultipleFields">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="s" name="field_list"/>
+      <arg direction="out" type="a{sv}" name="field_data"/>
+    </method>
+    <method name="GetUsedBackends">
+      <arg direction="out" type="as" name="backends"/>
+    </method>
+    <method name="Update">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="a{sv}" name="note_data"/>
+    </method>
+    <method name="Delete">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+    </method>
+    <signal name="NoteDeleted"/>
+    <signal name="NoteUpdated">
+      <arg type="a{sv}" name="data"/>
+    </signal>
+  </interface>
+</node>
