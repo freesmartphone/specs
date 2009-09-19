@@ -10,6 +10,9 @@ files = \
   org.freesmartphone.PIM.Message.xml \
   org.freesmartphone.PIM.Messages.xml \
   org.freesmartphone.PIM.MessageQuery.xml \
-  org.freesmartphone.PIM.MessageFolder.xml
+  org.freesmartphone.PIM.MessageFolder.xml \
+  org.freesmartphone.PIM.Note.xml \
+  org.freesmartphone.PIM.Notes.xml \
+  org.freesmartphone.PIM.NoteQuery.xml
 
 include ../tools/rules.mk
