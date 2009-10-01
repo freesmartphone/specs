@@ -83,7 +83,7 @@
     </doc:doc>
     <arg type="i" name="time">
       <doc:doc>
-        <doc:summary>The wakeup time in seconds since epoch, if programmed. 0, otherwise.</doc:summary>
+        <doc:summary>The wakeup time in seconds since epoch.</doc:summary>
       </doc:doc>
     </arg>
   </signal>
