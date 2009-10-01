@@ -85,7 +85,6 @@
     </arg>
   </method>
 
-
   <method name="IsProfilable">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>

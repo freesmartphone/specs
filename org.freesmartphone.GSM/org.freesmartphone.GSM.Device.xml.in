@@ -177,7 +177,6 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-<!--
   <method name="GetPowerStatus">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -213,7 +212,6 @@
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
--->
 
   <signal name="KeypadEvent">
     <doc:doc>
