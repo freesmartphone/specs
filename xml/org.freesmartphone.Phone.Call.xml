@@ -4,21 +4,28 @@
   <interface name="org.freesmartphone.Phone.Call">
     <error name="Unauthorized"/>
     <method name="GetPeer">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="peer" direction="out"/>
     </method>
     <method name="Initiate">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="status" direction="out"/>
     </method>
     <method name="Activate">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="status" direction="out"/>
     </method>
     <method name="Release">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="status" direction="out"/>
     </method>
     <method name="GetStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="status" direction="out"/>
     </method>
-    <method name="Remove"/>
+    <method name="Remove">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+    </method>
     <signal name="Incoming"/>
     <signal name="Outgoing"/>
     <signal name="Released"/>

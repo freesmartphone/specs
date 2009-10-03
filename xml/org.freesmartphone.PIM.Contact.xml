@@ -12,6 +12,7 @@
       <arg direction="out" type="a{sv}" name="field_data"/>
     </method>
     <method name="GetUsedBackends">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="as" name="backends"/>
     </method>
     <method name="Update">

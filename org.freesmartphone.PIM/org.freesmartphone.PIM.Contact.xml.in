@@ -53,6 +53,7 @@
   </method>
 
   <method name="GetUsedBackends">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get used backends in contact.

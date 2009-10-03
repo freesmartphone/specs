@@ -39,6 +39,7 @@
   </method>
 
   <method name="GetDomains">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the list of PIM domains.
@@ -54,6 +55,7 @@
   </method>
 
   <method name="GetDefaultBackend">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the default backend for specified domain.
@@ -76,6 +78,7 @@
   </method>
 
   <method name="GetBackends">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get list of available backends.
@@ -89,7 +92,6 @@
       </doc:doc>
     </arg>
   </method>
-
 
 </interface>
 

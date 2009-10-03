@@ -53,6 +53,7 @@
   </method>
 
   <method name="GetUsedBackends">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get used backends in call.
@@ -91,7 +92,7 @@
       </doc:description>
     </doc:doc>
   </method>
-  
+
   <signal name="CallDeleted">
     <doc:doc>
       <doc:description>
@@ -99,7 +100,7 @@
       </doc:description>
     </doc:doc>
   </signal>
-  
+
   <signal name="CallUpdated">
     <doc:doc>
       <doc:description>

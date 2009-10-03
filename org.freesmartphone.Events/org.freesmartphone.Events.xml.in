@@ -16,11 +16,9 @@
     </doc:para>
   </doc:doc>
 
-  <!-- Errors -->
-
-
   <!-- Methods -->
   <method name="AddRule">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Parse a rule string and add it into the rule list.</doc:description>
     </doc:doc>
@@ -30,8 +28,9 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="RemoveRule">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Remove a rule by name.</doc:description>
     </doc:doc>
@@ -41,8 +40,9 @@
         </doc:doc>
     </arg>
   </method>
-  
+
   <method name="TriggerTest">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Trigger or untrigger all the 'Test' triggers with matching names.</doc:description>
     </doc:doc>

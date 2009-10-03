@@ -153,6 +153,7 @@
   <!-- AUDIO SCENARIO API -->
 
   <method name="GetScenario">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get the current audio scenario.
@@ -168,6 +169,7 @@
   </method>
 
   <method name="SetScenario">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Set a new audio scenario.
@@ -183,6 +185,7 @@
   </method>
 
   <method name="PushScenario">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Set a new audio scenario and push the previous one on the stack.
@@ -199,6 +202,7 @@
   </method>
 
   <method name="PullScenario">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Set the previously active audio scenario.

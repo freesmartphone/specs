@@ -85,6 +85,7 @@
   </method>
 
   <method name="GetMultipleResults">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get multiple dates from the result set at once.

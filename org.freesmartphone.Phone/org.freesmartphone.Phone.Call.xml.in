@@ -27,6 +27,7 @@
   <!-- Methods -->
 
   <method name="GetPeer">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Return the number of the peer (usually the number of the call).</doc:description>
     </doc:doc>
@@ -38,6 +39,7 @@
   </method>
 
   <method name="Initiate">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Initiate the call.</doc:description>
     </doc:doc>
@@ -49,6 +51,7 @@
   </method>
 
   <method name="Activate">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Accept the call.</doc:description>
     </doc:doc>
@@ -60,6 +63,7 @@
   </method>
 
   <method name="Release">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Release the call.</doc:description>
     </doc:doc>
@@ -71,6 +75,7 @@
   </method>
 
   <method name="GetStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Return the current status of the call.</doc:description>
     </doc:doc>
@@ -82,6 +87,7 @@
   </method>
 
   <method name="Remove">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Remove the call object when it is not needed anymore.</doc:description>
     </doc:doc>

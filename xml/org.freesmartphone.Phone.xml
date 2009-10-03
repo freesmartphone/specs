@@ -3,9 +3,11 @@
 <node name="/">
   <interface name="org.freesmartphone.Phone">
     <method name="InitProtocols">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="as" name="protocols" direction="out"/>
     </method>
     <method name="CreateCall">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="number" direction="in"/>
       <arg type="s" name="protocol" direction="in"/>
       <arg type="b" name="force" direction="in"/>

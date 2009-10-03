@@ -53,6 +53,7 @@
   </method>
 
   <method name="GetUsedBackends">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get used backends in date.
@@ -91,7 +92,7 @@
       </doc:description>
     </doc:doc>
   </method>
-  
+
   <signal name="DateDeleted">
     <doc:doc>
       <doc:description>
@@ -99,7 +100,7 @@
       </doc:description>
     </doc:doc>
   </signal>
-  
+
   <signal name="DateUpdated">
     <doc:doc>
       <doc:description>

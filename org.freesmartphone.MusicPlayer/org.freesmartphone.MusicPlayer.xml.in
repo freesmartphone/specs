@@ -13,6 +13,7 @@
   </doc:doc>
 
   <method name="DeletePlaylist">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Delete an excisting playlist</doc:description>
     </doc:doc>
@@ -24,6 +25,7 @@
   </method>
 
   <method name="GetCurrentPlaylist">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the current playlist</doc:description>
     </doc:doc>
@@ -35,6 +37,7 @@
   </method>
 
   <method name="GetInfoForFile">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get ID3 tags for a file</doc:description>
     </doc:doc>
@@ -51,6 +54,7 @@
   </method>
 
   <method name="GetPlaying">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Filename of the currently played song</doc:description>
     </doc:doc>
@@ -62,6 +66,7 @@
   </method>
 
   <method name="GetPlayingInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Fileinfo for the current file</doc:description>
     </doc:doc>
@@ -73,6 +78,7 @@
   </method>
 
   <method name="GetPlaylist">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get all available playlists</doc:description>
     </doc:doc>
@@ -84,6 +90,7 @@
   </method>
 
   <method name="GetVolume">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the current volume</doc:description>
     </doc:doc>
@@ -96,6 +103,7 @@
   </method>
 
   <method name="Jump">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Jump to an absolute position in the file</doc:description>
     </doc:doc>
@@ -107,6 +115,7 @@
   </method>
 
   <method name="NewPlaylist">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Create a new playlist</doc:description>
     </doc:doc>
@@ -123,30 +132,35 @@
   </method>
 
   <method name="Next">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Jump to next song</doc:description>
     </doc:doc>
   </method>
 
   <method name="Pause">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Pause playing</doc:description>
     </doc:doc>
   </method>
 
   <method name="Play">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Play current song</doc:description>
     </doc:doc>
   </method>
 
   <method name="Previous">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Jump to previous song</doc:description>
     </doc:doc>
   </method>
 
   <method name="SeekBackward">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Jump backward relative to current position</doc:description>
     </doc:doc>
@@ -158,6 +172,7 @@
   </method>
 
   <method name="SeekForward">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Jump forward relative to current position</doc:description>
     </doc:doc>
@@ -169,6 +184,7 @@
   </method>
 
   <method name="SetCurrentPlaylist">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set the current playlis</doc:description>
     </doc:doc>
@@ -180,6 +196,7 @@
   </method>
 
   <method name="SetPlaying">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set the current playing file</doc:description>
     </doc:doc>
@@ -191,6 +208,7 @@
   </method>
 
   <method name="SetVolume">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set the current volume</doc:description>
     </doc:doc>
@@ -203,6 +221,7 @@
   </method>
 
   <method name="Stop">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Stop playing</doc:description>
     </doc:doc>

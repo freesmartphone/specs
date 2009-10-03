@@ -22,6 +22,7 @@
       <arg type="a{sv}" name="item" direction="out"/>
     </method>
     <method name="GetMultipleResults">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="i" name="count"/>
       <arg direction="out" type="aa{sv}" name="resultset"/>
     </method>

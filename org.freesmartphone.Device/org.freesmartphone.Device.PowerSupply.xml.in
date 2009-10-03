@@ -15,6 +15,7 @@
   </doc:doc>
 
   <method name="GetInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve information about the power supply.</doc:description>
     </doc:doc>
@@ -31,6 +32,7 @@
   </method>
 
   <method name="GetCapacity">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the capacity of this power supply.</doc:description>
       <doc:inote>A wall power supply will always return 100.</doc:inote>
@@ -43,6 +45,7 @@
   </method>
 
   <method name="GetPowerStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the power status for this power supply.</doc:description>
       <doc:inote>A wall power supply will always return "full".</doc:inote>

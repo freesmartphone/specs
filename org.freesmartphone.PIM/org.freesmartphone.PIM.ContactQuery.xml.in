@@ -85,6 +85,7 @@
   </method>
 
   <method name="GetMultipleResults">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get multiple contacts from the result set at once.
@@ -114,7 +115,7 @@
       </doc:description>
     </doc:doc>
   </method>
-  
+
   <signal name="ContactAdded">
     <doc:doc>
       <doc:description>
@@ -129,7 +130,7 @@
       </doc:doc>
     </arg>
   </signal>
-  
+
 </interface>
 
 </node>

@@ -3,12 +3,15 @@
 <node name="/">
   <interface name="org.freesmartphone.Device.PowerSupply">
     <method name="GetInfo">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="a{sv}" name="properties"/>
     </method>
     <method name="GetCapacity">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="i" name="energy"/>
     </method>
     <method name="GetPowerStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="out" type="s" name="status" fso:type="org.freesmartphone.Device.PowerStatus"/>
     </method>
     <signal name="PowerStatus">

@@ -52,6 +52,7 @@
 <!-- leads to a name collission in vala-dbus-binding-tool (free_smartphone_pim_source_init also used as type init)
 
   <method name="Init">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Init backend source.</doc:description>
     </doc:doc>
@@ -60,18 +61,21 @@
 -->
 
   <method name="Enable">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Enable backend.</doc:description>
     </doc:doc>
   </method>
 
   <method name="Disable">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Disable backend.</doc:description>
     </doc:doc>
   </method>
 
   <method name="GetEnabled">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Check, if backend is enabled.</doc:description>
     </doc:doc>
@@ -83,6 +87,7 @@
   </method>
 
   <method name="GetInitialized">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Check, if backend is already initialized.</doc:description>
     </doc:doc>
@@ -94,6 +99,7 @@
   </method>
 
   <method name="GetProperties">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the list of properties this source supports. Possible properties: add_entry, upd_entry, del_entry, upd_entry_with_new_field, needs_login</doc:description>
     </doc:doc>
@@ -105,6 +111,7 @@
   </method>
 
   <method name="SetAsDefault">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set this backend as default in specified domain.</doc:description>
     </doc:doc>
@@ -116,6 +123,7 @@
   </method>
 
   <method name="Synchronize">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Synchronize backend if it needs synchronizing.</doc:description>
     </doc:doc>

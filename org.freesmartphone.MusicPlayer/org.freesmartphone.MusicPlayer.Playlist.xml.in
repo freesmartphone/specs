@@ -13,6 +13,7 @@
   </doc:doc>
 
   <method name="Add">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Append a file to the playlist</doc:description>
     </doc:doc>
@@ -29,6 +30,7 @@
   </method>
 
   <method name="ChangeName">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Changes the playlists name</doc:description>
     </doc:doc>
@@ -40,6 +42,7 @@
   </method>
 
   <method name="GetAtPosition">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the filename at the specified position</doc:description>
     </doc:doc>
@@ -56,6 +59,7 @@
   </method>
 
   <method name="GetFiles">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get all files in the playlist</doc:description>
     </doc:doc>
@@ -67,22 +71,25 @@
   </method>
 
   <method name="GetMode">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the playlist mode</doc:description>
     </doc:doc>
     <arg type="s" name="mode" direction="out" fso:type="org.freesmartphone.MusicPlayer.Playlist.Mode">
       <doc:doc>
-          <doc:summary>The mode for the playlist. One of:
-              [ul]
-              [li]normal[/li]
-              [li]random[/li]
-              [li]endless[/li]
-              [/ul]</doc:summary>
+        <doc:summary>The mode for the playlist. One of:
+        [ul]
+          [li]normal[/li]
+          [li]random[/li]
+          [li]endless[/li]
+        [/ul]
+        </doc:summary>
       </doc:doc>
     </arg>
   </method>
 
   <method name="GetName">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the playlist's name</doc:description>
     </doc:doc>
@@ -94,6 +101,7 @@
   </method>
 
   <method name="Insert">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Insert a file at a specific position</doc:description>
     </doc:doc>
@@ -110,6 +118,7 @@
   </method>
 
   <method name="InsertDir">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Insert a directory into a playlist</doc:description>
     </doc:doc>
@@ -131,6 +140,7 @@
   </method>
 
   <method name="LoadFromFile">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Load entries from a file</doc:description>
     </doc:doc>
@@ -142,6 +152,7 @@
   </method>
 
   <method name="Remove">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Delete a file from the playlist</doc:description>
     </doc:doc>
@@ -153,6 +164,7 @@
   </method>
 
   <method name="SetMode">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Sets the playlist's mode</doc:description>
     </doc:doc>
@@ -231,9 +243,11 @@
   </signal>
 
 </interface>
+
 <fso:enumeration name="org.freesmartphone.MusicPlayer.Playlist.Mode" type="s">
     <fso:member name="normal" value="normal"/>
     <fso:member name="random" value="random"/>
     <fso:member name="endless" value="endless"/>
 </fso:enumeration>
+
 </node>

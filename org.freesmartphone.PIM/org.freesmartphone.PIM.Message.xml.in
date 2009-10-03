@@ -93,7 +93,7 @@
       </doc:description>
     </doc:doc>
   </signal>
-  
+
   <signal name="MessageUpdated">
     <doc:doc>
       <doc:description>

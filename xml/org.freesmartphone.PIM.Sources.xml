@@ -10,13 +10,16 @@
       <arg type="i" name="count" direction="out"/>
     </method>
     <method name="GetDomains">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="as" name="domains" direction="out"/>
     </method>
     <method name="GetDefaultBackend">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="domain" direction="in"/>
       <arg type="s" name="backend" direction="out"/>
     </method>
     <method name="GetBackends">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="as" name="backends" direction="out"/>
     </method>
   </interface>

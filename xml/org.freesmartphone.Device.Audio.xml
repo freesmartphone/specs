@@ -30,16 +30,20 @@
       <arg type="a{sv}" name="properties"/>
     </signal>
     <method name="GetScenario">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="s" name="scenario"/>
     </method>
     <method name="SetScenario">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="scenario"/>
     </method>
     <method name="PushScenario">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="scenario"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.Audio"/>
     </method>
     <method name="PullScenario">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="s" name="scenario"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.Audio"/>
     </method>

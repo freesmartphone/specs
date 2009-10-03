@@ -3,12 +3,15 @@
 <node name="/">
   <interface name="org.freesmartphone.Events">
     <method name="AddRule">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="rule" direction="in"/>
     </method>
     <method name="RemoveRule">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="name" direction="in"/>
     </method>
     <method name="TriggerTest">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="name" direction="in"/>
       <arg type="b" name="value" direction="in"/>
     </method>
