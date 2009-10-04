@@ -93,9 +93,9 @@
       <doc:doc>
         The functionality level. Expected tuples are:
         [ul]
-          [li]"off": The device has been shut down completely,[/li]
+          [li]"minimal": The device is in maximum powersave mode,[/li]
           [li]"airplane": The device is in airplane mode (RF receivers and transmitters have been turned off),[/li]
-          [li]"on": The device operates with maximum functionality (all units are powered up).[/li]
+          [li]"full": The device operates with maximum functionality (all units are powered up).[/li]
         [/ul]
       </doc:doc>
     </arg>
