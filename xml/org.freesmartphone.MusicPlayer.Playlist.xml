@@ -6,50 +6,61 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="file" direction="in"/>
       <arg type="i" name="position" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="ChangeName">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="new_name" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="GetAtPosition">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="position" direction="in"/>
       <arg type="s" name="result" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="GetFiles">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="as" name="result" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="GetMode">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="mode" direction="out" fso:type="org.freesmartphone.MusicPlayer.Playlist.Mode"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="GetName">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="name" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="Insert">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="position" direction="in"/>
       <arg type="s" name="file" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="InsertDir">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="position" direction="in"/>
       <arg type="s" name="file" direction="in"/>
       <arg type="b" name="recursive" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="LoadFromFile">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="file" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="Remove">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="position" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <method name="SetMode">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="mode" direction="in" fso:type="org.freesmartphone.MusicPlayer.Playlist.Mode"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
     <signal name="Deleted"/>
     <signal name="FileAdded">
@@ -69,6 +80,14 @@
       <arg type="s" name="file"/>
     </signal>
   </interface>
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.MusicPlayer.Playlist" fso:no-container="true">
+    <error name="FileNotFound"/>
+    <error name="OutOfRange"/>
+    <error name="FiletypeNotSupported"/>
+    <error name="Empty"/>
+    <error name="NoFileSelected"/>
+    <error name="OutOfFiles"/>
+  </fso:errordomain>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.MusicPlayer.Playlist.Mode" type="s">
     <fso:member name="normal" value="normal"/>
     <fso:member name="random" value="random"/>

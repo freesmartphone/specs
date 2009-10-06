@@ -41,7 +41,15 @@
 <li><a href="#Progress">Progress</a></li>
 <li><a href="#State">State</a></li>
 </ul>
-<h2>Errors</h2><i>None</i>
+<h2>Errors</h2><ul>
+<li><a href="#NoFileSelected">NoFileSelected</a></li>
+<li><a href="#NoPlaylistSelected">NoPlaylistSelected</a></li>
+<li><a href="#UnknownPlaylist">UnknownPlaylist</a></li>
+<li><a href="#PaylistOutOfFiles">PaylistOutOfFiles</a></li>
+<li><a href="#FileNotFound">FileNotFound</a></li>
+<li><a href="#FiletypeNotSupported">FiletypeNotSupported</a></li>
+<li><a href="#ProtocolNotSupported">ProtocolNotSupported</a></li>
+</ul>
 <h1>Methods</h1><h3><a name="DeletePlaylist">DeletePlaylist</a> ( o )</h3>
 <p><i>Description:</i> Delete an excisting playlist </p><h4>Parameters</h4><i>o: list</i><p>The playlist which should be deleted </p>
 <h3><a name="GetCurrentPlaylist">GetCurrentPlaylist</a> ( ) &rarr; o</h3>
@@ -80,6 +88,13 @@
 <h3><h3><a name="PlaylistRemoved">PlaylistRemoved</a> ( o )</h3><p><i>Description:</i> Emmitted when a client deletes a playlist </p><h4>Parameters</h4><i>o: path</i><p>Object path of the deleted list </p></h3>
 <h3><h3><a name="Progress">Progress</a> ( i )</h3><p><i>Description:</i> Emmitted when the file position change </p><h4>Parameters</h4><i>i: progress</i><p>The new progress </p></h3>
 <h3><h3><a name="State">State</a> ( s )</h3><p><i>Description:</i> Emmitted when the current song changes </p><h4>Parameters</h4><i>s: state</i><p>The new state of the player.  Possible values:  <ul>  <li>"stopped"</li>  <li>"playing"</li>  <li>"paused"</li>  <li>"buffering"</li>  </ul> </p></h3>
+<h1>Errors</h1><h3><a name="NoFileSelected">NoFileSelected</a></h3><p><i>Description:</i> Raised, if no file is selected. </p>
+<h3><a name="NoPlaylistSelected">NoPlaylistSelected</a></h3><p><i>Description:</i> Raised, if no playlist is selected. </p>
+<h3><a name="UnknownPlaylist">UnknownPlaylist</a></h3><p><i>Description:</i> Raised, if the requested playlist is unknown. </p>
+<h3><a name="PaylistOutOfFiles">PaylistOutOfFiles</a></h3><p><i>Description:</i> Raised, if the Playlist is out of files, either on the beginning or the end. </p>
+<h3><a name="FileNotFound">FileNotFound</a></h3><p><i>Description:</i> Raised, if a file isn't available. </p>
+<h3><a name="FiletypeNotSupported">FiletypeNotSupported</a></h3><p><i>Description:</i> Raised, if the the filetype isn't supported. </p>
+<h3><a name="ProtocolNotSupported">ProtocolNotSupported</a></h3><p><i>Description:</i> Raised, if the protocol isn't supported. </p>
 
     <hr/>
     <small>

@@ -27,6 +27,7 @@
         <doc:summary>The position of the new file</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="ChangeName">
@@ -39,6 +40,7 @@
         <doc:summary>Playlist's new name</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="GetAtPosition">
@@ -56,6 +58,7 @@
         <doc:summary>The filename</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="GetFiles">
@@ -68,6 +71,7 @@
         <doc:summary>A list of all files in the playlist</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="GetMode">
@@ -86,6 +90,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="GetName">
@@ -98,6 +103,7 @@
         <doc:summary>The playlist's name</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="Insert">
@@ -115,6 +121,7 @@
         <doc:summary>The file to be inserted</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="InsertDir">
@@ -137,6 +144,7 @@
         <doc:summary>True to scan the directory recursivly</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="LoadFromFile">
@@ -149,6 +157,7 @@
         <doc:summary>A file with soundfiles seperated by '\n'</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="Remove">
@@ -161,6 +170,7 @@
         <doc:summary>The position of the file to be deleted</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <method name="SetMode">
@@ -173,6 +183,7 @@
         <doc:summary>The new playlist mode. See org.freesmartphone.MusicPlayer.Playlist.GetMode for possible values</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
   <signal name="Deleted">
@@ -243,6 +254,51 @@
   </signal>
 
 </interface>
+
+<fso:errordomain name="org.freesmartphone.MusicPlayer.Playlist" fso:no-container="true">
+    <error name="FileNotFound">
+    <doc:doc>
+      <doc:description>
+        Raised, if the the file isn't found.
+      </doc:description>
+    </doc:doc>
+    </error>
+    <error name="OutOfRange">
+    <doc:doc>
+      <doc:description>
+        Raised, if the the given position is bigger than the playlist's length.
+      </doc:description>
+    </doc:doc>
+    </error>
+    <error name="FiletypeNotSupported">
+    <doc:doc>
+      <doc:description>
+        Raised, if the given filetype isn't supported.
+      </doc:description>
+    </doc:doc>
+    </error>
+    <error name="Empty">
+    <doc:doc>
+      <doc:description>
+        Raised, if the playlist is empty.
+      </doc:description>
+    </doc:doc>
+    </error>
+    <error name="NoFileSelected">
+    <doc:doc>
+      <doc:description>
+        Raised, if no file of the playlist ist selected.
+      </doc:description>
+    </doc:doc>
+    </error>
+    <error name="OutOfFiles">
+    <doc:doc>
+      <doc:description>
+        Raised, if the playlist is at an end.
+      </doc:description>
+    </doc:doc>
+    </error>
+</fso:errordomain>
 
 <fso:enumeration name="org.freesmartphone.MusicPlayer.Playlist.Mode" type="s">
     <fso:member name="normal" value="normal"/>

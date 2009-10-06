@@ -34,7 +34,14 @@
 <li><a href="#Name">Name</a></li>
 <li><a href="#Playing">Playing</a></li>
 </ul>
-<h2>Errors</h2><i>None</i>
+<h2>Errors</h2><ul>
+<li><a href="#FileNotFound">FileNotFound</a></li>
+<li><a href="#OutOfRange">OutOfRange</a></li>
+<li><a href="#FiletypeNotSupported">FiletypeNotSupported</a></li>
+<li><a href="#Empty">Empty</a></li>
+<li><a href="#NoFileSelected">NoFileSelected</a></li>
+<li><a href="#OutOfFiles">OutOfFiles</a></li>
+</ul>
 <h1>Methods</h1><h3><a name="Add">Add</a> ( s ) &rarr; i</h3>
 <p><i>Description:</i> Append a file to the playlist </p><h4>Parameters</h4><i>s: file</i><p>The file to be appended </p><h4>Returns</h4><i>i: position</i><p>The position of the new file </p>
 <h3><a name="ChangeName">ChangeName</a> ( s )</h3>
@@ -63,6 +70,12 @@
 <h3><h3><a name="ModeChanged">ModeChanged</a> ( s )</h3><p><i>Description:</i> Emmitted when the mode changed </p><h4>Parameters</h4><i>s: mode</i><p>The new playlist's mode. See <a href="http://docs.freesmartphone.org/org.freesmartphone.MusicPlayer.Playlist.html#GetMode">GetMode</a> for possible values </p></h3>
 <h3><h3><a name="Name">Name</a> ( s )</h3><p><i>Description:</i> Emmitted when the name of the playlist changes </p><h4>Parameters</h4><i>s: name</i><p>The new playlist name. This won't change the object path on the bus </p></h3>
 <h3><h3><a name="Playing">Playing</a> ( s )</h3><p><i>Description:</i> Emmitted when the current song changes </p><h4>Parameters</h4><i>s: file</i><p>The new playing file </p></h3>
+<h1>Errors</h1><h3><a name="FileNotFound">FileNotFound</a></h3><p><i>Description:</i> Raised, if the the file isn't found. </p>
+<h3><a name="OutOfRange">OutOfRange</a></h3><p><i>Description:</i> Raised, if the the given position is bigger than the playlist's length. </p>
+<h3><a name="FiletypeNotSupported">FiletypeNotSupported</a></h3><p><i>Description:</i> Raised, if the given filetype isn't supported. </p>
+<h3><a name="Empty">Empty</a></h3><p><i>Description:</i> Raised, if the playlist is empty. </p>
+<h3><a name="NoFileSelected">NoFileSelected</a></h3><p><i>Description:</i> Raised, if no file of the playlist ist selected. </p>
+<h3><a name="OutOfFiles">OutOfFiles</a></h3><p><i>Description:</i> Raised, if the playlist is at an end. </p>
 
     <hr/>
     <small>
