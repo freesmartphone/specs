@@ -761,4 +761,24 @@
   <fso:member name="puk2-required" value="SIM PUK2"/>
 </fso:enumeration>
 
+<fso:struct name="org.freesmartphone.GSM.SIMEntry">
+  <fso:field name="index" type="i" />
+  <fso:field name="name" type="s" />
+  <fso:field name="number" type="s" />
+</fso:struct>
+
+<fso:struct name="org.freesmartphone.GSM.SIMHomezone">
+  <fso:field name="x" type="i" />
+  <fso:field name="y" type="i" />
+  <fso:field name="radius" type="i" />
+</fso:struct>
+
+<fso:struct name="org.freesmartphone.GSM.SIMMessage">
+  <fso:field name="index" type="i" />
+  <fso:field name="status" type="s" />
+  <fso:field name="number" type="s" />
+  <fso:field name="contents" type="s" />
+  <fso:field name="properties" type="a{sv}" />
+</fso:struct>
+
 </node>
