@@ -206,6 +206,7 @@
     </method>
   </interface>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.SIMAuthStatus">
+    <fso:member name="unknown" value="UNKNOWN"/>
     <fso:member name="ready" value="READY"/>
     <fso:member name="pin-required" value="SIM PIN"/>
     <fso:member name="puk-required" value="SIM PUK"/>
