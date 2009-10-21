@@ -34,7 +34,7 @@
     </doc:doc>
   </error>
 
-  <error name="DeviceRequiresAuthorization">
+  <error name="AuthorizationRequired">
     <doc:doc>
       <doc:description>
         Raised, if an authentication code is required before this operation can succeed.
