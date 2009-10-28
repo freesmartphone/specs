@@ -2,6 +2,16 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.SMS">
+    <method name="SendTextMessage">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="s" name="recipient_number" direction="in"/>
+      <arg type="s" name="contents" direction="in"/>
+      <arg type="b" name="want_report" direction="in"/>
+      <arg type="i" name="transaction_index" direction="out"/>
+      <arg type="s" name="timestamp" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
     <method name="SendMessage">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="recipient_number" direction="in"/>
