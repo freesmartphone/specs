@@ -32,6 +32,27 @@
   </method>
   -->
 
+  <method name="GetSizeForTextMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Calculates the number of GSM Short Messages necessary to deliver a given text.</doc:description>
+    </doc:doc>
+    <arg type="s" name="contents" direction="in">
+      <doc:doc>
+        <doc:summary>The contents of the message.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="u" name="messages" direction="out">
+      <doc:doc>
+        <doc:summary>
+        The number of SMS to be sent, if this message were to be delivered.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
   <method name="SendTextMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
