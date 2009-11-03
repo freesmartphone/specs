@@ -2,6 +2,7 @@ files = \
   org.freesmartphone.GSM.xml \
   org.freesmartphone.GSM.Call.xml \
   org.freesmartphone.GSM.CB.xml \
+  org.freesmartphone.GSM.Debug.xml \
   org.freesmartphone.GSM.Device.xml \
   org.freesmartphone.GSM.HZ.xml \
   org.freesmartphone.GSM.Monitor.xml \
