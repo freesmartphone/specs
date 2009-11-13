@@ -5,6 +5,7 @@
     <error name="DeviceNotPresent"/>
     <error name="DeviceTimeout"/>
     <error name="DeviceFailed"/>
+    <error name="AuthorizationRequired"/>
     <error name="SimNotPresent"/>
     <error name="SimAuthFailed"/>
     <error name="SimBlocked"/>

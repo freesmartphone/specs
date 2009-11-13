@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-debug-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org GSM Debug Interface</doc:summary>
+  <doc:version>0.5.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.GSM.Debug">
+
+  <doc:doc>
+    <doc:para>
+      The Debug interface is used to debug (sic!). You can execute commands or inject
+      unsolicited responses.
+    </doc:para>
+  </doc:doc>
+
+  <method name="DebugAtCommand">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Sends an At command.</doc:description>
+    </doc:doc>
+    <arg type="s" name="command" direction="in">
+      <doc:doc>
+        <doc:summary>The command to send.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="channel" direction="in">
+      <doc:doc>
+        <doc:summary>The channel to send this command on. Set to "" to use the default one.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="result" direction="out">
+      <doc:doc>
+        <doc:summary>The result of the command</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="DebugInjectAtResponse">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Injects an unsolicited response into the command queue.</doc:description>
+    </doc:doc>
+    <arg type="s" name="response" direction="in">
+      <doc:doc>
+        <doc:summary>The response to inject.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="channel" direction="in">
+      <doc:doc>
+        <doc:summary>The channel to inject this command on. Set to "" to use the default one.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+</interface>
+</node>

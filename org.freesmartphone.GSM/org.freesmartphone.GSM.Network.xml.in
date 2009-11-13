@@ -447,4 +447,12 @@
 
 </interface>
 
+<fso:struct name="org.freesmartphone.GSM.NetworkProvider">
+  <fso:field name="status" type="s" />
+  <fso:field name="shortname" type="s" />
+  <fso:field name="longname" type="s" />
+  <fso:field name="mccmnc" type="s" />
+  <fso:field name="act" type="s" />
+</fso:struct>
+
 </node>

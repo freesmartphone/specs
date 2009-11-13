@@ -32,6 +32,71 @@
   </method>
   -->
 
+  <method name="GetSizeForTextMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Calculates the number of GSM Short Messages necessary to deliver a given text.</doc:description>
+    </doc:doc>
+    <arg type="s" name="contents" direction="in">
+      <doc:doc>
+        <doc:summary>The contents of the message.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="u" name="messages" direction="out">
+      <doc:doc>
+        <doc:summary>
+        The number of SMS to be sent, if this message were to be delivered.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="SendTextMessage">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Sends a text message via the GSM Short Message Service (SMS)</doc:description>
+      <doc:inote>
+        Text messages can be of unlimited length. They might get fragmented by the underlying transport layers though.
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="recipient_number" direction="in">
+      <doc:doc>
+        <doc:summary>The number of the recipient.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="contents" direction="in">
+      <doc:doc>
+        <doc:summary>The contents of the message.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="b" name="want_report" direction="in">
+      <doc:doc>
+        <doc:summary>
+        If true, status reports (message receipts) will be sent by the SMSC, delivered via the
+        org.freesmartphone.GSM.SMS.IncomingMessageReceipt signal.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="transaction_index" direction="out">
+      <doc:doc>
+        <doc:summary>
+        The given transaction index for this message. This is the message-reference number of this message.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="timestamp" direction="out">
+      <doc:doc>
+        <doc:summary>
+        The timestamp this message was received by the SMSC.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
   <method name="SendMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
