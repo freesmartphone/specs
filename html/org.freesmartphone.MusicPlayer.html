@@ -19,7 +19,7 @@
 <li><a href="#GetInfoForFile">GetInfoForFile</a></li>
 <li><a href="#GetPlaying">GetPlaying</a></li>
 <li><a href="#GetPlayingInfo">GetPlayingInfo</a></li>
-<li><a href="#GetPlaylist">GetPlaylist</a></li>
+<li><a href="#GetPlaylists">GetPlaylists</a></li>
 <li><a href="#GetVolume">GetVolume</a></li>
 <li><a href="#Jump">Jump</a></li>
 <li><a href="#NewPlaylist">NewPlaylist</a></li>
@@ -45,7 +45,7 @@
 <li><a href="#NoFileSelected">NoFileSelected</a></li>
 <li><a href="#NoPlaylistSelected">NoPlaylistSelected</a></li>
 <li><a href="#UnknownPlaylist">UnknownPlaylist</a></li>
-<li><a href="#PaylistOutOfFiles">PaylistOutOfFiles</a></li>
+<li><a href="#PlaylistOutOfFiles">PlaylistOutOfFiles</a></li>
 <li><a href="#FileNotFound">FileNotFound</a></li>
 <li><a href="#FiletypeNotSupported">FiletypeNotSupported</a></li>
 <li><a href="#ProtocolNotSupported">ProtocolNotSupported</a></li>
@@ -60,7 +60,7 @@
 <p><i>Description:</i> Filename of the currently played song </p><h4>Returns</h4><i>s: file</i><p>Absolute path for the current song </p>
 <h3><a name="GetPlayingInfo">GetPlayingInfo</a> ( ) &rarr; a{sv}</h3>
 <p><i>Description:</i> Fileinfo for the current file </p><h4>Returns</h4><i>a{sv}: info</i><p>Fileinfo of the file </p>
-<h3><a name="GetPlaylist">GetPlaylist</a> ( ) &rarr; as</h3>
+<h3><a name="GetPlaylists">GetPlaylists</a> ( ) &rarr; as</h3>
 <p><i>Description:</i> Get all available playlists </p><h4>Returns</h4><i>as: playlists</i><p>Object paths to available playlists </p>
 <h3><a name="GetVolume">GetVolume</a> ( ) &rarr; i</h3>
 <p><i>Description:</i> Get the current volume </p><h4>Returns</h4><i>i: volume</i><p>The current volume in percent.  Possible values: 0-1000 </p>
@@ -91,7 +91,7 @@
 <h1>Errors</h1><h3><a name="NoFileSelected">NoFileSelected</a></h3><p><i>Description:</i> Raised, if no file is selected. </p>
 <h3><a name="NoPlaylistSelected">NoPlaylistSelected</a></h3><p><i>Description:</i> Raised, if no playlist is selected. </p>
 <h3><a name="UnknownPlaylist">UnknownPlaylist</a></h3><p><i>Description:</i> Raised, if the requested playlist is unknown. </p>
-<h3><a name="PaylistOutOfFiles">PaylistOutOfFiles</a></h3><p><i>Description:</i> Raised, if the Playlist is out of files, either on the beginning or the end. </p>
+<h3><a name="PlaylistOutOfFiles">PlaylistOutOfFiles</a></h3><p><i>Description:</i> Raised, if the Playlist is out of files, either on the beginning or the end. </p>
 <h3><a name="FileNotFound">FileNotFound</a></h3><p><i>Description:</i> Raised, if a file isn't available. </p>
 <h3><a name="FiletypeNotSupported">FiletypeNotSupported</a></h3><p><i>Description:</i> Raised, if the the filetype isn't supported. </p>
 <h3><a name="ProtocolNotSupported">ProtocolNotSupported</a></h3><p><i>Description:</i> Raised, if the protocol isn't supported. </p>

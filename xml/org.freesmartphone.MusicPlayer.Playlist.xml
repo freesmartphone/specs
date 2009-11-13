@@ -47,6 +47,11 @@
       <arg type="b" name="recursive" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
     </method>
+    <method name="JumpTo">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="i" name="position" direction="in"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer.Playlist"/>
+    </method>
     <method name="LoadFromFile">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="file" direction="in"/>

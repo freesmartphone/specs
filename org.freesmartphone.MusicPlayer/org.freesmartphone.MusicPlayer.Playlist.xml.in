@@ -147,6 +147,19 @@
     <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
+  <method name="JumpTo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Jump to a file in the Playlist</doc:description>
+    </doc:doc>
+    <arg type="i" name="position" direction="in">
+      <doc:doc>
+        <doc:summary>Position of the file in the playlist</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
+  </method>
+
   <method name="LoadFromFile">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>

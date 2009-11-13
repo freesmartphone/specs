@@ -28,7 +28,7 @@
       <arg type="a{sv}" name="info" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer"/>
     </method>
-    <method name="GetPlaylist">
+    <method name="GetPlaylists">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="as" name="playlists" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer"/>
@@ -114,7 +114,7 @@
     <error name="NoFileSelected"/>
     <error name="NoPlaylistSelected"/>
     <error name="UnknownPlaylist"/>
-    <error name="PaylistOutOfFiles"/>
+    <error name="PlaylistOutOfFiles"/>
     <error name="FileNotFound"/>
     <error name="FiletypeNotSupported"/>
     <error name="ProtocolNotSupported"/>

@@ -82,7 +82,7 @@
     <fso:throws type="org.freesmartphone.MusicPlayer" />
   </method>
 
-  <method name="GetPlaylist">
+  <method name="GetPlaylists">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get all available playlists</doc:description>
@@ -332,7 +332,7 @@
       </doc:description>
     </doc:doc>
     </error>
-    <error name="PaylistOutOfFiles">
+    <error name="PlaylistOutOfFiles">
     <doc:doc>
       <doc:description>
         Raised, if the Playlist is out of files, either on the beginning or the end.
