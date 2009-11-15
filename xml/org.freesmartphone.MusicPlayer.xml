@@ -61,7 +61,15 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer"/>
     </method>
+    <method name="PopPause">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer"/>
+    </method>
     <method name="Previous">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer"/>
+    </method>
+    <method name="PushPause">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer"/>
     </method>

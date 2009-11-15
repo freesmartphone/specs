@@ -164,10 +164,26 @@
     <fso:throws type="org.freesmartphone.MusicPlayer" />
   </method>
 
+  <method name="PopPause">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Return to state before first org.freesmartphone.MusicPlayer.PushPause call</doc:description>
+    </doc:doc>
+    <fso:throws type="org.freesmartphone.MusicPlayer" />
+  </method>
+
   <method name="Previous">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Jump to previous song</doc:description>
+    </doc:doc>
+    <fso:throws type="org.freesmartphone.MusicPlayer" />
+  </method>
+
+  <method name="PushPause">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Force to pause the player if playing. Use org.freesmartphone.MusicPlayer.PopPause to undo.</doc:description>
     </doc:doc>
     <fso:throws type="org.freesmartphone.MusicPlayer" />
   </method>
@@ -239,12 +255,13 @@
   </method>
 
   <method name="Stop">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     <doc:doc>
       <doc:description>Stop playing</doc:description>
     </doc:doc>
-    <fso:throws type="org.freesmartphone.MusicPlayer" />
+    <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.MusicPlayer"/>
   </method>
+
 
   <signal name="PlayingChanged">
     <doc:doc>
