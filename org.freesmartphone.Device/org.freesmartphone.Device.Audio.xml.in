@@ -91,6 +91,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Device.Audio" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="StopSound">
@@ -107,6 +108,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="StopAllSounds">
@@ -182,6 +184,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="PushScenario">
@@ -198,7 +201,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.Device.Audio" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="PullScenario">
