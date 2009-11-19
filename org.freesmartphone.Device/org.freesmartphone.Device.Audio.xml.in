@@ -191,13 +191,13 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Set a new audio scenario and push the previous one on the stack.
+        Push a new audio scenario onto the stack and active it.
       </doc:description>
     </doc:doc>
     <arg direction="in" type="s" name="scenario">
       <doc:doc>
         <doc:summary>
-          The name of the scenario.
+          The new active scenario.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -208,13 +208,13 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Set the previously active audio scenario.
+        Pull an audio scenario from the stack and activate the next one.
       </doc:description>
     </doc:doc>
     <arg direction="out" type="s" name="scenario">
       <doc:doc>
         <doc:summary>
-          The current scenario.
+          The new active scenario.
         </doc:summary>
       </doc:doc>
     </arg>

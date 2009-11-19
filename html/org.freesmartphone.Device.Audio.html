@@ -51,9 +51,9 @@
 <h3><a name="SetScenario">SetScenario</a> ( s )</h3>
 <p><i>Description:</i> Set a new audio scenario. </p><h4>Parameters</h4><i>s: scenario</i><p>The name of the scenario. </p>
 <h3><a name="PushScenario">PushScenario</a> ( s )</h3>
-<p><i>Description:</i> Set a new audio scenario and push the previous one on the stack. </p><h4>Parameters</h4><i>s: scenario</i><p>The name of the scenario. </p>
+<p><i>Description:</i> Push a new audio scenario onto the stack and active it. </p><h4>Parameters</h4><i>s: scenario</i><p>The new active scenario. </p>
 <h3><a name="PullScenario">PullScenario</a> ( ) &rarr; s</h3>
-<p><i>Description:</i> Set the previously active audio scenario. </p><h4>Returns</h4><i>s: scenario</i><p>The current scenario. </p>
+<p><i>Description:</i> Pull an audio scenario from the stack and activate the next one. </p><h4>Returns</h4><i>s: scenario</i><p>The new active scenario. </p>
 <h1>Signals</h1><h3><h3><a name="SoundStatus">SoundStatus</a> ( ssa{sv} )</h3><p><i>Description:</i> Sent whenever a sound has been started or stopped. </p><h4>Parameters</h4><i>s: id</i><p>The identification of sound resource that changed its status. </p><i>s: status</i><p>The new status for the sound resource. </p><i>a{sv}: properties</i><p>An array of property values. Note that properties are optional. Expected tuples are:  <ul>  <li>...to be defined...</li>  </ul> </p></h3>
 <h3><h3><a name="Scenario">Scenario</a> ( ss )</h3><p><i>Description:</i> Sent whenever there is a change of the global sound scenario. </p><h4>Parameters</h4><i>s: scenario</i><p>The scenario that is now active. </p><i>s: reason</i><p>The reason for this change. Expected reasons are:  <ul>  <li>...to be defined...</li>  </ul> </p></h3>
 <h1>Errors</h1><h3><a name="UnknownFormat">UnknownFormat</a></h3><p><i>Description:</i> Raised, if the audio format is not supported. </p>
