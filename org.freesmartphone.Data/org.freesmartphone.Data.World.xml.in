@@ -21,9 +21,9 @@
     <doc:doc>
       <doc:description>Retrieves all known country codes and their (english) name.</doc:description>
     </doc:doc>
-    <arg type="a(ss)" name="busname" direction="out">
+    <arg type="a(ss)" name="countries" fso:type="org.freesmartphone.Data.WorldCountry" direction="out">
       <doc:doc>
-        <doc:summary>A list of country codes and their (english) name.</doc:summary>
+        <doc:summary>A list of country codes and their (english) names.</doc:summary>
       </doc:doc>
     </arg>
   </method>
@@ -50,4 +50,11 @@
   </method>
 
 </interface>
+
+<fso:struct name="org.freesmartphone.Data.WorldCountry">
+  <fso:field name="code" type="s" />
+  <fso:field name="name" type="s" />
+</fso:struct>
+
 </node>
+
