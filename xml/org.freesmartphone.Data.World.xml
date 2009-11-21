@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Data.World">
+    <method name="GetAllCountries">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="a(ss)" name="busname" direction="out"/>
+    </method>
+    <method name="GetCountryCodeForMccMnc">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="s" name="mcc_mnc" direction="in"/>
+      <arg type="s" name="country_code" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+  </interface>
+</node>

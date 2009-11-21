@@ -1,5 +1,6 @@
 SUBDIRS := \
   org.freesmartphone \
+  org.freesmartphone.Data \
   org.freesmartphone.Device \
   org.freesmartphone.Phone \
   org.freesmartphone.Usage \
