@@ -49,6 +49,27 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
+  <method name="GetTimezonesForCountryCode">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Retrieves the list of timezones given a country code.
+        Raises org.freesmartphone.Error.InvalidParameter, if not found.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="country_code" direction="in">
+      <doc:doc>
+        <doc:summary>The country code.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{ss}" name="timezones" direction="out">
+      <doc:doc>
+        <doc:summary>A dictionary of coordinates and timezone names.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
 </interface>
 
 <fso:struct name="org.freesmartphone.Data.WorldCountry">
