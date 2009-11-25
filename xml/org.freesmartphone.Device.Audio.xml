@@ -53,6 +53,7 @@
     <method name="SaveScenario">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="scenario"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <signal name="Scenario">
       <arg type="s" name="scenario"/>
