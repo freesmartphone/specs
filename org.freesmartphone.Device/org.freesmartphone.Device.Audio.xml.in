@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Audio Interface</doc:summary>
-  <doc:version>0.9.4</doc:version>
+  <doc:version>0.9.5</doc:version>
   <doc:source>git.freesmartphone.org</doc:source>
   <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
 </doc:doc>
@@ -219,6 +219,22 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Device.Audio" />
+  </method>
+
+  <method name="SaveScenario">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Save the current scenario as a file.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="scenario">
+      <doc:doc>
+        <doc:summary>
+          The name of the scenario.
+        </doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
   <signal name="Scenario">
