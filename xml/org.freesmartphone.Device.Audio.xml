@@ -50,6 +50,10 @@
       <arg direction="out" type="s" name="scenario"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.Audio"/>
     </method>
+    <method name="SaveScenario">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="s" name="scenario"/>
+    </method>
     <signal name="Scenario">
       <arg type="s" name="scenario"/>
       <arg type="s" name="reason"/>
