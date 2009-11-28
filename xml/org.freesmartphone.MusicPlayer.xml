@@ -117,6 +117,10 @@
     <signal name="State">
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="state" fso:type="org.freesmartphone.MusicPlayer.State"/>
     </signal>
+    <signal name="Error">
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="error" fso:type="org.freesmartphone.MusicPlayer.StreamError"/>
+      <arg type="s" name="info"/>
+    </signal>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.MusicPlayer" fso:no-container="true">
     <error name="NoFileSelected"/>
@@ -132,5 +136,21 @@
     <fso:member value="playing" name="playing"/>
     <fso:member value="pause" name="paused"/>
     <fso:member value="buffering" name="buffering"/>
+  </fso:enumeration>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.MusicPlayer.StreamError" type="s">
+    <fso:member value="failed" name="failed"/>
+    <fso:member value="state_changed" name="state_changed"/>
+    <fso:member value="negotiation" name="negotiation"/>
+    <fso:member value="event" name="event"/>
+    <fso:member value="seek" name="seek"/>
+    <fso:member value="tag" name="tag"/>
+    <fso:member value="missing_plugin" name="missing_plugin"/>
+    <fso:member value="disabled" name="disabled"/>
+    <fso:member value="settings" name="setting"/>
+    <fso:member value="encode" name="encode"/>
+    <fso:member value="decrypt" name="decrypt"/>
+    <fso:member value="nokey" name="nokey"/>
+    <fso:member value="wrong_type" name="wrong_type"/>
+    <fso:member value="codec_not_found" name="codec_not_found"/>
   </fso:enumeration>
 </node>

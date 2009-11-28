@@ -325,6 +325,22 @@
       </doc:doc>
     </arg>
   </signal>
+
+  <signal name="Error">
+    <doc:doc>
+      <doc:description>Emmitted when an error occurs without user interaction</doc:description>
+    </doc:doc>
+    <arg type="s" name="error" fso:type="org.freesmartphone.MusicPlayer.StreamError">
+      <doc:doc>
+        <doc:summary>The type of the error. </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="info">
+      <doc:doc>
+        <doc:summary>Additional information for the error</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 </interface>
 
 <fso:errordomain name="org.freesmartphone.MusicPlayer" fso:no-container="true">
@@ -384,5 +400,21 @@
   <fso:member value="playing" name="playing"/>
   <fso:member value="pause" name="paused"/>
   <fso:member value="buffering" name="buffering"/>
+  </fso:enumeration>
+  <fso:enumeration name="org.freesmartphone.MusicPlayer.StreamError" type="s">
+  <fso:member value="failed" name="failed"/>
+  <fso:member value="state_changed" name="state_changed"/>
+  <fso:member value="negotiation" name="negotiation"/>
+  <fso:member value="event" name="event"/>
+  <fso:member value="seek" name="seek"/>
+  <fso:member value="tag" name="tag"/>
+  <fso:member value="missing_plugin" name="missing_plugin"/>
+  <fso:member value="disabled" name="disabled"/>
+  <fso:member value="settings" name="setting"/>
+  <fso:member value="encode" name="encode"/>
+  <fso:member value="decrypt" name="decrypt"/>
+  <fso:member value="nokey" name="nokey"/>
+  <fso:member value="wrong_type" name="wrong_type"/>
+  <fso:member value="codec_not_found" name="codec_not_found"/>
 </fso:enumeration>
 </node>

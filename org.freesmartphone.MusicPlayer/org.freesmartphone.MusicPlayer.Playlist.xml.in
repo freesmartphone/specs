@@ -160,10 +160,10 @@
     <fso:throws type="org.freesmartphone.MusicPlayer.Playlist" />
   </method>
 
-  <method name="LoadFromFile">
+  <method name="LoadFromUri">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Load entries from a file</doc:description>
+        <doc:description>Add entries from a URI. Local files do not need file:// prefix.</doc:description>
     </doc:doc>
     <arg type="s" name="file" direction="in">
       <doc:doc>

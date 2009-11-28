@@ -42,6 +42,7 @@
 <li><a href="#PlaylistRemoved">PlaylistRemoved</a></li>
 <li><a href="#Progress">Progress</a></li>
 <li><a href="#State">State</a></li>
+<li><a href="#Error">Error</a></li>
 </ul>
 <h2>Errors</h2><ul>
 <li><a href="#NoFileSelected">NoFileSelected</a></li>
@@ -92,6 +93,7 @@
 <h3><h3><a name="PlaylistRemoved">PlaylistRemoved</a> ( o )</h3><p><i>Description:</i> Emmitted when a client deletes a playlist </p><h4>Parameters</h4><i>o: path</i><p>Object path of the deleted list </p></h3>
 <h3><h3><a name="Progress">Progress</a> ( i )</h3><p><i>Description:</i> Emmitted when the file position change </p><h4>Parameters</h4><i>i: progress</i><p>The new progress </p></h3>
 <h3><h3><a name="State">State</a> ( s )</h3><p><i>Description:</i> Emmitted when the current song changes </p><h4>Parameters</h4><i>s: state</i><p>The new state of the player.  Possible values:  <ul>  <li>"stopped"</li>  <li>"playing"</li>  <li>"paused"</li>  <li>"buffering"</li>  </ul> </p></h3>
+<h3><h3><a name="Error">Error</a> ( ss )</h3><p><i>Description:</i> Emmitted when an error occurs without user interaction </p><h4>Parameters</h4><i>s: error</i><p>The type of the error. </p><i>s: info</i><p>Additional information for the error </p></h3>
 <h1>Errors</h1><h3><a name="NoFileSelected">NoFileSelected</a></h3><p><i>Description:</i> Raised, if no file is selected. </p>
 <h3><a name="NoPlaylistSelected">NoPlaylistSelected</a></h3><p><i>Description:</i> Raised, if no playlist is selected. </p>
 <h3><a name="UnknownPlaylist">UnknownPlaylist</a></h3><p><i>Description:</i> Raised, if the requested playlist is unknown. </p>
