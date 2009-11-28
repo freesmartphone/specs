@@ -330,7 +330,7 @@
     <doc:doc>
       <doc:description>Emmitted when an error occurs without user interaction</doc:description>
     </doc:doc>
-    <arg type="s" name="error" fso:type="org.freesmartphone.MusicPlayer.StreamError">
+    <arg type="s" name="the_error" fso:type="org.freesmartphone.MusicPlayer.StreamError">
       <doc:doc>
         <doc:summary>The type of the error. </doc:summary>
       </doc:doc>
@@ -400,8 +400,9 @@
   <fso:member value="playing" name="playing"/>
   <fso:member value="pause" name="paused"/>
   <fso:member value="buffering" name="buffering"/>
-  </fso:enumeration>
-  <fso:enumeration name="org.freesmartphone.MusicPlayer.StreamError" type="s">
+</fso:enumeration>
+
+<fso:enumeration name="org.freesmartphone.MusicPlayer.StreamError" type="s">
   <fso:member value="failed" name="failed"/>
   <fso:member value="state_changed" name="state_changed"/>
   <fso:member value="negotiation" name="negotiation"/>

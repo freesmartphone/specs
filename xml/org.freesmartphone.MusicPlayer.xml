@@ -118,7 +118,7 @@
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="state" fso:type="org.freesmartphone.MusicPlayer.State"/>
     </signal>
     <signal name="Error">
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="error" fso:type="org.freesmartphone.MusicPlayer.StreamError"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="the_error" fso:type="org.freesmartphone.MusicPlayer.StreamError"/>
       <arg type="s" name="info"/>
     </signal>
   </interface>
