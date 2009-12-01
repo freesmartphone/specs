@@ -82,5 +82,19 @@
     </arg>
   </method>
 
+  <signal name="Notify">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is a change of the active profile
+        </doc:description>
+    </doc:doc>
+    <arg type="s" name="profile">
+        <doc:doc>
+            <doc:summary>The name of the new profile.</doc:summary>
+        </doc:doc>
+    </arg>
+  </signal>
+
 </interface>
 </node>
