@@ -10,7 +10,6 @@
     <method name="Delete">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
-      <arg direction="out" type="a{sv}" name="field_data"/>
     </method>
     <method name="Get">
       <arg direction="in" type="s" name="name"/>
