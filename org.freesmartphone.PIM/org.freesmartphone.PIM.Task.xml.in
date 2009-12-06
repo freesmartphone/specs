@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-contact-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Task Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Task">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to one PIM task.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetContent">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get the fields of one task.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{sv}" name="task_data">
+      <doc:doc>
+        <doc:summary>
+          The task's data.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetMultipleFields">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get a specified field list of the task's data.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="field_list">
+      <doc:doc>
+        <doc:summary>
+          The list of fields to get, split by "," (coma) char.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="a{sv}" name="field_data">
+      <doc:doc>
+        <doc:summary>
+          The data of the requested fields.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="GetUsedBackends">
+    <doc:doc>
+      <doc:description>
+        Get used backends in task.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="as" name="backends">
+      <doc:doc>
+        <doc:summary>
+          The list of backends used in this task.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Update">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Update one or more fields of this task.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="task_data">
+      <doc:doc>
+        <doc:summary>
+          The list of fields/values to update for this task.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Delete">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Delete this task.
+      </doc:description>
+    </doc:doc>
+  </method>
+
+</interface>
+
+</node>
+
