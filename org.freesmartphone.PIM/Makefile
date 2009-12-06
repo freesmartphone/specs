@@ -20,6 +20,7 @@ files = \
   org.freesmartphone.PIM.Task.xml \
   org.freesmartphone.PIM.Tasks.xml \
   org.freesmartphone.PIM.TaskQuery.xml \
-  org.freesmartphone.PIM.Fields.xml
+  org.freesmartphone.PIM.Fields.xml \
+  org.freesmartphone.PIM.Types.xml
 
 include ../tools/rules.mk

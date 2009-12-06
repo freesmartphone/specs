@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-contact-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Types Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Types">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to available field types.
+    </doc:para>
+  </doc:doc>
+
+  <method name="List">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get the available field types.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="as" name="types">
+      <doc:doc>
+        <doc:summary>
+          The list of types.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+
+</node>
+
