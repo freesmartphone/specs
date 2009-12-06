@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-contact-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org PIM.Fields Interface</doc:summary>
+</doc:doc>
+
+<interface name="org.freesmartphone.PIM.Fields">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to field types in domains.
+    </doc:para>
+  </doc:doc>
+
+  <method name="Add">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Add new field to the list.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="name">
+      <doc:doc>
+        <doc:summary>
+          The field's name.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="s" name="type">
+      <doc:doc>
+        <doc:summary>
+          The field's type.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Delete">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Delete field from list.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="name">
+      <doc:doc>
+        <doc:summary>
+          The field's name.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="a{sv}" name="field_data">
+      <doc:doc>
+        <doc:summary>
+          The data of the requested fields.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="Get">
+    <doc:doc>
+      <doc:description>
+        Get type of specified field.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="name">
+      <doc:doc>
+        <doc:summary>
+          The field's name.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s" name="type">
+      <doc:doc>
+        <doc:summary>
+          The field's type.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="List">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        List all specified fields and their types.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{ss}" name="fields">
+      <doc:doc>
+        <doc:summary>
+          A dictionary with field names and types.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+</interface>
+
+</node>
+
