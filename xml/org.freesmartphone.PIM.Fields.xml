@@ -19,5 +19,10 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="a{ss}" name="fields"/>
     </method>
+    <method name="ListFieldsWithType">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="s" name="type"/>
+      <arg direction="out" type="as" name="fields"/>
+    </method>
   </interface>
 </node>
