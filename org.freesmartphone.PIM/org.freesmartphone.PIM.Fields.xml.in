@@ -90,6 +90,29 @@
     </arg>
   </method>
 
+  <method name="ListFieldsWithType">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        List all fields with specified type.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="s" name="type">
+      <doc:doc>
+        <doc:summary>
+          Field type.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="as" name="fields">
+      <doc:doc>
+        <doc:summary>
+          A list with field names.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
 </interface>
 
 </node>
