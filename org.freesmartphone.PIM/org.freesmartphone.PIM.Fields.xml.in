@@ -13,7 +13,7 @@
     </doc:para>
   </doc:doc>
 
-  <method name="Add">
+  <method name="AddField">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
@@ -36,7 +36,7 @@
     </arg>
   </method>
 
-  <method name="Delete">
+  <method name="DeleteField">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
@@ -52,7 +52,7 @@
     </arg>
   </method>
 
-  <method name="Get">
+  <method name="GetType">
     <doc:doc>
       <doc:description>
         Get type of specified field.
@@ -74,7 +74,7 @@
     </arg>
   </method>
 
-  <method name="List">
+  <method name="ListFields">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
