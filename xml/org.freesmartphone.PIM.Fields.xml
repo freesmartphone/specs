@@ -2,20 +2,20 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.PIM.Fields">
-    <method name="Add">
+    <method name="AddField">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <arg direction="in" type="s" name="type"/>
     </method>
-    <method name="Delete">
+    <method name="DeleteField">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
     </method>
-    <method name="Get">
+    <method name="GetType">
       <arg direction="in" type="s" name="name"/>
       <arg direction="out" type="s" name="type"/>
     </method>
-    <method name="List">
+    <method name="ListFields">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="a{ss}" name="fields"/>
     </method>
