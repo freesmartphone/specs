@@ -10,16 +10,19 @@
 
 
 <h1>org.freesmartphone.Network</h1><h2>Description</h2>
-<p>The Network interface provides access to high level networking functions.  Please see org.moblin.connman for low level networking functions.</p>
+<p>The Network interface provides access to high level networking functions.  Please see org.moblin.connman and org.bluez for low level networking functions.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Network</tt></p>
 <h2>Methods</h2><ul>
 <li><a href="#StartConnectionSharingWithInterface">StartConnectionSharingWithInterface</a></li>
+<li><a href="#StopConnectionSharingWithInterface">StopConnectionSharingWithInterface</a></li>
 </ul>
 <h2>Signals</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="StartConnectionSharingWithInterface">StartConnectionSharingWithInterface</a> ( s )</h3>
-<p><i>Description:</i> Start sharing the internet connection of this device with any clients  connected to the specified network interface. As a consequence of this call,  a dhcp server will be started on the device and ip tables will be adjusted. </p><h4>Parameters</h4><i>s: interface</i><p>The interface to start sharing the connectivity with. </p>
+<p><i>Description:</i> Start sharing the internet connection of this device with any clients  connected to the specified network interface via DHCP. </p><p><div class="rationale"><p>Might launch a dhcp server process and adjust IP tables. </p></div></p><h4>Parameters</h4><i>s: interface</i><p>The network interface to start sharing the connectivity with. </p>
+<h3><a name="StopConnectionSharingWithInterface">StopConnectionSharingWithInterface</a> ( s )</h3>
+<p><i>Description:</i> Stop sharing the internet connection of this device with any clients  connected to the specified network interface via DHCP. </p><p><div class="rationale"><p>Might stop a dhcp server process and adjust IP tables. </p></div></p><h4>Parameters</h4><i>s: interface</i><p>The network interface to stop sharing the connectivity with. </p>
 
     <hr/>
     <small>

@@ -3,7 +3,9 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Network Interface</doc:summary>
-  <doc:version>0.1.0</doc:version>
+  <doc:version>0.2.0</doc:version>
+  <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
+  <doc:status>unstable</doc:status>
 </doc:doc>
 
 <interface name="org.freesmartphone.Network">
@@ -11,7 +13,7 @@
   <doc:doc>
     <doc:para>
       The Network interface provides access to high level networking functions.
-      Please see org.moblin.connman for low level networking functions.
+      Please see org.moblin.connman and org.bluez for low level networking functions.
     </doc:para>
   </doc:doc>
 
@@ -20,13 +22,34 @@
     <doc:doc>
       <doc:description>
         Start sharing the internet connection of this device with any clients
-        connected to the specified network interface. As a consequence of this call,
-        a dhcp server will be started on the device and ip tables will be adjusted.
+        connected to the specified network interface via DHCP.
       </doc:description>
+      <doc:inote>
+        Might launch a dhcp server process and adjust IP tables.
+      </doc:inote>
     </doc:doc>
     <arg type="s" name="interface" direction="in">
       <doc:doc>
-        <doc:summary>The interface to start sharing the connectivity with.</doc:summary>
+        <doc:summary>The network interface to start sharing the connectivity with.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="StopConnectionSharingWithInterface">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Stop sharing the internet connection of this device with any clients
+        connected to the specified network interface via DHCP.
+      </doc:description>
+      <doc:inote>
+        Might stop a dhcp server process and adjust IP tables.
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="interface" direction="in">
+      <doc:doc>
+        <doc:summary>The network interface to stop sharing the connectivity with.</doc:summary>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone" />
