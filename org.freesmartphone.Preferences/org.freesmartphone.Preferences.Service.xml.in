@@ -28,8 +28,12 @@
 
         When we set or get parameters, the service server takes into account the current profile,
         so the applications using the service don't need to know about the current profile.
+        
+        NOTE: Docs for this are temporary disabled due to some internal problems with Vala.
     </doc:para>
   </doc:doc>
+
+  <!--
 
   <method name="GetKeys">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -142,6 +146,8 @@
         </doc:doc>
     </arg>
   </signal>
+  
+  -->
 
 </interface>
 </node>
