@@ -87,16 +87,27 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
         <doc:description>Retrieve the current functionality status of the device.</doc:description>
-        <doc:inote>AT devices might map this to the GSM 07.07 command +CFUN=?, see 3GPP TS 07.07 Chapter 8.2.</doc:inote>
     </doc:doc>
     <arg type="s" name="level" direction="out">
       <doc:doc>
-        The functionality level. Expected tuples are:
+        The functionality level. Expected values are:
         [ul]
           [li]"minimal": The device is in maximum powersave mode,[/li]
           [li]"airplane": The device is in airplane mode (RF receivers and transmitters have been turned off),[/li]
           [li]"full": The device operates with maximum functionality (all units are powered up).[/li]
         [/ul]
+      </doc:doc>
+    </arg>
+    <arg type="b" name="autoregister" direction="out">
+      <doc:doc>
+        Whether the device tries to maintain registration with a provider.
+        This parameter is only valid, if level = "full".
+      </doc:doc>
+    </arg>
+    <arg type="s" name="pin" direction="out">
+      <doc:doc>
+        The SIM PIN being used to authenticate if necessary, or an empty string.
+        This parameter is only valid, if level = "full".
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />
@@ -109,11 +120,22 @@
         <doc:description>
           Set the functionality status for this device.
         </doc:description>
-        <doc:inote>AT devices might map this to the GSM 07.07 command +CFUN=(antenna_power), see 3GPP TS 07.07 Chapter 8.2.</doc:inote>
     </doc:doc>
     <arg type="s" name="level" direction="in">
       <doc:doc>
         <doc:summary>See org.freesmartphone.GSM.Device.GetFunctionality.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="b" name="autoregister" direction="in">
+      <doc:doc>
+        Whether the device should try to maintain registration with a provider.
+        This parameter is only valid, if level = "full".
+      </doc:doc>
+    </arg>
+    <arg type="s" name="pin" direction="in">
+      <doc:doc>
+        The SIM PIN being used to authenticate if necessary, or an empty string.
+        This parameter is only valid, if level = "full".
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />

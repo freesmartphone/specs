@@ -23,12 +23,16 @@
     <method name="GetFunctionality">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="level" direction="out"/>
+      <arg type="b" name="autoregister" direction="out"/>
+      <arg type="s" name="pin" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="SetFunctionality">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="level" direction="in"/>
+      <arg type="b" name="autoregister" direction="in"/>
+      <arg type="s" name="pin" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>

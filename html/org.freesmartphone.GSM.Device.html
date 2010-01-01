@@ -38,10 +38,10 @@
 <p><i>Description:</i> Retrieve antenna power status from the device. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CFUN=?, see 3GPP TS 07.07 Chapter 8.2. </p></div></p><h4>Returns</h4><i>b: antenna_power</i><p>True, when the antenna is powered on. False, otherwise. </p>
 <h3><a name="SetAntennaPower">SetAntennaPower</a> ( b )</h3>
 <p><i>Description:</i> Set antenna power status for this device. Will raise <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#AuthFailed">AuthFailed</a>  if the SIM is protected with an authentication code. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CFUN=(antenna_power), see 3GPP TS 07.07 Chapter 8.2. </p></div></p><h4>Parameters</h4><i>b: antenna_power</i><p>True, for powering on the antenna. False, otherwise. </p>
-<h3><a name="GetFunctionality">GetFunctionality</a> ( ) &rarr; s</h3>
-<p><i>Description:</i> Retrieve the current functionality status of the device. </p><p><div class="rationale"><p>AT devices might map this to the GSM 07.07 command +CFUN=?, see 3GPP TS 07.07 Chapter 8.2. </p></div></p><h4>Returns</h4><i>s: level</i><p> </p>
-<h3><a name="SetFunctionality">SetFunctionality</a> ( s )</h3>
-<p><i>Description:</i> Set the functionality status for this device. </p><p><div class="rationale"><p>AT devices might map this to the GSM 07.07 command +CFUN=(antenna_power), see 3GPP TS 07.07 Chapter 8.2. </p></div></p><h4>Parameters</h4><i>s: level</i><p>See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.Device.html#GetFunctionality">GetFunctionality</a> </p>
+<h3><a name="GetFunctionality">GetFunctionality</a> ( ) &rarr; sbs</h3>
+<p><i>Description:</i> Retrieve the current functionality status of the device. </p><h4>Returns</h4><i>s: level</i><p> </p><i>b: autoregister</i><p> </p><i>s: pin</i><p> </p>
+<h3><a name="SetFunctionality">SetFunctionality</a> ( sbs )</h3>
+<p><i>Description:</i> Set the functionality status for this device. </p><h4>Parameters</h4><i>s: level</i><p>See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.Device.html#GetFunctionality">GetFunctionality</a> </p><i>b: autoregister</i><p> </p><i>s: pin</i><p> </p>
 <h3><a name="GetFeatures">GetFeatures</a> ( ) &rarr; a{sv}</h3>
 <p><i>Description:</i> Get information about the telephony features supported by this device. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +GCAP, see 3GPP TS 07.07 Chapter 5.8. </p></div></p><h4>Returns</h4><i>a{sv}: features</i><p>The telephony features supported by this device. Expected tuples are:  <ul>  <li>("GSM", string) = "TA" (mandatory),</li>  <li>("GPRS", string) = GPRS classes (optional),</li>  <li>("FAX", string) ] = FAX classes (optional).</li>  </ul> </p>
 <h3><a name="GetSpeakerVolume">GetSpeakerVolume</a> ( ) &rarr; i</h3>
