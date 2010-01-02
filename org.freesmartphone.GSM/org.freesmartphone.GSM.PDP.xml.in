@@ -13,54 +13,9 @@
         The Packet Data Protocol interface is used to set up
         binary data connections that allow you to transfer
         data over the TCP/IP protocol family routed
-        via IP-based 2.5/3G provider networks.
+        via IP-based provider networks.
       </doc:para>
     </doc:doc>
-
-  <method name="ListGprsClasses">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>List available GPRS device classes.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CGCLASS=?, see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
-    </doc:doc>
-    <arg type="as" name="classes" direction="out">
-      <doc:doc>
-        <doc:summary>The available GPRS device classes.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="GetCurrentGprsClass">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieves the current GPRS device class mode.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CGCLASS?, see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
-    </doc:doc>
-    <arg type="s" name="device_class" direction="out">
-      <doc:doc>
-        <doc:summary>The GPRS device class mode.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="SetCurrentGprsClass">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Sets the current GPRS device class mode.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CGCLASS=(device_class), see 3GPP TS 07.07 Chapter 10.1.11.</doc:inote>
-    </doc:doc>
-    <arg type="s" name="device_class" direction="in">
-      <doc:doc>
-        <doc:summary>The GPRS device class mode.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
 
   <method name="GetNetworkStatus">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -121,11 +76,63 @@
     </arg>
   </signal>
 
+  <method name="SetCredentials">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Set the credentials for PDP context activation.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="apn" direction="in">
+      <doc:doc>
+        <doc:summary>The access point name to connect to.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="username" direction="in">
+      <doc:doc>
+        <doc:summary>The user name to identify as.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="password" direction="in">
+      <doc:doc>
+        <doc:summary>The password to identify as.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="GetCredentials">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get the credentials for PDP context activation.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="apn" direction="out">
+      <doc:doc>
+        <doc:summary>The access point name to connect to.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="username" direction="out">
+      <doc:doc>
+        <doc:summary>The user name to identify as.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="password" direction="out">
+      <doc:doc>
+        <doc:summary>The password to identify as.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
   <method name="ActivateContext">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Request a PDP context activation to an IP-based network service provider and launch a ppp session.
+        Request a PDP context activation to an IP-based network service provider.
       </doc:description>
       <doc:inote>
         This can map to the following GSM 07.07 commands:
@@ -137,28 +144,8 @@
         [/ul]
         It might also map to the v.250 compatibility commands D*...
       </doc:inote>
-      <doc:inote>This command might change your network default route.</doc:inote>
+      <doc:inote>Invocation of this command can change your network default route.</doc:inote>
     </doc:doc>
-    <arg type="s" name="apn" direction="in">
-      <doc:doc>
-        <doc:summary>The access point name to connect to.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="username" direction="in">
-      <doc:doc>
-        <doc:summary>The user name to authenticate with.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="password" direction="in">
-      <doc:doc>
-        <doc:summary>The password to authenticate with.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="i" name="index" direction="out">
-      <doc:doc>
-        <doc:summary>An index to identify context status changes.</doc:summary>
-      </doc:doc>
-    </arg>
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
@@ -169,11 +156,6 @@
       <doc:description>Cancel an ongoing ppp session and request a PDP context deactivation.</doc:description>
       <doc:inote>This command might change your network default route.</doc:inote>
     </doc:doc>
-    <arg type="i" name="index" direction="in">
-      <doc:doc>
-        <doc:summary>The context to deactivate.</doc:summary>
-      </doc:doc>
-    </arg>
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
@@ -183,14 +165,17 @@
     <doc:doc>
       <doc:description>Retrieve the current PDP context status.</doc:description>
     </doc:doc>
-    <arg type="i" name="index" direction="in">
-      <doc:doc>
-        <doc:summary>The context to inquire.</doc:summary>
-      </doc:doc>
-    </arg>
     <arg type="s" name="status" direction="out">
       <doc:doc>
         <doc:summary>The context status. See org.freesmartphone.GSM.PDP.ContextStatus for a list of valid values.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The context status properties.
+          See org.freesmartphone.GSM.PDP.ContextStatus for details.
+        </doc:summary>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />
@@ -203,11 +188,6 @@
         Sent whenever there is any status or property change on a pdp context in the system.
       </doc:description>
     </doc:doc>
-    <arg type="i" name="id">
-      <doc:doc>
-        <doc:summary>The index of the context that changed its status or properties.</doc:summary>
-      </doc:doc>
-    </arg>
     <arg type="s" name="status">
       <doc:doc>
         <doc:summary>
@@ -237,14 +217,33 @@
     </arg>
   </signal>
 
+  <method name="InternalStatusUpdate">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        This method is for internal use only.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="status" direction="in">
+      <doc:doc>
+        <doc:summary>Internal use only.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties" direction="in">
+      <doc:doc>
+        <doc:summary>Internal use only.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+
   <!-- TODO
-       * Incoming data call
        * Network originated activation requests
        * QoS handling
        * Statistics
-       * GPRS registration info
-       * signals
-       -->
+  -->
 
 </interface>
 
