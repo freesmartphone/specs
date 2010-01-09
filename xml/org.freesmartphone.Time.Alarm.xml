@@ -8,7 +8,7 @@
     </method>
     <method name="ListAlarms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(si)" name="alarms" fso:type="org.freesmartphone.Time.WakeupAlarm" direction="in"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(si)" name="alarms" fso:type="org.freesmartphone.Time.WakeupAlarm" direction="out"/>
     </method>
     <method name="RemoveAlarm">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>

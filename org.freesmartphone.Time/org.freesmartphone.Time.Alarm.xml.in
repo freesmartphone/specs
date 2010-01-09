@@ -41,9 +41,9 @@ xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-t
     <doc:doc>
       <doc:description>List all currently scheduled alarms.</doc:description>
     </doc:doc>
-    <arg type="a(si)" name="alarms" fso:type="org.freesmartphone.Time.WakeupAlarm" direction="in">
+    <arg type="a(si)" name="alarms" fso:type="org.freesmartphone.Time.WakeupAlarm" direction="out">
       <doc:doc>
-        <doc:summary>The dbus service bus name to clear all alarms for.</doc:summary>
+        <doc:summary>All currently scheduled alarms.</doc:summary>
       </doc:doc>
     </arg>
   </method>
