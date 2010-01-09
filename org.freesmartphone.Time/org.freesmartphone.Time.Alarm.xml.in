@@ -4,7 +4,7 @@ xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-t
 
 <doc:doc>
   <doc:summary>freesmartphone.org Time Alarm Interface</doc:summary>
-  <doc:version>0.1.0</doc:version>
+  <doc:version>0.2.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Time.Alarm">
@@ -14,44 +14,80 @@ xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-t
       The Alarm interface is used to register wakeup alarms. Alarm notifications
       will be submitted as dbus method calls, hence alarm receivers need to
       implement the interface org.freesmartphone.Notification on the root object.
-      Alarm receivers need to be running dbus system services or dbus system-activatable.
+      Alarm receivers need to be running dbus system services or dbus system-activatible.
       If the system features a suspend mode, the framework will ensure that the
-      system is awake at the time the alarm triggers. Per bus name only one
-      alarm can be registered. If you need more than one alarm or want to run
-      on the dbus session bus, consider using the org.freesmartphone.PIM event
-      interface instead.
+      system is awake at the time the alarm triggers.
+
+      Multiple alarms per bus name can be registered. If you want to register
+      named alarm (e.g. agenda items, birthdays, etc.), consider using the PIM
+      services instead.
      </doc:para>
   </doc:doc>
 
-  <method name="ClearAlarm">
+  <method name="ClearAlarms">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Clears the alarm for a certain dbus system service.</doc:description>
+      <doc:description>Clear all scheduled alarms for a given dbus service name.</doc:description>
     </doc:doc>
     <arg type="s" name="busname" direction="in">
       <doc:doc>
-        <doc:summary>The dbus bus name to clear the alarm for.</doc:summary>
+        <doc:summary>The dbus service bus name to clear all alarms for.</doc:summary>
       </doc:doc>
     </arg>
   </method>
 
-  <method name="SetAlarm">
+  <method name="ListAlarms">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Sets an alarm time for a certain dbus system service.</doc:description>
+      <doc:description>List all currently scheduled alarms.</doc:description>
+    </doc:doc>
+    <arg type="a(si)" name="alarms" fso:type="org.freesmartphone.Time.WakeupAlarm" direction="in">
+      <doc:doc>
+        <doc:summary>The dbus service bus name to clear all alarms for.</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="RemoveAlarm">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Removes a scheduled alarm.</doc:description>
     </doc:doc>
     <arg type="s" name="busname" direction="in">
       <doc:doc>
-        <doc:summary>The dbus bus name to set the alarm for.</doc:summary>
+        <doc:summary>The dbus service bus name to clear the alarm for.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="i" name="timestamp" direction="in">
       <doc:doc>
-        <doc:summary>The timestamp for sending the alarm notification in seconds since 1970 (epoch).</doc:summary>
+        <doc:summary>When to call in seconds since 1970 (epoch).</doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="AddAlarm">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Schedules an alarm for a given dbus service name.</doc:description>
+    </doc:doc>
+    <arg type="s" name="busname" direction="in">
+      <doc:doc>
+        <doc:summary>The dbus service name to call.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="timestamp" direction="in">
+      <doc:doc>
+        <doc:summary>When to call in seconds since 1970 (epoch).</doc:summary>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone" />
   </method>
 
 </interface>
+
+<fso:struct name="org.freesmartphone.Time.WakeupAlarm">
+  <fso:field name="busname"   type="s" />
+  <fso:field name="timestamp" type="i" />
+</fso:struct>
+
 </node>

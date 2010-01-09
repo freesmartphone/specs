@@ -2,15 +2,28 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.Time.Alarm">
-    <method name="ClearAlarm">
+    <method name="ClearAlarms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="busname" direction="in"/>
     </method>
-    <method name="SetAlarm">
+    <method name="ListAlarms">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(si)" name="alarms" fso:type="org.freesmartphone.Time.WakeupAlarm" direction="in"/>
+    </method>
+    <method name="RemoveAlarm">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="s" name="busname" direction="in"/>
+      <arg type="i" name="timestamp" direction="in"/>
+    </method>
+    <method name="AddAlarm">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="busname" direction="in"/>
       <arg type="i" name="timestamp" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
   </interface>
+  <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Time.WakeupAlarm">
+    <fso:field name="busname" type="s"/>
+    <fso:field name="timestamp" type="i"/>
+  </fso:struct>
 </node>
