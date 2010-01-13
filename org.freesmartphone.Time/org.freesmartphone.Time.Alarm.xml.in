@@ -68,7 +68,17 @@ xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-t
   <method name="AddAlarm">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Schedules an alarm for a given dbus service name.</doc:description>
+      <doc:description>
+        Schedules an alarm for a given dbus service name.
+        The alarm will be triggered by calling the service's
+        org.freesmartphone.Notification.Alarm method on the root (/) object.
+      </doc:description>
+      <doc:inote>
+        Make sure to specify a dbus system service configuration file for
+        the services that use this interface. This way, you can
+        receive alarm notifications even when your service is not
+        running at the time the alarm fires.
+      </doc:inote>
     </doc:doc>
     <arg type="s" name="busname" direction="in">
       <doc:doc>
