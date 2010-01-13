@@ -10,6 +10,7 @@ SUBDIRS := \
   org.freesmartphone.GSM \
   org.freesmartphone.Preferences \
   org.freesmartphone.Network \
+  org.freesmartphone.Notification \
   org.freesmartphone.Time \
   org.freesmartphone.MusicPlayer
 

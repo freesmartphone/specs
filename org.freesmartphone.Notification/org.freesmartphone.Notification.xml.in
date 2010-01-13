@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-notification-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Notification Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Notification">
+
+  <doc:doc>
+    <doc:para>
+      The Notification interface is used to signalize important information about certain
+      FSO services. It also is used to deliver the Alarm notification.
+     </doc:para>
+  </doc:doc>
+
+  <method name="Alarm">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Sent, when an alarm that has been scheduled with org.freesmartphone.Time.Alarm.AddAlarm
+        has been triggered.
+      </doc:description>
+    </doc:doc>
+  </method>
+
+</interface>
+
+</node>
