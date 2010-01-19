@@ -72,7 +72,7 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="Connect">
+  <method name="StartConnection">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
@@ -92,7 +92,7 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="Disconnect">
+  <method name="StopConnection">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
