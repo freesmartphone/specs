@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Network Interface</doc:summary>
-  <doc:version>0.2.0</doc:version>
+  <doc:version>0.3.0</doc:version>
   <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
   <doc:status>unstable</doc:status>
 </doc:doc>
@@ -54,6 +54,82 @@
     </arg>
     <fso:throws type="org.freesmartphone" />
   </method>
+
+  <method name="SetConnectionPreferences">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Configure connection preferences for internet connections.
+      </doc:description>
+    </doc:doc>
+    <arg type="as" name="types" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The preferred order of internet connection methods.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="Connect">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Attempt to establish an internet connection. When the connection
+        can not be established or is being dropped unscheduled, then
+        it will automatically be reinstanciated.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="type" direction="in">
+      <doc:doc>
+        <doc:summary>
+          A connectivity method hint. If set, this overrides the settings
+          given via org.freesmartphone.Network.SetConnectionPreferences.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="Disconnect">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Stop all established internet connections and all attempts
+        to establish.
+      </doc:description>
+    </doc:doc>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <signal name="OnlineStatus">
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is an status change regarding internet connectivity.
+        </doc:description>
+    </doc:doc>
+    <arg type="b" name="online">
+      <doc:doc>
+        <doc:summary>
+          True, if there is internet connectivity. False, otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties">
+      <doc:doc>
+        <doc:summary>
+          An array of property parameter, if 'online' is true. All properties are
+          optional. Expected keys are:
+          [ul]
+            [li]"type" = Type of the internet connection,[/li]
+            [li]"speed" = Speed of the internet connection,[/li]
+            [li]"initiator" = The initiator of the internet conneciton.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 
