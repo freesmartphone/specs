@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-vibrator-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Vibrator Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.Vibrator">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to a Vibrator device.
+    </doc:para>
+  </doc:doc>
+
+  <method name="VibratePattern">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Vibrate in an on/off pattern for a specified number of seconds.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="seconds">
+      <doc:doc>
+        <doc:summary>
+          The amount of time (in seconds) to vibrate.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="i" name="on_duration">
+      <doc:doc>
+        <doc:summary>
+          Duration of vibrating in milliseconds.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="i" name="off_duration">
+      <doc:doc>
+        <doc:summary>
+          Duration of silence in milliseconds.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="Vibrate">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Pulse the vibrator for a specified number of seconds.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="i" name="seconds">
+      <doc:doc>
+        <doc:summary>
+          The amount of time (in milliseconds) to vibrate.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+</interface>
+</node>

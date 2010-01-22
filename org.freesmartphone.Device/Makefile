@@ -8,6 +8,7 @@ files = \
   org.freesmartphone.Device.Orientation.xml \
   org.freesmartphone.Device.PowerControl.xml \
   org.freesmartphone.Device.PowerSupply.xml \
-  org.freesmartphone.Device.RealtimeClock.xml
+  org.freesmartphone.Device.RealtimeClock.xml \
+  org.freesmartphone.Device.Vibrator.xml
 
 include ../tools/rules.mk
