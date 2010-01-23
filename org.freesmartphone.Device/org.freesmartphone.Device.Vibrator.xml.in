@@ -17,12 +17,12 @@
   <method name="VibratePattern">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Vibrate in an on/off pattern for a specified number of seconds.</doc:description>
+      <doc:description>Vibrate in an on/off pattern for a specified number of pulses.</doc:description>
     </doc:doc>
-    <arg direction="in" type="i" name="seconds">
+    <arg direction="in" type="i" name="pulses">
       <doc:doc>
         <doc:summary>
-          The amount of time (in seconds) to vibrate.
+          The amount of pulses (on+off iterations).
         </doc:summary>
       </doc:doc>
     </arg>
@@ -36,7 +36,7 @@
     <arg direction="in" type="i" name="off_duration">
       <doc:doc>
         <doc:summary>
-          Duration of silence in milliseconds.
+          Duration of not vibrating in milliseconds.
         </doc:summary>
       </doc:doc>
     </arg>
