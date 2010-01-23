@@ -4,16 +4,16 @@
   <interface name="org.freesmartphone.Device.Vibrator">
     <method name="VibratePattern">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="in" type="u" name="pulses"/>
-      <arg direction="in" type="u" name="on_duration"/>
-      <arg direction="in" type="u" name="off_duration"/>
-      <arg direction="in" type="u" name="strength"/>
+      <arg direction="in" type="i" name="pulses"/>
+      <arg direction="in" type="i" name="on_duration"/>
+      <arg direction="in" type="i" name="off_duration"/>
+      <arg direction="in" type="i" name="strength"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="Vibrate">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="in" type="u" name="seconds"/>
-      <arg direction="in" type="u" name="strength"/>
+      <arg direction="in" type="i" name="seconds"/>
+      <arg direction="in" type="i" name="strength"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="Stop">
