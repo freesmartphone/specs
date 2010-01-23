@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Vibrator Interface</doc:summary>
-  <doc:version>0.1.0</doc:version>
+  <doc:version>0.1.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.Vibrator">
@@ -58,5 +58,14 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
+  <method name="Stop">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Cancel any previous commands and stop the vibrator immediately.</doc:description>
+    </doc:doc>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
 </interface>
 </node>
+
