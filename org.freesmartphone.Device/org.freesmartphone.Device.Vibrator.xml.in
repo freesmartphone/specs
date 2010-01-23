@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Vibrator Interface</doc:summary>
-  <doc:version>0.1.1</doc:version>
+  <doc:version>0.2.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.Vibrator">
@@ -19,24 +19,31 @@
     <doc:doc>
       <doc:description>Vibrate in an on/off pattern for a specified number of pulses.</doc:description>
     </doc:doc>
-    <arg direction="in" type="i" name="pulses">
+    <arg direction="in" type="u" name="pulses">
       <doc:doc>
         <doc:summary>
           The amount of pulses (on+off iterations).
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg direction="in" type="i" name="on_duration">
+    <arg direction="in" type="u" name="on_duration">
       <doc:doc>
         <doc:summary>
           Duration of vibrating in milliseconds.
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg direction="in" type="i" name="off_duration">
+    <arg direction="in" type="u" name="off_duration">
       <doc:doc>
         <doc:summary>
           Duration of not vibrating in milliseconds.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="u" name="strength">
+      <doc:doc>
+        <doc:summary>
+          Strength of vibration in percent (0-100). Note that not all vibrators honor this parameter.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -48,10 +55,17 @@
     <doc:doc>
       <doc:description>Pulse the vibrator for a specified number of seconds.</doc:description>
     </doc:doc>
-    <arg direction="in" type="i" name="seconds">
+    <arg direction="in" type="u" name="seconds">
       <doc:doc>
         <doc:summary>
           The amount of time (in milliseconds) to vibrate.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="u" name="strength">
+      <doc:doc>
+        <doc:summary>
+          Strength of vibration in percent (0-100). Note that not all vibrators honor this parameter.
         </doc:summary>
       </doc:doc>
     </arg>
