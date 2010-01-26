@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Usage Interface</doc:summary>
-  <doc:version>0.9.1</doc:version>
+  <doc:version>0.9.2</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Usage">
@@ -49,6 +49,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="UnregisterResource">
@@ -62,6 +63,8 @@
         <doc:summary>The resource name.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <!-- Methods for consumers -->
@@ -76,6 +79,8 @@
         <doc:summary>An array of resource names.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetResourcePolicy">
@@ -101,6 +106,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetResourcePolicy">
@@ -119,6 +125,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetResourceState">
@@ -139,6 +146,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetResourceUsers">
@@ -157,6 +165,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="RequestResource">
@@ -172,6 +181,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="ReleaseResource">
@@ -186,6 +196,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="Suspend">
@@ -199,6 +210,8 @@
         on suspend and resume.
       </doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="Shutdown">
@@ -208,6 +221,8 @@
         Triggers a shutdown of all managed resources and powers the device down.
       </doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="Reboot">
@@ -217,9 +232,11 @@
         Triggers a reboot of the device.
       </doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
-<!-- Signals -->
+  <!-- Signals -->
 
   <signal name="ResourceAvailable">
     <doc:doc>
@@ -262,7 +279,7 @@
           [ul]
             [li]"policy": The current resource policy[/li]
             [li]"refcount": The count of clients that have requested the resource[/li]
-         [/ul]
+          [/ul]
           Further information can be part of the properties.
         </doc:summary>
       </doc:doc>
@@ -289,6 +306,9 @@
   </signal>
 
 </interface>
+
+<!-- Errors -->
+
 <fso:errordomain name="org.freesmartphone.Usage" fso:no-container="true">
   <error name="PolicyUnknown">
     <doc:doc>
@@ -347,6 +367,8 @@
   </error>
 </fso:errordomain>
 
+<!-- Enums -->
+
 <fso:enumeration name="org.freesmartphone.Usage.ResourcePolicy" type="s">
   <fso:member name="auto"     value="auto"/>
   <fso:member name="disabled" value="disabled"/>
@@ -354,6 +376,7 @@
 </fso:enumeration>
 
 <fso:enumeration name="org.freesmartphone.Usage.SystemAction" type="s">
+  <fso:member name="alive"    value="alive"/>
   <fso:member name="suspend"  value="suspend"/>
   <fso:member name="resume"   value="resume"/>
   <fso:member name="shutdown" value="shutdown"/>
@@ -361,3 +384,4 @@
 </fso:enumeration>
 
 </node>
+
