@@ -103,7 +103,41 @@
       </doc:doc>
     </arg>
   </signal>
-
+  <signal name="UpdatedContact">
+    <doc:doc>
+      <doc:description>
+        Sent when an existing contact got updated.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="contact_path">
+      <doc:doc>
+        <doc:summary>
+          The path of the updated contact.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="contact_data">
+      <doc:doc>
+	<doc:summary>
+	  The part of the contacts data that got changed.
+	</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+  <signal name="DeletedContact">
+    <doc:doc>
+      <doc:description>
+        Sent when a contact got deleted.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="contact_path">
+      <doc:doc>
+	<doc:summary>
+	  The path of that deleted contact.
+	</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 
