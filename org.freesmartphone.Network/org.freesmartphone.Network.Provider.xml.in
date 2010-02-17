@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-network-provider-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Network Provider Interface</doc:summary>
+  <doc:version>0.1.0</doc:version>
+  <doc:maintainer>Michael 'Mickey' Lauer</doc:maintainer>
+  <doc:status>unstable</doc:status>
+</doc:doc>
+
+<interface name="org.freesmartphone.Network.Provider">
+
+  <doc:doc>
+    <doc:para>
+      The Network interface provides access to connection provider registration.
+    </doc:para>
+  </doc:doc>
+
+  <method name="RegisterProvider">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Register a connection provider. The connection provider must
+        implement the org.freesmartphone.Network.Connection interface.
+      </doc:description>
+    </doc:doc>
+    <arg type="o" name="path" direction="in">
+      <doc:doc>
+        <doc:summary>The object path providing org.freesmartphone.Network.Connection.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="capabilities" direction="in">
+      <doc:doc>
+        <doc:summary>The capabilities for this connection provider.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="UnregisterProvider">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Stop sharing the internet connection of this device with any clients
+        connected to the specified network interface via DHCP.
+      </doc:description>
+      <doc:inote>
+        Might stop a dhcp server process and adjust IP tables.
+      </doc:inote>
+    </doc:doc>
+    <arg type="o" name="path" direction="in">
+      <doc:doc>
+        <doc:summary>The capabilities.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="ConnectionStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Update the connection status for a given connection.
+      </doc:description>
+    </doc:doc>
+    <arg type="o" name="path" direction="in">
+      <doc:doc>
+        <doc:summary>The object path providing org.freesmartphone.Network.Connection.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status" direction="in">
+      <doc:doc>
+        <doc:summary>
+          The connection status. Expected values are:
+          [ul]
+            [li]available: The connection has become available.[/li]
+            [li]connecting: The connection is being established.[/li]
+            [li]online: The connection is online.[/li]
+            [li]disconnecting: The connection is being shut down.[/li]
+            [li]offline: The connection is offline.[/li]
+            [li]unavailable: The connection has become unavailable.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{ss}" name="properties" direction="in">
+      <doc:doc>
+        <doc:summary>Optional properties as key/value pairs of type 'string'. Expected keys are:</doc:summary>
+        [ul]
+          [li]route: The route provided by (IPv4 address to network or host, or 'default').[/li]
+          [li]iface: The network interface to route via.[/li]
+          [li]address: The network address (IPv4) to configure the interface with.[/li]
+          [li]mask: The network mask (IPv4) to configure the interface with.[/li]
+          [li]gateway: The gateway (IPv4) to configure the interface with.[/li]
+          [li]dns1: The first DNS address to be used for this connection.[/li]
+          [li]dns2: The second DNS address to be used for this connection.[/li]
+        [/ul]
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+</interface>
+
+</node>

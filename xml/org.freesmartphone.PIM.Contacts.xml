@@ -21,5 +21,12 @@
     <signal name="NewContact">
       <arg type="s" name="contact_path"/>
     </signal>
+    <signal name="UpdatedContact">
+      <arg type="s" name="contact_path"/>
+      <arg type="a{sv}" name="contact_data"/>
+    </signal>
+    <signal name="DeletedContact">
+      <arg type="s" name="contact_path"/>
+    </signal>
   </interface>
 </node>
