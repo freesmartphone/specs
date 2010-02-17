@@ -55,81 +55,53 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="SetConnectionPreferences">
+  <method name="OfferDefaultRoute">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Configure connection preferences for internet connections.
+        Offer a default route to the internet.
       </doc:description>
+      <doc:inote>
+        NOTE that this method is for TESTING purposes only. Eventually connman will be used for that.
+      </doc:inote>
     </doc:doc>
-    <arg type="as" name="types" direction="in">
+    <arg type="s" name="technology" direction="in">
       <doc:doc>
-        <doc:summary>
-          The preferred order of internet connection methods.
-        </doc:summary>
+        <doc:summary>The technology offering the default route.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="interface" direction="in">
+      <doc:doc>
+        <doc:summary>The network interface offering the default route.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="ipv4address" direction="in">
+      <doc:doc>
+        <doc:summary>The network address to configure the interface with.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="ipv4mask" direction="in">
+      <doc:doc>
+        <doc:summary>The network mask to configure the interface with.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="ipv4gateway" direction="in">
+      <doc:doc>
+        <doc:summary>The network gateway address for the default route.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="dns1" direction="in">
+      <doc:doc>
+        <doc:summary>The first DNS address.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="dns2" direction="in">
+      <doc:doc>
+        <doc:summary>The second DNS address.</doc:summary>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone" />
   </method>
-
-  <method name="StartConnection">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Attempt to establish an internet connection. When the connection
-        can not be established or is being dropped unscheduled, then
-        it will automatically be reinstanciated.
-      </doc:description>
-    </doc:doc>
-    <arg type="s" name="type" direction="in">
-      <doc:doc>
-        <doc:summary>
-          A connectivity method hint. If set, this overrides the settings
-          given via org.freesmartphone.Network.SetConnectionPreferences.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="StopConnection">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Stop all established internet connections and all attempts
-        to establish.
-      </doc:description>
-    </doc:doc>
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <signal name="OnlineStatus">
-    <doc:doc>
-      <doc:description>
-        Sent whenever there is an status change regarding internet connectivity.
-        </doc:description>
-    </doc:doc>
-    <arg type="b" name="online">
-      <doc:doc>
-        <doc:summary>
-          True, if there is internet connectivity. False, otherwise.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="a{sv}" name="properties">
-      <doc:doc>
-        <doc:summary>
-          An array of property parameter, if 'online' is true. All properties are
-          optional. Expected keys are:
-          [ul]
-            [li]"type" = Type of the internet connection,[/li]
-            [li]"speed" = Speed of the internet connection,[/li]
-            [li]"initiator" = The initiator of the internet conneciton.[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </signal>
 
 </interface>
 
