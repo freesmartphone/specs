@@ -16,24 +16,16 @@
 <h2>Methods</h2><ul>
 <li><a href="#StartConnectionSharingWithInterface">StartConnectionSharingWithInterface</a></li>
 <li><a href="#StopConnectionSharingWithInterface">StopConnectionSharingWithInterface</a></li>
-<li><a href="#SetConnectionPreferences">SetConnectionPreferences</a></li>
-<li><a href="#StartConnection">StartConnection</a></li>
-<li><a href="#StopConnection">StopConnection</a></li>
+<li><a href="#OfferDefaultRoute">OfferDefaultRoute</a></li>
 </ul>
-<h2>Signals</h2><ul>
-<li><a href="#OnlineStatus">OnlineStatus</a></li>
-</ul>
+<h2>Signals</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="StartConnectionSharingWithInterface">StartConnectionSharingWithInterface</a> ( s )</h3>
 <p><i>Description:</i> Start sharing the internet connection of this device with any clients  connected to the specified network interface via DHCP. </p><p><div class="rationale"><p>Might launch a dhcp server process and adjust IP tables. </p></div></p><h4>Parameters</h4><i>s: interface</i><p>The network interface to start sharing the connectivity with. </p>
 <h3><a name="StopConnectionSharingWithInterface">StopConnectionSharingWithInterface</a> ( s )</h3>
 <p><i>Description:</i> Stop sharing the internet connection of this device with any clients  connected to the specified network interface via DHCP. </p><p><div class="rationale"><p>Might stop a dhcp server process and adjust IP tables. </p></div></p><h4>Parameters</h4><i>s: interface</i><p>The network interface to stop sharing the connectivity with. </p>
-<h3><a name="SetConnectionPreferences">SetConnectionPreferences</a> ( as )</h3>
-<p><i>Description:</i> Configure connection preferences for internet connections. </p><h4>Parameters</h4><i>as: types</i><p>The preferred order of internet connection methods. </p>
-<h3><a name="StartConnection">StartConnection</a> ( s )</h3>
-<p><i>Description:</i> Attempt to establish an internet connection. When the connection  can not be established or is being dropped unscheduled, then  it will automatically be reinstanciated. </p><h4>Parameters</h4><i>s: type</i><p>A connectivity method hint. If set, this overrides the settings  given via <a href="http://docs.freesmartphone.org/org.freesmartphone.Network.html#SetConnectionPreferences">SetConnectionPreferences</a> </p>
-<h3><a name="StopConnection">StopConnection</a> ( )</h3><p><i>Description:</i> Stop all established internet connections and all attempts  to establish. </p>
-<h1>Signals</h1><h3><h3><a name="OnlineStatus">OnlineStatus</a> ( ba{sv} )</h3><p><i>Description:</i> Sent whenever there is an status change regarding internet connectivity. </p><h4>Parameters</h4><i>b: online</i><p>True, if there is internet connectivity. False, otherwise. </p><i>a{sv}: properties</i><p>An array of property parameter, if 'online' is true. All properties are  optional. Expected keys are:  <ul>  <li>"type" = Type of the internet connection,</li>  <li>"speed" = Speed of the internet connection,</li>  <li>"initiator" = The initiator of the internet conneciton.</li>  </ul> </p></h3>
+<h3><a name="OfferDefaultRoute">OfferDefaultRoute</a> ( sssssss )</h3>
+<p><i>Description:</i> Offer a default route to the internet. </p><p><div class="rationale"><p>NOTE that this method is for TESTING purposes only. Eventually connman will be used for that. </p></div></p><h4>Parameters</h4><i>s: technology</i><p>The technology offering the default route. </p><i>s: interface</i><p>The network interface offering the default route. </p><i>s: ipv4address</i><p>The network address to configure the interface with. </p><i>s: ipv4mask</i><p>The network mask to configure the interface with. </p><i>s: ipv4gateway</i><p>The network gateway address for the default route. </p><i>s: dns1</i><p>The first DNS address. </p><i>s: dns2</i><p>The second DNS address. </p>
 
     <hr/>
     <small>
