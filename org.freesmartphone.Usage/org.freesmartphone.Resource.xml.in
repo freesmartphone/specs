@@ -6,16 +6,6 @@
   <doc:version>0.5.0</doc:version>
 </doc:doc>
 
-<fso:errordomain name="org.freesmartphone.Resource" fso:no-container="true">
-  <error name="NotEnabled">
-    <doc:doc>
-      <doc:description>
-        Raised, if the resource is not enabled.
-      </doc:description>
-    </doc:doc>
-  </error>
-</fso:errordomain>
-
 <interface name="org.freesmartphone.Resource">
 
   <doc:doc>
@@ -61,4 +51,25 @@
   </method>
 
 </interface>
+
+<!-- Errors -->
+
+<fso:errordomain name="org.freesmartphone.Resource" fso:no-container="true">
+  <error name="NotEnabled">
+    <doc:doc>
+      <doc:description>
+        Raised, if the resource is not enabled.
+      </doc:description>
+    </doc:doc>
+  </error>
+
+  <error name="UnableToEnable">
+    <doc:doc>
+      <doc:description>
+        Raised, if the resource can not be enabled.
+      </doc:description>
+    </doc:doc>
+  </error>
+</fso:errordomain>
+
 </node>

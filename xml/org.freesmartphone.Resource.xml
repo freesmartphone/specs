@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
-  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Resource" fso:no-container="true">
-    <error name="NotEnabled"/>
-  </fso:errordomain>
   <interface name="org.freesmartphone.Resource">
     <method name="Enable">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
@@ -21,4 +18,8 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Resource"/>
     </method>
   </interface>
+  <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Resource" fso:no-container="true">
+    <error name="NotEnabled"/>
+    <error name="UnableToEnable"/>
+  </fso:errordomain>
 </node>
