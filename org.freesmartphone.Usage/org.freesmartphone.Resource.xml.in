@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Resource Interface</doc:summary>
-  <doc:version>0.5.0</doc:version>
+  <doc:version>0.5.1</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Resource">
@@ -24,6 +24,7 @@
     <doc:doc>
       <doc:description>Enable the resource.</doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone.Resource" />
   </method>
 
   <method name="Disable">
