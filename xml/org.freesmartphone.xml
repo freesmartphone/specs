@@ -6,5 +6,6 @@
     <error name="InternalError"/>
     <error name="SystemError"/>
     <error name="Unsupported"/>
+    <error name="Unavailable"/>
   </fso:errordomain>
 </node>

@@ -38,6 +38,14 @@
       </doc:description>
     </doc:doc>
   </error>
+
+  <error name="Unavailable">
+    <doc:doc>
+      <doc:description>
+        Raised, if the requested function is currently not available.
+      </doc:description>
+    </doc:doc>
+  </error>
 </fso:errordomain>
 
 </node>
