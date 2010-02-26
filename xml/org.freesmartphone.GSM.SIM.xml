@@ -219,6 +219,7 @@
     <fso:field name="number" type="s"/>
   </fso:struct>
   <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.SIMHomezone">
+    <fso:field name="name" type="s"/>
     <fso:field name="x" type="i"/>
     <fso:field name="y" type="i"/>
     <fso:field name="radius" type="i"/>

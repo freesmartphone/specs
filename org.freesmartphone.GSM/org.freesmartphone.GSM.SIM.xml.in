@@ -770,6 +770,7 @@
 </fso:struct>
 
 <fso:struct name="org.freesmartphone.GSM.SIMHomezone">
+  <fso:field name="name" type="s" />
   <fso:field name="x" type="i" />
   <fso:field name="y" type="i" />
   <fso:field name="radius" type="i" />
