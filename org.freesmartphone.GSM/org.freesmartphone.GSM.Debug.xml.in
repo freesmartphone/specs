@@ -3,26 +3,35 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Debug Interface</doc:summary>
-  <doc:version>0.5.0</doc:version>
+  <doc:version>1.0.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Debug">
 
   <doc:doc>
     <doc:para>
-      The Debug interface is used to debug (sic!). You can execute commands or inject
-      unsolicited responses.
+      The Debug interface is used to debug (sic!). You can ping the device,
+      execute test commands or inject unsolicited responses.
     </doc:para>
   </doc:doc>
 
-  <method name="DebugAtCommand">
+  <method name="DebugCommand">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Sends an At command.</doc:description>
+      <doc:description>Sends a debug command.</doc:description>
+      <doc:inote>
+        WARNING: Only use this, if you know what you are doing.
+        You may crash the device or the service, if you send bogus commands.
+      </doc:inote>
     </doc:doc>
     <arg type="s" name="command" direction="in">
       <doc:doc>
-        <doc:summary>The command to send.</doc:summary>
+        <doc:summary>
+          The command to send. Note that the validity of commands depends
+          on the actual modem channel. Not all modem channels are AT channels!
+          It is recommended to implement a 'help' command that returns a
+          list of valid commands.
+        </doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="channel" direction="in">
@@ -39,10 +48,14 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="DebugInjectAtResponse">
+  <method name="DebugInjectResponse">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Injects an unsolicited response into the command queue.</doc:description>
+      <doc:inote>
+        WARNING: Only use this, if you know what you are doing.
+        You may crash the device or the service, if you inject bogus responses.
+      </doc:inote>
     </doc:doc>
     <arg type="s" name="response" direction="in">
       <doc:doc>
@@ -54,6 +67,15 @@
         <doc:summary>The channel to inject this command on. Set to "" to use the default one.</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="DebugPing">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Ping the device.</doc:description>
+    </doc:doc>
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
