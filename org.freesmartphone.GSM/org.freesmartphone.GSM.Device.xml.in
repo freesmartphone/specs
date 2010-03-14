@@ -307,44 +307,70 @@
     </arg>
   </signal>
 
-  <method name="GetSimBuffersSms">
+  <method name="GetDeviceStatus">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Retrieve whether incoming SMS are buffered on the SIM (in which case
-        org.freesmartphone.GSM.SIM.IncomingStoredMessage is sent) or sent directly via
-        the org.freesmartphone.GSM.SMS.IncomingMessage signal).
+        Retrieve the current device status. SIM commands, such as
+        org.freesmartphone.GSM.SIM.ListPhonebooks should not be sent
+        before the device is in the status 'alive-sim-ready'.
       </doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CNMI?, see 3GPP TS 07.05 Chapter 3.4.1.</doc:inote>
     </doc:doc>
-    <arg type="b" name="sim_buffers_sms" direction="out">
+    <arg type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.DeviceStatus">
       <doc:doc>
-        <doc:summary>True, if incoming SMS are buffered on the SIM. False, otherwise.</doc:summary>
+        <doc:summary>
+          The device status. Expected values are:
+          [ul]
+            [li]"unknown" = Device status could not be found,[/li]
+            [li]"closed" = Device is present, but not opened,[/li]
+            [li]"initializing" = Device is being opened,[/li]
+            [li]"alive-no-sim" = Device is operating without a SIM card,[/li]
+            [li]"alive-sim-locked" = Device is operating, SIM card is locked,[/li]
+            [li]"alive-sim-unlocked" = Device is operating, SIM card unlocked,[/li]
+            [li]"alive-sim-ready" = Device is operating, SIM card is ready for access,[/li]
+            [li]"alive-registered" = Device is operating and camped to the network,[/li]
+            [li]"suspending" = Device is suspending,[/li]
+            [li]"suspended" = Device is suspended,[/li]
+            [li]"resuming" = Device is resuming,[/li]
+            [li]"closing" = Device is closing.[/li]
+          [/ul]
+        </doc:summary>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="SetSimBuffersSms">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:description>
-      Set whether incoming SMS should be buffered on the SIM (in which case
-      org.freesmartphone.GSM.SIM.IncomingStoredMessage is sent) or sent directly via
-      the org.freesmartphone.GSM.SMS.IncomingMessage signal).
-    </doc:description>
+  <signal name="DeviceStatus">
     <doc:doc>
-      <doc:inote>This maps to the GSM 07.07 command +CNMI=..., see 3GPP TS 07.05 Chapter 3.4.1.</doc:inote>
+      <doc:description>
+        Sent on a change in device status.
+      </doc:description>
     </doc:doc>
-    <arg type="b" name="sim_buffers_sms" direction="in">
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.DeviceStatus">
       <doc:doc>
-        <doc:summary>True, if incoming SMS should be buffered on the SIM. False, otherwise.</doc:summary>
+        <doc:summary>
+          The device status. See org.freesmartphone.GSM.Device.GetDeviceStatus for expected values.
+        </doc:summary>
       </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
+  </signal>
 
 </interface>
+
+<fso:enumeration type="s" name="org.freesmartphone.GSM.DeviceStatus">
+  <fso:member name="closed"                 value="CLOSED" />
+  <fso:member name="initializing"           value="INITIALIZING" />
+  <fso:member name="alive-no-sim"           value="ALIVE_NO_SIM" />
+  <fso:member name="alive-sim-locked"       value="ALIVE_SIM_LOCKED" />
+  <fso:member name="alive-sim-unlocked"     value="ALIVE_SIM_UNLOCKED" />
+  <fso:member name="alive-sim-ready"        value="ALIVE_SIM_READY" />
+  <fso:member name="alive-registered"       value="ALIVE_REGISTERED" />
+  <fso:member name="suspending"             value="SUSPENDING" />
+  <fso:member name="suspended"              value="SUSPENDED" />
+  <fso:member name="resuming"               value="RESUMING" />
+  <fso:member name="closing"                value="CLOSING" />
+  <fso:member name="unknown"                value="UNKNOWN" />
+</fso:enumeration>
 
 </node>

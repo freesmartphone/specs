@@ -25,11 +25,11 @@
 <li><a href="#GetMicrophoneMuted">GetMicrophoneMuted</a></li>
 <li><a href="#SetMicrophoneMuted">SetMicrophoneMuted</a></li>
 <li><a href="#GetPowerStatus">GetPowerStatus</a></li>
-<li><a href="#GetSimBuffersSms">GetSimBuffersSms</a></li>
-<li><a href="#SetSimBuffersSms">SetSimBuffersSms</a></li>
+<li><a href="#GetDeviceStatus">GetDeviceStatus</a></li>
 </ul>
 <h2>Signals</h2><ul>
 <li><a href="#KeypadEvent">KeypadEvent</a></li>
+<li><a href="#DeviceStatus">DeviceStatus</a></li>
 </ul>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetInfo">GetInfo</a> ( ) &rarr; a{sv}</h3>
@@ -54,11 +54,10 @@
 <p><i>Description:</i> Mute or unmute the microphone. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CMUT=... see 3GPP TS 07.07 Chapter 8.2.4. </p></div></p><h4>Parameters</h4><i>b: muted</i><p>True, to mute the microphone. False, otherwise. </p>
 <h3><a name="GetPowerStatus">GetPowerStatus</a> ( ) &rarr; si</h3>
 <p><i>Description:</i> Retrieve the power status. This call is not implemented on most smartphones,  since the battery is monitored by the application processor (as opposed to the  baseband processor) there. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CBC, see 3GPP TS 07.07 Chapter 8.4. </p></div></p><h4>Returns</h4><i>s: status</i><p>The power status. Valid values are:  <ul>  <li>"battery" = A battery is built in and is the current power source,</li>  <li>"ac" = A battery is built in, but is not powered by it currently,</li>  <li>"usb" = There is no battery built in,</li>  <li>"error" = The battery is malfunctioning,</li>  <li>"unknown" = Power status could not be found.</li>  </ul> </p><i>i: level</i><p>The charging level in percent (0-100), if a battery is built in.  -1, otherwise. </p>
-<h3><a name="GetSimBuffersSms">GetSimBuffersSms</a> ( ) &rarr; b</h3>
-<p><i>Description:</i> Retrieve whether incoming SMS are buffered on the SIM (in which case  <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#IncomingStoredMessage">IncomingStoredMessage</a> is sent) or sent directly via  the <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SMS.html#IncomingMessage">IncomingMessage</a> signal). </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CNMI?, see 3GPP TS 07.05 Chapter 3.4.1. </p></div></p><h4>Returns</h4><i>b: sim_buffers_sms</i><p>True, if incoming SMS are buffered on the SIM. False, otherwise. </p>
-<h3><a name="SetSimBuffersSms">SetSimBuffersSms</a> ( b )</h3>
-<p><i>Description:</i> Set whether incoming SMS should be buffered on the SIM (in which case  <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#IncomingStoredMessage">IncomingStoredMessage</a> is sent) or sent directly via  the <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SMS.html#IncomingMessage">IncomingMessage</a> signal). </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CNMI=..., see 3GPP TS 07.05 Chapter 3.4.1. </p></div></p><h4>Parameters</h4><i>b: sim_buffers_sms</i><p>True, if incoming SMS should be buffered on the SIM. False, otherwise. </p>
+<h3><a name="GetDeviceStatus">GetDeviceStatus</a> ( ) &rarr; s</h3>
+<p><i>Description:</i> Retrieve the current device status. SIM commands, such as  <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#ListPhonebooks">ListPhonebooks</a> should not be sent  before the device is in the status 'alive-sim-ready'. </p><h4>Returns</h4><i>s: status</i><p>The device status. Expected values are:  <ul>  <li>"unknown" = Device status could not be found,</li>  <li>"closed" = Device is present, but not opened,</li>  <li>"initializing" = Device is being opened,</li>  <li>"alive-no-sim" = Device is operating without a SIM card,</li>  <li>"alive-sim-locked" = Device is operating, SIM card is locked,</li>  <li>"alive-sim-unlocked" = Device is operating, SIM card unlocked,</li>  <li>"alive-sim-ready" = Device is operating, SIM card is ready for access,</li>  <li>"alive-registered" = Device is operating and camped to the network,</li>  <li>"suspending" = Device is suspending,</li>  <li>"suspended" = Device is suspended,</li>  <li>"resuming" = Device is resuming,</li>  <li>"closing" = Device is closing.</li>  </ul> </p>
 <h1>Signals</h1><h3><h3><a name="KeypadEvent">KeypadEvent</a> ( sb )</h3><p><i>Description:</i> Sent, when a keypad input event occurs. </p><h4>Parameters</h4><i>s: name</i><p>The name of the event source. </p><i>b: pressed</i><p>True, if the keypad key has been pressed. False, otherwise. </p></h3>
+<h3><h3><a name="DeviceStatus">DeviceStatus</a> ( s )</h3><p><i>Description:</i> Sent on a change in device status. </p><h4>Parameters</h4><i>s: status</i><p>The device status. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.Device.html#GetDeviceStatus">GetDeviceStatus</a> for expected values. </p></h3>
 
     <hr/>
     <small>

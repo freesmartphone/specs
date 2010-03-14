@@ -77,17 +77,28 @@
       <arg type="s" name="name"/>
       <arg type="b" name="pressed"/>
     </signal>
-    <method name="GetSimBuffersSms">
+    <method name="GetDeviceStatus">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="b" name="sim_buffers_sms" direction="out"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.DeviceStatus"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <method name="SetSimBuffersSms">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="b" name="sim_buffers_sms" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
+    <signal name="DeviceStatus">
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.DeviceStatus"/>
+    </signal>
   </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.DeviceStatus">
+    <fso:member name="closed" value="CLOSED"/>
+    <fso:member name="initializing" value="INITIALIZING"/>
+    <fso:member name="alive-no-sim" value="ALIVE_NO_SIM"/>
+    <fso:member name="alive-sim-locked" value="ALIVE_SIM_LOCKED"/>
+    <fso:member name="alive-sim-unlocked" value="ALIVE_SIM_UNLOCKED"/>
+    <fso:member name="alive-sim-ready" value="ALIVE_SIM_READY"/>
+    <fso:member name="alive-registered" value="ALIVE_REGISTERED"/>
+    <fso:member name="suspending" value="SUSPENDING"/>
+    <fso:member name="suspended" value="SUSPENDED"/>
+    <fso:member name="resuming" value="RESUMING"/>
+    <fso:member name="closing" value="CLOSING"/>
+    <fso:member name="unknown" value="UNKNOWN"/>
+  </fso:enumeration>
 </node>
