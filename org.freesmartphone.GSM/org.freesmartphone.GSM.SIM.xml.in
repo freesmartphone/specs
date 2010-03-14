@@ -429,7 +429,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a(iss)" name="entries" direction="out">
+    <arg type="a(iss)" name="entries" direction="out" fso:type="org.freesmartphone.GSM.SIMEntry">
       <doc:doc>
         <doc:summary>
           The phonebook entries. This is an array of three-tuples. Every entry has the following structure:
