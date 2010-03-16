@@ -359,18 +359,18 @@
 </interface>
 
 <fso:enumeration type="s" name="org.freesmartphone.GSM.DeviceStatus">
-  <fso:member name="closed"                 value="CLOSED" />
-  <fso:member name="initializing"           value="INITIALIZING" />
-  <fso:member name="alive-no-sim"           value="ALIVE_NO_SIM" />
-  <fso:member name="alive-sim-locked"       value="ALIVE_SIM_LOCKED" />
-  <fso:member name="alive-sim-unlocked"     value="ALIVE_SIM_UNLOCKED" />
-  <fso:member name="alive-sim-ready"        value="ALIVE_SIM_READY" />
-  <fso:member name="alive-registered"       value="ALIVE_REGISTERED" />
-  <fso:member name="suspending"             value="SUSPENDING" />
-  <fso:member name="suspended"              value="SUSPENDED" />
-  <fso:member name="resuming"               value="RESUMING" />
-  <fso:member name="closing"                value="CLOSING" />
-  <fso:member name="unknown"                value="UNKNOWN" />
+  <fso:member name="UNKNOWN"                value="unknown" />
+  <fso:member name="CLOSED"                 value="closed" />
+  <fso:member name="INITIALIZING"           value="initializing" />
+  <fso:member name="ALIVE_NO_SIM"           value="alive-no-sim" />
+  <fso:member name="ALIVE_SIM_LOCKED"       value="alive-sim-locked" />
+  <fso:member name="ALIVE_SIM_UNLOCKED"     value="alive-sim-unlocked" />
+  <fso:member name="ALIVE_SIM_READY"        value="alive-sim-ready" />
+  <fso:member name="ALIVE_REGISTERED"       value="alive-registered" />
+  <fso:member name="SUSPENDING"             value="suspending" />
+  <fso:member name="SUSPENDED"              value="suspended" />
+  <fso:member name="RESUMING"               value="resuming" />
+  <fso:member name="CLOSING"                value="closing" />
 </fso:enumeration>
 
 </node>
