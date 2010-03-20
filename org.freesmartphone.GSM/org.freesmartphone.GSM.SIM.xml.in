@@ -151,41 +151,6 @@
 
   <!-- INFO & LOW-LEVEL ACCESS -->
 
-  <method name="GetSimReady">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve whether the SIM data can be accessed.</doc:description>
-      <doc:inote>
-        Implementation of this command is optional. Implementing this method does not
-        free from raising org.freesmartphone.GSM.SIM.Busy, when appropriate.
-      </doc:inote>
-    </doc:doc>
-    <arg type="b" name="status" direction="out">
-      <doc:doc>
-        <doc:summary>
-          True, if the data files on the SIM can be accessed. False, otherwise.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <signal name="ReadyStatus">
-    <doc:doc>
-      <doc:description>Sent, when the data files on the SIM become (not) ready for access.</doc:description>
-    </doc:doc>
-    <arg type="b" name="status">
-      <doc:doc>
-        <doc:summary>
-          True, if the data files on the SIM can be accessed. False, otherwise.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </signal>
-
   <method name="GetSimInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -312,23 +277,6 @@
             [li](y:int), the Y value of the zone center in Gauss-Krueger format,[/li]
             [li](r:radious), the R*R value of the zone dimension in meters.[/li]
           [/ol]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="GetIssuer">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve the name of the SIM issuer, if stored on the SIM.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CRSM=176,28486,0,0,17, see 3GPP TS 07.07 Chapter 8.17.</doc:inote>
-    </doc:doc>
-    <arg type="s" name="name" direction="out">
-      <doc:doc>
-        <doc:summary>
-          The name of the SIM issuer. This can be an actual network provider or a mobile virtual network operator (MVNO).
         </doc:summary>
       </doc:doc>
     </arg>

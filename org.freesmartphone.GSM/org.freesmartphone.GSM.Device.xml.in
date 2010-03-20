@@ -50,39 +50,6 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="GetAntennaPower">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-        <doc:description>Retrieve antenna power status from the device.</doc:description>
-        <doc:inote>This maps to the GSM 07.07 command +CFUN=?, see 3GPP TS 07.07 Chapter 8.2.</doc:inote>
-    </doc:doc>
-    <arg type="b" name="antenna_power" direction="out">
-      <doc:doc>
-        <doc:summary>True, when the antenna is powered on. False, otherwise.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="SetAntennaPower">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-        <doc:description>
-          Set antenna power status for this device. Will raise org.freesmartphone.GSM.SIM.AuthFailed,
-          if the SIM is protected with an authentication code.
-        </doc:description>
-        <doc:inote>This maps to the GSM 07.07 command +CFUN=(antenna_power), see 3GPP TS 07.07 Chapter 8.2.</doc:inote>
-    </doc:doc>
-    <arg type="b" name="antenna_power" direction="in">
-      <doc:doc>
-        <doc:summary>True, for powering on the antenna. False, otherwise.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
   <method name="GetFunctionality">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
