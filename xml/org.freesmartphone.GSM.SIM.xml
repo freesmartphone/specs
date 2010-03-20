@@ -82,7 +82,7 @@
     </method>
     <method name="GetHomeZones">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="a(siii)" name="homezones" direction="out"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(siii)" name="homezones" direction="out" fso:type="org.freesmartphone.GSM.SIMHomezone"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
@@ -152,7 +152,7 @@
     <method name="RetrieveMessagebook">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
-      <arg type="a(isssa{sv})" name="messages" direction="out"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(isssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>

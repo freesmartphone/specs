@@ -302,7 +302,7 @@
       <doc:description>Retrieve the homezones coordinates, if stored on the SIM.</doc:description>
       <doc:inote>This maps to the GSM 07.07 command +CRSM=176,28512,0,0,123, see 3GPP TS 07.07 Chapter 8.17.</doc:inote>
     </doc:doc>
-    <arg type="a(siii)" name="homezones" direction="out">
+    <arg type="a(siii)" name="homezones" direction="out" fso:type="org.freesmartphone.GSM.SIMHomezone">
       <doc:doc>
         <doc:summary>
           An array containing up to four homezones in Gauss-Krueger coordinates. The array contains of four-tuples with the following format:
@@ -575,7 +575,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a(isssa{sv})" name="messages" direction="out">
+    <arg type="a(isssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage">
       <doc:doc>
         <doc:summary>
           Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:
