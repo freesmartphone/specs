@@ -14,23 +14,6 @@
     </doc:para>
   </doc:doc>
 
-  <method name="GetInfo">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve information about the power supply.</doc:description>
-    </doc:doc>
-    <arg direction="out" type="a{sv}" name="properties">
-      <doc:doc>
-        <doc:summary>
-          The properties of the power supply. Expected tuples are:
-          [ul]
-            [li]...to be defined ...[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <method name="GetCapacity">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>

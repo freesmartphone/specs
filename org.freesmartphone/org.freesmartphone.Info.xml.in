@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-info-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Info Interface</doc:summary>
+  <doc:version>1.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Info">
+
+  <doc:doc>
+    <doc:para>
+      The org.freesmartphone.Info interface provides access to generic textual description facilities.
+    </doc:para>
+  </doc:doc>
+
+  <!-- Methods -->
+
+  <method name="GetInfo">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Enable the resource.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="a{sv}" name="info">
+      <doc:doc>
+        <doc:summary>
+          A key/value map of information properties. Expected keys and
+          values are application specific.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+</interface>
+
+</node>

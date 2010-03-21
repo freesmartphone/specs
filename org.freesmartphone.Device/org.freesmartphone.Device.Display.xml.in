@@ -14,23 +14,6 @@
     </doc:para>
   </doc:doc>
 
-  <method name="GetInfo">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve information about the display.</doc:description>
-    </doc:doc>
-    <arg direction="out" type="a{sv}" name="properties">
-      <doc:doc>
-        <doc:summary>
-          The properties of the display. Expected values are:
-          [ul]
-            [li]... to be defined ...[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <method name="GetBrightness">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>

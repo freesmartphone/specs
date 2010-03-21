@@ -1,4 +1,5 @@
 files = \
-  org.freesmartphone.xml
+  org.freesmartphone.Error.xml \
+  org.freesmartphone.Info.xml
 
 include ../tools/rules.mk

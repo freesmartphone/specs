@@ -14,7 +14,6 @@
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Device.Audio</tt></p>
 <h2>Methods</h2><ul>
-<li><a href="#GetInfo">GetInfo</a></li>
 <li><a href="#GetAvailableScenarios">GetAvailableScenarios</a></li>
 <li><a href="#PlaySound">PlaySound</a></li>
 <li><a href="#StopSound">StopSound</a></li>
@@ -38,9 +37,7 @@
 <li><a href="#ScenarioStackUnderflow">ScenarioStackUnderflow</a></li>
 <li><a href="#DeviceFailed">DeviceFailed</a></li>
 </ul>
-<h1>Methods</h1><h3><a name="GetInfo">GetInfo</a> ( ) &rarr; a{sv}</h3>
-<p><i>Description:</i> Returns information about the audio hardware. </p><h4>Returns</h4><i>a{sv}: info</i><p>Information about the audio hardware. Expected tuples:  <ul>  <li>"name":string. The name of the audio device.</li>  <li>"formats":list(string). The supported audio file formats.</li>  <li>"scenario":string. The current audio scenario.</li>  <li>"scenarios":list(string). The available audio scenarios.</li>  </ul> </p>
-<h3><a name="GetAvailableScenarios">GetAvailableScenarios</a> ( ) &rarr; as</h3>
+<h1>Methods</h1><h3><a name="GetAvailableScenarios">GetAvailableScenarios</a> ( ) &rarr; as</h3>
 <p><i>Description:</i> Returns a list of supported audio scenarios. </p><h4>Returns</h4><i>as: scenarios</i><p>The supported audio scenarios. </p>
 <h3><a name="PlaySound">PlaySound</a> ( sii )</h3>
 <p><i>Description:</i> Play a sound resource. </p><h4>Parameters</h4><i>s: name</i><p>The identification of the sound resource. Will be treated as filename, if no schema is given.  Format-specific options may be supplied by appending multiple ";foo=bar" statements to the  filename. Player engines that do not support these options should ignore them. </p><i>i: loop</i><p>Loop. Set this to 1, if you want the sound resource to be restarted, once it ends. 0, otherwise. </p><i>i: length</i><p>Length in seconds. Set this to anything other than 0 if you want to override the length of the sound resource.  Note that some audio resources have no concept of length or do know when the sound resource ends.  In these cases, you have to provide a reasonable length value or the sound will play endlessly. </p>

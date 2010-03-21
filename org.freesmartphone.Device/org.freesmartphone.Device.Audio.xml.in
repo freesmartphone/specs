@@ -16,30 +16,6 @@
     </doc:para>
   </doc:doc>
 
-  <!-- INFORMATIONAL -->
-
-  <method name="GetInfo">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Returns information about the audio hardware.
-      </doc:description>
-    </doc:doc>
-    <arg direction="out" type="a{sv}" name="info">
-      <doc:doc>
-        <doc:summary>
-          Information about the audio hardware. Expected tuples:
-          [ul]
-            [li]"name":string. The name of the audio device.[/li]
-            [li]"formats":list(string). The supported audio file formats.[/li]
-            [li]"scenario":string. The current audio scenario.[/li]
-            [li]"scenarios":list(string). The available audio scenarios.[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <method name="GetAvailableScenarios">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>

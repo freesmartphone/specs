@@ -16,30 +16,6 @@
     </doc:para>
   </doc:doc>
 
-  <!-- INFORMATIONAL -->
-
-  <method name="GetInfo">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Returns information about the orientation hardware.
-      </doc:description>
-    </doc:doc>
-    <arg direction="out" type="a{sv}" name="info">
-      <doc:doc>
-        <doc:summary>
-          Information about the orientation hardware. Expected tuples:
-          [ul]
-            [li]"name":string. The name of the orientation device.[/li]
-            [li]"type":string. The type of the orientation device (accelerometer, compass).[/li]
-            [li]"accuracy":string. The accuracy of the orientation device.[/li]
-            [li]"features":string. The features of the orientation device.[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <!-- SIMPLE ORIENTATION API -->
 
   <method name="GetOrientation">
@@ -84,14 +60,5 @@
   </signal>
 
 </interface>
-
-<!--
-
-<fso:enumeration name="org.freesmartphone.Device.SoundState" type="s">
-  <fso:member name="playing" value="playing"/>
-  <fso:member name="stopped" value="stopped"/>
-</fso:enumeration>
-
--->
 
 </node>

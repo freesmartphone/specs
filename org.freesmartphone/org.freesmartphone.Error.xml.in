@@ -6,6 +6,14 @@
   <doc:version>1.0.0</doc:version>
 </doc:doc>
 
+<interface name="org.freesmartphone.Error">
+  <doc:doc>
+    <doc:para>
+      The org.freesmartphone.Error domain describes common errors clients should expect when calling FSO DBus APIs.
+    </doc:para>
+  </doc:doc>
+</interface>
+
 <fso:errordomain name="org.freesmartphone" fso:no-container="true">
   <error name="InvalidParameter">
     <doc:doc>
