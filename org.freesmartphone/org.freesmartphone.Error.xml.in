@@ -6,7 +6,7 @@
   <doc:version>1.0.0</doc:version>
 </doc:doc>
 
-<interface name="org.freesmartphone.Error">
+<interface name="org.freesmartphone.Error0">
   <doc:doc>
     <doc:para>
       The org.freesmartphone.Error domain describes common errors clients should expect when calling FSO DBus APIs.
