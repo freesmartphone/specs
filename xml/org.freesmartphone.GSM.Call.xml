@@ -67,7 +67,7 @@
     </method>
     <method name="ListCalls">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="a(isa{sv})" name="call_details" direction="out"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(isa{sv})" name="call_details" direction="out" fso:type="org.freesmartphone.GSM.CallDetail"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>

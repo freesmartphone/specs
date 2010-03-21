@@ -159,7 +159,7 @@
         <doc:description>List available service providers.</doc:description>
         <doc:inote>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
       </doc:doc>
-    <arg type="a(sssss)" name="providers" direction="out">
+    <arg type="a(sssss)" name="providers" direction="out" fso:type="org.freesmartphone.GSM.NetworkProvider">
       <doc:doc>
         <doc:summary>
           An array of four-tuples with the following structure:

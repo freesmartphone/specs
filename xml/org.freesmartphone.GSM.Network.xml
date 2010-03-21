@@ -32,7 +32,7 @@
     </signal>
     <method name="ListProviders">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="a(sssss)" name="providers" direction="out"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(sssss)" name="providers" direction="out" fso:type="org.freesmartphone.GSM.NetworkProvider"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
