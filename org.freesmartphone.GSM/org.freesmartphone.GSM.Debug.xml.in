@@ -11,7 +11,8 @@
   <doc:doc>
     <doc:para>
       The Debug interface is used to debug (sic!). You can ping the device,
-      execute test commands or inject unsolicited responses.
+      execute test commands, inject unsolicited responses, or be updated
+      about the detailed modem status.
     </doc:para>
   </doc:doc>
 
@@ -79,6 +80,14 @@
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
+
+  <signal name="DebugStatus">
+    <doc:doc>
+      <doc:description>Sent, when the modem status changes.</doc:description>
+    </doc:doc>
+    <arg name="channels" type="a{ss}">
+    </arg>
+  </signal>
 
 </interface>
 </node>

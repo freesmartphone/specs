@@ -22,5 +22,8 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <signal name="DebugStatus">
+      <arg name="channels" type="a{ss}"/>
+    </signal>
   </interface>
 </node>
