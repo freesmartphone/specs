@@ -258,28 +258,8 @@
             [li](name:string), the name of the zone,[/li]
             [li](x:int), the X value of the zone center in Gauss-Krueger format,[/li]
             [li](y:int), the Y value of the zone center in Gauss-Krueger format,[/li]
-            [li](r:radious), the R*R value of the zone dimension in meters.[/li]
+            [li](r:radius), the R*R value of the zone dimension in meters.[/li]
           [/ol]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="GetProviderList">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Retrieve the list of known providers, if stored on the SIM. Note that this needs an unlocked SIM on some devices.
-        Additionally, some devices have a fallback table in ROM that gets sent when the SIM is not unlocked while other
-        devices only use a ROM-based table.
-      </doc:description>
-    </doc:doc>
-    <arg type="a{ss}" name="providers" direction="out">
-      <doc:doc>
-        <doc:summary>
-          An map containing of known providers as tuples. The key is the provider code (mccmnc), the value is the alphanumerical provider name.
         </doc:summary>
       </doc:doc>
     </arg>

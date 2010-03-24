@@ -75,12 +75,6 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <method name="GetProviderList">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="a{ss}" name="providers" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
     <method name="GetPhonebookInfo">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
