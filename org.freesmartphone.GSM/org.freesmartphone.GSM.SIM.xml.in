@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM SIM Interface</doc:summary>
-  <doc:version>0.9.5.1</doc:version>
+  <doc:version>1.0.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.SIM">
@@ -11,9 +11,9 @@
   <doc:doc>
     <doc:para>
       The SIM interface is used to access the Subscriber Identification Module (SIM)
-      plugged as a card into the GSM device. Use it to authenticate yourself
+      plugged as a card into a GSM device. Use it to authenticate yourself
       against the GSM network and read/store data from/to the embedded SIM card memory.
-      Limited support for accessing the on-card phonebook and messagebook is provided.
+      Support for accessing the on-card phonebooks and messagebook is also provided.
     </doc:para>
   </doc:doc>
 
@@ -149,27 +149,22 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Get information about the IMSI, the subscriber numbers,
-        and the country code of the SIM card.
+        Get information stored on the SIM card.
       </doc:description>
-      <doc:inote>
-        The dial code is computed by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
-      </doc:inote>
     </doc:doc>
     <arg type="a{sv}" name="info" direction="out">
       <doc:doc>
         <doc:summary>
-          Information about the SIM card. Required tuples are:
+          Information about the SIM card. Possible tuples are:
           [ul]
             [li]("imsi", string) = The unique subscriber identification stored on your SIM.[/li]
+            [li]("issuer", string) = The unique subscriber identification stored on your SIM.[/li]
+            [li]("phonebooks", space-separated string) = The phonebooks stored on this SIM.
+            Expected values are "contacts", "dialed", "received", "own", "missed", "emergency".
+            Other phonebooks are named included with their native code and prefixed "aux:".[/li]
+            [li]("slots") = The capacity of the messagebook[/li]
+            [li]("messages") = The messages in the messagebook[/li]
           [/ul]
-          Optional tuples are:
-          [ul]
-            [li]("subscriber_numbers", array),[/li]
-            [li]("dial_prefix", string),[/li]
-            [li]("country", string).[/li]
-          [/ul]
-          The subscriber_numbers array contains two-tuples formatted as (string:line-name, string:line-number).
         </doc:summary>
       </doc:doc>
     </arg>
@@ -181,7 +176,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Send a generic SIM command to the SIM card.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CSIM=(command), see 3GPP TS 07.07 Chapter 8.17.</doc:inote>
     </doc:doc>
     <arg type="s" name="command" direction="in">
       <doc:doc>
@@ -201,7 +195,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Send a restricted SIM command to the SIM card.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CRSM=(command),(fileid),(p1),(p2),(p3),(data), see 3GPP TS 07.07 Chapter 8.18.</doc:inote>
     </doc:doc>
     <arg type="i" name="command" direction="in">
       <doc:doc>
@@ -256,7 +249,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the homezones coordinates, if stored on the SIM.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CRSM=176,28512,0,0,123, see 3GPP TS 07.07 Chapter 8.17.</doc:inote>
     </doc:doc>
     <arg type="a(siii)" name="homezones" direction="out" fso:type="org.freesmartphone.GSM.SIMHomeZone">
       <doc:doc>
@@ -283,7 +275,6 @@
         Additionally, some devices have a fallback table in ROM that gets sent when the SIM is not unlocked while other
         devices only use a ROM-based table.
       </doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +COPN, see 3GPP TS 07.07 Chapter 7.19.</doc:inote>
     </doc:doc>
     <arg type="a{ss}" name="providers" direction="out">
       <doc:doc>
@@ -298,31 +289,6 @@
 
   <!-- PHONEBOOK -->
 
-  <method name="ListPhonebooks">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve the list of available phonebooks on the SIM.</doc:description>
-    </doc:doc>
-    <arg type="as" name="categories" direction="out">
-      <doc:doc>
-        <doc:summary>
-          The available phonebooks, if any. Expected values are:
-          [ul]
-            [li]"contacts",[/li]
-            [li]"dialed",[/li]
-            [li]"received",[/li]
-            [li]"own",[/li]
-            [li]"missed",[/li]
-            [li]"emergency",[/li]
-          [/ul]
-          Other phonebooks are mapped with prefix aux:
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
   <method name="GetPhonebookInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -331,8 +297,8 @@
     <arg type="s" name="category" direction="in">
       <doc:doc>
         <doc:summary>
-          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
-          for valid categories.
+          The phonebook storage category.
+          See org.freesmartphone.GSM.SIM.GetSimInfo for valid categories.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -408,7 +374,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Store an entry in the SIM phonebook.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPBW=(index),"(name)",(number),(ntype), see 3GPP TS 07.07 Chapter 8.14.</doc:inote>
     </doc:doc>
     <arg type="s" name="category" direction="in">
       <doc:doc>
@@ -469,33 +434,10 @@
 
   <!-- SHORT MESSAGE SERVICE -->
 
-  <method name="GetMessagebookInfo">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Request information about the SIM messagebook.</doc:description>
-      <doc:inote>This maps to the GSM 07.05 command +CPMS="SM","SM","SM", see 3GPP TS 07.07 Chapter 3.2.2.</doc:inote>
-    </doc:doc>
-    <arg type="a{sv}" name="info" direction="out">
-      <doc:doc>
-        <doc:summary>
-          Information about the SIM messagebook storage. Tuples to expect:
-          [ul]
-            [li]("first", int:value) = first storage index of messages on the SIM,[/li]
-            [li]("last", int:value) = last index of messages stored on the SIM,[/li]
-            [li]("used", int:value) = number of messages currently stored on the SIM.[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
   <method name="RetrieveMessagebook">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve all messages from the SIM messagebook that match a given category.</doc:description>
-      <doc:inote>This vaguely maps to the GSM 07.05 command +CMGL="(category)", see 3GPP TS 07.07 Chapter 3.4.2.</doc:inote>
     </doc:doc>
     <arg type="s" name="category" direction="in">
       <doc:doc>
