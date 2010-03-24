@@ -128,7 +128,7 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <signal name="IncomingStoredMessage">
+    <signal name="IncomingMessage">
       <arg type="i" name="index"/>
     </signal>
     <method name="DeleteMessage">

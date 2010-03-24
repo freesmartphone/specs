@@ -437,8 +437,7 @@
   <method name="GetServiceCenterNumber">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Retrieve phone number of SMS Center Number.</doc:description>
-      <doc:inote>This maps to the GSM 07.05 command +CSCA?, see 3GPP TS 07.05 Chapter 3.3.1.</doc:inote>
+      <doc:description>Retrieve phone number of SMS Center.</doc:description>
     </doc:doc>
     <arg type="s" name="number" direction="out">
       <doc:doc>
@@ -452,8 +451,7 @@
   <method name="SetServiceCenterNumber">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Set phone number of SMS Center Number.</doc:description>
-      <doc:inote>This maps to the GSM 07.05 command +CSCA=(number),(type), see 3GPP TS 07.05 Chapter 3.3.1.</doc:inote>
+      <doc:description>Set phone number of SMS Center.</doc:description>
     </doc:doc>
     <arg type="s" name="number" direction="in">
       <doc:doc>
@@ -464,7 +462,7 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <signal name="IncomingStoredMessage">
+  <signal name="IncomingMessage">
     <doc:doc>
       <doc:description>Sent, when a new message has been received and stored on the SIM card.</doc:description>
     </doc:doc>
@@ -479,7 +477,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Delete a message in the SIM messagebook.</doc:description>
-      <doc:inote>This maps to the GSM 07.05 command +CMGD=(index), see 3GPP TS 07.05 Chapter 3.5.4.</doc:inote>
     </doc:doc>
     <arg type="i" name="index" direction="in">
       <doc:doc>
@@ -494,7 +491,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Store a message in the SIM messagebook.</doc:description>
-      <doc:inote>This maps to the GSM 07.05 command +CMGW=..., see 3GPP TS 07.05 Chapter 3.5.3.</doc:inote>
     </doc:doc>
     <arg type="s" name="recipient_number" direction="in">
       <doc:doc>
@@ -526,7 +522,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Sends a message stored in the SIM messagebook.</doc:description>
-      <doc:inote>This maps to the GSM 07.05 command +CMGS=(index)..., see 3GPP TS 07.05 Chapter 3.5.x.</doc:inote>
     </doc:doc>
     <arg type="i" name="index" direction="in">
       <doc:doc>

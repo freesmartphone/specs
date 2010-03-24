@@ -38,7 +38,7 @@
 </ul>
 <h2>Signals</h2><ul>
 <li><a href="#AuthStatus">AuthStatus</a></li>
-<li><a href="#IncomingStoredMessage">IncomingStoredMessage</a></li>
+<li><a href="#IncomingMessage">IncomingMessage</a></li>
 </ul>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetAuthStatus">GetAuthStatus</a> ( ) &rarr; s</h3>
@@ -72,19 +72,19 @@
 <h3><a name="RetrieveMessagebook">RetrieveMessagebook</a> ( s ) &rarr; a(issssa{sv})</h3>
 <p><i>Description:</i> Retrieve all messages from the SIM messagebook that match a given category. </p><h4>Parameters</h4><i>s: category</i><p>The category of messages you want to receive. Valid categories are:  <ul>  <li>"all" = all messages,</li>  <li>"read" = message you have received and read,</li>  <li>"unread" = new messages you have received,</li>  <li>"sent" = messages you have sent,</li>  <li>"unsent" = message you have not sent yet.</li>  </ul> </p><h4>Returns</h4><i>a(issssa{sv}): messages</i><p>Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:  <ul>  <li>(int:index) = storage index,</li>  <li>(string:status) = status of message, one of ("read", "unread", "sent", "unsent"),</li>  <li>(string:number) = sender or receiver number.</li>  <li>(string:timestamp) = timestamp.</li>  <li>(string:content) = contents of the message.</li>  <li>(map:properties) = Map with additional properties (see <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#RetrieveMessage">RetrieveMessage</a> method)</li>  </ul> </p>
 <h3><a name="GetServiceCenterNumber">GetServiceCenterNumber</a> ( ) &rarr; s</h3>
-<p><i>Description:</i> Retrieve phone number of SMS Center Number. </p><p><div class="rationale"><p>This maps to the GSM 07.05 command +CSCA?, see 3GPP TS 07.05 Chapter 3.3.1. </p></div></p><h4>Returns</h4><i>s: number</i><p>The SMS Center Number. </p>
+<p><i>Description:</i> Retrieve phone number of SMS Center. </p><h4>Returns</h4><i>s: number</i><p>The SMS Center Number. </p>
 <h3><a name="SetServiceCenterNumber">SetServiceCenterNumber</a> ( s )</h3>
-<p><i>Description:</i> Set phone number of SMS Center Number. </p><p><div class="rationale"><p>This maps to the GSM 07.05 command +CSCA=(number),(type), see 3GPP TS 07.05 Chapter 3.3.1. </p></div></p><h4>Parameters</h4><i>s: number</i><p>The SMS Center Number. </p>
+<p><i>Description:</i> Set phone number of SMS Center. </p><h4>Parameters</h4><i>s: number</i><p>The SMS Center Number. </p>
 <h3><a name="DeleteMessage">DeleteMessage</a> ( i )</h3>
-<p><i>Description:</i> Delete a message in the SIM messagebook. </p><p><div class="rationale"><p>This maps to the GSM 07.05 command +CMGD=(index), see 3GPP TS 07.05 Chapter 3.5.4. </p></div></p><h4>Parameters</h4><i>i: index</i><p>The storage index of the message to delete. </p>
+<p><i>Description:</i> Delete a message in the SIM messagebook. </p><h4>Parameters</h4><i>i: index</i><p>The storage index of the message to delete. </p>
 <h3><a name="StoreMessage">StoreMessage</a> ( ssa{sv} ) &rarr; i</h3>
-<p><i>Description:</i> Store a message in the SIM messagebook. </p><p><div class="rationale"><p>This maps to the GSM 07.05 command +CMGW=..., see 3GPP TS 07.05 Chapter 3.5.3. </p></div></p><h4>Parameters</h4><i>s: recipient_number</i><p>The number of the recipient. </p><i>s: contents</i><p>The contents of the message. </p><i>a{sv}: properties</i><p>For a list of valid properties see <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SMS.html#SendMessage">SendMessage</a> </p><h4>Returns</h4><i>i: index</i><p>The index of the new message. </p>
+<p><i>Description:</i> Store a message in the SIM messagebook. </p><h4>Parameters</h4><i>s: recipient_number</i><p>The number of the recipient. </p><i>s: contents</i><p>The contents of the message. </p><i>a{sv}: properties</i><p>For a list of valid properties see <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SMS.html#SendMessage">SendMessage</a> </p><h4>Returns</h4><i>i: index</i><p>The index of the new message. </p>
 <h3><a name="SendStoredMessage">SendStoredMessage</a> ( i ) &rarr; is</h3>
-<p><i>Description:</i> Sends a message stored in the SIM messagebook. </p><p><div class="rationale"><p>This maps to the GSM 07.05 command +CMGS=(index)..., see 3GPP TS 07.05 Chapter 3.5.x. </p></div></p><h4>Parameters</h4><i>i: index</i><p>The index of the message. </p><h4>Returns</h4><i>i: transaction_index</i><p>The given transaction index for this message. </p><i>s: timestamp</i><p>The timestamp this message was received by the SMSC </p>
+<p><i>Description:</i> Sends a message stored in the SIM messagebook. </p><h4>Parameters</h4><i>i: index</i><p>The index of the message. </p><h4>Returns</h4><i>i: transaction_index</i><p>The given transaction index for this message. </p><i>s: timestamp</i><p>The timestamp this message was received by the SMSC </p>
 <h3><a name="RetrieveMessage">RetrieveMessage</a> ( i ) &rarr; sssa{sv}</h3>
 <p><i>Description:</i> Retrieve a message from the SIM messagebook. </p><h4>Parameters</h4><i>i: index</i><p>The index of the message to retrieve. </p><h4>Returns</h4><i>s: status</i><p>The category the message is in, one of ("read", "sent", "unread", "unsent"). </p><i>s: sender_number</i><p>The number of the sender. </p><i>s: contents</i><p>The contents of the message. </p><i>a{sv}: properties</i><p>The one mandatory property is  <ul><li>(string:type) = Type of the message, must be one of "sms-submit", "sms-deliver", "sms-status-report"</li></ul>  For a list of valid properties:  <ul>  <li>See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SMS.html#SendMessage">SendMessage</a> if type is "sms-submit"</li>  <li>See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SMS.html#IncomingMessage">IncomingMessage</a> if type is "sms-deliver"</li>  <li>See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SMS.html#IncomingMessageReceipt">IncomingMessageReceipt</a> if type is "sms-status-report"</li>  </ul> </p>
 <h1>Signals</h1><h3><h3><a name="AuthStatus">AuthStatus</a> ( s )</h3><p><i>Description:</i> Sent, when the authentication status for the SIM card changes. </p><h4>Parameters</h4><i>s: status</i><p>The authentication status for the SIM card. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#GetAuthStatus">GetAuthStatus</a> for a list of expected values. </p></h3>
-<h3><h3><a name="IncomingStoredMessage">IncomingStoredMessage</a> ( i )</h3><p><i>Description:</i> Sent, when a new message has been received and stored on the SIM card. </p><h4>Parameters</h4><i>i: index</i><p>The storage index of the new message. </p></h3>
+<h3><h3><a name="IncomingMessage">IncomingMessage</a> ( i )</h3><p><i>Description:</i> Sent, when a new message has been received and stored on the SIM card. </p><h4>Parameters</h4><i>i: index</i><p>The storage index of the new message. </p></h3>
 
     <hr/>
     <small>

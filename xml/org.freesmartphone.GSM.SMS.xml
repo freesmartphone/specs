@@ -2,6 +2,12 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.SMS">
+    <method name="RetrieveTextMessages">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(issssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
     <method name="GetSizeForTextMessage">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="contents" direction="in"/>
@@ -13,45 +19,20 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="recipient_number" direction="in"/>
       <arg type="s" name="contents" direction="in"/>
-      <arg type="b" name="want_report" direction="in"/>
-      <arg type="i" name="transaction_index" direction="out"/>
+      <arg type="b" name="report" direction="in"/>
+      <arg type="i" name="reference" direction="out"/>
       <arg type="s" name="timestamp" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <method name="SendMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="recipient_number" direction="in"/>
-      <arg type="s" name="contents" direction="in"/>
-      <arg type="a{sv}" name="properties" direction="in"/>
-      <arg type="i" name="transaction_index" direction="out"/>
-      <arg type="s" name="timestamp" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
-    <method name="AckMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="contents" direction="in"/>
-      <arg type="a{sv}" name="properties" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
-    <method name="NackMessage">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="contents" direction="in"/>
-      <arg type="a{sv}" name="properties" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
-    <signal name="IncomingMessage">
-      <arg type="s" name="sender_number"/>
+    <signal name="IncomingTextMessage">
+      <arg type="s" name="number"/>
+      <arg type="s" name="timestamp"/>
       <arg type="s" name="contents"/>
-      <arg type="a{sv}" name="properties"/>
     </signal>
     <signal name="IncomingMessageReceipt">
       <arg type="s" name="sender_number"/>
       <arg type="s" name="contents"/>
-      <arg type="a{sv}" name="properties"/>
     </signal>
   </interface>
 </node>
