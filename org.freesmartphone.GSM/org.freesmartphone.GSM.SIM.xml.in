@@ -396,44 +396,6 @@
 
   <!-- SHORT MESSAGE SERVICE -->
 
-  <method name="RetrieveMessagebook">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve all messages from the SIM messagebook that match a given category.</doc:description>
-    </doc:doc>
-    <arg type="s" name="category" direction="in">
-      <doc:doc>
-        <doc:summary>
-          The category of messages you want to receive. Valid categories are:
-          [ul]
-             [li]"all" = all messages,[/li]
-             [li]"read" = message you have received and read,[/li]
-             [li]"unread" = new messages you have received,[/li]
-             [li]"sent" = messages you have sent,[/li]
-             [li]"unsent" = message you have not sent yet.[/li]
-           [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="a(issssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage">
-      <doc:doc>
-        <doc:summary>
-          Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:
-          [ul]
-            [li](int:index) = storage index,[/li]
-            [li](string:status) = status of message, one of ("read", "unread", "sent", "unsent"),[/li]
-            [li](string:number) = sender or receiver number.[/li]
-            [li](string:timestamp) = timestamp.[/li]
-            [li](string:content) = contents of the message.[/li]
-            [li](map:properties) = Map with additional properties (see org.freesmartphone.GSM.SIM.RetrieveMessage method)[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
   <method name="GetServiceCenterNumber">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -569,14 +531,8 @@
     </arg>
     <arg type="a{sv}" name="properties" direction="out">
       <doc:doc>
-        <doc:summary>The one mandatory property is
-          [ul][li](string:type) = Type of the message, must be one of "sms-submit", "sms-deliver", "sms-status-report"[/li][/ul]
-          For a list of valid properties:
-          [ul]
-            [li]See org.freesmartphone.GSM.SMS.SendMessage() if type is "sms-submit"[/li]
-            [li]See org.freesmartphone.GSM.SMS.IncomingMessage() if type is "sms-deliver"[/li]
-            [li]See org.freesmartphone.GSM.SMS.IncomingMessageReceipt() if type is "sms-status-report"[/li]
-          [/ul]
+        <doc:summary>
+          Additional properties (TBD).
         </doc:summary>
       </doc:doc>
     </arg>
