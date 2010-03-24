@@ -1,5 +1,5 @@
 files = \
-  org.freesmartphone.GSM.xml \
+  org.freesmartphone.GSM.Error.xml \
   org.freesmartphone.GSM.Call.xml \
   org.freesmartphone.GSM.CB.xml \
   org.freesmartphone.GSM.Debug.xml \

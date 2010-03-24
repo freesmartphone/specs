@@ -6,6 +6,14 @@
   <doc:version>1.0.0</doc:version>
 </doc:doc>
 
+<interface name="org.freesmartphone.GSM.Error0">
+  <doc:doc>
+    <doc:para>
+      The org.freesmartphone.GSM.Error domain describes common errors clients should expect when calling FSO GSM DBus APIs.
+    </doc:para>
+  </doc:doc>
+</interface>
+
 <fso:errordomain name="org.freesmartphone.GSM" fso:no-container="true">
 
   <!-- DEVICE -->
