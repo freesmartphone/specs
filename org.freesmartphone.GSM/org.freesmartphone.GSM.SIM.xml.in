@@ -301,35 +301,6 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="RetrievePhonebook">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve all entries from the SIM phonebook.</doc:description>
-    </doc:doc>
-    <arg type="s" name="category" direction="in">
-      <doc:doc>
-        <doc:summary>
-          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
-          for a list of valid categories.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="a(iss)" name="entries" direction="out" fso:type="org.freesmartphone.GSM.SIMEntry">
-      <doc:doc>
-        <doc:summary>
-          The phonebook entries. This is an array of three-tuples. Every entry has the following structure:
-          [ul]
-          [li](int:index) = storage index,[/li]
-          [li](string:name) = name,[/li]
-          [li](string:number) = number.[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
   <method name="DeleteEntry">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -384,16 +355,16 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="RetrieveEntries">
-    <doc:doc>
-      <doc:description>Retrieve a number of entries from the SIM phonebook.</doc:description>
-    </doc:doc>
+  <method name="RetrievePhonebook">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Retrieve (parts of) a SIM phonebook.</doc:description>
+    </doc:doc>
     <arg type="s" name="category" direction="in">
       <doc:doc>
         <doc:summary>
-          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
-          for a list of valid categories.
+          The phonebook storage category.
+          Use org.freesmartphone.GSM.SIM.GetSimInfo to gather the list of valid categories.
         </doc:summary>
       </doc:doc>
     </arg>
@@ -412,8 +383,8 @@
         <doc:summary>
           The phonebook entries. This is an array of three-tuples. Every entry has the following structure:
           [ul]
-            [li](int:index) = storage index,[/li]
-            [li](string:name) = name,[/li]
+            [li](int:index) = storage index.[/li]
+            [li](string:name) = name.[/li]
             [li](string:number) = number.[/li]
           [/ul]
         </doc:summary>
