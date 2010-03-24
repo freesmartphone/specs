@@ -84,7 +84,9 @@
     <method name="GetPhonebookInfo">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
-      <arg type="a{sv}" name="info" direction="out"/>
+      <arg type="i" name="slots" direction="out"/>
+      <arg type="i" name="numberlength" direction="out"/>
+      <arg type="i" name="namelength" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
