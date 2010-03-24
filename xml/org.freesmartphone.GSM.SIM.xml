@@ -107,12 +107,12 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <method name="RetrieveEntry">
+    <method name="RetrieveEntries">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
-      <arg type="i" name="index" direction="in"/>
-      <arg type="s" name="name" direction="out"/>
-      <arg type="s" name="number" direction="out"/>
+      <arg type="i" name="mindex" direction="in"/>
+      <arg type="i" name="maxdex" direction="in"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(iss)" name="entries" direction="out" fso:type="org.freesmartphone.GSM.SIMEntry"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>

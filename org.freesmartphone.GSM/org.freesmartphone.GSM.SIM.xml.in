@@ -378,14 +378,16 @@
     <arg type="s" name="number" direction="in">
       <doc:doc>
         <doc:summary>The number corresponding to the name.</doc:summary>
-        <doc:inote>We do not export the +CPBW "type" entry to the interface, but rather deal with that transparently.</doc:inote>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="RetrieveEntry">
+  <method name="RetrieveEntries">
+    <doc:doc>
+      <doc:description>Retrieve a number of entries from the SIM phonebook.</doc:description>
+    </doc:doc>
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <arg type="s" name="category" direction="in">
       <doc:doc>
@@ -395,19 +397,26 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="i" name="index" direction="in">
+    <arg type="i" name="mindex" direction="in">
       <doc:doc>
-        <doc:summary>The index of the entry to retrieve.</doc:summary>
+        <doc:summary>The minimum index of the entry to retrieve.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="name" direction="out">
+    <arg type="i" name="maxdex" direction="in">
       <doc:doc>
-        <doc:summary>The name corresponding to the number.</doc:summary>
+        <doc:summary>The maximum index of entries to receive.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="number" direction="out">
+    <arg type="a(iss)" name="entries" direction="out" fso:type="org.freesmartphone.GSM.SIMEntry">
       <doc:doc>
-        <doc:summary>The number corresponding to the name.</doc:summary>
+        <doc:summary>
+          The phonebook entries. This is an array of three-tuples. Every entry has the following structure:
+          [ul]
+            [li](int:index) = storage index,[/li]
+            [li](string:name) = name,[/li]
+            [li](string:number) = number.[/li]
+          [/ul]
+        </doc:summary>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />

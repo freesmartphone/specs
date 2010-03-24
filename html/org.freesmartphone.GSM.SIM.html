@@ -28,7 +28,7 @@
 <li><a href="#RetrievePhonebook">RetrievePhonebook</a></li>
 <li><a href="#DeleteEntry">DeleteEntry</a></li>
 <li><a href="#StoreEntry">StoreEntry</a></li>
-<li><a href="#RetrieveEntry">RetrieveEntry</a></li>
+<li><a href="#RetrieveEntries">RetrieveEntries</a></li>
 <li><a href="#RetrieveMessagebook">RetrieveMessagebook</a></li>
 <li><a href="#GetServiceCenterNumber">GetServiceCenterNumber</a></li>
 <li><a href="#SetServiceCenterNumber">SetServiceCenterNumber</a></li>
@@ -70,8 +70,8 @@
 <p><i>Description:</i> Delete an entry in the SIM phonebook. </p><h4>Parameters</h4><i>s: category</i><p>The phonebook storage category. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#ListPhonebooks">ListPhonebooks</a>  for a list of valid categories. </p><i>i: index</i><p>Index of entry to delete. </p>
 <h3><a name="StoreEntry">StoreEntry</a> ( siss )</h3>
 <p><i>Description:</i> Store an entry in the SIM phonebook. </p><h4>Parameters</h4><i>s: category</i><p>The phonebook storage category. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#ListPhonebooks">ListPhonebooks</a>  for a list of valid categories. </p><i>i: index</i><p>The index of the entry to store. </p><i>s: name</i><p>The name corresponding to the number. </p><i>s: number</i><p>The number corresponding to the name. </p>
-<h3><a name="RetrieveEntry">RetrieveEntry</a> ( si ) &rarr; ss</h3>
-<h4>Parameters</h4><i>s: category</i><p>The phonebook storage category. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#ListPhonebooks">ListPhonebooks</a>  for a list of valid categories. </p><i>i: index</i><p>The index of the entry to retrieve. </p><h4>Returns</h4><i>s: name</i><p>The name corresponding to the number. </p><i>s: number</i><p>The number corresponding to the name. </p>
+<h3><a name="RetrieveEntries">RetrieveEntries</a> ( sii ) &rarr; a(iss)</h3>
+<p><i>Description:</i> Retrieve a number of entries from the SIM phonebook. </p><h4>Parameters</h4><i>s: category</i><p>The phonebook storage category. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#ListPhonebooks">ListPhonebooks</a>  for a list of valid categories. </p><i>i: mindex</i><p>The minimum index of the entry to retrieve. </p><i>i: maxdex</i><p>The maximum index of entries to receive. </p><h4>Returns</h4><i>a(iss): entries</i><p>The phonebook entries. This is an array of three-tuples. Every entry has the following structure:  <ul>  <li>(int:index) = storage index,</li>  <li>(string:name) = name,</li>  <li>(string:number) = number.</li>  </ul> </p>
 <h3><a name="RetrieveMessagebook">RetrieveMessagebook</a> ( s ) &rarr; a(isssa{sv})</h3>
 <p><i>Description:</i> Retrieve all messages from the SIM messagebook that match a given category. </p><h4>Parameters</h4><i>s: category</i><p>The category of messages you want to receive. Valid categories are:  <ul>  <li>"all" = all messages,</li>  <li>"read" = message you have received and read,</li>  <li>"unread" = new messages you have received,</li>  <li>"sent" = messages you have sent,</li>  <li>"unsent" = message you have not sent yet.</li>  </ul> </p><h4>Returns</h4><i>a(isssa{sv}): messages</i><p>Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:  <ul>  <li>(int:index) = storage index,</li>  <li>(string:status) = status of message, one of ("read", "unread", "sent", "unsent"),</li>  <li>(string:number) = sender or receiver number.</li>  <li>(string:content) = contents of the message.</li>  <li>(map:properties) = Map with additional properties (see <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.SIM.html#RetrieveMessage">RetrieveMessage</a> method)</li>  </ul> </p>
 <h3><a name="GetServiceCenterNumber">GetServiceCenterNumber</a> ( ) &rarr; s</h3>
