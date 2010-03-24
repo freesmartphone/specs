@@ -3,18 +3,21 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Device Interface</doc:summary>
-  <doc:version>0.9.3.0</doc:version>
+  <doc:version>1.0.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Device">
 
   <doc:doc>
     <doc:para>
-    The Device interface is used to give information about the GSM device
-    and its capabilities. Use it also to enable or disable the RF
-    subsystem (which is mandatory for implementing a flight mode).
+    The Device interface is used to give information about the GSM
+    or CDMA device and its capabilities. Use it also to enable or
+    disable the RF subsystem (which is mandatory for implementing
+    a flight mode).
     </doc:para>
   </doc:doc>
+
+  <!-- FUNCTIONALITY -->
 
   <method name="GetFunctionality">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -26,8 +29,8 @@
       <doc:summary>
         The functionality level. Expected values are:
         [ul]
-          [li]"minimal": The device is in maximum powersave mode,[/li]
-          [li]"airplane": The device is in airplane mode (RF receivers and transmitters have been turned off),[/li]
+          [li]"minimal": The device is in maximum powersave mode, SIM access is not possible[/li]
+          [li]"airplane": The device is in airplane mode (RF receivers and transmitters have been turned off), SIM access is possible[/li]
           [li]"full": The device operates with maximum functionality (all units are powered up).[/li]
         [/ul]
       </doc:summary>
@@ -45,7 +48,7 @@
       <doc:doc>
       <doc:summary>
         The SIM PIN being used to authenticate if necessary, or an empty string.
-        This parameter is only valid, if level = "full".
+        This parameter is only valid, if level = "full" or "airplane".
       </doc:summary>
       </doc:doc>
     </arg>
@@ -77,7 +80,7 @@
       <doc:doc>
       <doc:summary>
         The SIM PIN being used to authenticate if necessary, or an empty string.
-        This parameter is only valid, if level = "full".
+        This parameter is only valid, if level = "full" or "airplane".
       </doc:summary>
       </doc:doc>
     </arg>
@@ -85,31 +88,85 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
+  <!-- INFORMATIONAL -->
+
   <method name="GetFeatures">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get information about the telephony features supported by this device.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +GCAP, see 3GPP TS 07.07 Chapter 5.8.</doc:inote>
     </doc:doc>
     <arg type="a{sv}" name="features" direction="out">
     <doc:doc>
       <doc:summary>
-        The telephony features supported by this device. Expected tuples are:
+        The telephony features supported by this device. Valid tuples are:
         [ul]
-          [li]("GSM", string) = "TA" (mandatory),[/li]
-          [li]("GPRS", string) = GPRS classes (optional),[/li]
-          [li]("FAX", string) ] = FAX classes (optional).[/li]
+          [li]("voice", bool) = true, if the device supports voice calls,[/li]
+          [li]("csd", bool) = true, if the device supports circuit-switched (data) calls,[/li]
+          [li]("gsm", bool) = true, if the device can operate in a GSM network,[/li]
+          [li]("cdma", bool) = true, if the device can operate in a CDMA network,[/li]
+          [li]("pdp", string) = supported pdp classes, if the device supports packet data communication,[/li]
+          [li]("fax", string) = supported fax classes, if the device supports fax communication,[/li]
+          [li]("facilities", string) = supported security facilities.[/li]
         [/ul]
       </doc:summary>
-      <doc:inote>
-        This also maps to the GSM 07.07 commands +GCAP, +FCLASS=?, and +CGCLASS=?,
-        see 3GPP TS 07.07 Chapters 6.1.9, 10.1.11, and C.2.1.
-      </doc:inote>
     </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
+
+  <method name="GetDeviceStatus">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Retrieve the current device status. SIM commands, such as
+        org.freesmartphone.GSM.SIM.ListPhonebooks can not be performed
+        before the device is in the status 'alive-sim-ready'.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.DeviceStatus">
+      <doc:doc>
+        <doc:summary>
+          The device status. Expected values are:
+          [ul]
+            [li]"unknown" = Device status could not be found,[/li]
+            [li]"closed" = Device is present, but not opened,[/li]
+            [li]"initializing" = Device is being opened,[/li]
+            [li]"alive-no-sim" = Device is operating without a SIM card,[/li]
+            [li]"alive-sim-locked" = Device is operating, SIM card is locked,[/li]
+            [li]"alive-sim-unlocked" = Device is operating, SIM card unlocked,[/li]
+            [li]"alive-sim-ready" = Device is operating, SIM card is ready for access,[/li]
+            [li]"alive-registered" = Device is operating and camped to the network,[/li]
+            [li]"suspending" = Device is suspending,[/li]
+            [li]"suspended" = Device is suspended,[/li]
+            [li]"resuming" = Device is resuming,[/li]
+            [li]"closing" = Device is closing.[/li]
+          [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <signal name="DeviceStatus">
+    <doc:doc>
+      <doc:description>
+        Sent on a change in device status.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.DeviceStatus">
+      <doc:doc>
+        <doc:summary>
+          The device status. See org.freesmartphone.GSM.Device.GetDeviceStatus for expected values.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <!-- AUDIO -->
+
+  <!-- FIXME: This API group is unstable -->
 
   <method name="GetSpeakerVolume">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -117,7 +174,6 @@
       <doc:description>
         Retrieve the current loudspeaker volume.
       </doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CLVL?, see 3GPP TS 07.07 Chapter 8.2.3.</doc:inote>
     </doc:doc>
     <arg type="i" name="volume" direction="out">
       <doc:doc>
@@ -179,50 +235,13 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="GetPowerStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Retrieve the power status. This call is not implemented on most smartphones,
-        since the battery is monitored by the application processor (as opposed to the
-        baseband processor) there.
-      </doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CBC, see 3GPP TS 07.07 Chapter 8.4.</doc:inote>
-    </doc:doc>
-    <arg type="s" name="status" direction="out">
-      <doc:doc>
-        <doc:summary>
-          The power status. Valid values are:
-          [ul]
-            [li]"battery" = A battery is built in and is the current power source,[/li]
-            [li]"ac" = A battery is built in, but is not powered by it currently,[/li]
-            [li]"usb" = There is no battery built in,[/li]
-            [li]"error" = The battery is malfunctioning,[/li]
-            [li]"unknown" = Power status could not be found.[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="i" name="level" direction="out">
-      <doc:doc>
-        <doc:summary>
-          The charging level in percent (0-100), if a battery is built in.
-          -1, otherwise.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
+  <!-- KEYPAD -->
 
   <signal name="KeypadEvent">
     <doc:doc>
       <doc:description>
         Sent, when a keypad input event occurs.
       </doc:description>
-      <doc:inote>
-        This usually maps to the 3GPP URC +CKEV, see 3GPP 07.10, Chapter 8.
-      </doc:inote>
     </doc:doc>
     <arg type="s" name="name">
       <doc:doc>
@@ -235,55 +254,6 @@
       <doc:doc>
         <doc:summary>
           True, if the keypad key has been pressed. False, otherwise.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </signal>
-
-  <method name="GetDeviceStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Retrieve the current device status. SIM commands, such as
-        org.freesmartphone.GSM.SIM.ListPhonebooks should not be sent
-        before the device is in the status 'alive-sim-ready'.
-      </doc:description>
-    </doc:doc>
-    <arg type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.DeviceStatus">
-      <doc:doc>
-        <doc:summary>
-          The device status. Expected values are:
-          [ul]
-            [li]"unknown" = Device status could not be found,[/li]
-            [li]"closed" = Device is present, but not opened,[/li]
-            [li]"initializing" = Device is being opened,[/li]
-            [li]"alive-no-sim" = Device is operating without a SIM card,[/li]
-            [li]"alive-sim-locked" = Device is operating, SIM card is locked,[/li]
-            [li]"alive-sim-unlocked" = Device is operating, SIM card unlocked,[/li]
-            [li]"alive-sim-ready" = Device is operating, SIM card is ready for access,[/li]
-            [li]"alive-registered" = Device is operating and camped to the network,[/li]
-            [li]"suspending" = Device is suspending,[/li]
-            [li]"suspended" = Device is suspended,[/li]
-            [li]"resuming" = Device is resuming,[/li]
-            [li]"closing" = Device is closing.[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <signal name="DeviceStatus">
-    <doc:doc>
-      <doc:description>
-        Sent on a change in device status.
-      </doc:description>
-    </doc:doc>
-    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.DeviceStatus">
-      <doc:doc>
-        <doc:summary>
-          The device status. See org.freesmartphone.GSM.Device.GetDeviceStatus for expected values.
         </doc:summary>
       </doc:doc>
     </arg>

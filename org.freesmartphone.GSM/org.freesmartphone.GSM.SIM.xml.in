@@ -23,7 +23,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the authentication status for the SIM card.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPIN=?, see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
     </doc:doc>
     <arg type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.SIMAuthStatus">
       <doc:doc>
@@ -63,7 +62,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Send authentication code (PIN) for the SIM card.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPIN="(pin)", see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
     </doc:doc>
     <arg type="s" name="pin" direction="in">
       <doc:doc>
@@ -78,7 +76,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Send unlock code (PUK) and new authentication code (PIN).</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPIN="(puk)","(new_pin)", see 3GPP TS 07.07 Chapter 8.3.</doc:inote>
     </doc:doc>
     <arg type="s" name="puk" direction="in">
       <doc:doc>
@@ -98,7 +95,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Change the authentication code.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPWD="SC","(old_pin)","(new_pin)", see 3GPP TS 07.07 Chapter 7.5.</doc:inote>
     </doc:doc>
     <arg type="s" name="old_pin" direction="in">
       <doc:doc>
@@ -118,7 +114,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Enable or disable checking for the SIM card authentification on startup.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CLCK,"SC",(check),"(pin)", see 3GPP TS 07.07 Chapter 7.4.</doc:inote>
     </doc:doc>
     <arg type="b" name="check" direction="in">
       <doc:doc>
@@ -138,7 +133,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve whether the SIM card checks for authentification on startup.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CLCK,"SC",2, see 3GPP TS 07.07 Chapter 7.4.</doc:inote>
     </doc:doc>
     <arg type="b" name="check" direction="out">
       <doc:doc>
@@ -154,14 +148,11 @@
   <method name="GetSimInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Get information about the IMSI, the subscriber numbers,
-        and the country code of the SIM card.</doc:description>
+      <doc:description>
+        Get information about the IMSI, the subscriber numbers,
+        and the country code of the SIM card.
+      </doc:description>
       <doc:inote>
-        This can map to the following GSM 07.07 commands:
-        [ul]
-          [li]+CIMI (see 3GPP TS 07.07 Chapter 5.6),[/li]
-          [li]+CNUM (see 3GPP TS 07.07 Chapter 7.1).[/li]
-        [/ul]
         The dial code is computed by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
       </doc:inote>
     </doc:doc>
@@ -311,7 +302,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve the list of available phonebooks on the SIM.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPBS=?, see 3GPP TS 07.07 Chapter 8.12.</doc:inote>
     </doc:doc>
     <arg type="as" name="categories" direction="out">
       <doc:doc>
@@ -325,6 +315,7 @@
             [li]"missed",[/li]
             [li]"emergency",[/li]
           [/ul]
+          Other phonebooks are mapped with prefix aux:
         </doc:summary>
       </doc:doc>
     </arg>
@@ -335,8 +326,7 @@
   <method name="GetPhonebookInfo">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Request information about the SIM phonebook.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPBR=?, see 3GPP TS 07.07 Chapter 8.12.</doc:inote>
+      <doc:description>Request information about a phonebook.</doc:description>
     </doc:doc>
     <arg type="s" name="category" direction="in">
       <doc:doc>
@@ -367,7 +357,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve all entries from the SIM phonebook.</doc:description>
-      <doc:inote>This vaguely maps to the GSM 07.05 command +CPBR=(index1),(index2), see 3GPP TS 07.07 Chapter 8.12.</doc:inote>
     </doc:doc>
     <arg type="s" name="category" direction="in">
       <doc:doc>
@@ -397,7 +386,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Delete an entry in the SIM phonebook.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CPBW=, see 3GPP TS 07.07 Chapter 8.14.</doc:inote>
     </doc:doc>
     <arg type="s" name="category" direction="in">
       <doc:doc>

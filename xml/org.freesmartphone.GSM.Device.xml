@@ -24,6 +24,15 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <method name="GetDeviceStatus">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.DeviceStatus"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <signal name="DeviceStatus">
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.DeviceStatus"/>
+    </signal>
     <method name="GetSpeakerVolume">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="volume" direction="out"/>
@@ -48,25 +57,9 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <method name="GetPowerStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="status" direction="out"/>
-      <arg type="i" name="level" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
     <signal name="KeypadEvent">
       <arg type="s" name="name"/>
       <arg type="b" name="pressed"/>
-    </signal>
-    <method name="GetDeviceStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.DeviceStatus"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
-    <signal name="DeviceStatus">
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.DeviceStatus"/>
     </signal>
   </interface>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.DeviceStatus">
