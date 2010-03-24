@@ -112,7 +112,7 @@
     <method name="RetrieveMessagebook">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="category" direction="in"/>
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(isssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(issssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
@@ -188,6 +188,7 @@
     <fso:field name="index" type="i"/>
     <fso:field name="status" type="s"/>
     <fso:field name="number" type="s"/>
+    <fso:field name="timestamp" type="s"/>
     <fso:field name="contents" type="s"/>
     <fso:field name="properties" type="a{sv}"/>
   </fso:struct>

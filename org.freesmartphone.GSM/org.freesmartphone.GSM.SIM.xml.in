@@ -415,7 +415,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a(isssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage">
+    <arg type="a(issssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage">
       <doc:doc>
         <doc:summary>
           Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:
@@ -423,6 +423,7 @@
             [li](int:index) = storage index,[/li]
             [li](string:status) = status of message, one of ("read", "unread", "sent", "unsent"),[/li]
             [li](string:number) = sender or receiver number.[/li]
+            [li](string:timestamp) = timestamp.[/li]
             [li](string:content) = contents of the message.[/li]
             [li](map:properties) = Map with additional properties (see org.freesmartphone.GSM.SIM.RetrieveMessage method)[/li]
           [/ul]
@@ -550,10 +551,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Retrieve a message from the SIM messagebook.</doc:description>
-      <doc:inote>
-        This can map to the GSM 07.05 command +CMGR=(index), see 3GPP TS 07.05 Chapter 3.4.3.
-        It might also map to the GSM 07.05 command +CMGL=(storage_spec), see 3GPP TS 07.05 Chapter 3.4.2.
-      </doc:inote>
     </doc:doc>
     <arg type="i" name="index" direction="in">
       <doc:doc>
@@ -620,6 +617,7 @@
   <fso:field name="index" type="i" />
   <fso:field name="status" type="s" />
   <fso:field name="number" type="s" />
+  <fso:field name="timestamp" type="s" />
   <fso:field name="contents" type="s" />
   <fso:field name="properties" type="a{sv}" />
 </fso:struct>
