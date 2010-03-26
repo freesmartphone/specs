@@ -14,7 +14,6 @@
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.GSM.PDP</tt></p>
 <h2>Methods</h2><ul>
-<li><a href="#GetNetworkStatus">GetNetworkStatus</a></li>
 <li><a href="#SetCredentials">SetCredentials</a></li>
 <li><a href="#GetCredentials">GetCredentials</a></li>
 <li><a href="#ActivateContext">ActivateContext</a></li>
@@ -23,13 +22,10 @@
 <li><a href="#InternalStatusUpdate">InternalStatusUpdate</a></li>
 </ul>
 <h2>Signals</h2><ul>
-<li><a href="#NetworkStatus">NetworkStatus</a></li>
 <li><a href="#ContextStatus">ContextStatus</a></li>
 </ul>
 <h2>Errors</h2><i>None</i>
-<h1>Methods</h1><h3><a name="GetNetworkStatus">GetNetworkStatus</a> ( ) &rarr; a{sv}</h3>
-<p><i>Description:</i> Retrieves the current GPRS registration status. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CGREG?, see 3GPP TS 07.07 Chapter 10.1.14. </p></div></p><h4>Returns</h4><i>a{sv}: status</i><p>GPRS registration status information. Mandatory tuples are:  <ul>  <li>( "registration", string ):  <ul> The registration status. Expected values are:  <li>"unregistered" = not registered, not trying,</li>  <li>"home" = registered to home network,</li>  <li>"busy" = not registered, but currently trying,</li>  <li>"denied" = no permitted network available,</li>  <li>"unknown" = no idea,</li>  <li>"roaming" = registered to foreign network.</li>  </ul></li>  <li>( "act", string ):  <ul>  The network access type. Will default to "GSM" if a modem doesn't support reporting. Expected values are:  <li>"GSM" = GPRS access</li>  <li>"Compact GSM" = </li>  <li>"UMTS" = UMTS access</li>  <li>"EDGE" = Enhanced Data Rates for GSM Evolution </li>  <li>"HSDPA" = High Speed Downlink Packet Access</li>  <li>"HSUPA" = High Speed Uplink Packet Access</li>  <li>"HSDPA/HSUPA" = High Speed Packet Access (both downlink and uplink)</li>  </ul></li>  </ul>  Optional tuples are:  <ul>  <li>( "lac", string ): The location area code string (if available).</li>  <li>( "cid", string ): The cell id string (if available).</li>  </ul> </p>
-<h3><a name="SetCredentials">SetCredentials</a> ( sss )</h3>
+<h1>Methods</h1><h3><a name="SetCredentials">SetCredentials</a> ( sss )</h3>
 <p><i>Description:</i> Set the credentials for PDP context activation. </p><h4>Parameters</h4><i>s: apn</i><p>The access point name to connect to. </p><i>s: username</i><p>The user name to identify as. </p><i>s: password</i><p>The password to identify as. </p>
 <h3><a name="GetCredentials">GetCredentials</a> ( ) &rarr; sss</h3>
 <p><i>Description:</i> Get the credentials for PDP context activation. </p><h4>Returns</h4><i>s: apn</i><p>The access point name to connect to. </p><i>s: username</i><p>The user name to identify as. </p><i>s: password</i><p>The password to identify as. </p>
@@ -39,8 +35,7 @@
 <p><i>Description:</i> Retrieve the current PDP context status. </p><h4>Returns</h4><i>s: status</i><p>The context status. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.PDP.html#ContextStatus">ContextStatus</a> for a list of valid values. </p><i>a{sv}: properties</i><p>The context status properties.  See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.PDP.html#ContextStatus">ContextStatus</a> for details. </p>
 <h3><a name="InternalStatusUpdate">InternalStatusUpdate</a> ( sa{sv} )</h3>
 <p><i>Description:</i> This method is for internal use only. </p><h4>Parameters</h4><i>s: status</i><p>Internal use only. </p><i>a{sv}: properties</i><p>Internal use only. </p>
-<h1>Signals</h1><h3><h3><a name="NetworkStatus">NetworkStatus</a> ( a{sv} )</h3><p><i>Description:</i> Sent whenever there is a GPRS registration status or property change. </p><h4>Parameters</h4><i>a{sv}: status</i><p>The new status. See <a href="http://docs.freesmartphone.org/org.freesmartphone.GSM.PDP.html#GetNetworkStatus">GetNetworkStatus</a> for a list of valid values. </p></h3>
-<h3><h3><a name="ContextStatus">ContextStatus</a> ( sa{sv} )</h3><p><i>Description:</i> Sent whenever there is any status or property change on a pdp context in the system. </p><h4>Parameters</h4><i>s: status</i><p>The new status of the context. Expected values are:  <ul>  <li>"incoming" = The context is incoming (but not yet accepted),</li>  <li>"outgoing" = The context is outgoing (but not yet established),</li>  <li>"active" = The context is active (you have a new default route),</li>  <li>"held" = The context is being held (interrupted by a voice call) [OPTIONAL],</li>  <li>"released" = The context is being released.</li>  </ul>  Further information can be part of the properties. </p><i>a{sv}: properties</i><p>An array of property values. Note that properties are optional.  Expected tuples are:  <ul>  <li>( "reason", string ) = The reason for the status change,</li>  <li>( "apn", string ) = The number of the access point.</li>  </ul> </p></h3>
+<h1>Signals</h1><h3><h3><a name="ContextStatus">ContextStatus</a> ( sa{sv} )</h3><p><i>Description:</i> Sent whenever there is any status or property change on a pdp context in the system. </p><h4>Parameters</h4><i>s: status</i><p>The new status of the context. Expected values are:  <ul>  <li>"incoming" = The context is incoming (but not yet accepted),</li>  <li>"outgoing" = The context is outgoing (but not yet established),</li>  <li>"active" = The context is active (you have a new default route),</li>  <li>"held" = The context is being held (interrupted by a voice call) [OPTIONAL],</li>  <li>"released" = The context is being released.</li>  </ul>  Further information can be part of the properties. </p><i>a{sv}: properties</i><p>An array of property values. Note that properties are optional.  Expected tuples are:  <ul>  <li>( "reason", string ) = The reason for the status change,</li>  <li>( "apn", string ) = The number of the access point.</li>  </ul> </p></h3>
 
     <hr/>
     <small>

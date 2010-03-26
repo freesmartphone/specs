@@ -192,32 +192,6 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <method name="GetNetworkCountryCode">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Compute the country information of the current service provider.
-        Will raise org.freesmartphone.Network.NotFound, if not registered to any service provider.
-      </doc:description>
-      <doc:inote>
-        This maps to the GSM 07.07 command +COPS?, see 3GPP TS 07.07 Chapter 5.6.
-        Get the dial code by cross-referencing ITU E.212 (Land Mobile Numbering Plan).
-      </doc:inote>
-    </doc:doc>
-    <arg type="s" name="dial_code" direction="out">
-      <doc:doc>
-        <doc:summary>The country dial code (including the +).</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="country_name" direction="out">
-      <doc:doc>
-        <doc:summary>The name of the country.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
   <method name="GetCallForwarding">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>

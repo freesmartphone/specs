@@ -2,15 +2,6 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.GSM.PDP">
-    <method name="GetNetworkStatus">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="a{sv}" name="status" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
-    <signal name="NetworkStatus">
-      <arg type="a{sv}" name="status"/>
-    </signal>
     <method name="SetCredentials">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="apn" direction="in"/>

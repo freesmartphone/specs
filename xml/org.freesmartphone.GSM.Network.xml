@@ -42,13 +42,6 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <method name="GetNetworkCountryCode">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="dial_code" direction="out"/>
-      <arg type="s" name="country_name" direction="out"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
     <method name="GetCallForwarding">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="reason" direction="in"/>
