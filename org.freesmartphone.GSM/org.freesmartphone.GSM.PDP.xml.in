@@ -17,65 +17,6 @@
       </doc:para>
     </doc:doc>
 
-  <method name="GetNetworkStatus">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieves the current GPRS registration status.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CGREG?, see 3GPP TS 07.07 Chapter 10.1.14.</doc:inote>
-    </doc:doc>
-    <arg type="a{sv}" name="status" direction="out">
-      <doc:doc>
-        <doc:summary>
-          GPRS registration status information. Mandatory tuples are:
-          [ul]
-            [li]( "registration", string ):
-            [ul] The registration status. Expected values are:
-              [li]"unregistered" = not registered, not trying,[/li]
-              [li]"home" = registered to home network,[/li]
-              [li]"busy" = not registered, but currently trying,[/li]
-              [li]"denied" = no permitted network available,[/li]
-              [li]"unknown" = no idea,[/li]
-              [li]"roaming" = registered to foreign network.[/li]
-            [/ul][/li]
-            [li]( "act", string ):
-            [ul]
-              The network access type. Will default to "GSM" if a modem doesn't support reporting. Expected values are:
-              [li]"GSM" = GPRS access[/li]
-              [li]"Compact GSM" = [/li]
-              [li]"UMTS" = UMTS access[/li]
-              [li]"EDGE" = Enhanced Data Rates for GSM Evolution [/li]
-              [li]"HSDPA" = High Speed Downlink Packet Access[/li]
-              [li]"HSUPA" = High Speed Uplink Packet Access[/li]
-              [li]"HSDPA/HSUPA" = High Speed Packet Access (both downlink and uplink)[/li]
-            [/ul][/li]
-          [/ul]
-          Optional tuples are:
-          [ul]
-            [li]( "lac", string ): The location area code string (if available).[/li]
-            [li]( "cid", string ): The cell id string (if available).[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <signal name="NetworkStatus">
-    <doc:doc>
-      <doc:description>
-        Sent whenever there is a GPRS registration status or property change.
-      </doc:description>
-    </doc:doc>
-    <arg type="a{sv}" name="status">
-      <doc:doc>
-        <doc:summary>
-          The new status. See org.freesmartphone.GSM.PDP.GetNetworkStatus for a list of valid values.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </signal>
-
   <method name="SetCredentials">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
