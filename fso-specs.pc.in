@@ -2,7 +2,8 @@ prefix=@prefix@
 exec_prefix=@exec_prefix@
 libdir=@libdir@
 datarootdir=@datarootdir@
-pkgdatadir=${datarootdir}/@PACKAGE@
+#pkgdatadir=${datarootdir}/@PACKAGE@
+pkgdatadir=${datarootdir}/freesmartphone
 includedir=@includedir@
 specsdir=${pkgdatadir}/xml
 
