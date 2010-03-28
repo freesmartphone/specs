@@ -1,3 +1,14 @@
 *docbook*
 *~
 
+fso-specs.pc
+configure
+config.status
+install-sh
+missing
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache
+config.log
+

@@ -12,7 +12,7 @@ pydoc_html_files = $(files:.xml=.html)
 #docbook_style_sheet = /usr/share/sgml/docbook/xsl-stylesheets/xhtml/docbook.xsl
 docbook_style_sheet = /usr/share/xml/docbook/stylesheet/nwalsh/xhtml/docbook.xsl
 
-all: pydocs
+all: pydocs xml
 
 xml: $(files)
 
@@ -42,6 +42,9 @@ $(docbook_xml_files): docbook-%.xml: %.xml.in
 $(files): %.xml: %.xml.in
 	@echo processing $@ ...
 	@xsltproc -o ../xml/$@ ../tools/spec-strip-docs.xsl $<
+
+install:
+	@echo nothing to install here
 
 clean:
 	@rm -f $(files) *~

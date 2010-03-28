@@ -1,0 +1,6 @@
+freesmartphone.org DBus XML specification & documentation
+=========================================================
+
+Process these with a dbus binding generator to create stubs
+for your program.
+

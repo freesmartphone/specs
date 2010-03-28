@@ -1,0 +1,13 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+datarootdir=@datarootdir@
+pkgdatadir=${datarootdir}/@PACKAGE@
+includedir=@includedir@
+specsdir=${pkgdatadir}/xml
+
+Name: fso-specs
+Description: freesmartphone.org DBus API introspection data
+Requires:
+Version: @VERSION@
+Cflags: -DFSO_SPECS_DIR='\"${specsdir}\"'
