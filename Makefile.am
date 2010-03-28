@@ -20,5 +20,5 @@ pkgconfigdir = $(datadir)/pkgconfig
 dist_pkgconfig_DATA = fso-specs.pc
 
 install-data-local:
-	$(INSTALL) -d $(datadir)/freesmartphone/xml
-	for i in xml/*.xml; do $(INSTALL) -m 0644 $$i $(datadir)/freesmartphone/$$i; done
+	$(INSTALL) -d $(DESTDIR)/$(datadir)/freesmartphone/xml
+	for i in xml/*.xml; do $(INSTALL) -m 0644 $$i $(DESTDIR)/$(datadir)/freesmartphone/$$i; done
