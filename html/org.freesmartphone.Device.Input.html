@@ -19,13 +19,15 @@
 </ul>
 <h2>Signals</h2><ul>
 <li><a href="#Event">Event</a></li>
+<li><a href="#DirectionalEvent">DirectionalEvent</a></li>
 </ul>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetId">GetId</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Get the identification of the input device. </p><h4>Returns</h4><i>s: id</i><p>The identification. </p>
 <h3><a name="GetCapabilities">GetCapabilities</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Get the capabilities of the input device. </p><h4>Returns</h4><i>s: id</i><p>The capabilities. Valid elements are:  <ul>  <li>"keys"</li>,  <li>"relative"</li>,  <li>"absolute"</li>,  <li>"misc"</li>,  <li>"switches"</li>,  <li>"leds"</li>,  <li>"sound"</li>,  <li>"force-feedback"</li>.  </ul> </p>
-<h1>Signals</h1><h3><h3><a name="Event">Event</a> ( ssi )</h3><p><i>Description:</i> Sent, when an input event occurs. </p><h4>Parameters</h4><i>s: name</i><p>The name of the event source. </p><i>s: action</i><p>The action that triggered the event. Expected values are:  <ul>  <li>"pressed"</li>  <li>"held" (only for selected event sources)</li>  <li>"released"</li>  </ul> </p><i>i: seconds</i><p>The duration for the event. Only valid for the "held" and the "released" action. </p></h3>
+<h1>Signals</h1><h3><h3><a name="Event">Event</a> ( ssi )</h3><p><i>Description:</i> Sent, when a button or switch input event occurs. </p><h4>Parameters</h4><i>s: name</i><p>The name of the event source. </p><i>s: action</i><p>The action that triggered the event. Expected values are:  <ul>  <li>"pressed"</li>  <li>"held" (only for selected event sources)</li>  <li>"released"</li>  </ul> </p><i>i: seconds</i><p>The duration for the event. Only valid for the "held" and the "released" action. </p></h3>
+<h3><h3><a name="DirectionalEvent">DirectionalEvent</a> ( sii )</h3><p><i>Description:</i> Sent, when a directional input event occurs. </p><h4>Parameters</h4><i>s: name</i><p>The name of the event source. </p><i>i: axis</i><p>The axis on which the event happened. </p><i>i: offset</i><p>The offset. </p></h3>
 
     <hr/>
     <small>

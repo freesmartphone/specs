@@ -15,6 +15,11 @@
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="action" fso:type="org.freesmartphone.Device.InputState"/>
       <arg type="i" name="seconds"/>
     </signal>
+    <signal name="DirectionalEvent">
+      <arg type="s" name="name"/>
+      <arg type="i" name="axis"/>
+      <arg type="i" name="offset"/>
+    </signal>
   </interface>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.InputState" type="s">
     <fso:member name="pressed" value="pressed"/>

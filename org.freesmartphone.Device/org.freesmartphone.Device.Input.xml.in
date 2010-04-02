@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Input Interface</doc:summary>
-  <doc:version>0.2.0</doc:version>
+  <doc:version>0.3.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Device.Input">
@@ -55,7 +55,7 @@
   <signal name="Event">
     <doc:doc>
       <doc:description>
-        Sent, when an input event occurs.
+        Sent, when a button or switch input event occurs.
       </doc:description>
       <doc:inote>
         Input events should be described via configuration files.
@@ -84,6 +84,38 @@
       <doc:doc>
         <doc:summary>
           The duration for the event. Only valid for the "held" and the "released" action.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="DirectionalEvent">
+    <doc:doc>
+      <doc:description>
+        Sent, when a directional input event occurs.
+      </doc:description>
+      <doc:inote>
+        Input events should be described via configuration files.
+      </doc:inote>
+    </doc:doc>
+    <arg type="s" name="name">
+      <doc:doc>
+        <doc:summary>
+          The name of the event source.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="axis">
+      <doc:doc>
+        <doc:summary>
+          The axis on which the event happened.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="offset">
+      <doc:doc>
+        <doc:summary>
+          The offset.
         </doc:summary>
       </doc:doc>
     </arg>
