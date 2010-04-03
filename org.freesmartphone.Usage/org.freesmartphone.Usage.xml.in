@@ -214,6 +214,30 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
+  <method name="Resume">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Triggers a resume on all managed resources and puts the device into normal mode.
+      </doc:description>
+      <doc:inote>
+        This method is only useful on systems where a suspend does not halt the main CPU.
+      </doc:inote>
+    </doc:doc>
+    <arg direction="in" type="s" name="source">
+      <doc:doc>
+        <doc:summary>The resume source.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="in" type="s" name="reason">
+      <doc:doc>
+        <doc:summary>The resume reason.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
   <method name="Shutdown">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
