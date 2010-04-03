@@ -53,6 +53,7 @@
   </method>
 
   <method name="GetType">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
         Get type of specified field.
