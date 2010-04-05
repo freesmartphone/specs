@@ -26,6 +26,8 @@
 <li><a href="#NewMessage">NewMessage</a></li>
 <li><a href="#IncomingMessage">IncomingMessage</a></li>
 <li><a href="#UnreadMessages">UnreadMessages</a></li>
+<li><a href="#UpdatedMessage">UpdatedMessage</a></li>
+<li><a href="#DeletedMessage">DeletedMessage</a></li>
 </ul>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="Add">Add</a> ( a{sv} ) &rarr; s</h3>
@@ -45,6 +47,8 @@
 <h1>Signals</h1><h3><h3><a name="NewMessage">NewMessage</a> ( s )</h3><p><i>Description:</i> Sent when a new message is loaded. </p><h4>Parameters</h4><i>s: message_path</i><p>The path of the newly loaded message. </p></h3>
 <h3><h3><a name="IncomingMessage">IncomingMessage</a> ( s )</h3><p><i>Description:</i> Sent when a incoming message arrives. </p><h4>Parameters</h4><i>s: message_path</i><p>The path of the newly arrived incoming message. </p></h3>
 <h3><h3><a name="UnreadMessages">UnreadMessages</a> ( i )</h3><p><i>Description:</i> Sent when amount of unread incoming messages changes. </p><h4>Parameters</h4><i>i: amount</i><p>Amount of unread incoming messages. </p></h3>
+<h3><h3><a name="UpdatedMessage">UpdatedMessage</a> ( sa{sv] )</h3><p><i>Description:</i> Sent whenever a message has been updated. </p><h4>Parameters</h4><i>s: message_path</i><p>The DBus path of the message that was updated. </p><i>a{sv]: message_data</i><p>The data that was changed for the message. </p></h3>
+<h3><h3><a name="DeletedMessage">DeletedMessage</a> ( s )</h3><p><i>Description:</i> Sent whenever a message has been deleted. </p><h4>Parameters</h4><i>s: message_path</i><p>The DBus path of the message that has been deleted. </p></h3>
 
     <hr/>
     <small>

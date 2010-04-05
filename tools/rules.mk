@@ -43,7 +43,7 @@ $(files): %.xml: %.xml.in
 	@echo processing $@ ...
 	@xsltproc -o ../xml/$@ ../tools/spec-strip-docs.xsl $<
 
-install:
+install: xml
 	@echo nothing to install here
 
 clean:
@@ -51,3 +51,7 @@ clean:
 	for i in $(pydoc_html_files); do rm -f ../html/$$i; done
 	for i in $(files); do rm -f ../xml/$$i; done
 	@rm -rf xhtml *.html
+
+maintainer-clean: clean
+	:
+

@@ -12,6 +12,7 @@
       <arg direction="in" type="s" name="name"/>
     </method>
     <method name="GetType">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
       <arg direction="out" type="s" name="type"/>
     </method>

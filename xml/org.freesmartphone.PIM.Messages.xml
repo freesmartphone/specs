@@ -45,5 +45,12 @@
     <signal name="UnreadMessages">
       <arg type="i" name="amount"/>
     </signal>
+    <signal name="UpdatedMessage">
+      <arg type="s" name="message_path"/>
+      <arg type="a{sv]" name="message_data"/>
+    </signal>
+    <signal name="DeletedMessage">
+      <arg type="s" name="message_path"/>
+    </signal>
   </interface>
 </node>

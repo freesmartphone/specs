@@ -20,5 +20,13 @@ pkgconfigdir = $(datadir)/pkgconfig
 dist_pkgconfig_DATA = fso-specs.pc
 
 install-data-local:
+	$(MAKE)
 	$(INSTALL) -d $(DESTDIR)/$(datadir)/freesmartphone/xml
 	for i in xml/*.xml; do $(INSTALL) -m 0644 $$i $(DESTDIR)/$(datadir)/freesmartphone/$$i; done
+
+MAINTAINERCLEANFILES = \
+  aclocal.m4 compile config.guess config.sub \
+  configure depcomp install-sh ltmain.sh     \
+  Makefile.in missing config.h.in            \
+  mkinstalldirs \
+  src/*.h src/*.c .deps xml/*.xml
