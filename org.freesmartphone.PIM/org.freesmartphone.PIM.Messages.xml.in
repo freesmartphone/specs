@@ -212,6 +212,42 @@
     </arg>
   </signal>
 
+  <signal name="UpdatedMessage">
+    <doc:doc>
+      <doc:description>
+        Sent whenever a message has been updated.	  
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="message_path">
+      <doc:doc>
+        <doc:summary>
+          The DBus path of the message that was updated.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv]" name="message_data">
+      <doc:doc>
+        <doc:summary>
+          The data that was changed for the message.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <signal name="DeletedMessage">
+    <doc:doc>
+      <doc:description>
+	Sent whenever a message has been deleted.
+      </doc:description>
+    </doc:doc>
+    <arg type="s" name="message_path">
+      <doc:doc>
+	<doc:summary>
+	  The DBus path of the message that has been deleted.
+	</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 
