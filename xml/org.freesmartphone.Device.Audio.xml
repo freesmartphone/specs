@@ -2,10 +2,6 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.Device.Audio">
-    <method name="GetAvailableScenarios">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg direction="out" type="as" name="scenarios"/>
-    </method>
     <method name="PlaySound">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="s" name="name"/>
@@ -27,6 +23,10 @@
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.Device.SoundState"/>
       <arg type="a{sv}" name="properties"/>
     </signal>
+    <method name="GetAvailableScenarios">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="out" type="as" name="scenarios"/>
+    </method>
     <method name="GetScenario">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="s" name="scenario"/>
@@ -55,6 +55,15 @@
       <arg type="s" name="scenario"/>
       <arg type="s" name="reason"/>
     </signal>
+    <method name="GetVolume">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="out" type="y" name="volume"/>
+    </method>
+    <method name="SetVolume">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="y" name="volume"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Device.Audio" fso:no-container="true">
     <error name="UnknownFormat"/>

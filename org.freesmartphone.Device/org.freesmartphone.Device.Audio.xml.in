@@ -16,22 +16,6 @@
     </doc:para>
   </doc:doc>
 
-  <method name="GetAvailableScenarios">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Returns a list of supported audio scenarios.
-      </doc:description>
-    </doc:doc>
-    <arg direction="out" type="as" name="scenarios">
-      <doc:doc>
-        <doc:summary>
-          The supported audio scenarios.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <!-- SIMPLE SOUND API -->
 
   <method name="PlaySound">
@@ -129,6 +113,22 @@
   </signal>
 
   <!-- AUDIO SCENARIO API -->
+
+  <method name="GetAvailableScenarios">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Returns a list of supported audio scenarios.
+      </doc:description>
+    </doc:doc>
+    <arg direction="out" type="as" name="scenarios">
+      <doc:doc>
+        <doc:summary>
+          The supported audio scenarios.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
 
   <method name="GetScenario">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -238,6 +238,47 @@
       </doc:doc>
     </arg>
   </signal>
+
+  <!-- SIMPLE MIXER API -->
+
+  <method name="GetVolume">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Get the current main audio volume.
+      </doc:description>
+      <doc:inote>
+        The main volume can depend on the current scenario. A change of scenario may change the main volume as well.
+      </doc:inote>
+    </doc:doc>
+    <arg direction="out" type="y" name="volume">
+      <doc:doc>
+        <doc:summary>
+          The volume in percent (0-100).
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
+  <method name="SetVolume">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Set the new main audio volume.
+      </doc:description>
+      <doc:inote>
+        The main volume can depend on the current scenario. A change of scenario may change the main volume as well.
+      </doc:inote>
+    </doc:doc>
+    <arg direction="in" type="y" name="volume">
+      <doc:doc>
+        <doc:summary>
+          The volume in percent (0-100).
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
 
 </interface>
 
