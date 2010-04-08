@@ -78,6 +78,7 @@
         Stop all currently played sound resources.
       </doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <signal name="SoundStatus">
@@ -128,6 +129,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="GetScenario">
@@ -144,6 +146,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetScenario">
@@ -195,6 +198,7 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Device.Audio" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SaveScenario">
@@ -258,6 +262,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone" />
   </method>
 
   <method name="SetVolume">

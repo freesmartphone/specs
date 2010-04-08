@@ -17,6 +17,7 @@
     </method>
     <method name="StopAllSounds">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <signal name="SoundStatus">
       <arg type="s" name="id"/>
@@ -26,10 +27,12 @@
     <method name="GetAvailableScenarios">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="as" name="scenarios"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="GetScenario">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="s" name="scenario"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="SetScenario">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
@@ -45,6 +48,7 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="s" name="scenario"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Device.Audio"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="SaveScenario">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
@@ -58,6 +62,7 @@
     <method name="GetVolume">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="y" name="volume"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="SetVolume">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
