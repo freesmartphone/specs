@@ -1,4 +1,5 @@
 files = \
+  org.freesmartphone.Device.AmbientLight.xml \
   org.freesmartphone.Device.Audio.xml \
   org.freesmartphone.Device.Display.xml \
   org.freesmartphone.Device.LED.xml \
