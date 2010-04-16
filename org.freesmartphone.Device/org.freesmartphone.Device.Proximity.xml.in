@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-proximity-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Proximity Interface</doc:summary>
+  <doc:version>0.9.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.Proximity">
+
+  <doc:doc>
+    <doc:para>
+      This interface provides access to a proximity device.
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetProximity">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Get the last value of the proximity device, or -1 if unknown.</doc:description>
+    </doc:doc>
+    <arg direction="out" type="i" name="proximity">
+      <doc:doc>
+        <doc:summary>
+          The last proximity.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="i" name="epoch">
+      <doc:doc>
+        <doc:summary>
+          Timestamp indicating when this value has been received.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <signal name="Proximity">
+    <doc:doc>
+      <doc:description>
+        Sent, when the proximity changes.
+      </doc:description>
+    </doc:doc>
+    <arg type="i" name="proximity">
+      <doc:doc>
+        <doc:summary>
+          The new proximity.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+</interface>
+</node>
+
