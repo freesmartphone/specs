@@ -23,7 +23,7 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="profile" direction="in"/>
     </method>
-    <signal name="Notify">
+    <signal name="Changed">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="profile"/>
     </signal>

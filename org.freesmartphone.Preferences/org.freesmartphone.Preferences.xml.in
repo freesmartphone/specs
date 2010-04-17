@@ -82,7 +82,7 @@
     </arg>
   </method>
 
-  <signal name="Notify">
+  <signal name="Changed">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
