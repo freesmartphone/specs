@@ -149,12 +149,60 @@
     </arg>
   </signal>
 
-  <signal name="IncomingMessageReceipt">
+  <signal name="IncomingMessageReport">
     <doc:doc>
       <doc:description>
         Sent when a status report for a message has been received.
       </doc:description>
+      <doc:inote>
+        The signature of this signal is preliminary and is bound to change.
+      </doc:inote>
     </doc:doc>
+    <arg type="i" name="reference">
+      <doc:doc>
+        <doc:summary>
+          The message-reference number as returned by org.freesmartphone.GSM.SMS.SendTextMessage
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status">
+      <doc:doc>
+        <doc:summary>
+        The status. Expected values are:
+        [ul]
+            [li]COMPLETED_RECEIVED[/li]
+            [li]COMPLETED_UNABLE_TO_CONFIRM[/li]
+            [li]COMPLETED_REPLACED[/li]
+            [li]COMPLETED_LAST[/li]
+            [li]TEMPORARY_CONGESTION[/li]
+            [li]TEMPORARY_SME_BUSY[/li]
+            [li]TEMPORARY_NO_RESPONSE[/li]
+            [li]TEMPORARY_SERVICE_REJECTED[/li]
+            [li]TEMPORARY_QOS_UNAVAILABLE[/li]
+            [li]TEMPORARY_SME_ERROR[/li]
+            [li]TEMPORARY_LAST[/li]
+            [li]PERMANENT_RP_ERROR[/li]
+            [li]PERMANENT_INVALID_DESTINATION[/li]
+            [li]PERMANENT_CONNECTION_REJECTED[/li]
+            [li]PERMANENT_NOT_OBTAINABLE[/li]
+            [li]PERMANENT_QOS_UNAVAILABLE[/li]
+            [li]PERMANENT_INTERWORKING_UNAVAILABLE[/li]
+            [li]PERMANENT_VALIDITY_PERIOD_EXPIRED[/li]
+            [li]PERMANENT_DELETED[/li]
+            [li]PERMANENT_SC_ADMIN_DELETED[/li]
+            [li]PERMANENT_SM_DOES_NOT_EXIST[/li]
+            [li]PERMANENT_LAST[/li]
+            [li]TEMPFINAL_CONGESTION[/li]
+            [li]TEMPFINAL_SME_BUSY[/li]
+            [li]TEMPFINAL_NO_RESPONSE[/li]
+            [li]TEMPFINAL_SERVICE_REJECTED[/li]
+            [li]TEMPFINAL_QOS_UNAVAILABLE[/li]
+            [li]TEMPFINAL_SME_ERROR[/li]
+            [li]TEMPFINAL_LAST
+        [/ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <arg type="s" name="sender_number">
       <doc:doc>
         <doc:summary>The number of the sender.</doc:summary>

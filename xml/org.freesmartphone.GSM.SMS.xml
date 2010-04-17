@@ -30,7 +30,9 @@
       <arg type="s" name="timestamp"/>
       <arg type="s" name="contents"/>
     </signal>
-    <signal name="IncomingMessageReceipt">
+    <signal name="IncomingMessageReport">
+      <arg type="i" name="reference"/>
+      <arg type="s" name="status"/>
       <arg type="s" name="sender_number"/>
       <arg type="s" name="contents"/>
     </signal>
