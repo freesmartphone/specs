@@ -32,18 +32,18 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>
-        Retrieve a country code for a tuple of MCC and MNC.
+        Retrieve a country code for MCC or concatenated MCC and MNC.
         Raises org.freesmartphone.Error.InvalidParameter, if not found.
       </doc:description>
     </doc:doc>
     <arg type="s" name="mcc_mnc" direction="in">
       <doc:doc>
-        <doc:summary>The MCC and MNC.</doc:summary>
+        <doc:summary>MCC or concatenated MCC and MNC.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="country_code" direction="out">
       <doc:doc>
-        <doc:summary>The country code that owns the specified MCC and MNC.</doc:summary>
+        <doc:summary>The country code that owns the specified MCC (and MNC).</doc:summary>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone" />
