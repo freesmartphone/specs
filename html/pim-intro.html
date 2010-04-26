@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>freesmartphone.org: PIM Usage</title>
+        <link rel="stylesheet" type="text/css" href="http://git.freesmartphone.org/?p=specs.git;a=blob_plain;f=html/style.css;hb=HEAD" />
+    </head>
+    <body>
+    <div class="topbox">freesmartphone.org: PIM Usage</div>
+
+<h1>Introduction</h1>
+
+<p>
+  All the Domains are mostly the same. They have the same basic structure, though some domains have a couple of minor extensions, for instance, "Missed Calls" handling in the Calls domain. Therefore, this document will use the Contacts domain for examples, though everything applies to all the others as well.
+</p>
+<p>
+  TBD. Explain about querying, query objects, entry objects and etc. Also explain about fields and types.
+</p>
+
+<h1>Entries</h1>
+<p>
+  Entries are the basic data objects of the domain, every time <a href="http://docs.freesmartphone.org/org.freesmartphone.PIM.Contacts.html#Add">Add</a> is called, a new entry is created in the domain. Each entry has a unique (in the domain) persistent id.
+  The entries are accesible using the methods in the <a href="http://docs.freesmartphone.org/org.freesmartphone.PIM.Contact.html">Contact</a> path using their unique ID.
+  For instance, in order to Delete the contact with ID 24 you will run <a href="http://docs.freesmartphone.org/org.freesmartphone.PIM.Contact.html#Delete">Delete</a> with <b>/org/freesmartphone/PIM/Contact/24</b> as the dbus path. 
+</p>
+<p>
+  Every entry consists of different fields of various types. Fields can have eitehr one or more values. In the case of one value, the value is stored in the field, otherwise the values are stored in a list which is stored in the field.
+  Each entry must include one read-only field called <b>EntryId</b> which signifies the unique entry ID described before.
+</p>
+    <hr/>
+    <small>
+    | (C) 2009 the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. | Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org
+    </small>
+    <hr/>
+    </body>
+</html>
+
