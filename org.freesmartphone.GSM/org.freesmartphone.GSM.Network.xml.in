@@ -36,7 +36,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     <doc:doc>
         <doc:description>Unregister from service provider.</doc:description>
-        <doc:inote>This maps to the GSM 07.07 command +COPS=2, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
     </doc:doc>
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
@@ -46,14 +45,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     <doc:doc>
       <doc:description>Get Network Status.</doc:description>
-      <doc:inote>
-        This can map to the following GSM 07.07 commands:
-        [ul]
-          [li]+CREG? (see 3GPP TS 07.07 Chapter 7.3),[/li]
-          [li]+COPS? (see 3GPP TS 07.07 Chapter 7.4),[/li]
-          [li]+CSQ (see 3GPP TS 07.07 Chapter 8.5).[/li]
-        [/ul]
-      </doc:inote>
     </doc:doc>
     <arg type="a{sv}" name="status" direction="out">
       <doc:doc>
@@ -132,7 +123,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
     <doc:doc>
       <doc:description>Query the current signal strength, if registered with a service provider.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CSQ, see 3GPP TS 07.07 Chapter 8.5.</doc:inote>
     </doc:doc>
     <arg type="i" name="signal_strength" direction="out">
       <doc:doc>
@@ -148,7 +138,6 @@
       <doc:description>
         (OPTIONAL) Sent, when registered with a service provider and the network signal strength changes.
       </doc:description>
-      <doc:inote>This can map to the GSM 07.07 unsolicited response +CIEV, see 3GPP TS 07.07 Chapter 8.9.</doc:inote>
     </doc:doc>
     <arg type="i" name="signal_strength">
       <doc:doc>
@@ -157,11 +146,26 @@
     </arg>
   </signal>
 
+  <signal name="TimeZoneReport">
+    <doc:doc>
+      <doc:description>
+        (OPTIONAL) Sent upon receiving a network time zone report.
+      </doc:description>
+      <doc:inote>
+        Very few providers / networks are supporting this, e.g. not a single provider in Germany.
+      </doc:inote>
+    </doc:doc>
+    <arg type="i" name="time_zone">
+      <doc:doc>
+        <doc:summary>The time zone offset in minutes based on UTC.</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
   <method name="ListProviders">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>List available service providers.</doc:description>
-        <doc:inote>This maps to the GSM 07.07 command +COPS=?, see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
       </doc:doc>
     <arg type="a(sssss)" name="providers" direction="out" fso:type="org.freesmartphone.GSM.NetworkProvider">
       <doc:doc>
@@ -185,7 +189,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <doc:doc>
         <doc:description>Register to a dedicated service provider.</doc:description>
-          <doc:inote>This maps to the GSM 07.07 command +COPS=1..., see 3GPP TS 07.07 Chapter 7.3.</doc:inote>
       </doc:doc>
     <arg type="s" name="operator_code" direction="in">
       <doc:doc>
@@ -200,7 +203,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get the network call forwarding status.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CCFC=(reason),2, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
     </doc:doc>
     <arg type="s" name="reason" direction="in">
       <doc:doc>
@@ -253,7 +255,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Enable network call forwarding.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CCFC=(...),3, see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
     </doc:doc>
     <arg type="s" name="reason" direction="in">
       <doc:doc>
@@ -315,7 +316,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set whether your subscriber number is visible during a call.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CLIR=(value), see 3GPP TS 07.07 Chapter 7.7.</doc:inote>
     </doc:doc>
     <arg type="s" name="visible" direction="in">
       <doc:doc>
@@ -337,7 +337,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get whether your subscriber number is visible during a call.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CLIR?, see 3GPP TS 07.07 Chapter 7.7.</doc:inote>
     </doc:doc>
     <arg type="s" name="visible" direction="out">
       <doc:doc>
