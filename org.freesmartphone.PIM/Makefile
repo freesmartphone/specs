@@ -1,6 +1,4 @@
 files = \
-  org.freesmartphone.PIM.Source.xml \
-  org.freesmartphone.PIM.Sources.xml \
   org.freesmartphone.PIM.Contact.xml \
   org.freesmartphone.PIM.Contacts.xml \
   org.freesmartphone.PIM.ContactQuery.xml \
