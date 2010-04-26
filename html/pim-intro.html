@@ -15,7 +15,7 @@
   TBD. Explain about querying, query objects, entry objects and etc. Also explain about fields and types.
 </p>
 
-<h1>Entries</h1>
+<h1><a name="Entries">Entries</a></h1>
 <p>
   Entries are the basic data objects of the domain, every time <a href="http://docs.freesmartphone.org/org.freesmartphone.PIM.Contacts.html#Add">Add</a> is called, a new entry is created in the domain. Each entry has a unique (in the domain) persistent id.
   The entries are accesible using the methods in the <a href="http://docs.freesmartphone.org/org.freesmartphone.PIM.Contact.html">Contact</a> path using their unique ID.
@@ -25,6 +25,29 @@
   Every entry consists of different fields of various types. Fields can have eitehr one or more values. In the case of one value, the value is stored in the field, otherwise the values are stored in a list which is stored in the field.
   Each entry must include one read-only field called <b>EntryId</b> which signifies the unique entry ID described before.
 </p>
+
+<h1>Fields and Types</h1>
+<p>
+  As explained in the <a href="#Entries">Entries</a> section, each entry consists of fields. Each field has type. Fields are defined per domain, so adding a field is done on the domain (for exmalpe <a href="http://docs.freesmartphone.org/org.freesmartphone.PIM.Contacts.html">Contacts</a>).
+  Fields should generally be declared before usage so opimd will know how to treat them. For instance, if I want to define a field for phonenumbers I will call the <a href="http://docs.freesmartphone.org/org.freesmartphone.PIM.Fields.html#AddField">AddField</a> method with the wanted field name as the first paramter, and "phonenumber" as the second.
+  The list of types is available using the <a href="http://docs.freesmartphone.org/org.freesmartphone.PIM.Types.html#List">List</a> method. If a field is not added before usage, it's treated like a field with type "generic".
+</p>
+<h2>Adding and Removing Fields</h2>
+<p>
+  <h3> There are a couple of restrictions when modifying fields</h3>
+  When adding:
+  <ul>
+    <li> Field names are unique, you can't create two fields with the same name.</li>
+    <li> The <b>EntryId</b> field name is system-reserved and can not be modifyed.</li>
+    <li> Field names can not start with either <b>_</b>, <b>@</b> or <b>$</b> as they are reserved for <a href="#Querying">Querying</a>. </li>
+  </ul>
+  When removing:
+  <ul>
+    <li> The <b>EntryId</b> field name is system-reserved and can not be deleted.</li>
+    <li> For each domain, there are a couple of required fields that can not be removed.</li>
+  </ul>
+</p>  
+
     <hr/>
     <small>
     | (C) 2009 the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. | Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org
