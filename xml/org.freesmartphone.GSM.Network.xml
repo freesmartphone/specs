@@ -87,7 +87,7 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <signal name="IncomingUssd">
-      <arg type="s" name="mode"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="mode" fso:type="org.freesmartphone.GSM.UssdStatus"/>
       <arg type="s" name="message"/>
     </signal>
     <signal name="CipherStatus">
@@ -102,4 +102,12 @@
     <fso:field name="mccmnc" type="s"/>
     <fso:field name="act" type="s"/>
   </fso:struct>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.UssdStatus">
+    <fso:member name="completed" value="completed"/>
+    <fso:member name="useraction" value="useraction"/>
+    <fso:member name="terminated" value="terminated"/>
+    <fso:member name="localclient" value="localclient"/>
+    <fso:member name="unsupported" value="unsupported"/>
+    <fso:member name="timeout" value="timeout"/>
+  </fso:enumeration>
 </node>
