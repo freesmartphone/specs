@@ -53,7 +53,7 @@
 </p>
 <h2>Query Logic</h2>
 <p>
-  All the parameters passed to a query are logically connected with 'AND' that is, all of the parameters much match an entry in order for it to match.
+  All the parameters passed to a query are logically connected with 'AND' that is, all of the parameters must match an entry in order for it to match.
   For instance, querying for {'Name':'Tom', 'Surname':'Hacohen'} will only return the entry of "Tom Hacohen", it will not return the entry of "Tom Sawyer".
 </p>
 <h2>Query Parameters</h2>
@@ -77,6 +77,7 @@
   TBD: This is not yet fully implemented and the API is not yet final.
   <h3>Special Identifiers</h3>
   There are a couple of special identifiers that change the querying behavior. For instance, <em>_at_least_one</em> means at least one part of the query needs to match (that is, logically connected with OR).
+  <br> TBD: explain about the other special indetifiers.
 </p>
 <h2>Comparison Types</h2>
 <p>
@@ -91,7 +92,7 @@
       <em>boolean</em>.
     </li>
     <li>
-      The following types are compared using regex:
+      The following types are compared using regex (perl style):
       <em>name</em>, <em>longtext</em>, <em>photo</em>, <em>objectpath</em>, <em>uri</em>, <em>timezone</em> (should change to int), <em>address</em>, <em>text</em>, <em>email</em> and <em>generic</em> (should change to a binary comparison).
     </li>
     <li>
