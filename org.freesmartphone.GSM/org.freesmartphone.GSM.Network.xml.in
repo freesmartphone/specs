@@ -379,7 +379,7 @@
         sent in response to the method org.freesmartphone.GSM.Network.SendUssdRequest.
       </doc:description>
     </doc:doc>
-    <arg type="s" name="mode">
+    <arg type="s" name="mode" fso:type="org.freesmartphone.GSM.UssdStatus">
       <doc:doc>
         <doc:summary>
           The message mode. Valid values are:
@@ -431,5 +431,14 @@
   <fso:field name="mccmnc" type="s" />
   <fso:field name="act" type="s" />
 </fso:struct>
+
+<fso:enumeration type="s" name="org.freesmartphone.GSM.UssdStatus">
+  <fso:member name="completed"      value="completed"/>
+  <fso:member name="useraction"     value="useraction"/>
+  <fso:member name="terminated"     value="terminated"/>
+  <fso:member name="localclient"    value="localclient"/>
+  <fso:member name="unsupported"    value="unsupported"/>
+  <fso:member name="timeout"        value="timeout"/>
+</fso:enumeration>
 
 </node>
