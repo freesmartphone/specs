@@ -94,7 +94,7 @@
     <arg direction="in" type="i" name="count">
       <doc:doc>
         <doc:summary>
-          The number of calls to get from the result set.
+          The number of calls to get from the result set. A negative value means all.
         </doc:summary>
       </doc:doc>
     </arg>
