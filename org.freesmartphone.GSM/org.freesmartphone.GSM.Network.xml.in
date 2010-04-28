@@ -406,18 +406,20 @@
   <signal name="CipherStatus">
     <doc:doc>
       <doc:description>
-        Sent, when the network reports a change in GSM or GPRS cipher indication.
-        Only few modems support forwarding this to the AT command layer, hence implementation of this signal is optional.
+        Sent, when the network reports a change in telephony or PDP cipher indication.
       </doc:description>
+      <doc:inote>
+        Very few modems support this on the command layer.
+      </doc:inote>
     </doc:doc>
-    <arg type="s" name="gsm">
+    <arg type="s" name="telephony" fso:type="org.freesmartphone.GSM.UssdStatus">
       <doc:doc>
-        <doc:summary>The GSM cipher: "enabled", "disabled", or "unknown"</doc:summary>
+        <doc:summary>The telephony cipher: "enabled", "disabled", or "unknown"</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="gprs">
+    <arg type="s" name="pdp" fso:type="org.freesmartphone.GSM.UssdStatus">
       <doc:doc>
-        <doc:summary>The GPRS cipher: "enabled", "disabled", or "unknown"</doc:summary>
+        <doc:summary>The PDP cipher cipher: "enabled", "disabled", or "unknown"</doc:summary>
       </doc:doc>
     </arg>
   </signal>
@@ -439,6 +441,12 @@
   <fso:member name="localclient"    value="localclient"/>
   <fso:member name="unsupported"    value="unsupported"/>
   <fso:member name="timeout"        value="timeout"/>
+</fso:enumeration>
+
+<fso:enumeration type="s" name="org.freesmartphone.GSM.CipherStatus">
+  <fso:member name="disabled"       value="disabled"/>
+  <fso:member name="enabled"        value="enabled"/>
+  <fso:member name="unknown"        value="unknown"/>
 </fso:enumeration>
 
 </node>

@@ -91,8 +91,8 @@
       <arg type="s" name="message"/>
     </signal>
     <signal name="CipherStatus">
-      <arg type="s" name="gsm"/>
-      <arg type="s" name="gprs"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="telephony" fso:type="org.freesmartphone.GSM.UssdStatus"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="pdp" fso:type="org.freesmartphone.GSM.UssdStatus"/>
     </signal>
   </interface>
   <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.NetworkProvider">
@@ -109,5 +109,10 @@
     <fso:member name="localclient" value="localclient"/>
     <fso:member name="unsupported" value="unsupported"/>
     <fso:member name="timeout" value="timeout"/>
+  </fso:enumeration>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.CipherStatus">
+    <fso:member name="disabled" value="disabled"/>
+    <fso:member name="enabled" value="enabled"/>
+    <fso:member name="unknown" value="unknown"/>
   </fso:enumeration>
 </node>
