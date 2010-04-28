@@ -412,12 +412,12 @@
         Very few modems support this on the command layer.
       </doc:inote>
     </doc:doc>
-    <arg type="s" name="telephony" fso:type="org.freesmartphone.GSM.UssdStatus">
+    <arg type="s" name="telephony" fso:type="org.freesmartphone.GSM.CipherStatus">
       <doc:doc>
         <doc:summary>The telephony cipher: "enabled", "disabled", or "unknown"</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="pdp" fso:type="org.freesmartphone.GSM.UssdStatus">
+    <arg type="s" name="pdp" fso:type="org.freesmartphone.GSM.CipherStatus">
       <doc:doc>
         <doc:summary>The PDP cipher cipher: "enabled", "disabled", or "unknown"</doc:summary>
       </doc:doc>

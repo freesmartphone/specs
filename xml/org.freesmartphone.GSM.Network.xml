@@ -91,8 +91,8 @@
       <arg type="s" name="message"/>
     </signal>
     <signal name="CipherStatus">
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="telephony" fso:type="org.freesmartphone.GSM.UssdStatus"/>
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="pdp" fso:type="org.freesmartphone.GSM.UssdStatus"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="telephony" fso:type="org.freesmartphone.GSM.CipherStatus"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="pdp" fso:type="org.freesmartphone.GSM.CipherStatus"/>
     </signal>
   </interface>
   <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.NetworkProvider">
