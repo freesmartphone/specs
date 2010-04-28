@@ -106,7 +106,7 @@
     <doc:doc>
       <doc:description>Retrieve the current PDP context status.</doc:description>
     </doc:doc>
-    <arg type="s" name="status" direction="out">
+    <arg type="s" name="status" direction="out" fso:type="org.freesmartphone.GSM.ContextStatus">
       <doc:doc>
         <doc:summary>The context status. See org.freesmartphone.GSM.PDP.ContextStatus for a list of valid values.</doc:summary>
       </doc:doc>
@@ -129,7 +129,7 @@
         Sent whenever there is any status or property change on a pdp context in the system.
       </doc:description>
     </doc:doc>
-    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CipherStatus">
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.ContextStatus">
       <doc:doc>
         <doc:summary>
           The new status of the context. Expected values are:
