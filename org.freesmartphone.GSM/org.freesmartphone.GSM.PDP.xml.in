@@ -129,7 +129,8 @@
         Sent whenever there is any status or property change on a pdp context in the system.
       </doc:description>
     </doc:doc>
-    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.ContextStatus">
+    <!-- <arg type="s" name="status" fso:type="org.freesmartphone.GSM.ContextStatus"> -->
+    <arg type="s" name="status">
       <doc:doc>
         <doc:summary>
           The new status of the context. Expected values are:

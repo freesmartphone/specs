@@ -36,7 +36,7 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <signal name="ContextStatus">
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.ContextStatus"/>
+      <arg type="s" name="status"/>
       <arg type="a{sv}" name="properties"/>
     </signal>
     <method name="InternalStatusUpdate">
