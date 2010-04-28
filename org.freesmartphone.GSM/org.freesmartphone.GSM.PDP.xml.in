@@ -129,16 +129,16 @@
         Sent whenever there is any status or property change on a pdp context in the system.
       </doc:description>
     </doc:doc>
-    <arg type="s" name="status">
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CipherStatus">
       <doc:doc>
         <doc:summary>
           The new status of the context. Expected values are:
           [ul]
             [li]"incoming" = The context is incoming (but not yet accepted),[/li]
             [li]"outgoing" = The context is outgoing (but not yet established),[/li]
-            [li]"active" = The context is active (you have a new default route),[/li]
-            [li]"held" = The context is being held (interrupted by a voice call) [OPTIONAL],[/li]
-            [li]"released" = The context is being released.[/li]
+            [li]"active" = The context is active and has offered a route,[/li]
+            [li]"held" = The context has been interrupted,[/li]
+            [li]"released" = The context is released.[/li]
           [/ul]
           Further information can be part of the properties.
         </doc:summary>
@@ -187,5 +187,14 @@
   -->
 
 </interface>
+
+<fso:enumeration type="s" name="org.freesmartphone.GSM.ContextStatus">
+  <fso:member name="unknown"       value="unknown"/>
+  <fso:member name="incoming"      value="incoming"/>
+  <fso:member name="outgoing"      value="outgoing"/>
+  <fso:member name="active"        value="active"/>
+  <fso:member name="released"      value="released"/>
+  <fso:member name="shutdown"      value="shutdown"/>
+</fso:enumeration>
 
 </node>
