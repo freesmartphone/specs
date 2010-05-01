@@ -15,11 +15,9 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <signal name="IncomingCellBroadcast">
-      <arg name="serial" type="i"/>
-      <arg name="channel" type="i"/>
-      <arg name="encoding" type="i"/>
-      <arg name="page" type="i"/>
-      <arg name="data" type="s"/>
+      <arg name="text" type="s"/>
+      <arg name="language" type="s"/>
+      <arg name="properties" type="a{sv}"/>
     </signal>
   </interface>
 </node>

@@ -23,7 +23,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Get current cell broadcast subscription channels.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CSCB=?, see 3GPP TS 07.05 Chapter 3.3.4.</doc:inote>
     </doc:doc>
     <arg type="s" name="channels" direction="out">
       <doc:doc>
@@ -41,7 +40,6 @@
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
       <doc:description>Set cell broadcast subscription channels.</doc:description>
-      <doc:inote>This maps to the GSM 07.07 command +CSCB=(...), see 3GPP TS 07.05 Chapter 3.3.4.</doc:inote>
     </doc:doc>
     <arg type="s" name="channels" direction="in">
       <doc:doc>
@@ -58,17 +56,24 @@
   <signal name="IncomingCellBroadcast">
     <doc:doc>
       <doc:description>Sent, when a cell broadcast message has been received.</doc:description>
-      <doc:inote>This maps to unsolicited GSM 07.05 response +CBM: (...).</doc:inote>
     </doc:doc>
-    <arg name="serial" type="i">
+    <arg name="text" type="s">
+      <doc:doc>
+        <doc:summary>The text of the message.
+        </doc:summary>
+      </doc:doc>
     </arg>
-    <arg name="channel" type="i">
+    <arg name="language" type="s">
+      <doc:doc>
+        <doc:summary>The language encoding.
+        </doc:summary>
+      </doc:doc>
     </arg>
-    <arg name="encoding" type="i">
-    </arg>
-    <arg name="page" type="i">
-    </arg>
-    <arg name="data" type="s">
+    <arg name="properties" type="a{sv}">
+      <doc:doc>
+        <doc:summary>Additional properties.
+        </doc:summary>
+      </doc:doc>
     </arg>
   </signal>
 

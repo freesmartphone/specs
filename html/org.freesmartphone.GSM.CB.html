@@ -22,10 +22,10 @@
 </ul>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetCellBroadcastSubscriptions">GetCellBroadcastSubscriptions</a> ( ) &rarr; s</h3>
-<p><i>Description:</i> Get current cell broadcast subscription channels. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CSCB=?, see 3GPP TS 07.05 Chapter 3.3.4. </p></div></p><h4>Returns</h4><i>s: channels</i><p>The channels you are subscribed to. Simple strings to expect are  "none" and "all". Also valid are compound descriptions of channel lists like  "1,2,3-5,7,234,10-5". </p>
+<p><i>Description:</i> Get current cell broadcast subscription channels. </p><h4>Returns</h4><i>s: channels</i><p>The channels you are subscribed to. Simple strings to expect are  "none" and "all". Also valid are compound descriptions of channel lists like  "1,2,3-5,7,234,10-5". </p>
 <h3><a name="SetCellBroadcastSubscriptions">SetCellBroadcastSubscriptions</a> ( s )</h3>
-<p><i>Description:</i> Set cell broadcast subscription channels. </p><p><div class="rationale"><p>This maps to the GSM 07.07 command +CSCB=(...), see 3GPP TS 07.05 Chapter 3.3.4. </p></div></p><h4>Parameters</h4><i>s: channels</i><p>The channels you want to subscribe. Valid simple strings are  "none" and "all". Also valid are compound descriptions of channels lists like  "1,2,3-5,7,234,10-5". </p>
-<h1>Signals</h1><h3><h3><a name="IncomingCellBroadcast">IncomingCellBroadcast</a> ( iiiis )</h3><p><i>Description:</i> Sent, when a cell broadcast message has been received. </p><h4>Parameters</h4><i>i: serial</i><p> </p><i>i: channel</i><p> </p><i>i: encoding</i><p> </p><i>i: page</i><p> </p><i>s: data</i><p> </p></h3>
+<p><i>Description:</i> Set cell broadcast subscription channels. </p><h4>Parameters</h4><i>s: channels</i><p>The channels you want to subscribe. Valid simple strings are  "none" and "all". Also valid are compound descriptions of channels lists like  "1,2,3-5,7,234,10-5". </p>
+<h1>Signals</h1><h3><h3><a name="IncomingCellBroadcast">IncomingCellBroadcast</a> ( ssa{sv} )</h3><p><i>Description:</i> Sent, when a cell broadcast message has been received. </p><h4>Parameters</h4><i>s: text</i><p>The text of the message. </p><i>s: language</i><p>The language encoding. </p><i>a{sv}: properties</i><p>Additional properties. </p></h3>
 
     <hr/>
     <small>
