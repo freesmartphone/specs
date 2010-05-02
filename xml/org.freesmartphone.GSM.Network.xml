@@ -30,6 +30,10 @@
     <signal name="SignalStrength">
       <arg type="i" name="signal_strength"/>
     </signal>
+    <signal name="TimeReport">
+      <arg type="i" name="seconds_since_epoch"/>
+      <arg type="i" name="time_zone"/>
+    </signal>
     <signal name="TimeZoneReport">
       <arg type="i" name="time_zone"/>
     </signal>
