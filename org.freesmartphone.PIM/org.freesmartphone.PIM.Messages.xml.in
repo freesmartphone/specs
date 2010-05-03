@@ -112,45 +112,6 @@
     </arg>
   </method>
 
-  <method name="GetFolderNames">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Get the list of folder names that exist in the message backends.
-      </doc:description>
-    </doc:doc>
-    <arg direction="out" type="as" name="folder_names">
-      <doc:doc>
-        <doc:summary>
-          The list of folder names
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
-  <method name="GetFolderPathFromName">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>
-        Get a folder's dbus path from its name.
-      </doc:description>
-    </doc:doc>
-    <arg direction="in" type="s" name="folder_name">
-      <doc:doc>
-        <doc:summary>
-          The name of the folder
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg direction="out" type="s" name="folder_path">
-      <doc:doc>
-        <doc:summary>
-          The path of the folder
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <method name="GetUnreadMessages">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
