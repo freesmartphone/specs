@@ -100,6 +100,9 @@
     </li>
 
   </ul>
+  Normally, the values are tested for equality, but when a field name is prefixed with either '&lt;' or '&gt;' the values are tested for lesser than, and greater than respectively. 
+  For example, '&lt;Age': 19 matches all the entries with an age smaller than 19.
+  This does not work with fields that match with regex (as defined above).
 
 </p>
 
