@@ -3,7 +3,7 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org GSM Network Interface</doc:summary>
-  <doc:version>1.0.2</doc:version>
+  <doc:version>1.0.3</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.GSM.Network">
@@ -146,39 +146,66 @@
     </arg>
   </signal>
 
+  <method name="GetTimeReport">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+    <doc:doc>
+      <doc:description>Query the last received time report.</doc:description>
+    </doc:doc>
+    <arg type="i" name="time" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The current time in seconds since UNIX epoch.
+          0, if no time has been received.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="timestamp" direction="out">
+      <doc:doc>
+        <doc:summary>
+          Timestamp indicating when the time report has been received from the network.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="zone" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The time zone offset in minutes based on UTC.
+          This value is only valid, if within the interval ( -1440, 1440 ).
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="i" name="zonestamp" direction="out">
+      <doc:doc>
+        <doc:summary>
+          Timestamp indicating when the time report has been received from the network.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
   <signal name="TimeReport">
     <doc:doc>
       <doc:description>
-        Sent upon receiving a network time zone report.
+        Sent upon receiving a network time and/or zone report.
       </doc:description>
       <doc:inote>
         Very few providers / networks are supporting this.
       </doc:inote>
     </doc:doc>
-    <arg type="i" name="seconds_since_epoch">
+    <arg type="i" name="time">
       <doc:doc>
-        <doc:summary>The current time in seconds since UNIX epoch.</doc:summary>
+        <doc:summary>
+          The current time in seconds since UNIX epoch.
+          0, if no time has been received.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="i" name="time_zone">
+    <arg type="i" name="zone">
       <doc:doc>
-        <doc:summary>The time zone offset in minutes based on UTC.</doc:summary>
-      </doc:doc>
-    </arg>
-  </signal>
-
-  <signal name="TimeZoneReport">
-    <doc:doc>
-      <doc:description>
-        Sent upon receiving a network time zone report.
-      </doc:description>
-      <doc:inote>
-        Very few providers / networks are supporting this.
-      </doc:inote>
-    </doc:doc>
-    <arg type="i" name="time_zone">
-      <doc:doc>
-        <doc:summary>The time zone offset in minutes based on UTC.</doc:summary>
+        <doc:summary>
+          The time zone offset in minutes based on UTC.
+          This value is only valid, if within the interval ( -1440, 1440 ).
+        </doc:summary>
       </doc:doc>
     </arg>
   </signal>

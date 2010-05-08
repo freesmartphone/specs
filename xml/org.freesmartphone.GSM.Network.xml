@@ -30,12 +30,18 @@
     <signal name="SignalStrength">
       <arg type="i" name="signal_strength"/>
     </signal>
+    <method name="GetTimeReport">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="i" name="time" direction="out"/>
+      <arg type="i" name="timestamp" direction="out"/>
+      <arg type="i" name="zone" direction="out"/>
+      <arg type="i" name="zonestamp" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
     <signal name="TimeReport">
-      <arg type="i" name="seconds_since_epoch"/>
-      <arg type="i" name="time_zone"/>
-    </signal>
-    <signal name="TimeZoneReport">
-      <arg type="i" name="time_zone"/>
+      <arg type="i" name="time"/>
+      <arg type="i" name="zone"/>
     </signal>
     <method name="ListProviders">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
