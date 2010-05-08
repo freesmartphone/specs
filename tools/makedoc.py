@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# (C) 2008 Michael 'Mickey' Lauer <mlauer@vanille-media.de>
+# (C) 2008-2010 Michael 'Mickey' Lauer <mlauer@vanille-media.de>
 # GPLv2 or later.
 
 """
@@ -11,7 +11,7 @@ but I really couldn't get it. Then I gave up and wrote this.
 It's not versatile, but it gets my job done.
 """
 
-__version__ = "0.9.9.1"
+__version__ = "0.9.9.2"
 
 import sys
 from xml.sax import parse
@@ -204,6 +204,9 @@ class Describable( Entity ):
             text += self.outputParagraph( self.outputImplementationNote( self.inote ) )
         return text
 
+    def __repr__( self ):
+        return "<Describable:%s>" % self.name
+
 #----------------------------------------------------------------------------#
 class Method( Describable ):
 #----------------------------------------------------------------------------#
@@ -214,11 +217,17 @@ class Method( Describable ):
     def signature( self ):
         outparam = ""
         inparam = ""
-        for arg in self.args:
-            if arg.attrs["direction"] == "in":
-                inparam += arg.attrs["type"]
-            else:
-                outparam += arg.attrs["type"]
+        try:
+            for arg in self.args:
+                if arg.attrs["direction"] == "in":
+                    inparam += arg.attrs["type"]
+                elif arg.attrs["direction"] == "out":
+                    outparam += arg.attrs["type"]
+                else:
+                    raise KeyError, "Direction neither 'in' nor 'out'"
+        except KeyError, e:
+            print >>sys.stderr, "[ERROR] Invalid signature for method", self, e
+            sys.exit( -1 )
         return inparam, outparam
 
     def out( self ):
