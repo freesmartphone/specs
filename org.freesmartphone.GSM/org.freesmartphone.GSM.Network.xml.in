@@ -365,7 +365,7 @@
     <doc:doc>
       <doc:description>Set whether your subscriber number is visible during a call.</doc:description>
     </doc:doc>
-    <arg type="s" name="visible" direction="in">
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CallingIdentificationStatus" direction="in">
       <doc:doc>
         <doc:summary>
           One of the following values:
@@ -386,7 +386,7 @@
     <doc:doc>
       <doc:description>Get whether your subscriber number is visible during a call.</doc:description>
     </doc:doc>
-    <arg type="s" name="visible" direction="out">
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CallingIdentificationStatus" direction="out">
       <doc:doc>
         <doc:summary>
           One of the following values:
@@ -495,6 +495,12 @@
   <fso:member name="disabled"       value="disabled"/>
   <fso:member name="enabled"        value="enabled"/>
   <fso:member name="unknown"        value="unknown"/>
+</fso:enumeration>
+
+<fso:enumeration type="s" name="org.freesmartphone.GSM.CallingIdentificationStatus">
+  <fso:member name="network"       value="network"/>
+  <fso:member name="on"            value="on"/>
+  <fso:member name="off"           value="off"/>
 </fso:enumeration>
 
 </node>

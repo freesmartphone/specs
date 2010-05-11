@@ -80,13 +80,13 @@
     </method>
     <method name="SetCallingIdentification">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="visible" direction="in"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.CallingIdentificationStatus" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="GetCallingIdentification">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="visible" direction="out"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.CallingIdentificationStatus" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
@@ -124,5 +124,10 @@
     <fso:member name="disabled" value="disabled"/>
     <fso:member name="enabled" value="enabled"/>
     <fso:member name="unknown" value="unknown"/>
+  </fso:enumeration>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.CallingIdentificationStatus">
+    <fso:member name="network" value="network"/>
+    <fso:member name="on" value="on"/>
+    <fso:member name="off" value="off"/>
   </fso:enumeration>
 </node>
