@@ -139,7 +139,7 @@
     </arg>
     <arg type="s" name="timestamp">
       <doc:doc>
-        <doc:summary>The contents of the message.</doc:summary>
+        <doc:summary>The timestamp of the message.</doc:summary>
       </doc:doc>
     </arg>
     <arg type="s" name="contents">
