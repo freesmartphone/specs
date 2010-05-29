@@ -16,7 +16,7 @@
   </doc:doc>
 
   <method name="Alarm">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <annotation name="org.freedesktop.DBus.GLib.NoReply" value="true" />
     <doc:doc>
       <doc:description>
         Sent, when an alarm that has been scheduled with org.freesmartphone.Time.Alarm.AddAlarm

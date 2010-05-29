@@ -3,7 +3,7 @@
 <node name="/">
   <interface name="org.freesmartphone.Notification">
     <method name="Alarm">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <annotation name="org.freedesktop.DBus.GLib.NoReply" value="true"/>
     </method>
   </interface>
 </node>
