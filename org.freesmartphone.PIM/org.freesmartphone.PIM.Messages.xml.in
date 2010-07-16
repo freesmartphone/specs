@@ -176,7 +176,7 @@
   <signal name="UpdatedMessage">
     <doc:doc>
       <doc:description>
-        Sent whenever a message has been updated.	  
+        Sent whenever a message has been updated.
       </doc:description>
     </doc:doc>
     <arg type="s" name="message_path">
@@ -186,7 +186,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a{sv]" name="message_data">
+    <arg type="a{sv}" name="message_data">
       <doc:doc>
         <doc:summary>
           The data that was changed for the message.
