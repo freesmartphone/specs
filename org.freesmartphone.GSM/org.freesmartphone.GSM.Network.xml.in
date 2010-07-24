@@ -499,8 +499,8 @@
 
 <fso:enumeration type="s" name="org.freesmartphone.GSM.CallingIdentificationStatus">
   <fso:member name="network"       value="network"/>
-  <fso:member name="on"            value="on"/>
   <fso:member name="off"           value="off"/>
+  <fso:member name="on"            value="on"/>
 </fso:enumeration>
 
 </node>
