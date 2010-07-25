@@ -309,7 +309,7 @@
     <arg type="s" name="category" direction="in">
       <doc:doc>
         <doc:summary>
-          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
+          The phonebook storage category. See org.freesmartphone.GSM.SIM.GetSimInfo
           for a list of valid categories.
         </doc:summary>
       </doc:doc>
@@ -331,7 +331,7 @@
     <arg type="s" name="category" direction="in">
       <doc:doc>
         <doc:summary>
-          The phonebook storage category. See org.freesmartphone.GSM.SIM.ListPhonebooks
+          The phonebook storage category. See org.freesmartphone.GSM.SIM.GetSimInfo
           for a list of valid categories.
         </doc:summary>
       </doc:doc>
