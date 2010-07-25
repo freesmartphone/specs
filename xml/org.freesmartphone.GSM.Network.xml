@@ -127,7 +127,7 @@
   </fso:enumeration>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.CallingIdentificationStatus">
     <fso:member name="network" value="network"/>
-    <fso:member name="on" value="on"/>
     <fso:member name="off" value="off"/>
+    <fso:member name="on" value="on"/>
   </fso:enumeration>
 </node>
