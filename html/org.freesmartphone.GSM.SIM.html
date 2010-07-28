@@ -16,6 +16,7 @@
 <h2>Methods</h2><ul>
 <li><a href="#GetAuthStatus">GetAuthStatus</a></li>
 <li><a href="#SendAuthCode">SendAuthCode</a></li>
+<li><a href="#GetUnlockCounters">GetUnlockCounters</a></li>
 <li><a href="#Unlock">Unlock</a></li>
 <li><a href="#ChangeAuthCode">ChangeAuthCode</a></li>
 <li><a href="#SetAuthCodeRequired">SetAuthCodeRequired</a></li>
@@ -44,6 +45,8 @@
 <p><i>Description:</i> Retrieve the authentication status for the SIM card. </p><h4>Returns</h4><i>s: status</i><p>The authentication status for the SIM card. Values to expect:  <ul>  <li>"UNKNOWN" = unknown (possibly due to SIM communication error or SIM not inserted)</li>  <li>"READY" = not waiting for any PIN or PUK,</li>  <li>"SIM PIN" = waiting for SIM PIN to be given,</li>  <li>"SIM PUK" = waiting for SIM PUK to be given,</li>  <li>"SIM PIN2" = waiting for SIM PIN 2 to be given,</li>  <li>"SIM PUK2" = waiting for SIM PUK 2 to be given.</li>  </ul> </p>
 <h3><a name="SendAuthCode">SendAuthCode</a> ( s )</h3>
 <p><i>Description:</i> Send authentication code (PIN) for the SIM card. </p><h4>Parameters</h4><i>s: pin</i><p>The authentication code. </p>
+<h3><a name="GetUnlockCounters">GetUnlockCounters</a> ( ) &rarr; a{sv}</h3>
+<p><i>Description:</i> Retrieve the unlock counters for the SIM card. </p><p><div class="rationale"><p>This is outside the GSM standard and only supported on some devices. </p></div></p><h4>Returns</h4><i>a{sv}: counters</i><p>The unlock counters for the SIM card. </p>
 <h3><a name="Unlock">Unlock</a> ( ss )</h3>
 <p><i>Description:</i> Send unlock code (PUK) and new authentication code (PIN). </p><h4>Parameters</h4><i>s: puk</i><p>The unlock code. </p><i>s: new_pin</i><p>The new authentication code. </p>
 <h3><a name="ChangeAuthCode">ChangeAuthCode</a> ( ss )</h3>

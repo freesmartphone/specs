@@ -72,6 +72,23 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
+  <method name="GetUnlockCounters">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Retrieve the unlock counters for the SIM card.</doc:description>
+      <doc:inote>This is outside the GSM standard and only supported on some devices.</doc:inote>
+    </doc:doc>
+    <arg type="a{sv}" name="counters" direction="out">
+      <doc:doc>
+        <doc:summary>
+          The unlock counters for the SIM card.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
   <method name="Unlock">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
