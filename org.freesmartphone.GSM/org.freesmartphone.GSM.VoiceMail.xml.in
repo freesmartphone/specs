@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-voicemail-interface">
+
+  <doc:doc>
+    <doc:summary>freesmartphone.org GSM Voice Mail Interface</doc:summary>
+  </doc:doc>
+
+<interface name="org.freesmartphone.GSM.VoiceMail">
+
+  <doc:doc>
+    <doc:para>
+      The Voice Mail interface gives access to the voice mail status.
+
+      Voice Mail is a feature provided by several operators, in which an answering
+      machine (voice mailbox) is provided to a caller, if the callee can't be
+      reached or doesn't want to be reached (i.e. by sending busy).
+    </doc:para>
+  </doc:doc>
+
+  <method name="GetVoiceMailboxNumber">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Retrieve phone number of Voice Mailbox.</doc:description>
+    </doc:doc>
+    <arg type="s" name="number" direction="out">
+      <doc:doc>
+        <doc:summary>The Voice mailbox number.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="GetVoiceMailboxNumber">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Set phone number of Voice Mailbox.</doc:description>
+    </doc:doc>
+    <arg type="s" name="number" direction="in">
+      <doc:doc>
+        <doc:summary>The Voice mailbox nNumber.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <signal name="IncomingVoiceMail">
+    <doc:doc>
+      <doc:description>Sent, when a new voice mail has been stored on the voice mailbox.</doc:description>
+    </doc:doc>
+    <arg type="i" name="index">
+      <doc:doc>
+        <doc:summary>The storage index of the new message.</doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
+  <method name="GetStoredVoiceMails">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Retrieve the indices of stored voice mails on your voice mailbox.</doc:description>
+    </doc:doc>
+    <arg type="as" name="zones" direction="out">
+      <doc:doc>
+        <doc:summary>The home zone names.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+</interface>
+</node>

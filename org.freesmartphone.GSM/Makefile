@@ -11,5 +11,6 @@ files = \
   org.freesmartphone.GSM.PDP.xml \
   org.freesmartphone.GSM.SIM.xml \
   org.freesmartphone.GSM.SMS.xml \
+  org.freesmartphone.GSM.VoiceMail.xml \
 
 include ../tools/rules.mk
