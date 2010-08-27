@@ -10,7 +10,7 @@
 
 
 <h1>org.freesmartphone.Resource</h1><h2>Description</h2>
-<p>The Resource interface provides access to a resource as visible from the OUsage subsystem.  If a resource is to be provided for OUsage, this interface has to be implemented.  Applications usually are not allowed to use this interface directly, they will  solely interact using the org.freesmartphone.Usage API.</p>
+<p>The Resource interface provides access to a resource as visible from the FSO usage subsystem.  Every resource provider has to implement this interface.  Applications other than FSO usage are not allowed to use this interface, they have to  use the org.freesmartphone.Usage API.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Resource</tt></p>
 <h2>Methods</h2><ul>
@@ -18,6 +18,7 @@
 <li><a href="#Disable">Disable</a></li>
 <li><a href="#Suspend">Suspend</a></li>
 <li><a href="#Resume">Resume</a></li>
+<li><a href="#GetDependencies">GetDependencies</a></li>
 </ul>
 <h2>Signals</h2><i>None</i>
 <h2>Errors</h2><ul>
@@ -28,6 +29,8 @@
 <h3><a name="Disable">Disable</a> ( )</h3><p><i>Description:</i> Disable the resource. </p>
 <h3><a name="Suspend">Suspend</a> ( )</h3><p><i>Description:</i> Suspend the resource. </p>
 <h3><a name="Resume">Resume</a> ( )</h3><p><i>Description:</i> Resume the resource. </p>
+<h3><a name="GetDependencies">GetDependencies</a> ( ) &rarr; a{sv}</h3>
+<p><i>Description:</i> Resume the resource. </p><h4>Returns</h4><i>a{sv}: dependencies</i><p>Dependencies required for resource operation. Expected values are:  <ul>  <li>"services": A comma-separated string of service names</li>  <li>"processes": A comma-separated string of process names</li>  </ul>  Dependencies are being activated / deactivated as defined by the resource lifecycle. </p>
 <h1>Errors</h1><h3><a name="NotEnabled">NotEnabled</a></h3><p><i>Description:</i> Raised, if the resource is not enabled. </p>
 <h3><a name="UnableToEnable">UnableToEnable</a></h3><p><i>Description:</i> Raised, if the resource can not be enabled. </p>
 

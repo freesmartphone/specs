@@ -18,6 +18,11 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Resource"/>
     </method>
+    <method name="GetDependencies">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="a{sv}" name="dependencies" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Resource"/>
+    </method>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Resource" fso:no-container="true">
     <error name="NotEnabled"/>

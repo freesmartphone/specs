@@ -3,17 +3,17 @@
 
 <doc:doc>
   <doc:summary>freesmartphone.org Resource Interface</doc:summary>
-  <doc:version>0.5.1</doc:version>
+  <doc:version>0.6.0</doc:version>
 </doc:doc>
 
 <interface name="org.freesmartphone.Resource">
 
   <doc:doc>
     <doc:para>
-      The Resource interface provides access to a resource as visible from the OUsage subsystem.
-      If a resource is to be provided for OUsage, this interface has to be implemented.
-      Applications usually are not allowed to use this interface directly, they will
-      solely interact using the org.freesmartphone.Usage API.
+      The Resource interface provides access to a resource as visible from the FSO usage subsystem.
+      Every resource provider has to implement this interface.
+      Applications other than FSO usage are not allowed to use this interface, they have to
+      use the org.freesmartphone.Usage API.
     </doc:para>
   </doc:doc>
 
@@ -48,6 +48,26 @@
     <doc:doc>
       <doc:description>Resume the resource.</doc:description>
     </doc:doc>
+    <fso:throws type="org.freesmartphone.Resource" />
+  </method>
+
+  <method name="GetDependencies">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Resume the resource.</doc:description>
+    </doc:doc>
+    <arg type="a{sv}" name="dependencies" direction="out">
+      <doc:doc>
+        <doc:summary>
+          Dependencies required for resource operation. Expected values are:
+          [ul]
+            [li]"services": A comma-separated string of service names[/li]
+            [li]"processes": A comma-separated string of process names[/li]
+          [/ul]
+          Dependencies are being activated / deactivated as defined by the resource lifecycle.
+        </doc:summary>
+      </doc:doc>
+    </arg>
     <fso:throws type="org.freesmartphone.Resource" />
   </method>
 
