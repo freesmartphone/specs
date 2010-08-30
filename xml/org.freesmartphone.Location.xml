@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Location">
+    <signal name="LocationUpdate">
+      <arg name="latitude" type="d"/>
+      <arg name="longitude" type="d"/>
+      <arg name="altitude" type="i"/>
+      <arg name="speed" type="u"/>
+      <arg name="course" type="i"/>
+      <arg name="horizontalAccuracy" type="i"/>
+      <arg name="verticalAccuracy" type="i"/>
+      <arg name="timestamp" type="i"/>
+    </signal>
+  </interface>
+</node>

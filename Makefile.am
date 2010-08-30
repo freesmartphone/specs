@@ -2,17 +2,18 @@ SUBDIRS = \
   org.freesmartphone \
   org.freesmartphone.Data \
   org.freesmartphone.Device \
-  org.freesmartphone.Phone \
-  org.freesmartphone.Usage \
   org.freesmartphone.Events \
-  org.freesmartphone.PIM \
-  org.freedesktop.Gypsy \
   org.freesmartphone.GSM \
-  org.freesmartphone.Preferences \
+  org.freesmartphone.Location \
+  org.freesmartphone.MusicPlayer \
   org.freesmartphone.Network \
   org.freesmartphone.Notification \
+  org.freesmartphone.Phone \
+  org.freesmartphone.PIM \
+  org.freesmartphone.Preferences \
   org.freesmartphone.Time \
-  org.freesmartphone.MusicPlayer
+  org.freesmartphone.Usage \
+  org.freedesktop.Gypsy
 
 EXTRA_DIST = fso-specs.pc.in
 

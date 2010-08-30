@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension"
+xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-location-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Location Interface</doc:summary>
+  <doc:version>0.2.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Location">
+
+    <doc:doc>
+    <doc:para>
+      The Location interface allows access to position updates,
+      region monitoring, and region alarms.
+     </doc:para>
+    </doc:doc>
+
+    <signal name="LocationUpdate">
+    <doc:doc>
+      <doc:description>Sent, when the location has been changed.</doc:description>
+    </doc:doc>
+    <arg name="latitude" type="d">
+      <doc:doc>
+        <doc:summary>The latitude.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg name="longitude" type="d">
+      <doc:doc>
+        <doc:summary>The longitude.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg name="altitude" type="i">
+      <doc:doc>
+        <doc:summary>The altitude.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg name="speed" type="u">
+      <doc:doc>
+        <doc:summary>The speed.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg name="course" type="i">
+      <doc:doc>
+        <doc:summary>
+            Course values are measured in degrees starting at due north and continuing clockwise around the compass.
+            Thus, north is 0 degrees, east is 90 degrees, south is 180 degrees, and so on.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg name="horizontalAccuracy" type="i">
+      <doc:doc>
+        <doc:summary>
+            The radius of uncertainty for the location, measured in meters. -1 indicates an invalid location.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg name="verticalAccuracy" type="i">
+      <doc:doc>
+        <doc:summary>
+            The accuracy of the altitude in meters. -1 indicates an invalid altitude.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg name="timestamp" type="i">
+      <doc:doc>
+        <doc:summary>
+            Seconds since epoch indicating when the location has been acquired.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    </signal>
+
+</interface>
+
+</node>
