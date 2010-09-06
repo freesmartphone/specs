@@ -2,15 +2,13 @@
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
   <interface name="org.freesmartphone.Location">
+    <method name="GetLocation">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="a{sv}" name="location" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
     <signal name="LocationUpdate">
-      <arg name="latitude" type="d"/>
-      <arg name="longitude" type="d"/>
-      <arg name="altitude" type="i"/>
-      <arg name="speed" type="u"/>
-      <arg name="course" type="i"/>
-      <arg name="horizontalAccuracy" type="i"/>
-      <arg name="verticalAccuracy" type="i"/>
-      <arg name="timestamp" type="i"/>
+      <arg name="location" type="a{sv}"/>
     </signal>
   </interface>
 </node>

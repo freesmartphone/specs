@@ -13,12 +13,16 @@
 <p>The Location interface allows access to position updates,  region monitoring, and region alarms.</p>
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Location</tt></p>
-<h2>Methods</h2><i>None</i>
+<h2>Methods</h2><ul>
+<li><a href="#GetLocation">GetLocation</a></li>
+</ul>
 <h2>Signals</h2><ul>
 <li><a href="#LocationUpdate">LocationUpdate</a></li>
 </ul>
 <h2>Errors</h2><i>None</i>
-<h1>Signals</h1><h3><h3><a name="LocationUpdate">LocationUpdate</a> ( ddiuiiii )</h3><p><i>Description:</i> Sent, when the location has been changed. </p><h4>Parameters</h4><i>d: latitude</i><p>The latitude. </p><i>d: longitude</i><p>The longitude. </p><i>i: altitude</i><p>The altitude. </p><i>u: speed</i><p>The speed. </p><i>i: course</i><p>Course values are measured in degrees starting at due north and continuing clockwise around the compass.  Thus, north is 0 degrees, east is 90 degrees, south is 180 degrees, and so on. </p><i>i: horizontalAccuracy</i><p>The radius of uncertainty for the location, measured in meters. -1 indicates an invalid location. </p><i>i: verticalAccuracy</i><p>The accuracy of the altitude in meters. -1 indicates an invalid altitude. </p><i>i: timestamp</i><p>Seconds since epoch indicating when the location has been acquired. </p></h3>
+<h1>Methods</h1><h3><a name="GetLocation">GetLocation</a> ( ) &rarr; a{sv}</h3>
+<p><i>Description:</i> Get the last location information, if available. </p><h4>Returns</h4><i>a{sv}: location</i><p>The location information. See <a href="http://docs.freesmartphone.org/org.freesmartphone.Location.Location.html#Update">Update</a> for valid key/value pairs. </p>
+<h1>Signals</h1><h3><h3><a name="LocationUpdate">LocationUpdate</a> ( a{sv} )</h3><p><i>Description:</i> Sent, when the location has been changed. </p><h4>Parameters</h4><i>a{sv}: location</i><p>The location information. Expected key/value pairs are:  <ul>  <li>"longitude": double - longitude in degrees,</li>  <li>"latitude": double - latitude in degrees,</li>  <li>"altitude": int - height in meters,</li>  <li>"speed": uint - speed in meters/second,</li>  <li>"course: uint - course value in degrees, starting at due notrh, contiuning clockwise around the compass. Thus, north is 0 degrees, east is 90 degrees, etc.</li>  <li>"horizontalAccuracy": uint - radius of uncertainty for the location in meters,</li>  <li>"verticalAccuracy": uint - accuracy of altitude in meters,</li>  <li>"description": string - textual description of location,</li>  <li>"timestamp": int - seconds since epoch indicating when the location has been acquired.</li>  </ul> </p></h3>
 
     <hr/>
     <small>
