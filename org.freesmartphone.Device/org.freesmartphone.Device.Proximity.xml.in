@@ -17,7 +17,7 @@
   <method name="GetProximity">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Get the last value of the proximity device, or -1 if unknown.</doc:description>
+      <doc:description>Get the last percentage value of the proximity device (most probably 0 or 100), or -1 if unknown.</doc:description>
     </doc:doc>
     <arg direction="out" type="i" name="proximity">
       <doc:doc>
@@ -45,7 +45,7 @@
     <arg type="i" name="proximity">
       <doc:doc>
         <doc:summary>
-          The new proximity.
+          The new proximity in percentage (most probably 0 or 100).
         </doc:summary>
       </doc:doc>
     </arg>
