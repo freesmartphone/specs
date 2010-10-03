@@ -43,6 +43,13 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <arg direction="out" type="a{sv}" name="field_data">
+      <doc:doc>
+        <doc:summary>
+          The data of the requested fields.
+        </doc:summary>
+      </doc:doc>
+    </arg>
   </method>
 
   <method name="MoveToFolder">
