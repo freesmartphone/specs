@@ -112,6 +112,29 @@
     </arg>
   </method>
 
+  <method name="QueryThreads">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Query a list of message threads.
+      </doc:description>
+    </doc:doc>
+    <arg direction="in" type="a{sv}" name="query">
+      <doc:doc>
+        <doc:summary>
+          The query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg direction="out" type="s" name="query_path">
+      <doc:doc>
+        <doc:summary>
+          The path for the started query.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </method>
+
   <method name="GetUnreadMessages">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>

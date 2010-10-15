@@ -23,6 +23,11 @@
       <arg direction="in" type="a{sv}" name="query"/>
       <arg direction="out" type="s" name="query_path"/>
     </method>
+    <method name="QueryThreads">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+        <arg direction="in" type="a{sv}" name="query"/>
+        <arg direction="out" type="s" name="query_path"/>
+    </method>
     <method name="GetUnreadMessages">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="i" name="amount"/>
