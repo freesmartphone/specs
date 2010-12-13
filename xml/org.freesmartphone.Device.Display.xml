@@ -18,5 +18,8 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="in" type="b" name="power"/>
     </method>
+    <signal name="BacklightPower">
+      <arg direction="in" type="b" name="power"/>
+    </signal>
   </interface>
 </node>

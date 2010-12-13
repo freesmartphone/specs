@@ -71,5 +71,18 @@
     </arg>
   </method>
 
+  <signal name="BacklightPower">
+    <doc:doc>
+      <doc:description>Send when the backlight brightness (or power) moves to 0 or out of 0.</doc:description>
+    </doc:doc>
+    <arg direction="in" type="b" name="power">
+      <doc:doc>
+        <doc:summary>
+          True, if the backlight has been turned on. False, otherwise.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
+
 </interface>
 </node>
