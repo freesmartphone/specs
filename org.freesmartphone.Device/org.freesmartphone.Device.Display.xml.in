@@ -75,7 +75,7 @@
     <doc:doc>
       <doc:description>Send when the backlight brightness (or power) moves to 0 or out of 0.</doc:description>
     </doc:doc>
-    <arg direction="in" type="b" name="power">
+    <arg type="b" name="power">
       <doc:doc>
         <doc:summary>
           True, if the backlight has been turned on. False, otherwise.

@@ -19,7 +19,7 @@
       <arg direction="in" type="b" name="power"/>
     </method>
     <signal name="BacklightPower">
-      <arg direction="in" type="b" name="power"/>
+      <arg type="b" name="power"/>
     </signal>
   </interface>
 </node>
