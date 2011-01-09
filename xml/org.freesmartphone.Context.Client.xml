@@ -3,9 +3,9 @@
 <node name="/">
   <interface name="org.freesmartphone.Context.Client">
     <method name="LocationUpdate">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="a{sv}" name="from" direction="out"/>
-      <arg type="a{sv}" name="to" direction="out"/>
+      <annotation name="org.freedesktop.DBus.GLib.NoReply" value="true"/>
+      <arg type="a{sv}" name="from" direction="in"/>
+      <arg type="a{sv}" name="to" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
   </interface>

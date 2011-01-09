@@ -16,18 +16,18 @@
     </doc:doc>
 
     <method name="LocationUpdate">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <annotation name="org.freedesktop.DBus.GLib.NoReply" value="true"/>
       <doc:doc>
         <doc:description>Called to deliver a location update.</doc:description>
       </doc:doc>
-      <arg type="a{sv}" name="from" direction="out">
+      <arg type="a{sv}" name="from" direction="in">
         <doc:doc>
           <doc:summary>
             The new location information.
           </doc:summary>
         </doc:doc>
       </arg>
-      <arg type="a{sv}" name="to" direction="out">
+      <arg type="a{sv}" name="to" direction="in">
         <doc:doc>
           <doc:summary>
             The new location information.
