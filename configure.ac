@@ -1,6 +1,6 @@
 ##############################################################################
 # init
-AC_INIT([fso-specs], [2010.12.13.1], [smartphones-standards@linuxtogo.org], [fso-specs])
+AC_INIT([fso-specs], [2011.01.09.1], [smartphones-standards@linuxtogo.org], [fso-specs])
 AC_CONFIG_SRCDIR([tools/rules.mk])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign no-dist-gzip dist-bzip2])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])

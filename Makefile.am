@@ -2,9 +2,9 @@ SUBDIRS = \
   org.freesmartphone \
   org.freesmartphone.Data \
   org.freesmartphone.Device \
+  org.freesmartphone.Context \
   org.freesmartphone.Events \
   org.freesmartphone.GSM \
-  org.freesmartphone.Location \
   org.freesmartphone.MusicPlayer \
   org.freesmartphone.Network \
   org.freesmartphone.Notification \
