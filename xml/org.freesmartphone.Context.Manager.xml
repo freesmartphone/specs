@@ -13,11 +13,12 @@
     </method>
   </interface>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.Context.LocationUpdateAccuracy">
-    <fso:member name="best-navi" value="BEST_FOR_NAVIGATION"/>
-    <fso:member name="best" value="BEST"/>
-    <fso:member name="10m" value="NEAREST_TEN_METERS"/>
-    <fso:member name="100m" value="HUNDRED_METERS"/>
-    <fso:member name="1km" value="KILOMETER"/>
-    <fso:member name="3km" value="THREE_KILOMETERS"/>
+    <fso:member name="INVALID" value="invalid"/>
+    <fso:member name="NAVI" value="navigation"/>
+    <fso:member name="BEST" value="best"/>
+    <fso:member name="10M" value="nearest-ten-meters"/>
+    <fso:member name="100M" value="hundred-meters"/>
+    <fso:member name="1KM" value="one-kilometer"/>
+    <fso:member name="3KM" value="three-kilometers"/>
   </fso:enumeration>
 </node>
