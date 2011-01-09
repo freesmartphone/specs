@@ -20,5 +20,6 @@
     <fso:member name="100M" value="hundred-meters"/>
     <fso:member name="1KM" value="one-kilometer"/>
     <fso:member name="3KM" value="three-kilometers"/>
+    <fso:member name="100KM" value="hundred-kilometers"/>
   </fso:enumeration>
 </node>

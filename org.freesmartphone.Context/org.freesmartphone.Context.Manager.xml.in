@@ -43,12 +43,13 @@
 
 <fso:enumeration type="s" name="org.freesmartphone.Context.LocationUpdateAccuracy">
   <fso:member name="INVALID" value="invalid"/>
-  <fso:member name="NAVI" value="navigation"/>
-  <fso:member name="BEST" value="best"/>
-  <fso:member name="10M"  value="nearest-ten-meters"/>
-  <fso:member name="100M" value="hundred-meters"/>
-  <fso:member name="1KM"  value="one-kilometer"/>
-  <fso:member name="3KM"  value="three-kilometers"/>
+  <fso:member name="NAVI"    value="navigation"/>
+  <fso:member name="BEST"    value="best"/>
+  <fso:member name="10M"     value="nearest-ten-meters"/>
+  <fso:member name="100M"    value="hundred-meters"/>
+  <fso:member name="1KM"     value="one-kilometer"/>
+  <fso:member name="3KM"     value="three-kilometers"/>
+  <fso:member name="100KM"   value="hundred-kilometers"/>
 </fso:enumeration>
 
 </node>
