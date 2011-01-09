@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-context-manager-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Context Manager Interface</doc:summary>
+  <doc:version>0.0.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Context.Manager">
+
+    <doc:doc>
+      <doc:para>
+        The Context Manager interface allows you to register for environmental
+        context updates, such as geolocation updates, region monitoring, etc.
+      </doc:para>
+    </doc:doc>
+
+    <method name="SubscribeLocationUpdates">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <doc:doc>
+        <doc:description>Subscribe for receiving location updates.</doc:description>
+        <doc:inote>To receive location updates, clients need to implement the org.freesmartphone.Context.Client interface</doc:inote>
+      </doc:doc>
+      <arg type="s" name="desired_accuracy" direction="in" fso:type="org.freesmartphone.Context.LocationUpdateAccuracy">
+        <doc:doc>
+          <doc:summary>
+            The location information. See org.freesmartphone.Location.Location.Update for valid key/value pairs.
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <fso:throws type="org.freesmartphone" />
+    </method>
+
+    <method name="UnsubscribeLocationUpdates">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <doc:doc>
+        <doc:description>Unsubscribe from receiving location updates.</doc:description>
+      </doc:doc>
+      <fso:throws type="org.freesmartphone" />
+    </method>
+
+</interface>
+
+<fso:enumeration type="s" name="org.freesmartphone.Context.LocationUpdateAccuracy">
+  <fso:member name="best-navi" value="BEST_FOR_NAVIGATION"/>
+  <fso:member name="best" value="BEST"/>
+  <fso:member name="10m" value="NEAREST_TEN_METERS"/>
+  <fso:member name="100m" value="HUNDRED_METERS"/>
+  <fso:member name="1km" value="KILOMETER"/>
+  <fso:member name="3km" value="THREE_KILOMETERS"/>
+</fso:enumeration>
+
+</node>

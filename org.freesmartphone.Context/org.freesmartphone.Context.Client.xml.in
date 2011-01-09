@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-context-client-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Context Client Interface</doc:summary>
+  <doc:version>0.0.0</doc:version>
+</doc:doc>
+
+<interface name="org.freesmartphone.Context.Client">
+
+    <doc:doc>
+      <doc:para>
+        The Context Client interface is being used by the
+        Context Manager to deliver environmental context updates.
+      </doc:para>
+    </doc:doc>
+
+    <method name="LocationUpdate">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <doc:doc>
+        <doc:description>Called to deliver a location update.</doc:description>
+      </doc:doc>
+      <arg type="a{sv}" name="from" direction="out">
+        <doc:doc>
+          <doc:summary>
+            The new location information.
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <arg type="a{sv}" name="to" direction="out">
+        <doc:doc>
+          <doc:summary>
+            The new location information.
+          </doc:summary>
+        </doc:doc>
+      </arg>
+      <fso:throws type="org.freesmartphone" />
+    </method>
+
+</interface>
+
+</node>

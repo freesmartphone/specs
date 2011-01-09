@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/">
+  <interface name="org.freesmartphone.Context.Manager">
+    <method name="SubscribeLocationUpdates">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="desired_accuracy" direction="in" fso:type="org.freesmartphone.Context.LocationUpdateAccuracy"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="UnsubscribeLocationUpdates">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+  </interface>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.Context.LocationUpdateAccuracy">
+    <fso:member name="best-navi" value="BEST_FOR_NAVIGATION"/>
+    <fso:member name="best" value="BEST"/>
+    <fso:member name="10m" value="NEAREST_TEN_METERS"/>
+    <fso:member name="100m" value="HUNDRED_METERS"/>
+    <fso:member name="1km" value="KILOMETER"/>
+    <fso:member name="3km" value="THREE_KILOMETERS"/>
+  </fso:enumeration>
+</node>
