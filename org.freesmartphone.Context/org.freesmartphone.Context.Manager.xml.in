@@ -24,7 +24,7 @@
       <arg type="s" name="desired_accuracy" direction="in" fso:type="org.freesmartphone.Context.LocationUpdateAccuracy">
         <doc:doc>
           <doc:summary>
-            The location information. See org.freesmartphone.Location.Location.Update for valid key/value pairs.
+            The desired accuracy. Valid values are: navigation, best, nearest-ten-meters, hundred-meters, one-kilometer, three-kilometers, hundred-kilometers.
           </doc:summary>
         </doc:doc>
       </arg>
