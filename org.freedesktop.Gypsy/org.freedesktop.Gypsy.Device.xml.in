@@ -57,17 +57,27 @@
   <signal name="ConnectionStatusChanged">
     <doc:doc>
       <doc:description>
-        Emitted when the connection status has changed. See GetConnectionStatus() for values.
+        Emitted when the connection status has changed.
       </doc:description>
     </doc:doc>
+    <arg type="b" name="constatus">
+      <doc:doc>
+        <doc:summary>See GetConnectionStatus() for values.</doc:summary>
+      </doc:doc>
+    </arg>
   </signal>
   
   <signal name="FixStatusChanged">
     <doc:doc>
       <doc:description>
-        Emitted when the fix status has changed. See GetFixStatus() for values.
+        Emitted when the fix status has changed.
       </doc:description>
     </doc:doc>
+    <arg type="i" name="fixstatus">
+      <doc:doc>
+        <doc:summary>See GetFixStatus() for values.</doc:summary>
+      </doc:doc>
+    </arg>
   </signal>
 
 

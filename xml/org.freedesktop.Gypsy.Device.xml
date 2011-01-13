@@ -10,7 +10,11 @@
     </method>
     <method name="Start"/>
     <method name="Stop"/>
-    <signal name="ConnectionStatusChanged"/>
-    <signal name="FixStatusChanged"/>
+    <signal name="ConnectionStatusChanged">
+      <arg type="b" name="constatus"/>
+    </signal>
+    <signal name="FixStatusChanged">
+      <arg type="i" name="fixstatus"/>
+    </signal>
   </interface>
 </node>

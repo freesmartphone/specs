@@ -30,8 +30,8 @@
 <p><i>Description:</i> Get the GPS fix status. </p><h4>Returns</h4><i>i: fixstatus</i><p>One of the following value:  <ul>  <li>Invalid: 0</li>  <li>None: 1</li>  <li>2 dimensions: 2</li>  <li>3 dimensions: 3<li>  </ul> </p>
 <h3><a name="Start">Start</a> ( )</h3><p><i>Description:</i> Start the GPS device. </p>
 <h3><a name="Stop">Stop</a> ( )</h3><p><i>Description:</i> Stop the GPS device. </p>
-<h1>Signals</h1><h3><a name="ConnectionStatusChanged">ConnectionStatusChanged</a> ( )</h3>
-<h3><a name="FixStatusChanged">FixStatusChanged</a> ( )</h3>
+<h1>Signals</h1><h3><h3><a name="ConnectionStatusChanged">ConnectionStatusChanged</a> ( b )</h3><p><i>Description:</i> Emitted when the connection status has changed. </p><h4>Parameters</h4><i>b: constatus</i><p>See GetConnectionStatus() for values. </p></h3>
+<h3><h3><a name="FixStatusChanged">FixStatusChanged</a> ( i )</h3><p><i>Description:</i> Emitted when the fix status has changed. </p><h4>Parameters</h4><i>i: fixstatus</i><p>See GetFixStatus() for values. </p></h3>
 
     <hr/>
     <small>
