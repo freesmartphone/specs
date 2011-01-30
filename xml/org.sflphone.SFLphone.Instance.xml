@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node name="/instance-introspec">
+  <interface name="org.sflphone.SFLphone.Instance">
+    <tp:docstring xmlns="http://www.w3.org/1999/xhtml" xmlns:tp="http://telepathy.freedesktop.org/wiki/DbusSpec#extensions-v0">
+      <p/>
+    </tp:docstring>
+    <method xmlns:tp="http://telepathy.freedesktop.org/wiki/DbusSpec#extensions-v0" name="Register" tp:name-for-bindings="Register">
+      <tp:docstring/>
+      <arg type="i" name="pid" direction="in">
+        <tp:docstring/>
+      </arg>
+      <arg type="s" name="name" direction="in">
+        <tp:docstring/>
+      </arg>
+    </method>
+    <method xmlns:tp="http://telepathy.freedesktop.org/wiki/DbusSpec#extensions-v0" name="Unregister" tp:name-for-bindings="Unregister">
+      <tp:docstring/>
+      <arg type="i" name="pid" direction="in">
+        <tp:docstring/>
+      </arg>
+    </method>
+    <method xmlns:tp="http://telepathy.freedesktop.org/wiki/DbusSpec#extensions-v0" name="getRegistrationCount" tp:name-for-bindings="getRegistrationCount">
+      <tp:docstring/>
+      <arg type="i" name="count" direction="out">
+        <tp:docstring/>
+      </arg>
+    </method>
+  </interface>
+</node>
