@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# (C) 2008-2010 Michael 'Mickey' Lauer <mlauer@vanille-media.de>
+# (C) 2008-2011 Michael 'Mickey' Lauer <mlauer@vanille-media.de>
 # GPLv2 or later.
 
 """
@@ -11,7 +11,7 @@ but I really couldn't get it. Then I gave up and wrote this.
 It's not versatile, but it gets my job done.
 """
 
-__version__ = "0.9.9.2"
+__version__ = "0.9.9.3"
 
 import sys
 from xml.sax import parse
@@ -24,6 +24,7 @@ class Entity( object ):
         print "creating entity: ", self.__class__.__name__, name
         self.name = name
         self.attrs = attrs
+        self.title = "Untitled"
 
     def output( self ):
         pass
@@ -119,8 +120,9 @@ class Entity( object ):
 class Interface( Entity ):
 #----------------------------------------------------------------------------#
     def __init__( self, filename ):
-        self.filename = filename
+        Entity.__init__( self, None, None )
 
+        self.filename = filename
         self.methods = []
         self.signals = []
         self.errors = []
