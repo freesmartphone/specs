@@ -21,7 +21,7 @@ from xml.sax.handler import ContentHandler
 class Entity( object ):
 #----------------------------------------------------------------------------#
     def __init__( self, name, attrs=None ):
-        print "creating entity: ", self.__class__.__name__, name
+        print( "creating entity: ", self.__class__.__name__, name )
         self.name = name
         self.attrs = attrs
         self.title = "Untitled"
@@ -54,7 +54,7 @@ class Entity( object ):
                 word = word.strip( ",./:;()" )
                 dotted = word.split( '.' )
                 html, method = '.'.join( dotted[:-1] ), dotted[-1]
-                print "possible link to %s.%s detected" % ( html, method )
+                print( "possible link to %s.%s detected", html, method )
                 result += """<a href="http://docs.freesmartphone.org/%s.html#%s">%s</a>""" % ( html, method, method )
             else:
                 result += word
@@ -226,8 +226,8 @@ class Method( Describable ):
                 elif arg.attrs["direction"] == "out":
                     outparam += arg.attrs["type"]
                 else:
-                    raise KeyError, "Direction neither 'in' nor 'out'"
-        except KeyError, e:
+                    raise KeyError( "Direction neither 'in' nor 'out'" )
+        except KeyError as e:
             print >>sys.stderr, "[ERROR] Invalid signature for method", self, e
             sys.exit( -1 )
         return inparam, outparam
@@ -363,13 +363,13 @@ class Handler( ContentHandler ):
 
     def startElement( self, element, attrs ):
         if element in self.significantElements:
-            print "--- setting current element to", element
+            print( "--- setting current element to ", element )
             self.current = element
         if element.startswith( "doc:" ):
             self.doc = element.split( ':' )[1]
         self.name = attrs.get( "name", "" )
         self.attrs = attrs
-        print element, self.name, "(in %s)" % self.current or None
+        print( element, self.name, "(in %s)" % self.current or None )
 
         if element == "interface":
             self.iface.namespace = self.name.strip()
@@ -439,11 +439,11 @@ class Handler( ContentHandler ):
             self.arg = None
 
 
-        print repr(self.text), repr(element)
+        print( repr(self.text), repr(element) )
 
         self.text = ""
         if element in self.significantElements:
-            print "resetting current element"
+            print( "resetting current element" )
             self.current = None
             self.parent = element
 
@@ -452,13 +452,13 @@ if __name__ == "__main__":
 #----------------------------------------------------------------------------#
     import sys
     import xml.sax
-    print "parsing..."
+    print( "parsing..." )
     interfaces = []
     for filename in sys.argv[1:]:
         interface = Interface( filename )
         interfaces.append( interface )
         handler = Handler( interface )
         xml.sax.parse( filename, handler )
-    print "creating..."
+    print( "creating..." )
     for iface in interfaces:
         iface.output()
