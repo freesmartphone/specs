@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-device-audio-manager-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Audio Manager Interface</doc:summary>
+  <doc:version>0.1</doc:version>
+  <doc:source>git.freesmartphone.org</doc:source>
+  <doc:maintainer>Simon Busch</doc:maintainer>
+</doc:doc>
+
+<interface name="org.freesmartphone.Device.AudioManager">
+
+    <method name="SetMode">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+            Set the current audio mode. Currently there is only a difference between
+            normal and call. Normal means all audio use when not in a phone call and call
+            means all audio within a phone call.
+            </doc:description>
+        </doc:doc>
+        <arg name="mode" direction="in" type="s" fso:type="org.freesmartphone.Device.AudioMode"/>
+        <fso:throws type="org.freesmartphone.Device.AudioManager"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="GetCurrentMode">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+            Get the current audio mode which is used.
+            </doc:description>
+        </doc:doc>
+        <arg name="mode" direction="out" type="s" fso:type="org.freesmartphone.Device.AudioMode"/>
+        <fso:throws type="org.freesmartphone.Device.AudioManager"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="SetOutput">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+            Set the current audio output which is used only within the current mode. If
+            you switch mode then the manager will switch even the output to the last used
+            one in the other mode.
+            </doc:description>
+        </doc:doc>
+        <arg name="output" direction="in" type="s" fso:type="org.freesmartphone.Device.AudioOutput"/>
+        <fso:throws type="org.freesmartphone.Device.AudioManager"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="GetCurrentOutput">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+            Get the current audio output which is used.
+            </doc:description>
+        </doc:doc>
+        <arg name="output" direction="out" type="s" fso:type="org.freesmartphone.Device.AudioOutput"/>
+        <fso:throws type="org.freesmartphone.Device.AudioManager"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="GetAvailableOutputs">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+            Get all available audio outputs for the specified audio mode.
+            </doc:description>
+        </doc:doc>
+        <arg name="mode" direction="in" type="s" fso:type="org.freesmartphone.Device.AudioMode"/>
+        <arg name="outputs" direction"out" type="a(s)" fso:type="org.freesmartphone.Device.AudioOutput"/>
+        <fso:throws type="org.freesmartphone.Device.AudioManager"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="SetVolume">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <arg name="output" type="s" direction="in" fso:type="org.freesmartphone.Device.AudioOutput"/>
+        <arg name="level" direction="in" type="i"/>
+        <fso:throws type="org.freesmartphone.Device.AudioManager"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="Mute">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <arg name="output" type="s" direction="in" fso:type="org.freesmartphone.Device.AudioOutput"/>
+        <fso:throws type="org.freesmartphone.Device.AudioManager"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="Unmute">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <arg name="output" type="s" direction="in" fso:type="org.freesmartphone.Device.AudioOutput"/>
+        <fso:throws type="org.freesmartphone.Device.AudioManager"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <signal name="VolumeChanged">
+        <arg name="output" type="s" fso:type="org.freesmartphone.Device.AudioOutput"/>
+        <arg name="level" type="i"/>
+    </signal>
+
+</interface>
+
+<fso:errordomain name="org.freesmartphone.Device.AudioManager" fso:no-container="true">
+</fso:errordomain>
+
+<fso:enumeration name="org.freesmartphone.Device.AudioMode" type="s">
+    <fso:member name="normal" value="normal"/>
+    <fso:member name="call" value="call"/>
+</fso:enumeration>
+
+<fso:enumeration name="org.freesmartphone.Device.AudioOutput" type="s">
+    <fso:member name="frontspeaker" value="frontspeaker"/>
+    <fso:member name="backspeaker" value="backspeaker"/>
+    <fso:member name="headset" value="headset"/>
+    <fso:member name="bluetooth-sco" value="bluetooth-sco"/>
+    <fso:member name="bluetooth-a2dp" value="bluetooth-a2dp"/>
+</fso:enumeration>
+
+</node>
