@@ -13,6 +13,7 @@ SUBDIRS = \
   org.freesmartphone.Preferences \
   org.freesmartphone.Time \
   org.freesmartphone.Usage \
+  org.freesmartphone.Audio \
   org.freedesktop.Gypsy \
   org.sflphone.SFLphone
 
