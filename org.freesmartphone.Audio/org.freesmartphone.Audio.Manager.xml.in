@@ -8,52 +8,6 @@
   <doc:maintainer>Simon Busch</doc:maintainer>
 </doc:doc>
 
-<interface name="org.freesmartphone.Audio.Device">
-    <method name="SetVolume">
-        <arg direction="in" type="y" name="volume">
-            <doc:doc>
-                <doc:summary>
-                    The volume in percent (0-100).
-                </doc:summary>
-            </doc:doc>
-        </arg>
-    </method>
-
-    <method name="SetVolumePreference">
-        <arg direction="in" type="i" name="min">
-            <doc:doc>
-                <doc:summary>
-                Minimum raw audio volume level for this device.
-                </doc:summary>
-            </doc:doc>
-        </arg>
-        <arg direction="in" type="i" name="max">
-            <doc:doc>
-                <doc:summary>
-                Maximum raw audio volume level for this device.
-                </doc:summary>
-            </doc:doc>
-        </arg>
-    </method>
-
-    <method name="Mute">
-        <doc:doc>
-            <doc:description>
-            Mute this device.
-            </doc:description>
-        </doc:doc>
-    </method>
-
-    <method name="Unmute">
-        <doc:doc>
-            <doc:description>
-            Unmute this device.
-            </doc:description>
-        </doc:doc>
-    </method>
-
-</interface>
-
 <interface name="org.freesmartphone.Audio.Manager">
 
     <method name="SetMode">
@@ -91,21 +45,7 @@
             one in the other mode.
             </doc:description>
         </doc:doc>
-        <arg name="name" direction="in" type="s"/>
-        <fso:throws type="org.freesmartphone.Audio"/>
-        <fso:throws type="org.freesmartphone"/>
-    </method>
-
-    <method name="SetInputDevice">
-        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-        <doc:doc>
-            <doc:description>
-            Set the current audio input device which is used only within the current mode. If
-            you switch mode then the manager will switch even the input to the last used
-            one in the other mode.
-            </doc:description>
-        </doc:doc>
-        <arg name="name" direction="in" type="s"/>
+        <arg name="name" direction="in" type="s" fso:type="org.freesmartphone.Audio.Device"/>
         <fso:throws type="org.freesmartphone.Audio"/>
         <fso:throws type="org.freesmartphone"/>
     </method>
@@ -117,19 +57,7 @@
             Get the current audio output device.
             </doc:description>
         </doc:doc>
-        <arg name="path" direction="out" type="o"/>
-        <fso:throws type="org.freesmartphone.Audio"/>
-        <fso:throws type="org.freesmartphone"/>
-    </method>
-
-    <method name="GetCurrentInputDevice">
-        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-        <doc:doc>
-            <doc:description>
-            Get the current audio input device.
-            </doc:description>
-        </doc:doc>
-        <arg name="path" direction="out" type="o"/>
+        <arg name="device" direction="out" type="s" fso:type="org.freesmartphone.Audio.Device"/>
         <fso:throws type="org.freesmartphone.Audio"/>
         <fso:throws type="org.freesmartphone"/>
     </method>
@@ -142,17 +70,10 @@
             </doc:description>
         </doc:doc>
         <arg name="mode" direction="in" type="s" fso:type="org.freesmartphone.Audio.Mode"/>
-        <arg name="outputs" direction="out" type="as">
+        <arg name="outputs" direction="out" type="as" fso:type="org.freesmartphone.Audio.Device">
             <doc:doc>
                 <doc:description>
-                List of available output devices. Valid values are:
-                [ul]
-                    [li]frontspeaker[/li]
-                    [li]backspeaker[/li]
-                    [li]headset[/li]
-                    [li]bluetooth-sco[/li]
-                    [li]bluetooth-a2dp[/li]
-                [/ul]
+                List of available output devices.
                 </doc:description>
             </doc:doc>
         </arg>
@@ -160,29 +81,62 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="GetAvailableInputDevices">
-        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <method name="SetMicrophoneMute">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
         <doc:doc>
             <doc:description>
-            Get all available audio input devices for the specified audio mode.
+            Set the mute state of the microphone.
             </doc:description>
         </doc:doc>
-        <arg name="mode" direction="in" type="s" fso:type="org.freesmartphone.Audio.Mode"/>
-        <arg name="inputs" direction="out" type="as">
-            <doc:doc>
-                <doc:description>
-                List of available input devices. Valid values are:
-                [ul]
-                    [li]microphone[/li]
-                    [li]headset-microphone[/li]
-                    [li]bluetooth-microphone[/li]
-                [/ul]
-                </doc:description>
-            </doc:doc>
-        </arg>
+        <arg name="mute" direction="in" type="b"/>
         <fso:throws type="org.freesmartphone.Audio"/>
         <fso:throws type="org.freesmartphone"/>
     </method>
+
+    <method name="GetMicrophoneMute">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+        <doc:doc>
+            <doc:description>
+            Get the mute state of the microphone.
+            </doc:description>
+        </doc:doc>
+        <arg name="mute" direction="out" type="b"/>
+        <fso:throws type="org.freesmartphone.Audio"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="SetVolume">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+        <arg direction="in" type="i" name="volume">
+            <doc:doc>
+                <doc:summary>
+                    The volume in percent (0-100).
+                </doc:summary>
+            </doc:doc>
+        </arg>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="Mute">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+        <doc:doc>
+            <doc:description>
+            Mute current output device.
+            </doc:description>
+        </doc:doc>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="Unmute">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+        <doc:doc>
+            <doc:description>
+            Unmute current output device.
+            </doc:description>
+        </doc:doc>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
 
 </interface>
 
@@ -193,6 +147,14 @@
 <fso:enumeration name="org.freesmartphone.Audio.Mode" type="s">
     <fso:member name="normal" value="normal"/>
     <fso:member name="call" value="call"/>
+</fso:enumeration>
+
+<fso:enumeration name="org.freesmartphone.Audio.Device" type="s">
+    <fso:member name="backspeaker" value="backspeaker"/>
+    <fso:member name="frontspeaker" value="frontspeaker"/>
+    <fso:member name="headset" value="headset"/>
+    <fso:member name="bluetooth-sco" value="bluetooth-sco"/>
+    <fso:member name="bluetooth-a2dp" value="bluetooth-a2dp"/>
 </fso:enumeration>
 
 </node>

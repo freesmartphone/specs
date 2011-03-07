@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
 <node name="/">
-  <interface name="org.freesmartphone.Audio.Device">
-    <method name="SetVolume">
-      <arg direction="in" type="y" name="volume"/>
-    </method>
-    <method name="SetVolumePreference">
-      <arg direction="in" type="i" name="min"/>
-      <arg direction="in" type="i" name="max"/>
-    </method>
-    <method name="Mute"/>
-    <method name="Unmute"/>
-  </interface>
   <interface name="org.freesmartphone.Audio.Manager">
     <method name="SetMode">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
@@ -27,40 +16,46 @@
     </method>
     <method name="SetOutputDevice">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg name="name" direction="in" type="s"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
-    <method name="SetInputDevice">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg name="name" direction="in" type="s"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="name" direction="in" type="s" fso:type="org.freesmartphone.Audio.Device"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="GetCurrentOutputDevice">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg name="path" direction="out" type="o"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
-    </method>
-    <method name="GetCurrentInputDevice">
-      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg name="path" direction="out" type="o"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="device" direction="out" type="s" fso:type="org.freesmartphone.Audio.Device"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="GetAvailableOutputDevices">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="mode" direction="in" type="s" fso:type="org.freesmartphone.Audio.Mode"/>
-      <arg name="outputs" direction="out" type="as"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="outputs" direction="out" type="as" fso:type="org.freesmartphone.Audio.Device"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <method name="GetAvailableInputDevices">
+    <method name="SetMicrophoneMute">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="mode" direction="in" type="s" fso:type="org.freesmartphone.Audio.Mode"/>
-      <arg name="inputs" direction="out" type="as"/>
+      <arg name="mute" direction="in" type="b"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="GetMicrophoneMute">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg name="mute" direction="out" type="b"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="SetVolume">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="i" name="volume"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="Mute">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="Unmute">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
   </interface>
@@ -70,5 +65,12 @@
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Audio.Mode" type="s">
     <fso:member name="normal" value="normal"/>
     <fso:member name="call" value="call"/>
+  </fso:enumeration>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Audio.Device" type="s">
+    <fso:member name="backspeaker" value="backspeaker"/>
+    <fso:member name="frontspeaker" value="frontspeaker"/>
+    <fso:member name="headset" value="headset"/>
+    <fso:member name="bluetooth-sco" value="bluetooth-sco"/>
+    <fso:member name="bluetooth-a2dp" value="bluetooth-a2dp"/>
   </fso:enumeration>
 </node>
