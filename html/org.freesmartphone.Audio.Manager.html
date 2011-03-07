@@ -20,12 +20,12 @@
 <li><a href="#Unmute">Unmute</a></li>
 <li><a href="#SetMode">SetMode</a></li>
 <li><a href="#GetCurrentMode">GetCurrentMode</a></li>
-<li><a href="#SetOutput">SetOutput</a></li>
-<li><a href="#SetInput">SetInput</a></li>
-<li><a href="#GetCurrentOutput">GetCurrentOutput</a></li>
-<li><a href="#GetCurrentInput">GetCurrentInput</a></li>
-<li><a href="#GetAvailableOutputs">GetAvailableOutputs</a></li>
-<li><a href="#GetAvailableInputs">GetAvailableInputs</a></li>
+<li><a href="#SetOutputDevice">SetOutputDevice</a></li>
+<li><a href="#SetInputDevice">SetInputDevice</a></li>
+<li><a href="#GetCurrentOutputDevice">GetCurrentOutputDevice</a></li>
+<li><a href="#GetCurrentInputDevice">GetCurrentInputDevice</a></li>
+<li><a href="#GetAvailableOutputDevices">GetAvailableOutputDevices</a></li>
+<li><a href="#GetAvailableInputDevices">GetAvailableInputDevices</a></li>
 </ul>
 <h2>Signals</h2><i>None</i>
 <h2>Errors</h2><ul>
@@ -34,25 +34,25 @@
 <h1>Methods</h1><h3><a name="SetVolume">SetVolume</a> ( y )</h3>
 <h4>Parameters</h4><i>y: volume</i><p>The volume in percent (0-100). </p>
 <h3><a name="SetVolumePreference">SetVolumePreference</a> ( ii )</h3>
-<h4>Parameters</h4><i>i: min</i><p>Minimum raw audio volume level for this control. </p><i>i: max</i><p>Maximum raw audio volume level for this control. </p>
-<h3><a name="Mute">Mute</a> ( )</h3><p><i>Description:</i> Mute this control. </p>
-<h3><a name="Unmute">Unmute</a> ( )</h3><p><i>Description:</i> Unmute this control. </p>
+<h4>Parameters</h4><i>i: min</i><p>Minimum raw audio volume level for this device. </p><i>i: max</i><p>Maximum raw audio volume level for this device. </p>
+<h3><a name="Mute">Mute</a> ( )</h3><p><i>Description:</i> Mute this device. </p>
+<h3><a name="Unmute">Unmute</a> ( )</h3><p><i>Description:</i> Unmute this device. </p>
 <h3><a name="SetMode">SetMode</a> ( s )</h3>
 <p><i>Description:</i> Set the current audio mode. Currently there is only a difference between  normal and call. Normal means all audio use when not in a phone call and call  means all audio within a phone call. </p><h4>Parameters</h4><i>s: mode</i><p> </p>
 <h3><a name="GetCurrentMode">GetCurrentMode</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Get the current audio mode which is used. </p><h4>Returns</h4><i>s: mode</i><p> </p>
-<h3><a name="SetOutput">SetOutput</a> ( s )</h3>
-<p><i>Description:</i> Set the current audio output which is used only within the current mode. If  you switch mode then the manager will switch even the output to the last used  one in the other mode. </p><h4>Parameters</h4><i>s: name</i><p> </p>
-<h3><a name="SetInput">SetInput</a> ( s )</h3>
-<p><i>Description:</i> Set the current audio input which is used only within the current mode. If  you switch mode then the manager will switch even the input to the last used  one in the other mode. </p><h4>Parameters</h4><i>s: name</i><p> </p>
-<h3><a name="GetCurrentOutput">GetCurrentOutput</a> ( ) &rarr; o</h3>
-<p><i>Description:</i> Get the current audio output which is used. </p><h4>Returns</h4><i>o: path</i><p> </p>
-<h3><a name="GetCurrentInput">GetCurrentInput</a> ( ) &rarr; o</h3>
-<p><i>Description:</i> Get the current audio input which is used. </p><h4>Returns</h4><i>o: path</i><p> </p>
-<h3><a name="GetAvailableOutputs">GetAvailableOutputs</a> ( s ) &rarr; as</h3>
+<h3><a name="SetOutputDevice">SetOutputDevice</a> ( s )</h3>
+<p><i>Description:</i> Set the current audio output device which is used only within the current mode. If  you switch mode then the manager will switch even the output to the last used  one in the other mode. </p><h4>Parameters</h4><i>s: name</i><p> </p>
+<h3><a name="SetInputDevice">SetInputDevice</a> ( s )</h3>
+<p><i>Description:</i> Set the current audio input device which is used only within the current mode. If  you switch mode then the manager will switch even the input to the last used  one in the other mode. </p><h4>Parameters</h4><i>s: name</i><p> </p>
+<h3><a name="GetCurrentOutputDevice">GetCurrentOutputDevice</a> ( ) &rarr; o</h3>
+<p><i>Description:</i> Get the current audio output device. </p><h4>Returns</h4><i>o: path</i><p> </p>
+<h3><a name="GetCurrentInputDevice">GetCurrentInputDevice</a> ( ) &rarr; o</h3>
+<p><i>Description:</i> Get the current audio input device. </p><h4>Returns</h4><i>o: path</i><p> </p>
+<h3><a name="GetAvailableOutputDevices">GetAvailableOutputDevices</a> ( s ) &rarr; as</h3>
 <p><i>Description:</i> Get all available audio outputs for the specified audio mode. </p><h4>Parameters</h4><i>s: mode</i><p> </p><h4>Returns</h4><i>as: outputs</i><p> </p>
-<h3><a name="GetAvailableInputs">GetAvailableInputs</a> ( s ) &rarr; as</h3>
-<p><i>Description:</i> Get all available audio inputs for the specified audio mode. </p><h4>Parameters</h4><i>s: mode</i><p> </p><h4>Returns</h4><i>as: inputs</i><p> </p>
+<h3><a name="GetAvailableInputDevices">GetAvailableInputDevices</a> ( s ) &rarr; as</h3>
+<p><i>Description:</i> Get all available audio input devices for the specified audio mode. </p><h4>Parameters</h4><i>s: mode</i><p> </p><h4>Returns</h4><i>as: inputs</i><p> </p>
 <h1>Errors</h1><h3><a name="NotSupported">NotSupported</a></h3>
 
     <hr/>

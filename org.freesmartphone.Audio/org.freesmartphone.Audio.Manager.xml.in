@@ -8,7 +8,7 @@
   <doc:maintainer>Simon Busch</doc:maintainer>
 </doc:doc>
 
-<interface name="org.freesmartphone.Audio.Control">
+<interface name="org.freesmartphone.Audio.Device">
     <method name="SetVolume">
         <arg direction="in" type="y" name="volume">
             <doc:doc>
@@ -23,14 +23,14 @@
         <arg direction="in" type="i" name="min">
             <doc:doc>
                 <doc:summary>
-                Minimum raw audio volume level for this control.
+                Minimum raw audio volume level for this device.
                 </doc:summary>
             </doc:doc>
         </arg>
         <arg direction="in" type="i" name="max">
             <doc:doc>
                 <doc:summary>
-                Maximum raw audio volume level for this control.
+                Maximum raw audio volume level for this device.
                 </doc:summary>
             </doc:doc>
         </arg>
@@ -39,7 +39,7 @@
     <method name="Mute">
         <doc:doc>
             <doc:description>
-            Mute this control.
+            Mute this device.
             </doc:description>
         </doc:doc>
     </method>
@@ -47,7 +47,7 @@
     <method name="Unmute">
         <doc:doc>
             <doc:description>
-            Unmute this control.
+            Unmute this device.
             </doc:description>
         </doc:doc>
     </method>
@@ -82,11 +82,11 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="SetOutput">
+    <method name="SetOutputDevice">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
-            Set the current audio output which is used only within the current mode. If
+            Set the current audio output device which is used only within the current mode. If
             you switch mode then the manager will switch even the output to the last used
             one in the other mode.
             </doc:description>
@@ -96,11 +96,11 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="SetInput">
+    <method name="SetInputDevice">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
-            Set the current audio input which is used only within the current mode. If
+            Set the current audio input device which is used only within the current mode. If
             you switch mode then the manager will switch even the input to the last used
             one in the other mode.
             </doc:description>
@@ -110,11 +110,11 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="GetCurrentOutput">
+    <method name="GetCurrentOutputDevice">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
-            Get the current audio output which is used.
+            Get the current audio output device.
             </doc:description>
         </doc:doc>
         <arg name="path" direction="out" type="o"/>
@@ -122,11 +122,11 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="GetCurrentInput">
+    <method name="GetCurrentInputDevice">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
-            Get the current audio input which is used.
+            Get the current audio input device.
             </doc:description>
         </doc:doc>
         <arg name="path" direction="out" type="o"/>
@@ -134,7 +134,7 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="GetAvailableOutputs">
+    <method name="GetAvailableOutputDevices">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
@@ -145,7 +145,7 @@
         <arg name="outputs" direction="out" type="as">
             <doc:doc>
                 <doc:description>
-                List of available output targets. Valid values are:
+                List of available output devices. Valid values are:
                 [ul]
                     [li]frontspeaker[/li]
                     [li]backspeaker[/li]
@@ -160,18 +160,18 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="GetAvailableInputs">
+    <method name="GetAvailableInputDevices">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
-            Get all available audio inputs for the specified audio mode.
+            Get all available audio input devices for the specified audio mode.
             </doc:description>
         </doc:doc>
         <arg name="mode" direction="in" type="s" fso:type="org.freesmartphone.Audio.Mode"/>
         <arg name="inputs" direction="out" type="as">
             <doc:doc>
                 <doc:description>
-                List of available input sources. Valid values are:
+                List of available input devices. Valid values are:
                 [ul]
                     [li]microphone[/li]
                     [li]headset-microphone[/li]
