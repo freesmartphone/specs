@@ -24,7 +24,7 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="GetCurrentMode">
+    <method name="GetMode">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
@@ -36,13 +36,13 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="SetOutputDevice">
+    <method name="SetDevice">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
             Set the current audio output device which is used only within the current mode. If
             you switch mode then the manager will switch even the output to the last used
-            one in the other mode.
+            one in the new mode.
             </doc:description>
         </doc:doc>
         <arg name="name" direction="in" type="s" fso:type="org.freesmartphone.Audio.Device"/>
@@ -50,11 +50,11 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="GetCurrentOutputDevice">
+    <method name="GetDevice">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
-            Get the current audio output device.
+            Get the current audio device.
             </doc:description>
         </doc:doc>
         <arg name="device" direction="out" type="s" fso:type="org.freesmartphone.Audio.Device"/>
@@ -62,7 +62,7 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="GetAvailableOutputDevices">
+    <method name="GetAvailableDevices">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
             <doc:description>
@@ -81,32 +81,38 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="SetMicrophoneMute">
+    <method name="GetVolume">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-        <doc:doc>
-            <doc:description>
-            Set the mute state of the microphone.
-            </doc:description>
-        </doc:doc>
-        <arg name="mute" direction="in" type="b"/>
-        <fso:throws type="org.freesmartphone.Audio"/>
-        <fso:throws type="org.freesmartphone"/>
-    </method>
-
-    <method name="GetMicrophoneMute">
-        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-        <doc:doc>
-            <doc:description>
-            Get the mute state of the microphone.
-            </doc:description>
-        </doc:doc>
-        <arg name="mute" direction="out" type="b"/>
-        <fso:throws type="org.freesmartphone.Audio"/>
+        <arg direction="in" type="s" name="control" fso:type="org.freesmartphone.Audio.Control">
+            <doc:doc>
+                <doc:description>
+                The control you want to get the volume for. See
+                org.freesmartphone.Audio.Control for detailed description of the available
+                controls.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <arg direction="out" type="i" name="volume">
+            <doc:doc>
+                <doc:summary>
+                    The volume in percent (0-100).
+                </doc:summary>
+            </doc:doc>
+        </arg>
         <fso:throws type="org.freesmartphone"/>
     </method>
 
     <method name="SetVolume">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+        <arg direction="in" type="s" name="control" fso:type="org.freesmartphone.Audio.Control">
+            <doc:doc>
+                <doc:description>
+                The control you want to set the volume for. See
+                org.freesmartphone.Audio.Control for detailed description of the available
+                controls.
+                </doc:description>
+            </doc:doc>
+        </arg>
         <arg direction="in" type="i" name="volume">
             <doc:doc>
                 <doc:summary>
@@ -117,30 +123,133 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="Mute">
+    <method name="SetMute">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
         <doc:doc>
             <doc:description>
             Mute current output device.
             </doc:description>
         </doc:doc>
+        <arg direction="in" type="s" name="control" fso:type="org.freesmartphone.Audio.Control">
+            <doc:doc>
+                <doc:description>
+                The control you want to set the mute state for. See
+                org.freesmartphone.Audio.Control for detailed description of the available
+                controls.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <arg direction="in" type="b" name="mute">
+            <doc:doc>
+                <doc:description>
+                The mute state of the control. The possible two values are:
+                [ul]
+                    [li]true: mute the control[/li]
+                    [li]false: unmute the control[/li]
+                [/ul]
+                Please note:
+                [ul]
+                    [li]Muting/unmuting a already muted/unmuted control does not has any effect.[/li]
+                    [li]Setting a volume of 0/100 for a control has the same effect as muting/unmuting it.[/li]
+                [/ul]
+                </doc:description>
+            </doc:doc>
+        </arg>
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <method name="Unmute">
+    <method name="GetMute">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
         <doc:doc>
             <doc:description>
-            Unmute current output device.
+            Mute current output device.
             </doc:description>
         </doc:doc>
+        <arg direction="in" type="s" name="control" fso:type="org.freesmartphone.Audio.Control">
+            <doc:doc>
+                <doc:description>
+                The control you want to set the mute state for. See
+                org.freesmartphone.Audio.Control for detailed description of the available
+                controls.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <arg direction="out" type="b" name="mute">
+            <doc:doc>
+                <doc:description>
+                The mute state of the control. The possible two values are:
+                [ul]
+                    [li]true: mute the control[/li]
+                    [li]false: unmute the control[/li]
+                [/ul]
+                </doc:description>
+            </doc:doc>
+        </arg>
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-    <signal name="VolumeChanged">
-        <arg name="device" type="s" fso:type="org.freesmartphone.Audio.Device"/>
-        <arg name="volume" type="i"/>
+    <signal name="ModeChanged">
+        <arg name="mode" type="s" fso:type="org.freesmartphone.Audio.Mode">
+            <doc:doc>
+                <doc:description>
+                The new audio mode. See org.freesmartphone.Audio.Mode for possible values.
+                </doc:description>
+            </doc:doc>
+        </arg>
     </signal>
+
+    <signal name="DeviceChanged">
+        <arg name="device" type="s" fso:type="org.freesmartphone.Audio.Device">
+            <doc:doc>
+                <doc:description>
+                The new audio output device. See org.freesmartphone.Audio.Device for possible values.
+                </doc:description>
+            </doc:doc>
+        </arg>
+    </signal>
+
+    <signal name="VolumeChanged">
+        <arg name="control" type="s" fso:type="org.freesmartphone.Audio.Control">
+            <doc:doc>
+                <doc:description>
+                The control the volume was changed for. See
+                org.freesmartphone.Audio.Control for possible values and their
+                description.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <arg name="volume" type="i">
+            <doc:doc>
+                <doc:description>
+                The new volume for the control in percent [0-100].
+                </doc:description>
+            </doc:doc>
+        </arg>
+    </signal>
+
+    <signal name="MuteChanged">
+        <arg name="device" type="s" fso:type="org.freesmartphone.Audio.Device">
+            <doc:doc>
+                <doc:description>
+                The device the mute state was changed for. See
+                org.freesmartphone.Audio.Control for possible values and their
+                description.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <arg name="mute" type="b">
+            <doc:doc>
+                <doc:description>
+                The new mute state for the control. Possible valus are:
+                [ul]
+                    [li]true: control was muted[/li]
+                    [li]false: control was unmuted[/li]
+                [/ul]
+                </doc:description>
+            </doc:doc>
+        </arg>
+    </signal>
+
 </interface>
 
 <fso:errordomain name="org.freesmartphone.Audio" fso:no-container="true">
@@ -150,6 +259,11 @@
 <fso:enumeration name="org.freesmartphone.Audio.Mode" type="s">
     <fso:member name="normal" value="normal"/>
     <fso:member name="call" value="call"/>
+</fso:enumeration>
+
+<fso:enumeration name="org.freesmartphone.Audio.Control" type="s">
+    <fso:member name="speaker" value="speaker"/>
+    <fso:member name="microphone" value="microphone"/>
 </fso:enumeration>
 
 <fso:enumeration name="org.freesmartphone.Audio.Device" type="s">
