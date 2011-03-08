@@ -137,7 +137,10 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
-
+    <signal name="VolumeChanged">
+        <arg name="device" type="s" fso:type="org.freesmartphone.Audio.Device"/>
+        <arg name="volume" type="i"/>
+    </signal>
 </interface>
 
 <fso:errordomain name="org.freesmartphone.Audio" fso:no-container="true">

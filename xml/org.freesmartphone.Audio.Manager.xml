@@ -58,6 +58,10 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <signal name="VolumeChanged">
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="device" type="s" fso:type="org.freesmartphone.Audio.Device"/>
+      <arg name="volume" type="i"/>
+    </signal>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Audio" fso:no-container="true">
     <error name="NotSupported"/>
