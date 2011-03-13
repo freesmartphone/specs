@@ -228,10 +228,10 @@
     </signal>
 
     <signal name="MuteChanged">
-        <arg name="device" type="s" fso:type="org.freesmartphone.Audio.Device">
+        <arg name="control" type="s" fso:type="org.freesmartphone.Audio.Device">
             <doc:doc>
                 <doc:description>
-                The device the mute state was changed for. See
+                The control the mute state was changed for. See
                 org.freesmartphone.Audio.Control for possible values and their
                 description.
                 </doc:description>
