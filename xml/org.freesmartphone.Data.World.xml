@@ -18,9 +18,22 @@
       <arg type="a{ss}" name="timezones" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <method name="GetApnsForMccMnc">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg type="s" name="mcc_mnc" direction="in"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(sssss)" name="apns" direction="out" fso:type="org.freesmartphone.Data.WorldConnectivityAccessPoint"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
   </interface>
   <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Data.WorldCountry">
     <fso:field name="code" type="s"/>
     <fso:field name="name" type="s"/>
+  </fso:struct>
+  <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Data.WorldConnectivityAccessPoint">
+    <fso:field name="apn" type="s"/>
+    <fso:field name="username" type="s"/>
+    <fso:field name="password" type="s"/>
+    <fso:field name="dns1" type="s"/>
+    <fso:field name="dns2" type="s"/>
   </fso:struct>
 </node>
