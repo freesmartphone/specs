@@ -84,10 +84,11 @@
         <doc:summary>MCC or concatenated MCC and MNC.</doc:summary>
       </doc:doc>
     </arg>
-    <arg type="a(sssss)" name="apns" direction="out" fso:type="org.freesmartphone.Data.WorldConnectivityAccessPoint">
+    <arg type="a(ssssss)" name="apns" direction="out" fso:type="org.freesmartphone.Data.WorldConnectivityAccessPoint">
       <doc:doc>
-        <doc:summary>A list of five-tuples descriping a connectivity access point. Structure is:</doc:summary>
+        <doc:summary>A list of six-tuples descriping a connectivity access point. Structure is:</doc:summary>
           [ul]
+            [li]Description,[/li]
             [li]Access point name,[/li]
             [li]Username (might be empty),[/li]
             [li]Password (might be empty),[/li]
@@ -107,6 +108,7 @@
 </fso:struct>
 
 <fso:struct name="org.freesmartphone.Data.WorldConnectivityAccessPoint">
+  <fso:field name="description" type="s" />
   <fso:field name="apn" type="s" />
   <fso:field name="username" type="s" />
   <fso:field name="password" type="s" />

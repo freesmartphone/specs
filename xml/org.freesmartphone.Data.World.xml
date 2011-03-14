@@ -21,7 +21,7 @@
     <method name="GetApnsForMccMnc">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="mcc_mnc" direction="in"/>
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(sssss)" name="apns" direction="out" fso:type="org.freesmartphone.Data.WorldConnectivityAccessPoint"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(ssssss)" name="apns" direction="out" fso:type="org.freesmartphone.Data.WorldConnectivityAccessPoint"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
   </interface>
@@ -30,6 +30,7 @@
     <fso:field name="name" type="s"/>
   </fso:struct>
   <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Data.WorldConnectivityAccessPoint">
+    <fso:field name="description" type="s"/>
     <fso:field name="apn" type="s"/>
     <fso:field name="username" type="s"/>
     <fso:field name="password" type="s"/>
