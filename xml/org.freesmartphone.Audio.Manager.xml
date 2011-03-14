@@ -68,7 +68,7 @@
       <arg name="volume" type="i"/>
     </signal>
     <signal name="MuteChanged">
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="device" type="s" fso:type="org.freesmartphone.Audio.Device"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="control" type="s" fso:type="org.freesmartphone.Audio.Device"/>
       <arg name="mute" type="b"/>
     </signal>
   </interface>
