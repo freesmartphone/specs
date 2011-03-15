@@ -26,6 +26,18 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <method name="PushDevice">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="device" direction="in" type="s" fso:type="org.freesmartphone.Audio.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="PullDevice">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="device" direction="out" type="s" fso:type="org.freesmartphone.Audio.Device"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Audio"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
     <method name="GetAvailableDevices">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="mode" direction="in" type="s" fso:type="org.freesmartphone.Audio.Mode"/>
@@ -68,12 +80,13 @@
       <arg name="volume" type="i"/>
     </signal>
     <signal name="MuteChanged">
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="control" type="s" fso:type="org.freesmartphone.Audio.Device"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="control" type="s" fso:type="org.freesmartphone.Audio.Control"/>
       <arg name="mute" type="b"/>
     </signal>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Audio" fso:no-container="true">
-    <error name="NotSupported"/>
+    <error name="NotSupportedDevice"/>
+    <error name="DeviceStackUnderflow"/>
   </fso:errordomain>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Audio.Mode" type="s">
     <fso:member name="normal" value="normal"/>

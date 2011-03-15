@@ -62,6 +62,42 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
+    <method name="PushDevice">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+                Push a new audio device onto the stack and active it.
+            </doc:description>
+        </doc:doc>
+        <arg name="device" direction="in" type="s" fso:type="org.freesmartphone.Audio.Device">
+            <doc:doc>
+                <doc:description>
+                    The new active audio device.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <fso:throws type="org.freesmartphone.Audio"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="PullDevice">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+                Pull an audio device from the stack and activate the next one.
+            </doc:description>
+        </doc:doc>
+        <arg name="device" direction="out" type="s" fso:type="org.freesmartphone.Audio.Device">
+            <doc:doc>
+                <doc:description>
+                    The new active audio device.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <fso:throws type="org.freesmartphone.Audio"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
     <method name="GetAvailableDevices">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
         <doc:doc>
@@ -228,7 +264,7 @@
     </signal>
 
     <signal name="MuteChanged">
-        <arg name="control" type="s" fso:type="org.freesmartphone.Audio.Device">
+        <arg name="control" type="s" fso:type="org.freesmartphone.Audio.Control">
             <doc:doc>
                 <doc:description>
                 The control the mute state was changed for. See
@@ -253,25 +289,102 @@
 </interface>
 
 <fso:errordomain name="org.freesmartphone.Audio" fso:no-container="true">
-    <error name="NotSupported"/>
+    <error name="NotSupportedDevice">
+        <doc:doc>
+            <doc:description>
+                Raised, if the device to process is unsupported by the used router.
+            </doc:description>
+        </doc:doc>
+    </error>
+    <error name="DeviceStackUnderflow">
+        <doc:doc>
+            <doc:description>
+                Raised, if there is no more device to pull from the stack.
+            </doc:description>
+        </doc:doc>
+    </error>
 </fso:errordomain>
 
 <fso:enumeration name="org.freesmartphone.Audio.Mode" type="s">
-    <fso:member name="normal" value="normal"/>
-    <fso:member name="call" value="call"/>
+    <fso:member name="normal" value="normal">
+        <doc:doc>
+            <doc:description>
+                All audio not related to an active phone call is played in this mode. For
+                example the music you are listen to or different notification sounds.
+                Switching to normal mode will route the audio you play to the correct
+                audio device you specified.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="call" value="call">
+        <doc:doc>
+            <doc:description>
+                All audio related to an active phone call is played in this mode. If a
+                phone goes active the device has to switch into this mode to route the
+                audio correctly from the internal modem to the specified audio output
+                device.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
 </fso:enumeration>
 
 <fso:enumeration name="org.freesmartphone.Audio.Control" type="s">
-    <fso:member name="speaker" value="speaker"/>
-    <fso:member name="microphone" value="microphone"/>
+    <fso:member name="speaker" value="speaker">
+        <doc:doc>
+            <doc:description>
+                Control for the speaker provided by a device.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="microphone" value="microphone">
+        <doc:doc>
+            <doc:description>
+                Control for the microphone provided by a device.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
 </fso:enumeration>
 
 <fso:enumeration name="org.freesmartphone.Audio.Device" type="s">
-    <fso:member name="backspeaker" value="backspeaker"/>
-    <fso:member name="frontspeaker" value="frontspeaker"/>
-    <fso:member name="headset" value="headset"/>
-    <fso:member name="bluetooth-sco" value="bluetooth-sco"/>
-    <fso:member name="bluetooth-a2dp" value="bluetooth-a2dp"/>
+    <fso:member name="backspeaker" value="backspeaker">
+        <doc:doc>
+            <doc:description>
+                The speaker on the backside of your phone. Often even known as 'speaker'.
+                When this device is used the device default microphone will be used.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="frontspeaker" value="frontspeaker">
+        <doc:doc>
+            <doc:description>
+                The speaker on the frontside of your phone. Often even know as
+                'earspeaker' or 'handset-speaker'. When this device is used the device
+                default microphone will be used.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="headset" value="headset">
+        <doc:doc>
+            <doc:description>
+                A connected headset to your phone. When this device is used the headset
+                microphone will be used as microphone.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="bluetooth-sco" value="bluetooth-sco">
+        <doc:doc>
+            <doc:description>
+                Routing audio to bluetooth sco. Is only available in phone mode.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="bluetooth-a2dp" value="bluetooth-a2dp">
+        <doc:doc>
+            <doc:description>
+                Routing audio to bluetooth a2dp. Is only available in normal mode.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
 </fso:enumeration>
 
 </node>

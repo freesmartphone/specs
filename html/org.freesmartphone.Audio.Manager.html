@@ -18,6 +18,8 @@
 <li><a href="#GetMode">GetMode</a></li>
 <li><a href="#SetDevice">SetDevice</a></li>
 <li><a href="#GetDevice">GetDevice</a></li>
+<li><a href="#PushDevice">PushDevice</a></li>
+<li><a href="#PullDevice">PullDevice</a></li>
 <li><a href="#GetAvailableDevices">GetAvailableDevices</a></li>
 <li><a href="#GetVolume">GetVolume</a></li>
 <li><a href="#SetVolume">SetVolume</a></li>
@@ -31,7 +33,8 @@
 <li><a href="#MuteChanged">MuteChanged</a></li>
 </ul>
 <h2>Errors</h2><ul>
-<li><a href="#NotSupported">NotSupported</a></li>
+<li><a href="#NotSupportedDevice">NotSupportedDevice</a></li>
+<li><a href="#DeviceStackUnderflow">DeviceStackUnderflow</a></li>
 </ul>
 <h1>Methods</h1><h3><a name="SetMode">SetMode</a> ( s )</h3>
 <p><i>Description:</i> Set the current audio mode. Currently there is only a difference between  normal and call. Normal means all audio use when not in a phone call and call  means all audio within a phone call. </p><h4>Parameters</h4><i>s: mode</i><p> </p>
@@ -41,6 +44,10 @@
 <p><i>Description:</i> Set the current audio output device which is used only within the current mode. If  you switch mode then the manager will switch even the output to the last used  one in the new mode. </p><h4>Parameters</h4><i>s: name</i><p> </p>
 <h3><a name="GetDevice">GetDevice</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Get the current audio device. </p><h4>Returns</h4><i>s: device</i><p> </p>
+<h3><a name="PushDevice">PushDevice</a> ( s )</h3>
+<p><i>Description:</i> Push a new audio device onto the stack and active it. </p><h4>Parameters</h4><i>s: device</i><p> </p>
+<h3><a name="PullDevice">PullDevice</a> ( ) &rarr; s</h3>
+<p><i>Description:</i> Pull an audio device from the stack and activate the next one. </p><h4>Returns</h4><i>s: device</i><p> </p>
 <h3><a name="GetAvailableDevices">GetAvailableDevices</a> ( s ) &rarr; as</h3>
 <p><i>Description:</i> Get all available audio outputs for the specified audio mode. </p><h4>Parameters</h4><i>s: mode</i><p> </p><h4>Returns</h4><i>as: outputs</i><p> </p>
 <h3><a name="GetVolume">GetVolume</a> ( s ) &rarr; i</h3>
@@ -55,7 +62,8 @@
 <h3><h3><a name="DeviceChanged">DeviceChanged</a> ( s )</h3><h4>Parameters</h4><i>s: device</i><p> </p></h3>
 <h3><h3><a name="VolumeChanged">VolumeChanged</a> ( si )</h3><h4>Parameters</h4><i>s: control</i><p> </p><i>i: volume</i><p> </p></h3>
 <h3><h3><a name="MuteChanged">MuteChanged</a> ( sb )</h3><h4>Parameters</h4><i>s: control</i><p> </p><i>b: mute</i><p> </p></h3>
-<h1>Errors</h1><h3><a name="NotSupported">NotSupported</a></h3>
+<h1>Errors</h1><h3><a name="NotSupportedDevice">NotSupportedDevice</a></h3><p><i>Description:</i> Raised, if the device to process is unsupported by the used router. </p>
+<h3><a name="DeviceStackUnderflow">DeviceStackUnderflow</a></h3><p><i>Description:</i> Raised, if there is no more device to pull from the stack. </p>
 
     <hr/>
     <small>
