@@ -15,7 +15,8 @@ SUBDIRS = \
   org.freesmartphone.Usage \
   org.freesmartphone.Audio \
   org.freedesktop.Gypsy \
-  org.sflphone.SFLphone
+  org.sflphone.SFLphone \
+  net.connman
 
 EXTRA_DIST = fso-specs.pc.in
 

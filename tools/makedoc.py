@@ -335,8 +335,11 @@ class Argument( Entity ):
         self.docs = ""
 
     def out( self ):
+        t = self.attrs.get( "type", "Unknown Type" );
+        n = self.attrs.get( "name", "Unknown Name" );
+
         text = ""
-        text += "<i>%s: %s</i>%s" % ( self.attrs["type"], self.attrs["name"], self.outputSemiFormatted( self.docs ) )
+        text += "<i>%s: %s</i>%s" % ( t, n, self.outputSemiFormatted( self.docs ) )
         return text
 
 #----------------------------------------------------------------------------#
