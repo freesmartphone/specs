@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-application-manager-interface">
+
+<doc:doc>
+  <doc:summary>freesmartphone.org Application Manager Interface</doc:summary>
+  <doc:version>0.1</doc:version>
+  <doc:source>git.freesmartphone.org</doc:source>
+  <doc:maintainer>Simon Busch</doc:maintainer>
+</doc:doc>
+
+<interface name="org.freesmartphone.Application.Manager">
+
+    <method name="RegisterSession">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+                Register a new application session to the manager. This session will now
+                be managed by it until the application releases it session.
+            </doc:description>
+        </doc:doc>
+        <arg type="s" name="appname" direction="in">
+            <doc:doc>
+                <doc:summary>
+                    The common name of the application. Should look like "org.foo.bar".
+                </doc:summary>
+            </doc:doc>
+        </arg>
+
+        <fso:throws type="org.freesmartphone.Application"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="ReleaseSession">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+        <doc:doc>
+            <doc:description>
+                Release a session registered before with the manager.
+                FIXME add a note about which signals the session will be received before
+                it gets really released by the manager.
+            </doc:description>
+        </doc:doc>
+        <fso:throws type="org.freesmartphone.Application"/>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+
+</interface>
+
+<fso:errordomain name="org.freesmartphone.Application" fso:no-container="true">
+    <error name="ApplicationNotAvailable"/>
+</fso:errordomain>
+
+</node>
