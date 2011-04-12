@@ -69,6 +69,17 @@
       <arg direction="out" type="b" name="mute"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <method name="RegisterSession">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="in" type="s" name="stream" fso:type="org.freesmartphone.Audio.Stream"/>
+      <arg direction="out" type="s" name="token"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="ReleaseSession">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg direction="in" type="s" name="token"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
     <signal name="ModeChanged">
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="mode" type="s" fso:type="org.freesmartphone.Audio.Mode"/>
     </signal>
@@ -102,5 +113,12 @@
     <fso:member name="headset" value="headset"/>
     <fso:member name="bluetooth-sco" value="bluetooth-sco"/>
     <fso:member name="bluetooth-a2dp" value="bluetooth-a2dp"/>
+  </fso:enumeration>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Audio.Stream" type="s">
+    <fso:member name="media" value="media"/>
+    <fso:member name="alert" value="alert"/>
+    <fso:member name="ringtone" value="ringtone"/>
+    <fso:member name="alarm" value="alarm"/>
+    <fso:member name="navigation" value="navigation"/>
   </fso:enumeration>
 </node>
