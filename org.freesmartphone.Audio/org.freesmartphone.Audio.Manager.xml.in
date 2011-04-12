@@ -224,6 +224,53 @@
         <fso:throws type="org.freesmartphone"/>
     </method>
 
+    <method name="RegisterSession">
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+        <doc:doc>
+            <doc:description>
+                Registering a audio session with the manager. Everytime a application
+                wants to play audio it has to register a audio session for this so the
+                audio daemon can control the played audio and maybe mutes the stream if
+                another audio source is more important than the current played one.
+            </doc:description>
+        </doc:doc>
+        <arg direction="in" type="s" name="stream" fso:type="org.freesmartphone.Audio.Stream">
+            <doc:doc>
+                <doc:description>
+                    The type of the stream the audio is played on. For possible values see
+                    org.freesmartphone.Audio.Stream.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <arg direction="out" type="s" name="token">
+            <doc:doc>
+                <doc:description>
+                    A four byte long byte sequence to identify the audio session. The
+                    token is needed to release the session after it is over.
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
+    <method name="ReleaseSession">
+        <doc:doc>
+            <doc:description>
+                Release a audio session from the manager after audio playback is over.
+            </doc:description>
+        </doc:doc>
+        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+        <arg direction="in" type="s" name="token">
+            <doc:doc>
+                <doc:description>
+                    A four byte long byte sequence to identify the audio session. The
+                    token is generated and assigned when calling RegisterSession().
+                </doc:description>
+            </doc:doc>
+        </arg>
+        <fso:throws type="org.freesmartphone"/>
+    </method>
+
     <signal name="ModeChanged">
         <arg name="mode" type="s" fso:type="org.freesmartphone.Audio.Mode">
             <doc:doc>
@@ -382,6 +429,44 @@
         <doc:doc>
             <doc:description>
                 Routing audio to bluetooth a2dp. Is only available in normal mode.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+</fso:enumeration>
+
+<fso:enumeration name="org.freesmartphone.Audio.Stream" type="s">
+    <fso:member name="media" value="media">
+        <doc:doc>
+            <doc:description>
+                Default media playback is happen on this stream.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="alert" value="alert">
+        <doc:doc>
+            <doc:description>
+                High priority system alerts.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="ringtone" value="ringtone">
+        <doc:doc>
+            <doc:description>
+                Responsible for playing ringtones.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="alarm" value="alarm">
+        <doc:doc>
+            <doc:description>
+                Alarm alerts with lower priority than alert
+            </doc:description>
+        </doc:doc>
+    </fso:member>
+    <fso:member name="navigation" value="navigation">
+        <doc:doc>
+            <doc:description>
+                Audio for navigation purpose.
             </doc:description>
         </doc:doc>
     </fso:member>
