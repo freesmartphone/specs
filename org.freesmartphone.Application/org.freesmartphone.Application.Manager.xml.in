@@ -47,7 +47,7 @@
 </interface>
 
 <fso:errordomain name="org.freesmartphone.Application" fso:no-container="true">
-    <error name="ApplicationNotAvailable"/>
+    <error name="AlreadyRegistered"/>
 </fso:errordomain>
 
 </node>

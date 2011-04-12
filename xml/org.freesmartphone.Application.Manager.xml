@@ -15,6 +15,6 @@
     </method>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Application" fso:no-container="true">
-    <error name="ApplicationNotAvailable"/>
+    <error name="AlreadyRegistered"/>
   </fso:errordomain>
 </node>

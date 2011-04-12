@@ -68,6 +68,7 @@
     <fso:member name="start" value="start"/>
     <fso:member name="relaunch" value="relaunch"/>
     <fso:member name="stop" value="stop"/>
+    <fso:member name="pause" value="pause"/>
     <fso:member name="resume" value="resume"/>
     <fso:member name="terminate" value="terminate"/>
 </fso:enumeration>
