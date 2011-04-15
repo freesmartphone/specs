@@ -10,24 +10,6 @@
 
 <interface name="org.freesmartphone.Application.Session">
 
-    <method name="SetStatus">
-        <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-        <doc:doc>
-            <doc:description>
-                Sent, when the status of the application changes.
-            </doc:description>
-        </doc:doc>
-        <arg name="status" direction="in" type="s" fso:type="org.freesmartphone.Application.Status">
-            <doc:doc>
-                <doc:description>
-                    See org.freesmartphone.Application.Status for a detail description of
-                    the available status types.
-                </doc:description>
-            </doc:doc>
-        </arg>
-        <fso:throws type="org.freesmartphone"/>
-    </method>
-
     <method name="HandleEvent">
         <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
         <arg name="event" direction="in" type="s" fso:type="org.freesmartphone.Application.Event"/>
@@ -36,40 +18,13 @@
 
 </interface>
 
-<fso:enumeration name="org.freesmartphone.Application.Status" type="s">
-    <fso:member name="running" value="running">
-        <doc:doc>
-            <doc:description>
-                The application is in the foreground of the screen and has the focus of
-                the user.
-            </doc:description>
-        </doc:doc>
-    </fso:member>
-    <fso:member name="paused" value="paused">
-        <doc:doc>
-            <doc:description>
-                Another application is in the foreground and has the focus, but this
-                application is still visible.
-            </doc:description>
-        </doc:doc>
-    </fso:member>
-    <fso:member name="stopped" value="stopped">
-        <doc:doc>
-            <doc:description>
-                The application is completely obsucred by another application (the
-                application now runs in the background).
-            </doc:description>
-        </doc:doc>
-    </fso:member>
-</fso:enumeration>
-
 <fso:enumeration name="org.freesmartphone.Application.Event" type="s">
     <fso:member name="create" value="create"/>
     <fso:member name="start" value="start"/>
-    <fso:member name="relaunch" value="relaunch"/>
     <fso:member name="stop" value="stop"/>
     <fso:member name="pause" value="pause"/>
     <fso:member name="resume" value="resume"/>
+    <fso:member name="relaunch" value="relaunch"/>
     <fso:member name="terminate" value="terminate"/>
 </fso:enumeration>
 
