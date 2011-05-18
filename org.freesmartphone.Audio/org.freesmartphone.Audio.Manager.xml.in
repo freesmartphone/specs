@@ -435,6 +435,13 @@
 </fso:enumeration>
 
 <fso:enumeration name="org.freesmartphone.Audio.Stream" type="s">
+    <fso:member name="invalid" value="invalid">
+        <doc:doc>
+            <doc:description>
+                Invalid media stream.
+            </doc:description>
+        </doc:doc>
+    </fso:member>
     <fso:member name="media" value="media">
         <doc:doc>
             <doc:description>

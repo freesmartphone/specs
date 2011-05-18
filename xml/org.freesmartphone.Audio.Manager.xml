@@ -115,6 +115,7 @@
     <fso:member name="bluetooth-a2dp" value="bluetooth-a2dp"/>
   </fso:enumeration>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Audio.Stream" type="s">
+    <fso:member name="invalid" value="invalid"/>
     <fso:member name="media" value="media"/>
     <fso:member name="alert" value="alert"/>
     <fso:member name="ringtone" value="ringtone"/>
