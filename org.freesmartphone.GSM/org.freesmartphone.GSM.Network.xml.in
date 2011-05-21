@@ -311,7 +311,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="class" direction="in">
+    <arg type="s" name="call_class" direction="in">
       <doc:doc>
         <doc:summary>
           The call class for which you want to enable network call forwarding. See org.freesmartphone.GSM.Network.GetCallForwarding for valid classes.
@@ -349,7 +349,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="s" name="class" direction="in">
+    <arg type="s" name="call_class" direction="in">
       <doc:doc>
         <doc:summary>
           Call class for which the network call gets forwarded. See GetCallForwarding for valid classes.
