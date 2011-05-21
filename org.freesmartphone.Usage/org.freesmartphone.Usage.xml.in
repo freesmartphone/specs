@@ -281,6 +281,7 @@
   </signal>
 
   <signal name="ResourceChanged">
+    <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="QVariantMap"/>
     <doc:doc>
       <doc:description>Sent whenever a resource status changes.</doc:description>
     </doc:doc>

@@ -88,6 +88,7 @@
       <arg type="b" name="availability"/>
     </signal>
     <signal name="ResourceChanged">
+      <annotation name="com.trolltech.QtDBus.QtTypeName.In2" value="QVariantMap"/>
       <arg type="s" name="name"/>
       <arg type="b" name="state"/>
       <arg type="a{sv}" name="attributes"/>
