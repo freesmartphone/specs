@@ -38,6 +38,7 @@ xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-t
 
   <method name="ListAlarms">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoWakeupAlarmList" />
     <doc:doc>
       <doc:description>List all currently scheduled alarms.</doc:description>
     </doc:doc>

@@ -212,6 +212,7 @@
 
   <method name="ListProviders">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoNetworkProviderList" />
       <doc:doc>
         <doc:description>List available service providers.</doc:description>
       </doc:doc>

@@ -211,6 +211,7 @@
 
   <method name="ListCalls">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoCallDetailList" />
     <doc:doc>
       <doc:description>Retrieve the status for all calls in the system.</doc:description>
     </doc:doc>

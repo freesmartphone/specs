@@ -4,6 +4,7 @@
   <interface name="org.freesmartphone.Data.World">
     <method name="GetAllCountries">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoWorldCountryList"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(ss)" name="countries" fso:type="org.freesmartphone.Data.WorldCountry" direction="out"/>
     </method>
     <method name="GetCountryCodeForMccMnc">
@@ -20,6 +21,7 @@
     </method>
     <method name="GetApnsForMccMnc">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoWorldConnectivityAccessPointList"/>
       <arg type="s" name="mcc_mnc" direction="in"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(ssssss)" name="apns" direction="out" fso:type="org.freesmartphone.Data.WorldConnectivityAccessPoint"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>

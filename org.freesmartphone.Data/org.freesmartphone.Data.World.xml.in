@@ -18,6 +18,7 @@
 
   <method name="GetAllCountries">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoWorldCountryList" />
     <doc:doc>
       <doc:description>Retrieves all known country codes and their (english) name.</doc:description>
     </doc:doc>
@@ -72,6 +73,7 @@
 
   <method name="GetApnsForMccMnc">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoWorldConnectivityAccessPointList" />
     <doc:doc>
       <doc:description>
         Retrieves a list of data connectivity (GPRS, EDGE, 3G)

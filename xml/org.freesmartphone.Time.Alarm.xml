@@ -8,6 +8,7 @@
     </method>
     <method name="ListAlarms">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoWakeupAlarmList"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="a(si)" name="alarms" fso:type="org.freesmartphone.Time.WakeupAlarm" direction="out"/>
     </method>
     <method name="RemoveAlarm">

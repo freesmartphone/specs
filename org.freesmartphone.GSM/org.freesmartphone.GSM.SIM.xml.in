@@ -264,6 +264,7 @@
 
   <method name="GetHomeZoneParameters">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoSIMHomeZoneList" />
     <doc:doc>
       <doc:description>Retrieve the homezones coordinates, if stored on the SIM.</doc:description>
     </doc:doc>
@@ -374,6 +375,7 @@
 
   <method name="RetrievePhonebook">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+	<annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoSIMEntryList" />
     <doc:doc>
       <doc:description>Retrieve (parts of) a SIM phonebook.</doc:description>
     </doc:doc>

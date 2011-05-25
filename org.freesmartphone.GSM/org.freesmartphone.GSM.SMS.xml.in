@@ -36,6 +36,7 @@
 
   <method name="RetrieveTextMessages">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoSIMMessageList" />
     <doc:doc>
       <doc:description>Retrieve all text messages.</doc:description>
     </doc:doc>
