@@ -14,7 +14,6 @@
 <h2>Namespace</h2>
 <p><tt>org.freesmartphone.Device.PowerSupply</tt></p>
 <h2>Methods</h2><ul>
-<li><a href="#GetChargerConnected">GetChargerConnected</a></li>
 <li><a href="#GetCapacity">GetCapacity</a></li>
 <li><a href="#GetPowerStatus">GetPowerStatus</a></li>
 </ul>
@@ -23,9 +22,7 @@
 <li><a href="#Capacity">Capacity</a></li>
 </ul>
 <h2>Errors</h2><i>None</i>
-<h1>Methods</h1><h3><a name="GetChargerConnected">GetChargerConnected</a> ( ) &rarr; b</h3>
-<p><i>Description:</i> Checks if the charger is connected to the device. </p><h4>Returns</h4><i>b: connected</i><p>True, if the charger is connected. False, otherwise. </p>
-<h3><a name="GetCapacity">GetCapacity</a> ( ) &rarr; i</h3>
+<h1>Methods</h1><h3><a name="GetCapacity">GetCapacity</a> ( ) &rarr; i</h3>
 <p><i>Description:</i> Retrieve the capacity of this power supply. </p><p><div class="rationale"><p>A wall power supply will always return 100. </p></div></p><h4>Returns</h4><i>i: energy</i><p>The capacity in percent (0-100). </p>
 <h3><a name="GetPowerStatus">GetPowerStatus</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Retrieve the power status for this power supply. </p><p><div class="rationale"><p>A wall power supply will always return "full". </p></div></p><h4>Returns</h4><i>s: status</i><p>The power status. Expected values for a battery are:  <ul>  <li>"charging"</li>  <li>"discharging"</li>  <li>"full"</li>  <li>"empty"</li>  <li>"critical"</li>  <li>"removed"</li>  <li>"unknown"</li>  </ul>  Additional values for an ac adapter are:  <ul>  <li>"online"</li>  <li>"offline"</li>  </ul>  Additional values for an aggregated supply are:  <ul>  <li>"ac"</li>  </ul> </p>

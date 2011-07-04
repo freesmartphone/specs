@@ -14,20 +14,6 @@
     </doc:para>
   </doc:doc>
 
-  <method name="GetChargerConnected">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-        <doc:description>Checks if the charger is connected to the device.</doc:description>
-    </doc:doc>
-    <arg direction="out" type="b" name="connected">
-      <doc:doc>
-        <doc:summary>
-          True, if the charger is connected. False, otherwise.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </method>
-
   <method name="GetCapacity">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
