@@ -14,7 +14,6 @@ SUBDIRS = \
   org.freesmartphone.Time \
   org.freesmartphone.Usage \
   org.freesmartphone.Audio \
-  org.freesmartphone.Application \
   \
   org.freedesktop.Gypsy \
   \
