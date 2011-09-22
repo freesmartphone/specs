@@ -5,7 +5,6 @@ SUBDIRS = \
   org.freesmartphone.Context \
   org.freesmartphone.Events \
   org.freesmartphone.GSM \
-  org.freesmartphone.MusicPlayer \
   org.freesmartphone.Network \
   org.freesmartphone.Notification \
   org.freesmartphone.Phone \
