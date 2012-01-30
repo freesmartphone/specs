@@ -69,6 +69,43 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
+  <method name="SetRoamingAllowed">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+    <doc:doc>
+        <doc:description>Specify wether raoming is allowed.</doc:description>
+    </doc:doc>
+    <arg type="b" name="state" direction="in">
+        <doc:doc>
+            <doc:summary>
+                If set to false and network registration state indicates that the modem
+                is roaming PDP context will automatically deactivated and no further
+                activation will be possible until modem is not roaming anymore.
+            </doc:summary>
+        </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+    <method name="GetRoamingAllowed">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+    <doc:doc>
+        <doc:description>
+            Retrieve wether roaming is allowed.
+        </doc:description>
+    </doc:doc>
+    <arg type="b" name="state" direction="out">
+        <doc:doc>
+            <doc:summary>
+                True, if roaming is allowed. False, otherwise.
+            </doc:summary>
+        </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+
   <method name="ActivateContext">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
