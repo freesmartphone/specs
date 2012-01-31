@@ -66,5 +66,6 @@
     <fso:member name="active" value="active"/>
     <fso:member name="released" value="released"/>
     <fso:member name="shutdown" value="shutdown"/>
+    <fso:member name="suspended" value="suspended"/>
   </fso:enumeration>
 </node>

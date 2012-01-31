@@ -176,6 +176,11 @@
             [li]"active" = The context is active and has offered a route,[/li]
             [li]"held" = The context has been interrupted,[/li]
             [li]"released" = The context is released.[/li]
+            [li]
+                "suspended" = The context is suspended due out of network coverage or
+                another internal reason (for example network does not support
+                simultaneous packet and voice data)
+            [/li]
           [/ul]
           Further information can be part of the properties.
         </doc:summary>
@@ -232,6 +237,7 @@
   <fso:member name="active"        value="active"/>
   <fso:member name="released"      value="released"/>
   <fso:member name="shutdown"      value="shutdown"/>
+  <fso:member name="suspended"     value="suspended"/>
 </fso:enumeration>
 
 </node>
