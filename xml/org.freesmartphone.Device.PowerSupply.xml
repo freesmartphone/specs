@@ -5,10 +5,12 @@
     <method name="GetCapacity">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg direction="out" type="i" name="energy"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="GetPowerStatus">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" direction="out" type="s" name="status" fso:type="org.freesmartphone.Device.PowerStatus"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <signal name="PowerStatus">
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.Device.PowerStatus"/>

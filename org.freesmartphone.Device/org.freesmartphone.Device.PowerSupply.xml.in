@@ -25,6 +25,7 @@
         <doc:summary>The capacity in percent (0-100).</doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone"/>
   </method>
 
   <method name="GetPowerStatus">
@@ -58,6 +59,7 @@
         </doc:summary>
       </doc:doc>
     </arg>
+    <fso:throws type="org.freesmartphone"/>
   </method>
 
   <signal name="PowerStatus">
