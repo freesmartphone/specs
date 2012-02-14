@@ -12,15 +12,7 @@ SUBDIRS = \
   org.freesmartphone.Preferences \
   org.freesmartphone.Time \
   org.freesmartphone.Usage \
-  org.freesmartphone.Audio \
-  \
-  org.freedesktop.Gypsy \
-  \
-  org.sflphone.SFLphone \
-  \
-  net.connman \
-  \
-  org.bluez
+  org.freesmartphone.Audio
 
 EXTRA_DIST = fso-specs.pc.in
 
