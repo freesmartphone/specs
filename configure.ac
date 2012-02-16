@@ -25,6 +25,7 @@ fi
 # output
 AC_CONFIG_FILES([
         Makefile
+        html/index.html
         fso-specs.pc
 ])
 AC_OUTPUT
