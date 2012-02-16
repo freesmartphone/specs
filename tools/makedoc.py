@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# (C) 2008-2011 Michael 'Mickey' Lauer <mlauer@vanille-media.de>
+# (C) 2008-2012 Michael 'Mickey' Lauer <mlauer@vanille-media.de>
 # GPLv2 or later.
 
 """
@@ -109,7 +109,7 @@ class Entity( object ):
 """
     <hr/>
     <small>
-    | Specified 2008-2011 by the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. | Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org
+    | Specified 2008-2012 by the <a href="http://www.freesmartphone.org">Freesmartphone.org</a> team. | Join us and discuss further drafts smartphones-standards (at) linuxtogo (dot) org
     </small>
     <hr/>
     </body>
