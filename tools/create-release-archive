@@ -1,0 +1,2 @@
+#!/bin/sh
+git archive --prefix=specs-$1/ master | bzip2 -9 > specs-$1.tar.bz2
