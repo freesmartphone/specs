@@ -102,6 +102,27 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
+  <method name="GetProviderNameForMccMnc">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+    <doc:doc>
+        <doc:description>
+            Retrieves the name of a provider for a supplied concatenated MCC and MNC.
+            Raises org.freesmartphone.Error.InvalidParameter, if not found.
+        </doc:description>
+    </doc:doc>
+    <arg type="s" name="mcc_mnc" direction="in">
+        <doc:doc>
+            <doc:summary>MCC or concatenated MCC and MNC.</doc:summary>
+        </doc:doc>
+    </arg>
+    <arg type="s" name="provider" direction="out">
+        <doc:doc>
+            <doc:summary>Name of the provider.</doc:summary>
+        </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
 </interface>
 
 <fso:struct name="org.freesmartphone.Data.WorldCountry">

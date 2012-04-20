@@ -18,6 +18,7 @@
 <li><a href="#GetCountryCodeForMccMnc">GetCountryCodeForMccMnc</a></li>
 <li><a href="#GetTimezonesForCountryCode">GetTimezonesForCountryCode</a></li>
 <li><a href="#GetApnsForMccMnc">GetApnsForMccMnc</a></li>
+<li><a href="#GetProviderNameForMccMnc">GetProviderNameForMccMnc</a></li>
 </ul>
 <h2>Signals</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
@@ -29,6 +30,8 @@
 <p><i>Description:</i> Retrieves the list of timezones given a country code.  Raises <a href="http://docs.freesmartphone.org/org.freesmartphone.Error.html#InvalidParameter">InvalidParameter</a> if not found. </p><h4>Parameters</h4><i>s: country_code</i><p>The country code. </p><h4>Returns</h4><i>a{ss}: timezones</i><p>A dictionary of coordinates and timezone names. </p>
 <h3><a name="GetApnsForMccMnc">GetApnsForMccMnc</a> ( s ) &rarr; a(ssssss)</h3>
 <p><i>Description:</i> Retrieves a list of data connectivity (GPRS, EDGE, 3G)  access point names for MCC or concatenated MCC and MNC.  Raises <a href="http://docs.freesmartphone.org/org.freesmartphone.Error.html#InvalidParameter">InvalidParameter</a> if not found. </p><h4>Parameters</h4><i>s: mcc_mnc</i><p>MCC or concatenated MCC and MNC. </p><h4>Returns</h4><i>a(ssssss): apns</i><p>A list of six-tuples descriping a connectivity access point. Structure is: </p>
+<h3><a name="GetProviderNameForMccMnc">GetProviderNameForMccMnc</a> ( s ) &rarr; s</h3>
+<p><i>Description:</i> Retrieves the name of a provider for a supplied concatenated MCC and MNC.  Raises <a href="http://docs.freesmartphone.org/org.freesmartphone.Error.html#InvalidParameter">InvalidParameter</a> if not found. </p><h4>Parameters</h4><i>s: mcc_mnc</i><p>MCC or concatenated MCC and MNC. </p><h4>Returns</h4><i>s: provider</i><p>Name of the provider. </p>
 
     <hr/>
     <small>
