@@ -13,7 +13,7 @@
       The SIM interface is used to access the Subscriber Identification Module (SIM)
       plugged as a card into a GSM device. Use it to authenticate yourself
       against the GSM network and read/store data from/to the embedded SIM card memory.
-      Support for accessing the on-card phonebooks and messagebook is also provided.
+      Support for accessing the on-card phonebooks is also provided.
     </doc:para>
   </doc:doc>
 
@@ -375,7 +375,7 @@
 
   <method name="RetrievePhonebook">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-	<annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoSIMEntryList" />
+    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoSIMEntryList" />
     <doc:doc>
       <doc:description>Retrieve (parts of) a SIM phonebook.</doc:description>
     </doc:doc>
@@ -413,152 +413,6 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <!-- SHORT MESSAGE SERVICE -->
-
-  <method name="GetServiceCenterNumber">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve phone number of SMS Center.</doc:description>
-    </doc:doc>
-    <arg type="s" name="number" direction="out">
-      <doc:doc>
-        <doc:summary>The SMS Center Number.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="SetServiceCenterNumber">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Set phone number of SMS Center.</doc:description>
-    </doc:doc>
-    <arg type="s" name="number" direction="in">
-      <doc:doc>
-        <doc:summary>The SMS Center Number.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <signal name="IncomingMessage">
-    <doc:doc>
-      <doc:description>Sent, when a new message has been received and stored on the SIM card.</doc:description>
-    </doc:doc>
-    <arg type="i" name="index">
-      <doc:doc>
-        <doc:summary>The storage index of the new message.</doc:summary>
-      </doc:doc>
-    </arg>
-  </signal>
-
-  <method name="DeleteMessage">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Delete a message in the SIM messagebook.</doc:description>
-    </doc:doc>
-    <arg type="i" name="index" direction="in">
-      <doc:doc>
-        <doc:summary>The storage index of the message to delete.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="StoreMessage">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Store a message in the SIM messagebook.</doc:description>
-    </doc:doc>
-    <arg type="s" name="recipient_number" direction="in">
-      <doc:doc>
-        <doc:summary>The number of the recipient.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="contents" direction="in">
-      <doc:doc>
-        <doc:summary>The contents of the message.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="a{sv}" name="properties" direction="in">
-      <doc:doc>
-        <doc:summary>
-          For a list of valid properties see org.freesmartphone.GSM.SMS.SendMessage().
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="i" name="index" direction="out">
-      <doc:doc>
-        <doc:summary>The index of the new message.</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="SendStoredMessage">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Sends a message stored in the SIM messagebook.</doc:description>
-    </doc:doc>
-    <arg type="i" name="index" direction="in">
-      <doc:doc>
-        <doc:summary>The index of the message.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="i" name="transaction_index" direction="out">
-      <doc:doc>
-        <doc:summary>The given transaction index for this message.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="timestamp" direction="out">
-      <doc:doc>
-        <doc:summary>The timestamp this message was received by the SMSC</doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
-  <method name="RetrieveMessage">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <doc:doc>
-      <doc:description>Retrieve a message from the SIM messagebook.</doc:description>
-    </doc:doc>
-    <arg type="i" name="index" direction="in">
-      <doc:doc>
-        <doc:summary>The index of the message to retrieve.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="status" direction="out">
-      <doc:doc>
-        <doc:summary>The category the message is in, one of ("read", "sent", "unread", "unsent").</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="sender_number" direction="out">
-      <doc:doc>
-        <doc:summary>The number of the sender.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="contents" direction="out">
-      <doc:doc>
-        <doc:summary>The contents of the message.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="a{sv}" name="properties" direction="out">
-      <doc:doc>
-        <doc:summary>
-          Additional properties (TBD).
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
 </interface>
 
 <fso:enumeration type="s" name="org.freesmartphone.GSM.SIMAuthStatus">
@@ -581,15 +435,6 @@
   <fso:field name="x" type="i" />
   <fso:field name="y" type="i" />
   <fso:field name="radius" type="i" />
-</fso:struct>
-
-<fso:struct name="org.freesmartphone.GSM.SIMMessage">
-  <fso:field name="index" type="i" />
-  <fso:field name="status" type="s" />
-  <fso:field name="number" type="s" />
-  <fso:field name="timestamp" type="s" />
-  <fso:field name="contents" type="s" />
-  <fso:field name="properties" type="a{sv}" />
 </fso:struct>
 
 </node>

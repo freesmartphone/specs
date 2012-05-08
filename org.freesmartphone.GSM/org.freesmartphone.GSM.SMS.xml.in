@@ -34,30 +34,6 @@
   </method>
   -->
 
-  <method name="RetrieveTextMessages">
-    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-    <annotation name="com.trolltech.QtDBus.QtTypeName.Out0" value="QFsoSIMMessageList" />
-    <doc:doc>
-      <doc:description>Retrieve all text messages.</doc:description>
-    </doc:doc>
-    <arg type="a(issssa{sv})" name="messages" direction="out" fso:type="org.freesmartphone.GSM.SIMMessage">
-      <doc:doc>
-        <doc:summary>
-          Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:
-          [ul]
-            [li](int:index) = storage index,[/li]
-            [li](string:status) = status of message, one of ("read", "unread", "sent", "unsent"),[/li]
-            [li](string:number) = sender number.[/li]
-            [li](string:timestamp) = timestamp.[/li]
-            [li](string:content) = contents of the message.[/li]
-          [/ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <fso:throws type="org.freesmartphone.GSM" />
-    <fso:throws type="org.freesmartphone" />
-  </method>
-
   <method name="GetSizeForTextMessage">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -216,5 +192,32 @@
     </arg>
   </signal>
 
+  <method name="GetServiceCenterNumber">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Retrieve phone number of SMS Center.</doc:description>
+    </doc:doc>
+    <arg type="s" name="number" direction="out">
+      <doc:doc>
+        <doc:summary>The SMS Center Number.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="SetServiceCenterNumber">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>Set phone number of SMS Center.</doc:description>
+    </doc:doc>
+    <arg type="s" name="number" direction="in">
+      <doc:doc>
+        <doc:summary>The SMS Center Number.</doc:summary>
+      </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
 </interface>
 </node>
