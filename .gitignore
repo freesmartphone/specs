@@ -11,4 +11,5 @@ Makefile.in
 aclocal.m4
 autom4te.cache
 config.log
-
+ltmain.sh
+config.cache
