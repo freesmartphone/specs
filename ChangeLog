@@ -1,4 +1,18 @@
+2012-05-24  Simon Busch  <morphis@gravedo.de>
+
+	Bump version for new release
+
+2012-05-08  Simon Busch  <morphis@gravedo.de>
+
+	Update .gitignore
+
+2012-04-20  Simon Busch  <morphis@gravedo.de>
+
+	org.freesmartphone.Data.World: add a GetProviderNameForMccMnc method to retrieve the provider name for MCC/MNC
+
 2012-04-18  Simon Busch  <morphis@gravedo.de>
+
+	Release version 2012.04.18.1
 
 	Add little script to create release archive from git
 
