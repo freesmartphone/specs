@@ -40,6 +40,7 @@
 <li><a href="#AuthStatus">AuthStatus</a></li>
 <li><a href="#IncomingMessage">IncomingMessage</a></li>
 </ul>
+<h2>Properties</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetAuthStatus">GetAuthStatus</a> ( ) &rarr; s</h3>
 <p><i>Description:</i> Retrieve the authentication status for the SIM card. </p><h4>Returns</h4><i>s: status</i><p>The authentication status for the SIM card. Values to expect:  <ul>  <li>"UNKNOWN" = unknown (possibly due to SIM communication error or SIM not inserted)</li>  <li>"READY" = not waiting for any PIN or PUK,</li>  <li>"SIM PIN" = waiting for SIM PIN to be given,</li>  <li>"SIM PUK" = waiting for SIM PUK to be given,</li>  <li>"SIM PIN2" = waiting for SIM PIN 2 to be given,</li>  <li>"SIM PUK2" = waiting for SIM PUK 2 to be given.</li>  </ul> </p>

@@ -21,6 +21,7 @@
 <h2>Signals</h2><ul>
 <li><a href="#DebugStatus">DebugStatus</a></li>
 </ul>
+<h2>Properties</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="DebugCommand">DebugCommand</a> ( ss ) &rarr; s</h3>
 <p><i>Description:</i> Sends a debug command. </p><p><div class="rationale"><p>WARNING: Only use this, if you know what you are doing.  You may crash the device or the service, if you send bogus commands. </p></div></p><h4>Parameters</h4><i>s: command</i><p>The command to send. Note that the validity of commands depends  on the actual modem channel. Not all modem channels are AT channels!  It is recommended to implement a 'help' command that returns a  list of valid commands. </p><i>s: channel</i><p>The channel to send this command on. Set to "" to use the default one. </p><h4>Returns</h4><i>s: result</i><p>The result of the command </p>

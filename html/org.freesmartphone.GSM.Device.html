@@ -27,6 +27,7 @@
 <li><a href="#DeviceStatus">DeviceStatus</a></li>
 <li><a href="#KeypadEvent">KeypadEvent</a></li>
 </ul>
+<h2>Properties</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="GetFunctionality">GetFunctionality</a> ( ) &rarr; sbs</h3>
 <p><i>Description:</i> Retrieve the current functionality status of the device. </p><h4>Returns</h4><i>s: level</i><p>The functionality level. Expected values are:  <ul>  <li>"minimal": The device is in maximum powersave mode, SIM access is not possible</li>  <li>"airplane": The device is in airplane mode (RF receivers and transmitters have been turned off), SIM access is possible</li>  <li>"full": The device operates with maximum functionality (all units are powered up).</li>  </ul> </p><i>b: autoregister</i><p>Whether the device tries to maintain registration with a provider.  This parameter is only valid, if level = "full". </p><i>s: pin</i><p>The SIM PIN being used to authenticate if necessary, or an empty string.  This parameter is only valid, if level = "full" or "airplane". </p>

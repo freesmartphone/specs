@@ -22,6 +22,7 @@
 <li><a href="#IncomingTextMessage">IncomingTextMessage</a></li>
 <li><a href="#IncomingMessageReport">IncomingMessageReport</a></li>
 </ul>
+<h2>Properties</h2><i>None</i>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="RetrieveTextMessages">RetrieveTextMessages</a> ( ) &rarr; a(issssa{sv})</h3>
 <p><i>Description:</i> Retrieve all text messages. </p><h4>Returns</h4><i>a(issssa{sv}): messages</i><p>Messages matching the given category. This is an array of four-tuples. Every entry has the following structure:  <ul>  <li>(int:index) = storage index,</li>  <li>(string:status) = status of message, one of ("read", "unread", "sent", "unsent"),</li>  <li>(string:number) = sender number.</li>  <li>(string:timestamp) = timestamp.</li>  <li>(string:content) = contents of the message.</li>  </ul> </p>
