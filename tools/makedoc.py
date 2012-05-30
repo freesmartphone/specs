@@ -73,7 +73,7 @@ class Entity( object ):
     def outputSemiFormatted( self, content ):
         content = self.outputCrosslinked( content )
         """convert known html entities"""
-        for i in "ul ol li".split():
+        for i in "ul ol li p".split():
             content = content.replace( "[%s]" % i, "<%s>" % i )
             content = content.replace( "[/%s]" % i, "</%s>" % i )
         return """<p>%s</p>""" % content
@@ -339,7 +339,7 @@ class Property( Describable ):
         typename = self.attrs["type"]
         text += "%s - %s : %s" % ( self.outputAnchorLabel( self.name ), typename, accesstype )
         text = self.outputSectionHeader( text, 3 )
-        text += self.describe()
+        text += self.outputSemiFormatted( self.describe() )
 
         text = self.outputSectionHeader( text, 3 )
         text += "\n"
