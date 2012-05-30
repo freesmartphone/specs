@@ -16,8 +16,6 @@
 <h2>Methods</h2><ul>
 <li><a href="#SetCredentials">SetCredentials</a></li>
 <li><a href="#GetCredentials">GetCredentials</a></li>
-<li><a href="#SetRoamingAllowed">SetRoamingAllowed</a></li>
-<li><a href="#GetRoamingAllowed">GetRoamingAllowed</a></li>
 <li><a href="#ActivateContext">ActivateContext</a></li>
 <li><a href="#DeactivateContext">DeactivateContext</a></li>
 <li><a href="#GetContextStatus">GetContextStatus</a></li>
@@ -26,16 +24,14 @@
 <h2>Signals</h2><ul>
 <li><a href="#ContextStatus">ContextStatus</a></li>
 </ul>
-<h2>Properties</h2><i>None</i>
+<h2>Properties</h2><ul>
+<li><a href="#RoamingAllowed">RoamingAllowed</a></li>
+</ul>
 <h2>Errors</h2><i>None</i>
 <h1>Methods</h1><h3><a name="SetCredentials">SetCredentials</a> ( sss )</h3>
 <p><i>Description:</i> Set the credentials for PDP context activation. </p><h4>Parameters</h4><i>s: apn</i><p>The access point name to connect to. </p><i>s: username</i><p>The user name to identify as. </p><i>s: password</i><p>The password to identify as. </p>
 <h3><a name="GetCredentials">GetCredentials</a> ( ) &rarr; sss</h3>
 <p><i>Description:</i> Get the credentials for PDP context activation. </p><h4>Returns</h4><i>s: apn</i><p>The access point name to connect to. </p><i>s: username</i><p>The user name to identify as. </p><i>s: password</i><p>The password to identify as. </p>
-<h3><a name="SetRoamingAllowed">SetRoamingAllowed</a> ( b )</h3>
-<p><i>Description:</i> Specify wether raoming is allowed. </p><h4>Parameters</h4><i>b: state</i><p>If set to false and network registration state indicates that the modem  is roaming PDP context will automatically deactivated and no further  activation will be possible until modem is not roaming anymore. </p>
-<h3><a name="GetRoamingAllowed">GetRoamingAllowed</a> ( ) &rarr; b</h3>
-<p><i>Description:</i> Retrieve wether roaming is allowed. </p><h4>Returns</h4><i>b: state</i><p>True, if roaming is allowed. False, otherwise. </p>
 <h3><a name="ActivateContext">ActivateContext</a> ( )</h3><p><i>Description:</i> Request a PDP context activation to an IP-based network service provider. </p><p><div class="rationale"><p>Invocation of this command can change your network default route. </p></div></p>
 <h3><a name="DeactivateContext">DeactivateContext</a> ( )</h3><p><i>Description:</i> Cancel an ongoing ppp session and request a PDP context deactivation. </p><p><div class="rationale"><p>This command might change your network default route. </p></div></p>
 <h3><a name="GetContextStatus">GetContextStatus</a> ( ) &rarr; sa{sv}</h3>
@@ -43,6 +39,7 @@
 <h3><a name="InternalStatusUpdate">InternalStatusUpdate</a> ( sa{sv} )</h3>
 <p><i>Description:</i> This method is for internal use only. </p><h4>Parameters</h4><i>s: status</i><p>Internal use only. </p><i>a{sv}: properties</i><p>Internal use only. </p>
 <h1>Signals</h1><h3><h3><a name="ContextStatus">ContextStatus</a> ( sa{sv} )</h3><p><i>Description:</i> Sent whenever there is any status or property change on a pdp context in the system. </p><h4>Parameters</h4><i>s: status</i><p>The new status of the context. Expected values are:  <ul>  <li>"incoming" = The context is incoming (but not yet accepted),</li>  <li>"outgoing" = The context is outgoing (but not yet established),</li>  <li>"active" = The context is active and has offered a route,</li>  <li>"held" = The context has been interrupted,</li>  <li>"released" = The context is released.</li>  <li>  "suspended" = The context is suspended due out of network coverage or  another internal reason (for example network does not support  simultaneous packet and voice data)  </li>  </ul>  Further information can be part of the properties. </p><i>a{sv}: properties</i><p>An array of property values. Note that properties are optional.  Expected tuples are:  <ul>  <li>( "reason", string ) = The reason for the status change,</li>  <li>( "apn", string ) = The number of the access point.</li>  </ul> </p></h3>
+<h1>Properties</h1><h3><h3><a name="RoamingAllowed">RoamingAllowed</a> - b : Read/Write</h3><p><p><i>Description:</i> <p>Specify wether an active PDP context is allowed while modem is roaming.</p>  <p>  If set to false and network registration state indicates that the modem  is roaming PDP context will automatically deactivated and no further  activation will be possible until modem is not roaming anymore.  </p> </p> </p></h3>
 
     <hr/>
     <small>
