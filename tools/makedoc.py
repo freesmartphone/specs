@@ -125,6 +125,7 @@ class Interface( Entity ):
         self.filename = filename
         self.methods = []
         self.signals = []
+        self.properties = []
         self.errors = []
         self.outfile = None
         self.namespace = "Unknown"
@@ -160,11 +161,15 @@ class Interface( Entity ):
 
         # signal overview
         text += self.outputSectionHeader( "Signals", 2 )
-        text += self.outputList( [ self.outputAnchorLink(method.name) for method in self.signals ] )
+        text += self.outputList( [ self.outputAnchorLink(signal.name) for signal in self.signals ] )
+
+        # property overview
+        text += self.outputSectionHeader( "Properties", 2 )
+        text += self.outputList( [ self.outputAnchorLink(prop.name) for prop in self.properties ] )
 
         # error overview
         text += self.outputSectionHeader( "Errors", 2 )
-        text += self.outputList( [ self.outputAnchorLink(method.name) for method in self.errors ] )
+        text += self.outputList( [ self.outputAnchorLink(error.name) for error in self.errors ] )
 
         # methods en detail
         if len( self.methods ):
@@ -176,6 +181,12 @@ class Interface( Entity ):
         if len( self.signals ):
             text += self.outputSectionHeader( "Signals" )
             for s in self.signals:
+                text += s.out()
+
+        # properties en detail
+        if len( self.properties ):
+            text += self.outputSectionHeader( "Properties" )
+            for s in self.properties:
                 text += s.out()
 
         # errors en detail
@@ -313,6 +324,29 @@ class Signal( Describable ):
         return text
 
 #----------------------------------------------------------------------------#
+class Property( Describable ):
+#----------------------------------------------------------------------------#
+    def __init__( self, name, attrs ):
+        Describable.__init__( self, name, attrs )
+
+    def out( self ):
+        text = ""
+
+        accesstype = "Read/Write"
+        if "access" in self.attrs and self.attrs["access"] == "readonly":
+            accesstype = "Read only"
+
+        typename = self.attrs["type"]
+        text += "%s - %s : %s" % ( self.outputAnchorLabel( self.name ), typename, accesstype )
+        text = self.outputSectionHeader( text, 3 )
+        text += self.describe()
+
+        text = self.outputSectionHeader( text, 3 )
+        text += "\n"
+
+        return text
+
+#----------------------------------------------------------------------------#
 class Error( Describable ):
 #----------------------------------------------------------------------------#
     def __init__( self, name, attrs ):
@@ -353,10 +387,11 @@ class Handler( ContentHandler ):
         self.doc = None
         self.method = None
         self.signal = None
+        self.property = None
         self.error = None
         self.arg = None
         self.text = ""
-        self.significantElements = "node interface method signal error arg".split()
+        self.significantElements = "node interface method signal error arg property".split()
 
     def startDocument( self ):
         pass
@@ -386,6 +421,9 @@ class Handler( ContentHandler ):
         elif element == "signal":
             self.signal = Signal( self.name.strip(), attrs )
 
+        elif element == "property":
+            self.property = Property( self.name.strip(), attrs )
+
         elif element == "error":
             self.error = Error( self.name.strip(), attrs )
 
@@ -412,6 +450,9 @@ class Handler( ContentHandler ):
         elif element == "doc:description" and self.current == "signal":
             self.signal.description = self.text.strip()
 
+        elif element == "doc:description" and self.current == "property":
+            self.property.description = self.text.strip()
+
         elif element == "doc:description" and self.current == "error":
             self.error.description = self.text.strip()
 
@@ -426,6 +467,11 @@ class Handler( ContentHandler ):
         elif element == "signal":
             assert self.signal is not None
             self.iface.signals.append( self.signal )
+            self.signal = None
+
+        elif element == "property":
+            assert self.property is not None
+            self.iface.properties.append( self.property )
             self.signal = None
 
         elif element == "error":
