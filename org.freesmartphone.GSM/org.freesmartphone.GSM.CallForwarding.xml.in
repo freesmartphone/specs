@@ -29,7 +29,7 @@
             </doc:doc>
             <arg name="cls" type="s" direction="in">
                 <doc:doc>
-                    <doc:description>
+                    <doc:summary>
                         Name of the bearer the call forwarding rule should be enabled for. Valid classes are:
                         [li]
                             [li]"voice",[/li]
@@ -46,12 +46,12 @@
                             [li]"dpa",[/li]
                             [li]"pad".[/li]
                         [/ul]
-                    </doc:description>
+                    </doc:summary>
                 </doc:doc>
             </arg>
             <arg name="reason" type="s" direction="in">
                 <doc:doc>
-                    <doc:description>
+                    <doc:summary>
                         Reason for which you want to enable network call forwarding: Valid reasons are:
                         [ul]
                             [li]"unconditional"[/li]
@@ -61,14 +61,14 @@
                             [li]"all"[/li]
                             [li]"all conditional"[/li]
                         [/ul]
-                    </doc:description>
+                    </doc:summary>
                 </doc:doc>
             </arg>
             <arg name="timeout" type="i" direction="in">
                 <doc:doc>
-                    <doc:description>
+                    <doc:summary>
                         Number of seconds after which the call forwarding rule gets active.
-                    </doc:description>
+                    </doc:summary>
                 </doc:doc>
             </arg>
             <fso:throws type="org.freesmartphone"/>
@@ -77,24 +77,24 @@
 
         <method name="Disable">
             <doc:doc>
-                <doc:description>
+                <doc:summary>
                     Disable the call forwarding rule for the specified class and reason.
-                </doc:description>
+                </doc:summary>
             </doc:doc>
             <arg name="cls" type="s" direction="in">
                 <doc:doc>
-                    <doc:description>
+                    <doc:summary>
                         Name of the bearer the call forwarding rule should be disabled for. See
                         org.freesmartphone.GSM.CallForwarding.Enable for valid classes.
-                    </doc:description>
+                    </doc:summary>
                 </doc:doc>
             </arg>
             <arg name="reason" type="s" direction="in">
                 <doc:doc>
-                    <doc:description>
+                    <doc:summary>
                         Reason for which you want to disable call forwarding. See
                         org.freesmartphone.GSM.CallForwarding.Enable for valid reasons.
-                    </doc:description>
+                    </doc:summary>
                 </doc:doc>
             </arg>
             <fso:throws type="org.freesmartphone"/>
