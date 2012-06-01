@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<node name="/" xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd" doc:id="freesmartphone-gsm-call-forwarding-interface">
+    <doc:doc>
+      <doc:summary>freesmartphone.org GSM Call Forwarding Interface</doc:summary>
+      <doc:version>0.1.0</doc:version>
+    </doc:doc>
+
+    <interface name="org.freesmartphone.GSM.CallForwarding">
+        <doc:doc>
+            <doc:para>
+            </doc:para>
+        </doc:doc>
+
+        <method name="DisableAll">
+            <doc:doc>
+                <doc:description>
+                    Disable all active call forwarding rules.
+                </doc:description>
+            </doc:doc>
+            <fso:throws type="org.freesmartphone"/>
+            <fso:throws type="org.freesmartphone.GSM"/>
+        </method>
+
+        <method name="Enable">
+            <doc:doc>
+                <doc:description>
+                    Enable a call forwarding rule for the specified class and reason.
+                </doc:description>
+            </doc:doc>
+            <arg name="cls" type="s" direction="in">
+                <doc:doc>
+                    <doc:description>
+                        Name of the bearer the call forwarding rule should be enabled for. Valid classes are:
+                        [li]
+                            [li]"voice",[/li]
+                            [li]"data",[/li]
+                            [li]"voice+data",[/li]
+                            [li]"fax",[/li]
+                            [li]"voice+data+fax".[/li]
+                        [/ul]
+                        Rarely you might also encounter:
+                        [ul]
+                            [li]"sms",[/li]
+                            [li]"dcs",[/li]
+                            [li]"dca",[/li]
+                            [li]"dpa",[/li]
+                            [li]"pad".[/li]
+                        [/ul]
+                    </doc:description>
+                </doc:doc>
+            </arg>
+            <arg name="reason" type="s" direction="in">
+                <doc:doc>
+                    <doc:description>
+                        Reason for which you want to enable network call forwarding: Valid reasons are:
+                        [ul]
+                            [li]"unconditional"[/li]
+                            [li]"mobile busy"[/li]
+                            [li]"no reply"[/li]
+                            [li]"not reachable"[/li]
+                            [li]"all"[/li]
+                            [li]"all conditional"[/li]
+                        [/ul]
+                    </doc:description>
+                </doc:doc>
+            </arg>
+            <arg name="timeout" type="i" direction="in">
+                <doc:doc>
+                    <doc:description>
+                        Number of seconds after which the call forwarding rule gets active.
+                    </doc:description>
+                </doc:doc>
+            </arg>
+            <fso:throws type="org.freesmartphone"/>
+            <fso:throws type="org.freesmartphone.GSM"/>
+        </method>
+
+        <method name="Disable">
+            <doc:doc>
+                <doc:description>
+                    Disable the call forwarding rule for the specified class and reason.
+                </doc:description>
+            </doc:doc>
+            <arg name="cls" type="s" direction="in">
+                <doc:doc>
+                    <doc:description>
+                        Name of the bearer the call forwarding rule should be disabled for. See
+                        org.freesmartphone.GSM.CallForwarding.Enable for valid classes.
+                    </doc:description>
+                </doc:doc>
+            </arg>
+            <arg name="reason" type="s" direction="in">
+                <doc:doc>
+                    <doc:description>
+                        Reason for which you want to disable call forwarding. See
+                        org.freesmartphone.GSM.CallForwarding.Enable for valid reasons.
+                    </doc:description>
+                </doc:doc>
+            </arg>
+            <fso:throws type="org.freesmartphone"/>
+            <fso:throws type="org.freesmartphone.GSM"/>
+        </method>
+    </interface>
+</node>
