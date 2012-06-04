@@ -11,6 +11,7 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg name="cls" type="s" direction="in"/>
       <arg name="reason" type="s" direction="in"/>
+      <arg name="number" type="s" direction="in"/>
       <arg name="timeout" type="i" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>

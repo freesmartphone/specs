@@ -66,6 +66,13 @@
                     </doc:summary>
                 </doc:doc>
             </arg>
+            <arg name="number" type="s" direction="in">
+                <doc:doc>
+                    <doc:summary>
+                        Number calls should be forwarded to.
+                    </doc:summary>
+                </doc:doc>
+            </arg>
             <arg name="timeout" type="i" direction="in">
                 <doc:doc>
                     <doc:summary>
