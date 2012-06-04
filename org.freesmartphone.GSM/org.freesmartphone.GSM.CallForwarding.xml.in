@@ -12,6 +12,7 @@
         </doc:doc>
 
         <method name="DisableAll">
+            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
             <doc:doc>
                 <doc:description>
                     Disable all active call forwarding rules.
@@ -22,6 +23,7 @@
         </method>
 
         <method name="Enable">
+            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
             <doc:doc>
                 <doc:description>
                     Enable a call forwarding rule for the specified class and reason.
@@ -76,6 +78,7 @@
         </method>
 
         <method name="Disable">
+            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
             <doc:doc>
                 <doc:summary>
                     Disable the call forwarding rule for the specified class and reason.
