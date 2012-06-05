@@ -36,16 +36,16 @@
                         [li]
                             [li]"voice",[/li]
                             [li]"data",[/li]
-                            [li]"voice+data",[/li]
                             [li]"fax",[/li]
-                            [li]"voice+data+fax".[/li]
+                            [li]"default".[/li]
                         [/ul]
                         Rarely you might also encounter:
                         [ul]
                             [li]"sms",[/li]
-                            [li]"dcs",[/li]
-                            [li]"dca",[/li]
-                            [li]"dpa",[/li]
+                            [li]"data-sync",[/li]
+                            [li]"data-async",[/li]
+                            [li]"ss-default",[/li]
+                            [li]"packet",[/li]
                             [li]"pad".[/li]
                         [/ul]
                     </doc:summary>
@@ -57,11 +57,11 @@
                         Reason for which you want to enable network call forwarding: Valid reasons are:
                         [ul]
                             [li]"unconditional"[/li]
-                            [li]"mobile busy"[/li]
-                            [li]"no reply"[/li]
-                            [li]"not reachable"[/li]
+                            [li]"busy"[/li]
+                            [li]"no-reply"[/li]
+                            [li]"not-reachable"[/li]
                             [li]"all"[/li]
-                            [li]"all conditional"[/li]
+                            [li]"all-conditional"[/li]
                         [/ul]
                     </doc:summary>
                 </doc:doc>
