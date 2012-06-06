@@ -24,14 +24,14 @@
             <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
             <arg name="type" type="s" direction="in">
                 <doc:doc>
-                    <doc:description>
+                    <doc:summary>
                         Type of call forwarding rules to disable. Expected values are
                         [ul]
                             [li]"all": disable all rules,[/li]
                             [li]"conditional": disable only coniditonal rules
                                 (e.g. busy, not reachable, no reply).[/li]
                         [/ul]
-                    </doc:description>
+                    </doc:summary>
                 </doc:doc>
             </arg>
             <fso:throws type="org.freesmartphone"/>
