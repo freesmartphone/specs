@@ -22,10 +22,17 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <property name="VoiceUnconditional" type="s" access="readonly"/>
-    <property name="VoiceBusy" type="s" access="readonly"/>
-    <property name="VoiceNoReply" type="s" access="readonly"/>
-    <property name="VoiceNoReplyTimeout" type="i" access="readonly"/>
-    <property name="VoiceNotReachable" type="s" access="readonly"/>
+    <method name="GetStatus">
+      <arg name="rule" type="s" direction="in"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="status" type="(bsi)" fso:type="org.freesmartphone.GSM.CallForwardingStatus" direction="out"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
   </interface>
+  <fso:struct xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.GSM.CallForwardingStatus">
+    <fso:field name="active" type="b"/>
+    <fso:field name="number" type="s"/>
+    <fso:field name="timeout" type="i"/>
+  </fso:struct>
 </node>
