@@ -8,60 +8,53 @@
     <interface name="org.freesmartphone.GSM.CallForwarding">
         <doc:doc>
             <doc:para>
+                The call forwarding interface allows to access the call forwarding
+                supplementary service according to 3GPP TS 22.082. It supports
+                enabling and disabling different voice related call forwarding rules
+                and to query their current status.
             </doc:para>
         </doc:doc>
 
         <method name="DisableAll">
-            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
             <doc:doc>
                 <doc:description>
-                    Disable all active call forwarding rules.
+                    Disable all (or only conditional) call forwarding rules.
                 </doc:description>
             </doc:doc>
+            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+            <arg name="type" type="s" direction="in">
+                <doc:doc>
+                    <doc:description>
+                        Type of call forwarding rules to disable. Expected values are
+                        [ul]
+                            [li]"all": disable all rules,[/li]
+                            [li]"conditional": disable only coniditonal rules
+                                (e.g. busy, not reachable, no reply).[/li]
+                        [/ul]
+                    </doc:description>
+                </doc:doc>
+            </arg>
             <fso:throws type="org.freesmartphone"/>
             <fso:throws type="org.freesmartphone.GSM"/>
         </method>
 
         <method name="Enable">
-            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
             <doc:doc>
                 <doc:description>
-                    Enable a call forwarding rule for the specified class and reason.
+                    Enable a call forwarding rule. The corresponding properties for the
+                    specified rules will be populated with the values specified.
                 </doc:description>
             </doc:doc>
-            <arg name="cls" type="s" direction="in">
+            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+            <arg name="rule" type="s" direction="in">
                 <doc:doc>
                     <doc:summary>
-                        Name of the bearer the call forwarding rule should be enabled for. Valid classes are:
-                        [li]
-                            [li]"voice",[/li]
-                            [li]"data",[/li]
-                            [li]"fax",[/li]
-                            [li]"default".[/li]
-                        [/ul]
-                        Rarely you might also encounter:
+                        Call forwarding rule to assign a number and timeout for. Expected values are:
                         [ul]
-                            [li]"sms",[/li]
-                            [li]"data-sync",[/li]
-                            [li]"data-async",[/li]
-                            [li]"ss-default",[/li]
-                            [li]"packet",[/li]
-                            [li]"pad".[/li]
-                        [/ul]
-                    </doc:summary>
-                </doc:doc>
-            </arg>
-            <arg name="reason" type="s" direction="in">
-                <doc:doc>
-                    <doc:summary>
-                        Reason for which you want to enable network call forwarding: Valid reasons are:
-                        [ul]
-                            [li]"unconditional"[/li]
-                            [li]"busy"[/li]
-                            [li]"no-reply"[/li]
-                            [li]"not-reachable"[/li]
-                            [li]"all"[/li]
-                            [li]"all-conditional"[/li]
+                            [li]"voice unconditional",[/li]
+                            [li]"voice busy",[/li]
+                            [li]"voice no reply",[/li]
+                            [li]"voice not reachable".[/li]
                         [/ul]
                     </doc:summary>
                 </doc:doc>
@@ -69,46 +62,83 @@
             <arg name="number" type="s" direction="in">
                 <doc:doc>
                     <doc:summary>
-                        Number calls should be forwarded to.
+                        Number the call should be forwarded too. Should be either in national
+                        or international format.
                     </doc:summary>
                 </doc:doc>
             </arg>
             <arg name="timeout" type="i" direction="in">
                 <doc:doc>
                     <doc:summary>
-                        Number of seconds after which the call forwarding rule gets active.
+                        Timeout after the call forwarding rule should become active. Only accepted
+                        if rule is "voice no reply".
                     </doc:summary>
                 </doc:doc>
             </arg>
-            <fso:throws type="org.freesmartphone"/>
-            <fso:throws type="org.freesmartphone.GSM"/>
+            <fso:throws type="org.freesmartphone.GSM" />
+            <fso:throws type="org.freesmartphone" />
         </method>
 
         <method name="Disable">
-            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
             <doc:doc>
-                <doc:summary>
-                    Disable the call forwarding rule for the specified class and reason.
-                </doc:summary>
+                <doc:description>
+                    Disable a call forwarding rule.
+                </doc:description>
             </doc:doc>
-            <arg name="cls" type="s" direction="in">
+            <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+            <arg name="rule" type="s" direction="in">
                 <doc:doc>
                     <doc:summary>
-                        Name of the bearer the call forwarding rule should be disabled for. See
-                        org.freesmartphone.GSM.CallForwarding.Enable for valid classes.
+                        Name of the call forwarding rule. See
+                        org.freesmartphone.GSM.CallForwarding.Enable for a list
+                        of valid values.
+                        The corresponding property for the rule will be unset.
                     </doc:summary>
                 </doc:doc>
             </arg>
-            <arg name="reason" type="s" direction="in">
-                <doc:doc>
-                    <doc:summary>
-                        Reason for which you want to disable call forwarding. See
-                        org.freesmartphone.GSM.CallForwarding.Enable for valid reasons.
-                    </doc:summary>
-                </doc:doc>
-            </arg>
-            <fso:throws type="org.freesmartphone"/>
-            <fso:throws type="org.freesmartphone.GSM"/>
+            <fso:throws type="org.freesmartphone.GSM" />
+            <fso:throws type="org.freesmartphone" />
         </method>
+
+        <property name="VoiceUnconditional" type="s" access="readonly">
+            <doc:doc>
+                <doc:description>
+                    Contains the value of the voice unconditional call forwarding
+                    rule. If it contains an empty string the rule is not active.
+                </doc:description>
+            </doc:doc>
+        </property>
+        <property name="VoiceBusy" type="s" access="readonly">
+            <doc:doc>
+                <doc:description>
+                    Contains the value of the voice busy call forwarding
+                    rule. If it contains an empty string the rule is not active.
+                </doc:description>
+            </doc:doc>
+        </property>
+        <property name="VoiceNoReply" type="s" access="readonly">
+            <doc:doc>
+                <doc:description>
+                    Contains the value of the voice no reply call forwarding
+                    rule. If it contains an empty string the rule is not active.
+                </doc:description>
+            </doc:doc>
+        </property>
+        <property name="VoiceNoReplyTimeout" type="i" access="readonly">
+            <doc:doc>
+                <doc:description>
+                    Contains the value for the voice no reply call forwarding rule
+                    timeout. The value should be in the range of [0:30].
+                </doc:description>
+            </doc:doc>
+        </property>
+        <property name="VoiceNotReachable" type="s" access="readonly">
+            <doc:doc>
+                <doc:description>
+                    Contains the value of the voice not reachable call forwarding
+                    rule. If it contains an empty string the rule is not active.
+                </doc:description>
+            </doc:doc>
+        </property>
     </interface>
 </node>

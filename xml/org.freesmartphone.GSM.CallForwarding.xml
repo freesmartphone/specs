@@ -4,24 +4,28 @@
   <interface name="org.freesmartphone.GSM.CallForwarding">
     <method name="DisableAll">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <arg name="type" type="s" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
     </method>
     <method name="Enable">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg name="cls" type="s" direction="in"/>
-      <arg name="reason" type="s" direction="in"/>
+      <arg name="rule" type="s" direction="in"/>
       <arg name="number" type="s" direction="in"/>
       <arg name="timeout" type="i" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="Disable">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg name="cls" type="s" direction="in"/>
-      <arg name="reason" type="s" direction="in"/>
-      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+      <arg name="rule" type="s" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <property name="VoiceUnconditional" type="s" access="readonly"/>
+    <property name="VoiceBusy" type="s" access="readonly"/>
+    <property name="VoiceNoReply" type="s" access="readonly"/>
+    <property name="VoiceNoReplyTimeout" type="i" access="readonly"/>
+    <property name="VoiceNotReachable" type="s" access="readonly"/>
   </interface>
 </node>
