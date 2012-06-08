@@ -30,53 +30,6 @@
     <fso:throws type="org.freesmartphone" />
   </method>
 
-  <signal name="CallStatus">
-    <doc:doc>
-      <doc:description>
-        Sent whenever there is any status or property change on a call in the system,
-        no matter whether this is an incoming, active, held, or released call.
-        </doc:description>
-      <doc:inote>This signal is emitted once for every 'RING' from the modem.</doc:inote>
-    </doc:doc>
-    <arg type="i" name="id">
-      <doc:doc>
-        <doc:summary>The index of the call that changed its status or properties.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CallStatus">
-      <doc:doc>
-        <doc:summary>
-          The new status of the call. Expected values are:
-          [ul]
-            [li]"incoming" = The call is incoming (but not yet accepted),[/li]
-            [li]"outgoing" = The call is outgoing (but not yet established),[/li]
-            [li]"active" = The call is the active call (you can talk),[/li]
-            [li]"held" = The call is being held,[/li]
-            [li]"release" = The call has been released.[/li]
-          [/ul]
-          Further information can be part of the properties.
-        </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="a{sv}" name="properties">
-      <doc:doc>
-        <doc:summary>
-          An array of property values. Note that some properties are optional. Mandatory tuples are:
-          [ul]
-            [li]( "direction", string ) = "incoming" or "outgoing",[/li]
-            [li]( "peer", string ) = The number of the peer (on incoming calls only if we received a CLIP).[/li]
-          [/ul]
-          Optional tuples include:
-          [ul]
-            [li]( "reason", string ) = The reason for the status change (on outgoing calls e.g. 'BUSY' or 'NO CARRIER'),[/li]
-            [li]( "auxstatus", string ) = An auxillary connection status (if your modem supports that),[/li]
-            [li]( "line", string ) = The GSM line (0 or 1) this call is taking place (on modems that support multiple lines).[/li]
-          [ul]
-        </doc:summary>
-      </doc:doc>
-    </arg>
-  </signal>
-
   <method name="Activate">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
@@ -244,6 +197,53 @@
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
+
+  <signal name="CallStatus">
+    <doc:doc>
+      <doc:description>
+        Sent whenever there is any status or property change on a call in the system,
+        no matter whether this is an incoming, active, held, or released call.
+        </doc:description>
+      <doc:inote>This signal is emitted once for every 'RING' from the modem.</doc:inote>
+    </doc:doc>
+    <arg type="i" name="id">
+      <doc:doc>
+        <doc:summary>The index of the call that changed its status or properties.</doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="s" name="status" fso:type="org.freesmartphone.GSM.CallStatus">
+      <doc:doc>
+        <doc:summary>
+          The new status of the call. Expected values are:
+          [ul]
+            [li]"incoming" = The call is incoming (but not yet accepted),[/li]
+            [li]"outgoing" = The call is outgoing (but not yet established),[/li]
+            [li]"active" = The call is the active call (you can talk),[/li]
+            [li]"held" = The call is being held,[/li]
+            [li]"release" = The call has been released.[/li]
+          [/ul]
+          Further information can be part of the properties.
+        </doc:summary>
+      </doc:doc>
+    </arg>
+    <arg type="a{sv}" name="properties">
+      <doc:doc>
+        <doc:summary>
+          An array of property values. Note that some properties are optional. Mandatory tuples are:
+          [ul]
+            [li]( "direction", string ) = "incoming" or "outgoing",[/li]
+            [li]( "peer", string ) = The number of the peer (on incoming calls only if we received a CLIP).[/li]
+          [/ul]
+          Optional tuples include:
+          [ul]
+            [li]( "reason", string ) = The reason for the status change (on outgoing calls e.g. 'BUSY' or 'NO CARRIER'),[/li]
+            [li]( "auxstatus", string ) = An auxillary connection status (if your modem supports that),[/li]
+            [li]( "line", string ) = The GSM line (0 or 1) this call is taking place (on modems that support multiple lines).[/li]
+          [ul]
+        </doc:summary>
+      </doc:doc>
+    </arg>
+  </signal>
 
 </interface>
 
