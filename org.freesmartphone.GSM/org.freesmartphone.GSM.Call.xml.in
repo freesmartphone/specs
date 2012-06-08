@@ -73,7 +73,7 @@
     <arg type="i" name="id" direction="in" />
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
-</method>
+  </method>
 
   <method name="HoldActive">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
@@ -98,8 +98,26 @@
   <method name="Transfer">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Transfer an incoming or active call to another number.</doc:description>
-      <doc:inote>This maps to GSM 07.07 +CCFC=..., see 3GPP TS 07.07 Chapter 7.10.</doc:inote>
+      <doc:description>
+        Join the currently active and held calls together and disconnect both calls.
+      </doc:description>
+      <doc:inote>
+        This usually maps to the +CHLD AT command, see 3GPP TS 27.07 Chapter 7.13.
+      </doc:inote>
+    </doc:doc>
+    <fso:throws type="org.freesmartphone.GSM" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="Deflect">
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
+    <doc:doc>
+      <doc:description>
+        Deflect an incoming or active call to another number.
+      </doc:description>
+      <doc:inote>
+        This maps to GSM 07.07 +CTFR=..., see 3GPP TS 27.07 Chapter 7.14.
+      </doc:inote>
     </doc:doc>
     <arg type="s" name="number" direction="in">
       <doc:doc>
