@@ -8,11 +8,6 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
-    <signal name="CallStatus">
-      <arg type="i" name="id"/>
-      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.CallStatus"/>
-      <arg type="a{sv}" name="properties"/>
-    </signal>
     <method name="Activate">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="i" name="id" direction="in"/>
@@ -42,6 +37,11 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="Transfer">
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="Deflect">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="s" name="number" direction="in"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
@@ -78,6 +78,11 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
+    <signal name="CallStatus">
+      <arg type="i" name="id"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="status" fso:type="org.freesmartphone.GSM.CallStatus"/>
+      <arg type="a{sv}" name="properties"/>
+    </signal>
   </interface>
   <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.CallStatus">
     <fso:member name="incoming" value="INCOMING"/>
