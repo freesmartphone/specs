@@ -116,20 +116,53 @@
                 </doc:doc>
             </arg>
             <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
-            <arg name="status" type="(bsi)" fso:type="org.freesmartphone.GSM.CallForwardingStatus" direction="out">
+            <arg name="status" type="a{sv}" direction="out">
                 <doc:doc>
                     <doc:summary>
+                        Status of the call forwarding rule. See org.freesmartphone.GSM.CallForwarding.StatusChanged
+                        for a description of the format.
                     </doc:summary>
                 </doc:doc>
             </arg>
             <fso:throws type="org.freesmartphone.GSM" />
             <fso:throws type="org.freesmartphone" />
         </method>
-    </interface>
 
-    <fso:struct name="org.freesmartphone.GSM.CallForwardingStatus">
-        <fso:field name="active" type="b"/>
-        <fso:field name="number" type="s"/>
-        <fso:field name="timeout" type="i"/>
-    </fso:struct>
+        <signal name="StatusChanged">
+            <doc:doc>
+                <doc:description>
+                    Sent whenver a status of a call forwarding rule has changed.
+                </doc:description>
+            </doc:doc>
+            <arg type="s" name="rule">
+                <doc:doc>
+                    <doc:summary>
+                        Name of the call forwarding rule it's status has changed.
+                    </doc:summary>
+                </doc:doc>
+            </arg>
+            <arg type="a{sv}" name="status">
+                <doc:doc>
+                    <doc:summary>
+                        Changed status of the call forwarding rule. Expected values are:
+                        [ul]
+                            [li]"active": boolean: Wether the rule is active or not[/li]
+                            [li]
+                                "number": string: Number for the call forwarding rule; is empty
+                                if the rule is not active.
+                            [/li]
+                        [/ul]
+                        If the status of the rule "voice no reply has changed" there is an
+                        additional entry:
+                        [ul]
+                            [li]
+                                "timeout": uint16: Value of the voice "no reply" timeout in
+                                seconds. Should be in a range of [1:30].
+                            [/li]
+                        [/ul]
+                    </doc:summary>
+                </doc:doc>
+            </arg>
+        </signal>
+    </interface>
 </node>
