@@ -66,11 +66,7 @@
     <fso:member name="UNKNOWN" value="unknown"/>
     <fso:member name="CLOSED" value="closed"/>
     <fso:member name="INITIALIZING" value="initializing"/>
-    <fso:member name="ALIVE_NO_SIM" value="alive-no-sim"/>
-    <fso:member name="ALIVE_SIM_LOCKED" value="alive-sim-locked"/>
-    <fso:member name="ALIVE_SIM_UNLOCKED" value="alive-sim-unlocked"/>
-    <fso:member name="ALIVE_SIM_READY" value="alive-sim-ready"/>
-    <fso:member name="ALIVE_REGISTERED" value="alive-registered"/>
+    <fso:member name="ALIVE" value="alive"/>
     <fso:member name="SUSPENDING" value="suspending"/>
     <fso:member name="SUSPENDED" value="suspended"/>
     <fso:member name="RESUMING" value="resuming"/>

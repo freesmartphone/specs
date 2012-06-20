@@ -132,11 +132,7 @@
             [li]"unknown" = Device status could not be found,[/li]
             [li]"closed" = Device is present, but not opened,[/li]
             [li]"initializing" = Device is being opened,[/li]
-            [li]"alive-no-sim" = Device is operating without a SIM card,[/li]
-            [li]"alive-sim-locked" = Device is operating, SIM card is locked,[/li]
-            [li]"alive-sim-unlocked" = Device is operating, SIM card unlocked,[/li]
-            [li]"alive-sim-ready" = Device is operating, SIM card is ready for access,[/li]
-            [li]"alive-registered" = Device is operating and camped to the network,[/li]
+            [li]"alive" = Device is successfully initialized and ready,[/li]
             [li]"suspending" = Device is suspending,[/li]
             [li]"suspended" = Device is suspended,[/li]
             [li]"resuming" = Device is resuming,[/li]
@@ -265,11 +261,7 @@
   <fso:member name="UNKNOWN"                value="unknown" />
   <fso:member name="CLOSED"                 value="closed" />
   <fso:member name="INITIALIZING"           value="initializing" />
-  <fso:member name="ALIVE_NO_SIM"           value="alive-no-sim" />
-  <fso:member name="ALIVE_SIM_LOCKED"       value="alive-sim-locked" />
-  <fso:member name="ALIVE_SIM_UNLOCKED"     value="alive-sim-unlocked" />
-  <fso:member name="ALIVE_SIM_READY"        value="alive-sim-ready" />
-  <fso:member name="ALIVE_REGISTERED"       value="alive-registered" />
+  <fso:member name="ALIVE"           value="alive" />
   <fso:member name="SUSPENDING"             value="suspending" />
   <fso:member name="SUSPENDED"              value="suspended" />
   <fso:member name="RESUMING"               value="resuming" />
