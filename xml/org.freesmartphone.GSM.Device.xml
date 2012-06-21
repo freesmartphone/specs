@@ -4,17 +4,13 @@
   <interface name="org.freesmartphone.GSM.Device">
     <method name="GetFunctionality">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="level" direction="out"/>
-      <arg type="b" name="autoregister" direction="out"/>
-      <arg type="s" name="pin" direction="out"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="level" direction="out" fso:type="org.freesmartphone.GSM.Functionality"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="SetFunctionality">
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
-      <arg type="s" name="level" direction="in"/>
-      <arg type="b" name="autoregister" direction="in"/>
-      <arg type="s" name="pin" direction="in"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="level" direction="in" fso:type="org.freesmartphone.GSM.Functionality"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.GSM"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
@@ -71,5 +67,10 @@
     <fso:member name="SUSPENDED" value="suspended"/>
     <fso:member name="RESUMING" value="resuming"/>
     <fso:member name="CLOSING" value="closing"/>
+  </fso:enumeration>
+  <fso:enumeration xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="org.freesmartphone.GSM.Functionality">
+    <fso:member name="MINIMAL" value="minimal"/>
+    <fso:member name="AIRPLANE" value="airplane"/>
+    <fso:member name="FULL" value="full"/>
   </fso:enumeration>
 </node>
