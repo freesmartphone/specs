@@ -36,22 +36,6 @@
       </doc:summary>
       </doc:doc>
     </arg>
-    <arg type="b" name="autoregister" direction="out">
-      <doc:doc>
-      <doc:summary>
-        Whether the device tries to maintain registration with a provider.
-        This parameter is only valid, if level = "full".
-      </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="pin" direction="out">
-      <doc:doc>
-      <doc:summary>
-        The SIM PIN being used to authenticate if necessary, or an empty string.
-        This parameter is only valid, if level = "full" or "airplane".
-      </doc:summary>
-      </doc:doc>
-    </arg>
     <fso:throws type="org.freesmartphone.GSM" />
     <fso:throws type="org.freesmartphone" />
   </method>
@@ -66,22 +50,6 @@
     <arg type="s" name="level" direction="in">
       <doc:doc>
         <doc:summary>See org.freesmartphone.GSM.Device.GetFunctionality.</doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="b" name="autoregister" direction="in">
-      <doc:doc>
-      <doc:summary>
-        Whether the device should try to maintain registration with a provider.
-        This parameter is only valid, if level = "full".
-      </doc:summary>
-      </doc:doc>
-    </arg>
-    <arg type="s" name="pin" direction="in">
-      <doc:doc>
-      <doc:summary>
-        The SIM PIN being used to authenticate if necessary, or an empty string.
-        This parameter is only valid, if level = "full" or "airplane".
-      </doc:summary>
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.GSM" />
