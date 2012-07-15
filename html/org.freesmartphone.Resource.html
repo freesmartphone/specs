@@ -19,6 +19,7 @@
 <li><a href="#Suspend">Suspend</a></li>
 <li><a href="#Resume">Resume</a></li>
 <li><a href="#GetDependencies">GetDependencies</a></li>
+<li><a href="#GetDefaultPolicy">GetDefaultPolicy</a></li>
 </ul>
 <h2>Signals</h2><i>None</i>
 <h2>Properties</h2><i>None</i>
@@ -31,7 +32,9 @@
 <h3><a name="Suspend">Suspend</a> ( )</h3><p><i>Description:</i> Suspend the resource. </p>
 <h3><a name="Resume">Resume</a> ( )</h3><p><i>Description:</i> Resume the resource. </p>
 <h3><a name="GetDependencies">GetDependencies</a> ( ) &rarr; a{sv}</h3>
-<p><i>Description:</i> Resume the resource. </p><h4>Returns</h4><i>a{sv}: dependencies</i><p>Dependencies required for resource operation. Expected values are:  <ul>  <li>"services": A comma-separated string of service names</li>  <li>"processes": A comma-separated string of process names</li>  </ul>  Dependencies are being activated / deactivated as defined by the resource lifecycle. </p>
+<p><i>Description:</i> The resource is able to lists its dependencies.   For example a resource can depend on another resource. If this resource  is enabled the dependency resource will be enabled first. </p><h4>Returns</h4><i>a{sv}: dependencies</i><p>Dependencies required for resource operation. Expected values are:  <ul>  <li>"services": A comma-separated string of service names</li>  <li>"processes": A comma-separated string of process names</li>  </ul>  Dependencies are being activated / deactivated as defined by the resource lifecycle. </p>
+<h3><a name="GetDefaultPolicy">GetDefaultPolicy</a> ( ) &rarr; s</h3>
+<p><i>Description:</i> The resource is able to provide the default policy to use. </p><h4>Returns</h4><i>s: policy</i><p>The default policy to use for this resource. See  <a href="http://docs.freesmartphone.org/org.freesmartphone.Usage.html#GetResourcePolicy">GetResourcePolicy</a> for a list of possible values. </p>
 <h1>Errors</h1><h3><a name="NotEnabled">NotEnabled</a></h3><p><i>Description:</i> Raised, if the resource is not enabled. </p>
 <h3><a name="UnableToEnable">UnableToEnable</a></h3><p><i>Description:</i> Raised, if the resource can not be enabled. </p>
 

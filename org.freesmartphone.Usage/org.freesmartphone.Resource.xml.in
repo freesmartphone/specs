@@ -54,7 +54,12 @@
   <method name="GetDependencies">
     <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
-      <doc:description>Resume the resource.</doc:description>
+      <doc:description>
+        The resource is able to lists its dependencies.
+
+        For example a resource can depend on another resource. If this resource
+        is enabled the dependency resource will be enabled first.
+      </doc:description>
     </doc:doc>
     <arg type="a{sv}" name="dependencies" direction="out">
       <doc:doc>
@@ -69,6 +74,26 @@
       </doc:doc>
     </arg>
     <fso:throws type="org.freesmartphone.Resource" />
+    <fso:throws type="org.freesmartphone" />
+  </method>
+
+  <method name="GetDefaultPolicy">
+    <annotation name="org.freesmartphone.DBus.GLib.Async" value="true"/>
+    <doc:doc>
+        <doc:description>
+            The resource is able to provide the default policy to use.
+        </doc:description>
+    </doc:doc>
+    <arg type="s" name="policy" direction="out" fso:type="org.freesmartphone.Usage.ResourcePolicy">
+        <doc:doc>
+            <doc:summary>
+                The default policy to use for this resource. See
+                org.freesmartphone.Usage.GetResourcePolicy for a list of possible values.
+            </doc:summary>
+        </doc:doc>
+    </arg>
+    <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone" />
   </method>
 
 </interface>

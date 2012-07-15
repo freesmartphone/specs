@@ -22,6 +22,13 @@
       <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg type="a{sv}" name="dependencies" direction="out"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Resource"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
+    </method>
+    <method name="GetDefaultPolicy">
+      <annotation name="org.freesmartphone.DBus.GLib.Async" value="true"/>
+      <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="policy" direction="out" fso:type="org.freesmartphone.Usage.ResourcePolicy"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
+      <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
   </interface>
   <fso:errordomain xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" name="org.freesmartphone.Resource" fso:no-container="true">
