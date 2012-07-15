@@ -25,7 +25,7 @@
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>
     </method>
     <method name="GetDefaultPolicy">
-      <annotation name="org.freesmartphone.DBus.GLib.Async" value="true"/>
+      <annotation name="org.freedesktop.DBus.GLib.Async" value="true"/>
       <arg xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="s" name="policy" direction="out" fso:type="org.freesmartphone.Usage.ResourcePolicy"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone.Usage"/>
       <fso:throws xmlns:fso="http://www.freesmartphone.org/schemas/DBusSpecExtension" type="org.freesmartphone"/>

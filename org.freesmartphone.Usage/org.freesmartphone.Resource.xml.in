@@ -78,7 +78,7 @@
   </method>
 
   <method name="GetDefaultPolicy">
-    <annotation name="org.freesmartphone.DBus.GLib.Async" value="true"/>
+    <annotation name="org.freedesktop.DBus.GLib.Async" value="true" />
     <doc:doc>
         <doc:description>
             The resource is able to provide the default policy to use.
