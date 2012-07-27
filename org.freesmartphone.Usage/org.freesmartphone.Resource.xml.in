@@ -92,7 +92,7 @@
             </doc:summary>
         </doc:doc>
     </arg>
-    <fso:throws type="org.freesmartphone.Usage" />
+    <fso:throws type="org.freesmartphone.Resource" />
     <fso:throws type="org.freesmartphone" />
   </method>
 
