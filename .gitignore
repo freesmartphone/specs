@@ -1,6 +1,7 @@
 *docbook*
 *~
 
+html/index.html
 fso-specs.pc
 configure
 config.status

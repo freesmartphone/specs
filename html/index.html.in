@@ -57,6 +57,7 @@
               <li><a href="org.freesmartphone.GSM.CB.html">org.freesmartphone.GSM.CB</a> &#8212; Cell Broadcast Service</li>
               <li><a href="org.freesmartphone.GSM.Monitor.html">org.freesmartphone.GSM.Monitor</a> &#8212; GSM Network Monitoring</li>
               <li><a href="org.freesmartphone.GSM.HZ.html">org.freesmartphone.GSM.HZ</a> &#8212; O2/Genion HomeZone Service</li>
+              <li><a href="org.freesmartphone.GSM.VoiceMail.html">org.freesmartphone.GSM.VoiceMail</a> &#8212; VoiceMail Service</li>
         </ul>
         <h1>4. Usage API <small><tt>org.freesmartphone.Usage</tt></small></h1>
             <p>
