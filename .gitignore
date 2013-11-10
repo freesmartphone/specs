@@ -1,6 +1,7 @@
 *docbook*
 *~
 
+html/org.freesmartphone.*.html
 html/index.html
 fso-specs.pc
 configure
