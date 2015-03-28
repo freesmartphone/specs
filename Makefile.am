@@ -23,6 +23,8 @@ install-data-local:
 	$(MAKE)
 	$(INSTALL) -d $(DESTDIR)/$(datadir)/freesmartphone/xml
 	for i in xml/*.xml; do $(INSTALL) -m 0644 $$i $(DESTDIR)/$(datadir)/freesmartphone/$$i; done
+	find . -name "org*" -type d -exec $(INSTALL) -d $(DESTDIR)/$(datadir)/freesmartphone/doc/{} \;
+	for i in */*.xml.in; do $(INSTALL) -m 0644 $$i $(DESTDIR)/$(datadir)/freesmartphone/doc/$$i; done
 
 MAINTAINERCLEANFILES = \
   aclocal.m4 compile config.guess config.sub \
