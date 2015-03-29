@@ -5,17 +5,10 @@ XSLT_FLAGS = -o $@ ../tools/spec-strip-docs.xsl $<
 XSLT = xsltproc $(XSLT_FLAGS)
 
 docbook_xml_files = $(addprefix docbook-, $(files))
-pydoc_html_files = $(files:.xml=.html)
 
-all: pydocs xml
+all: xml
 
 xml: $(files)
-
-pydocs: $(pydoc_html_files)
-
-$(pydoc_html_files): %.html: %.xml.in
-	@echo calling pydoc on $@
-	../tools/makedoc.py $< >/dev/null
 
 $(files): %.xml: %.xml.in
 	@echo calling xsltproc spec-strip-docs on $@ ...

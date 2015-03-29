@@ -1,0 +1,6 @@
+# 2015.3.29
+
+Removed the documentation generation aspect (apart from the actual docs embedded in the specs)
+from this repository in order to get a better separation of concerns. The documentation is created
+by makedoc.py in the [freesmartphone.github.io](https://github.com/freesmartphone/freesmartphone.github.io)
+repository.

@@ -1,6 +1,6 @@
 ##############################################################################
 # init
-AC_INIT([fso-specs], [2012.07.27.3], [fso@openphoenux.org], [fso-specs])
+AC_INIT([fso-specs], [2012.07.27.4], [fso@openphoenux.org], [fso-specs])
 AC_CONFIG_SRCDIR([tools/rules.mk])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign no-dist-gzip dist-xz])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
@@ -14,18 +14,9 @@ if test $XSLTPROC = "no"; then
 fi
 
 ##############################################################################
-# python is mandatory for docs generation
-AC_PATH_PROG(PYTHON, python, no)
-AC_SUBST(PYTHON)
-if test $PYTHON = "no"; then
-    AC_MSG_ERROR([python is mandatory for this package])
-fi
-
-##############################################################################
 # output
 AC_CONFIG_FILES([
         Makefile
-        html/index.html
         fso-specs.pc
 ])
 AC_OUTPUT

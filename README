@@ -1,4 +1,4 @@
-freesmartphone.org DBus XML specification & documentation
+freesmartphone.org DBus XML specification
 =========================================================
 
 Process these with a dbus binding generator to create stubs
